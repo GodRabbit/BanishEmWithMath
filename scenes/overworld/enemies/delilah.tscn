@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=1]
+[ext_resource path="res://images/enemies/delilah.png" type="Texture" id=2]
+
+[node name="delilah" type="Area2D"]
+script = ExtResource( 1 )
+enemy_id = "delilah"
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0, -104, 24, -104, 40, -40, 24, 8, 24, 96, -24, 24, -40, -40, -56, -72 )

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://images/gui/heart_empty.png" type="Texture" id=1]
+[ext_resource path="res://scripts/gui/heart_single.gd" type="Script" id=2]
+
+[node name="heart_single" type="TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

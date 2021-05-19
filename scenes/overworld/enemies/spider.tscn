@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=1]
+[ext_resource path="res://images/enemies/spider.png" type="Texture" id=2]
+
+[node name="spider" type="Area2D"]
+script = ExtResource( 1 )
+enemy_id = "spider"
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0, -80, -48, -56, -64, -8, -40, 32, -8, 56, 40, 40, 64, 8, 56, -56 )

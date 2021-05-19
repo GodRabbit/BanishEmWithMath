@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/impactMetal_heavy_002.ogg-107709afdc36eefe257ded9b37610dbf.oggstr"
+
+[deps]
+
+source_file="res://audio/ui/kenny/impactMetal_heavy_002.ogg"
+dest_files=[ "res://.import/impactMetal_heavy_002.ogg-107709afdc36eefe257ded9b37610dbf.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

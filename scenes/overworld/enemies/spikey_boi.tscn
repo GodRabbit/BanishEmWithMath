@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=1]
+[ext_resource path="res://images/enemies/spikey_boi.png" type="Texture" id=2]
+
+[node name="spikey_boi" type="Area2D"]
+script = ExtResource( 1 )
+enemy_id = "spikey_boi"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -24, -48, -48, -16, -32, 40, 0, 56, 48, 32, 56, 0, 48, -32, 24, -48 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )

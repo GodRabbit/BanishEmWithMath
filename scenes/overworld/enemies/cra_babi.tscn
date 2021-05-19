@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=1]
+[ext_resource path="res://images/enemies/cra_babi.png" type="Texture" id=2]
+
+[node name="cra_babi" type="Area2D"]
+script = ExtResource( 1 )
+enemy_id = "cra_babi"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -8, -16, -128, -64, -112, 104, 88, 104, 104, -80 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )

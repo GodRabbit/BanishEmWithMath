@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/overworld/enemies/angry_apple.gd" type="Script" id=1]
+[ext_resource path="res://images/enemies/angry_apple.png" type="Texture" id=2]
+
+[node name="angry_apple" type="Area2D"]
+script = ExtResource( 1 )
+enemy_id = "angry_apple"
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -48, -56, 48, -56, 24, 56, -24, 56 )
