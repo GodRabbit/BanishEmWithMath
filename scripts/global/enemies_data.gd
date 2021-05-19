@@ -9,7 +9,8 @@ var enemies_collection = []
 var sites = {"farm":["angry_pear", "angry_apple", "wheaty", "sad_eggy"],
 "jungle":["spikey_boi", "boo_da_rang", "grape_moment", "spider"],
 "ocean":["cra_babi", "grape_moment", "boo_da_rang"],
-"cemetery":["spider", "delilah", "jacko"]}
+"cemetery":["spider", "delilah", "jacko"],
+"the_white_board":["plusumad", "demultiply", "diversary"]}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -103,12 +104,28 @@ func _ready():
 	{"ghost_hair":2}))
 	
 	_add_enemy(enemy_abstract.new("plusumad",
-	"plusumad",
+	"Plusumad",
 	puzzle_addition_negatives.new(100),
 	10,
 	10,
 	2,
-	{"ghost_hair":2}))
+	{"math_soul":1}))
+	
+	_add_enemy(enemy_abstract.new("demultiply",
+	"Demultiply",
+	puzzle_multi_negatives.new(),
+	10,
+	10,
+	2,
+	{"math_soul":2}))
+	
+	_add_enemy(enemy_abstract.new("diversary",
+	"Diversary",
+	puzzle_division.new(),
+	10,
+	10,
+	2,
+	{"math_soul":2}))
 
 
 

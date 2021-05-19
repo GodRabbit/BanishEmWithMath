@@ -106,5 +106,11 @@
         "name":"Pumpkin",
         "price":7,
         "hp":3
+    },
+    "math_soul":{
+        "id":"math_soul",
+        "name":"Soul O Math",
+        "price":20,
+        "hp":5
     }
 }

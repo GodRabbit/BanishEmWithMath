@@ -102,6 +102,9 @@ func setup_enemy():
 #		results_list.remove_child(c)
 #		c.queue_free()
 
+func get_problem():
+	return get_enemy().get_puzzle()
+
 func update_timer():
 	current_time = current_time - 1
 	if current_time <= 0:

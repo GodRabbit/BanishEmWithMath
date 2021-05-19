@@ -30,32 +30,39 @@ __meta__ = {
 }
 
 [node name="farm_button" type="Button" parent="site_container"]
-margin_right = 180.0
+margin_right = 435.0
 margin_bottom = 54.0
 custom_fonts/font = SubResource( 1 )
 text = "Farm"
 
 [node name="ocean_button" type="Button" parent="site_container"]
-margin_left = 193.0
-margin_right = 454.0
+margin_left = 448.0
+margin_right = 709.0
 margin_bottom = 54.0
 custom_fonts/font = SubResource( 1 )
 text = "Ocean"
 
 [node name="jungle_button" type="Button" parent="site_container"]
 margin_top = 67.0
-margin_right = 180.0
+margin_right = 435.0
 margin_bottom = 121.0
 custom_fonts/font = SubResource( 1 )
 text = "Jungle"
 
 [node name="cemetery_button" type="Button" parent="site_container"]
-margin_left = 193.0
+margin_left = 448.0
 margin_top = 67.0
-margin_right = 454.0
+margin_right = 709.0
 margin_bottom = 121.0
 custom_fonts/font = SubResource( 1 )
 text = "Cemetery"
+
+[node name="white_board_button" type="Button" parent="site_container"]
+margin_top = 134.0
+margin_right = 435.0
+margin_bottom = 188.0
+custom_fonts/font = SubResource( 1 )
+text = "The White Board"
 
 [node name="give_up_button" type="Button" parent="."]
 margin_left = 704.0

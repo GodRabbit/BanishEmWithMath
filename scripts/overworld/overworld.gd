@@ -7,7 +7,8 @@ extends Node2D
 onready var farm_button = $site_container/farm_button
 onready var ocean_button = $site_container/ocean_button
 onready var jungle_button = $site_container/jungle_button
-onready var cemetery_button = $site_container/cemetery_button 
+onready var cemetery_button = $site_container/cemetery_button
+onready var white_board_button = $site_container/white_board_button
 
 onready var give_up_button = $give_up_button
 
@@ -17,6 +18,7 @@ func _ready():
 	ocean_button.connect("pressed", self, "on_ocean_button_pressed")
 	jungle_button.connect("pressed", self, "on_jungle_button_pressed")
 	cemetery_button.connect("pressed", self, "on_cemetery_button_pressed")
+	white_board_button.connect("pressed", self, "on_white_board_button_pressed")
 	
 	give_up_button.connect("pressed", self, "on_give_up_button_pressed")
 
@@ -36,6 +38,9 @@ func on_jungle_button_pressed():
 
 func on_cemetery_button_pressed():
 	transition.fade_to_combat("cemetery")
+
+func on_white_board_button_pressed():
+	transition.fade_to_combat("the_white_board")
 
 func on_give_up_button_pressed():
 	transition.fade_to_main_menu()

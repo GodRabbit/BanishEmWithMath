@@ -143,6 +143,8 @@ func on_answer_entered(c, t):
 	close_exclusive_window()
 	
 	print("Answer is " + str(c))
+	if !c:
+		battle_window.get_problem()._print_puzzle()
 	
 	# process battle result:
 	if c: # the player won:
