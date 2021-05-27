@@ -6,11 +6,23 @@ extends Node
 
 var enemies_collection = []
 
-var sites = {"farm":["angry_pear", "angry_apple", "wheaty", "sad_eggy"],
-"jungle":["spikey_boi", "boo_da_rang", "grape_moment", "spider"],
-"ocean":["cra_babi", "grape_moment", "boo_da_rang"],
-"cemetery":["spider", "delilah", "jacko"],
-"the_white_board":["plusumad", "demultiply", "diversary"]}
+var sites = {
+"farm":
+	{"enemies":["angry_pear", "angry_apple", "wheaty", "sad_eggy"],
+	"backgrounds":["farm1"]},
+"jungle":
+	{"enemies":["spikey_boi", "boo_da_rang", "grape_moment", "spider"],
+	"backgrounds":[]},
+"ocean":
+	{"enemies":["cra_babi", "grape_moment", "boo_da_rang"],
+	"backgrounds":[]},
+"cemetery":
+	{"enemies":["spider", "delilah", "jacko"],
+	"backgrounds":[]},
+"the_white_board":
+	{"enemies":["plusumad", "demultiply", "diversary"],
+	"backgrounds":["white_board"]}}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -176,6 +188,6 @@ func get_random_site(amount = 1, blacklist = []) -> Array:
 # returns the array of enemies of this site_id
 func get_enemies_by_site(site_id) -> Array:
 	if sites.has(site_id):
-		return sites[site_id]
+		return sites[site_id]["enemies"]
 	else:
 		return []

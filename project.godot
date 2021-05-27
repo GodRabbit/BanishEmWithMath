@@ -75,6 +75,11 @@ _global_script_classes=[ {
 "path": "res://scripts/utility/puzzles/puzzle_addition_negatives.gd"
 }, {
 "base": "puzzle_abstract",
+"class": "puzzle_arithmetic_ultimate",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/puzzle_arithmetic_ultimate.gd"
+}, {
+"base": "puzzle_abstract",
 "class": "puzzle_division",
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_division.gd"
@@ -128,6 +133,7 @@ _global_script_class_icons={
 "puzzle_addition_compound": "",
 "puzzle_addition_hard": "",
 "puzzle_addition_negatives": "",
+"puzzle_arithmetic_ultimate": "",
 "puzzle_division": "",
 "puzzle_division_simple": "",
 "puzzle_multi_compound": "",

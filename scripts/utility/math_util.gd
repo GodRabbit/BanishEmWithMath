@@ -59,3 +59,18 @@ static func display_number(num):
 		return "(%d)" % num
 	else:
 		return str(num)
+
+static func calculate(operation, num1, num2):
+	match operation:
+		"+":
+			return num1+num2
+		"-":
+			return num1-num2
+		"*":
+			return num1*num2
+		":":
+			return num1/num2
+		"%":
+			return num1%num2
+		_:
+			return null
