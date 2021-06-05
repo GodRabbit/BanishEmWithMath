@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/gui/hud.tscn" type="PackedScene" id=1]
 [ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/overworld/overworld.gd" type="Script" id=3]
 [ext_resource path="res://images/backgrounds/overworld.png" type="Texture" id=4]
+[ext_resource path="res://scenes/gui/site_button.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -28,20 +29,22 @@ margin_left = 64.0
 margin_top = 128.0
 margin_right = 208.0
 margin_bottom = 182.0
-custom_constants/vseparation = 13
-custom_constants/hseparation = 13
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="farm_button" type="Button" parent="site_container"]
+visible = false
 margin_right = 435.0
 margin_bottom = 54.0
 custom_fonts/font = SubResource( 1 )
 text = "Farm"
 
 [node name="ocean_button" type="Button" parent="site_container"]
+visible = false
 margin_left = 448.0
 margin_right = 709.0
 margin_bottom = 54.0
@@ -49,6 +52,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Ocean"
 
 [node name="jungle_button" type="Button" parent="site_container"]
+visible = false
 margin_top = 67.0
 margin_right = 435.0
 margin_bottom = 121.0
@@ -56,6 +60,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Jungle"
 
 [node name="cemetery_button" type="Button" parent="site_container"]
+visible = false
 margin_left = 448.0
 margin_top = 67.0
 margin_right = 709.0
@@ -64,11 +69,41 @@ custom_fonts/font = SubResource( 1 )
 text = "Cemetery"
 
 [node name="white_board_button" type="Button" parent="site_container"]
+visible = false
 margin_top = 134.0
 margin_right = 435.0
-margin_bottom = 188.0
+margin_bottom = 258.0
 custom_fonts/font = SubResource( 1 )
 text = "The White Board"
+
+[node name="farm_button2" parent="site_container" instance=ExtResource( 5 )]
+margin_right = 211.0
+margin_bottom = 122.0
+
+[node name="ocean_button2" parent="site_container" instance=ExtResource( 5 )]
+margin_left = 231.0
+margin_right = 442.0
+margin_bottom = 122.0
+site_id = "ocean"
+
+[node name="jungle_button3" parent="site_container" instance=ExtResource( 5 )]
+margin_top = 142.0
+margin_right = 211.0
+margin_bottom = 264.0
+site_id = "jungle"
+
+[node name="cemetery_button4" parent="site_container" instance=ExtResource( 5 )]
+margin_left = 231.0
+margin_top = 142.0
+margin_right = 442.0
+margin_bottom = 264.0
+site_id = "cemetery"
+
+[node name="white_board_button5" parent="site_container" instance=ExtResource( 5 )]
+margin_top = 284.0
+margin_right = 211.0
+margin_bottom = 406.0
+site_id = "the_white_board"
 
 [node name="give_up_button" type="Button" parent="."]
 margin_left = 704.0

@@ -17,6 +17,9 @@ signal object_pressed(r)
 # player pressed on them and are waiting deletion
 var fired = false
 
+# whether the enemy is paused
+var paused = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("object_areas")
@@ -28,7 +31,7 @@ func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton && event.is_pressed():
 		# check if the player can intercat with enemies or on cooldown:
 		# this mechanic is to prevent 2 enemies be pressed at the same time
-		if player_data.can_interact_with_enemies():
+		if player_data.can_interact_with_enemies() and !paused:
 			# the player is now on cooldown:
 			player_data.start_pressing_cooldown()
 			
@@ -40,3 +43,6 @@ func _input_event(viewport, event, shape_idx):
 
 func is_fired():
 	return fired
+
+func set_pause(val):
+	paused = val

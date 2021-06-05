@@ -9,19 +9,29 @@ var enemies_collection = []
 var sites = {
 "farm":
 	{"enemies":["angry_pear", "angry_apple", "wheaty", "sad_eggy"],
-	"backgrounds":["farm1"]},
+	"backgrounds":["farm1"],
+	"price":0,
+	"name":"Farm"},
 "jungle":
 	{"enemies":["spikey_boi", "boo_da_rang", "grape_moment", "spider"],
-	"backgrounds":[]},
+	"backgrounds":["jungle1"],
+	"price":30,
+	"name":"Jungle"},
 "ocean":
 	{"enemies":["cra_babi", "grape_moment", "boo_da_rang"],
-	"backgrounds":[]},
+	"backgrounds":["ocean1", "ocean2"],
+	"price":25,
+	"name":"Ocean"},
 "cemetery":
 	{"enemies":["spider", "delilah", "jacko"],
-	"backgrounds":[]},
+	"backgrounds":["cemetery1"],
+	"price":50,
+	"name":"Cemetery"},
 "the_white_board":
 	{"enemies":["plusumad", "demultiply", "diversary"],
-	"backgrounds":["white_board"]}}
+	"backgrounds":["white_board"],
+	"price":75,
+	"name":"The White Board"}}
 
 
 # Called when the node enters the scene tree for the first time.
@@ -191,3 +201,21 @@ func get_enemies_by_site(site_id) -> Array:
 		return sites[site_id]["enemies"]
 	else:
 		return []
+
+# return a random background id from the <site_id> given
+func get_background_id_by_site(site_id):
+	var a = sites[site_id]["backgrounds"]
+	if a.size() <= 0:
+		return "overworld" # default background
+	elif a.size() == 1:
+		return a[0]
+	else:
+		randomize()
+		var index = randi() % a.size()
+		return a[index]
+
+func get_site_name(site_id):
+	return sites[site_id]["name"]
+
+func get_site_price(site_id):
+	return sites[site_id]["price"]

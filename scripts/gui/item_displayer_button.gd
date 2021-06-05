@@ -23,12 +23,19 @@ func update_gui():
 		
 		# check item texture exists.
 		var path = FILE_PATH % item["id"]
-		var file2Check = File.new()
-		var doFileExists = file2Check.file_exists(path)
-		if doFileExists:
-			icon = load(path)
-		else:
-			icon = load(FILE_PATH % "none")
+		
+		# load image without checking
+		icon = load(path)
+		
+		# check before loading:
+		# causes problems on export; can't seem to fix this...
+#		var file2Check = File.new()
+#		var doFileExists = file2Check.file_exists(path)
+#		if doFileExists:
+#			icon = load(path)
+#		else:
+#			icon = load(FILE_PATH % "none")
+		
 		disabled = false
 	else:
 		# empty stack is just empty...

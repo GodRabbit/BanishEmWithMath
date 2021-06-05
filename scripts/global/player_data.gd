@@ -13,6 +13,8 @@ const DIFFICULTIES = {
 	"HARDCORE":{"max_hp":1, "exit_penalty":20}
 }
 
+var unlocked_sites = ["farm"]
+
 # stats:
 # energy deprecated
 var max_energy = 50
@@ -129,6 +131,22 @@ func eat_item_at(index):
 	else:
 		return
 
+func sell_item_at(index):
+	var s = player_inventory.get_stack_at(index)
+	if !s.is_empty():
+		# get item's data:
+		var item_id = s.get_item_id()
+		var item = items_data.get_item_by_id(item_id)
+		var sell_price = item["price"]
+		
+		# remove 1 of items at the stack
+		player_inventory.remove_item_at(index, 1)
+		
+		# add the money:
+		add_money(sell_price)
+	else:
+		return
+
 func is_dead():
 	return get_current_hp() <= 0
 
@@ -149,6 +167,21 @@ func add_stars(v):
 
 func apply_exit_penalty():
 	add_stars(-exit_penalty)
+
+func get_money():
+	return money
+
+func set_money(v):
+	if v >= MAX_MONEY:
+		money = MAX_MONEY
+	elif v <= 0:
+		money = 0
+	else:
+		money = v
+	emit_signal("money_changed")
+
+func add_money(v):
+	set_money(get_money() + v)
 
 # checks if the recipe can crafted by the player
 # i.e if the player has the ingrediendts
@@ -257,3 +290,23 @@ func set_current_site(s):
 
 func get_current_site():
 	return current_site
+
+# unlocks the site. doesn't include the price and reduction of money
+# check "purchase_site"
+func unlock_site(site_id):
+	unlocked_sites.append(site_id)
+
+# attempt to purchase a site as long as the player has enough money
+# otherwise do noting!
+func purchase_site(site_id):
+	var price = enemies_data.get_site_price(site_id)
+	if price <= money:
+		add_money(-price)
+		unlock_site(site_id)
+	
+
+func check_site(site_id):
+	if unlocked_sites.has(site_id):
+		return true
+	else:
+		return false

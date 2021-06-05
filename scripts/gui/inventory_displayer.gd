@@ -8,6 +8,7 @@ onready var item_info_displayer = $main_container/button_container/item_info_dis
 onready var delete_button = $main_container/button_container/delete_button
 onready var eat_button = $main_container/button_container/eat_button
 onready var exit_button = $main_container/button_container/exit_button
+onready var sell_button = $main_container/button_container/sell_button
 
 # the control wants to exit.
 signal request_exit
@@ -20,6 +21,7 @@ func _ready():
 	# signals:
 	eat_button.connect("pressed", self, "on_eat_button_pressed")
 	exit_button.connect("pressed", self, "on_exit_button_pressed")
+	sell_button.connect("pressed", self, "on_sell_button_pressed")
 
 # setup the corerct amount of buttons in the item_container
 # check first if even necessary.
@@ -71,3 +73,10 @@ func on_eat_button_pressed():
 
 func on_exit_button_pressed():
 	emit_signal("request_exit")
+
+func on_sell_button_pressed():
+	var index = find_pressed_item()
+	
+	if index != -1:
+		player_data.sell_item_at(index)
+	update_gui()

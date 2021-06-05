@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://images/gui/moneyz.png" type="Texture" id=2]
 [ext_resource path="res://images/gui/label_HP_bg.png" type="Texture" id=3]
+[ext_resource path="res://scripts/gui/money_counter.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 26
@@ -20,6 +21,7 @@ margin_right = -1266.0
 margin_bottom = -304.0
 rect_min_size = Vector2( 100, 80 )
 custom_constants/margin_left = 0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
