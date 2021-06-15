@@ -3,6 +3,9 @@ extends TextureRect
 
 # a scene for a single hp heart
 
+# nodes:
+onready var heart_particles = $heart_particles
+
 const TEXTURE_FULL = preload("res://images/gui/heart_full.png")
 const TEXTURE_EMPTY = preload("res://images/gui/heart_empty.png")
 
@@ -26,5 +29,7 @@ func is_filled():
 func update_gui():
 	if filled:
 		texture = TEXTURE_FULL
+		heart_particles.emitting = true
 	else:
+		heart_particles.emitting = false
 		texture = TEXTURE_EMPTY

@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/overworld/combat_test.gd" type="Script" id=1]
+[ext_resource path="res://scenes/gui/hud.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://images/gui/star_yellow.png" type="Texture" id=9]
+[ext_resource path="res://images/backgrounds/farm1.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 54
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 54
+font_data = ExtResource( 8 )
+
+[node name="combat_test" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 536, 283.5 )
+texture = ExtResource( 10 )
+
+[node name="objects" type="YSort" parent="."]
+
+[node name="hud" parent="." instance=ExtResource( 2 )]
+
+[node name="exit_container" type="HBoxContainer" parent="."]
+margin_left = 432.0
+margin_top = 537.6
+margin_right = 694.0
+margin_bottom = 598.6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit_button" type="Button" parent="exit_container"]
+margin_right = 133.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 1 )
+text = "EXIT"
+
+[node name="number_label" type="Label" parent="exit_container"]
+margin_left = 137.0
+margin_top = 5.0
+margin_right = 216.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 2 )
+text = "-10"
+
+[node name="icon" type="TextureRect" parent="exit_container"]
+margin_left = 220.0
+margin_right = 284.0
+margin_bottom = 61.0
+texture = ExtResource( 9 )

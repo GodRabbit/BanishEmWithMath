@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://images/gui/heart_empty.png" type="Texture" id=1]
 [ext_resource path="res://scripts/gui/heart_single.gd" type="Script" id=2]
+[ext_resource path="res://images/particles/heart1.png" type="Texture" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.483984 ), 0.0, 0.0, 0, 0, Vector2( 0.569767, 0.702166 ), 0.0, 0.0, 0, 0, Vector2( 0.988372, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.308725, 0.751678, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [node name="heart_single" type="TextureRect"]
 margin_right = 40.0
@@ -11,3 +22,15 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="heart_particles" type="CPUParticles2D" parent="."]
+modulate = Color( 0.788235, 0.192157, 0.192157, 0.34902 )
+material = SubResource( 1 )
+position = Vector2( 27, 28 )
+amount = 2
+lifetime = 3.0
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+scale_amount = 1.9
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
