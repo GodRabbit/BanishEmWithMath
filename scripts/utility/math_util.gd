@@ -20,6 +20,15 @@ static func split(x):
 		result.append(a)
 	return result
 
+# return an array of arrays with 2 elements that represent all the ways
+# to add to x or subtract to x (including negatives). "max_val" is the largest
+# number that the numbers can be (absolute value)
+# no duplicates are returned.
+static func ultimate_split(x, max_val):
+	var result = []
+	for i in range(-max_val, max_val):
+		pass
+
 # attempts to split value <val> into an array of arrays, each of size <amount>
 # such that their sum is <val>. A generalization of the 'split' function
 static func general_split(val, amount):

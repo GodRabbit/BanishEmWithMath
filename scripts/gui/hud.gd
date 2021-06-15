@@ -35,6 +35,8 @@ onready var inventory_displayer = $inventory_displayer
 onready var inventory_button = $inventory_button
 onready var crafting_button = $crafting_button
 onready var game_over_window = $game_over_screen
+onready var explosive_star_particles = $explosive_star_particles
+onready var explosive_dark_heart_particles = $explosive_dark_hearts_particles
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -149,8 +151,10 @@ func on_answer_entered(c, t):
 	# process battle result:
 	if c: # the player won:
 		player_data.absorb_enemy(battle_window.get_enemy(), t)
+		explosive_star_particles.restart()
 		emit_signal("battle_over", c, t)
 	else:
+		explosive_dark_heart_particles.restart()
 		# the player lost
 		var dmg  = battle_window.get_enemy().get_damage()
 		player_data.add_hp(-dmg)

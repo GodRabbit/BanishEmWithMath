@@ -20,5 +20,5 @@ func _ready():
 func update_gui():
 	number_label.text = str(player_data.get_current_stars())
 
-func on_stars_changed():
+func on_stars_changed(v):
 	update_gui()

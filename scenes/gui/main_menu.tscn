@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/gui/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://scenes/gui/button_groups/difficulty_buttons.tres" type="ButtonGroup" id=2]
 
 [node name="main_menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -24,3 +25,53 @@ margin_top = 24.0
 margin_right = 84.0
 margin_bottom = 44.0
 text = "EXIT"
+
+[node name="difficulty_container" type="VBoxContainer" parent="."]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 176.0
+margin_bottom = 218.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="difficulty_label" type="Label" parent="difficulty_container"]
+margin_right = 112.0
+margin_bottom = 14.0
+text = "Choose Difficulty:"
+
+[node name="super_easy_button" type="CheckBox" parent="difficulty_container"]
+margin_top = 18.0
+margin_right = 112.0
+margin_bottom = 42.0
+group = ExtResource( 2 )
+text = "Super Easy"
+
+[node name="easy_button" type="CheckBox" parent="difficulty_container"]
+margin_top = 46.0
+margin_right = 112.0
+margin_bottom = 70.0
+group = ExtResource( 2 )
+text = "Easy"
+
+[node name="normal_button" type="CheckBox" parent="difficulty_container"]
+margin_top = 74.0
+margin_right = 112.0
+margin_bottom = 98.0
+pressed = true
+group = ExtResource( 2 )
+text = "Normal"
+
+[node name="hard_button" type="CheckBox" parent="difficulty_container"]
+margin_top = 102.0
+margin_right = 112.0
+margin_bottom = 126.0
+group = ExtResource( 2 )
+text = "Hard"
+
+[node name="hardcore_button" type="CheckBox" parent="difficulty_container"]
+margin_top = 130.0
+margin_right = 112.0
+margin_bottom = 154.0
+group = ExtResource( 2 )
+text = "HARDCORE"

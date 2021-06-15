@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/sfx/explosive_star_particles.tscn" type="PackedScene" id=1]
+
+[node name="hud_particles" type="Node2D"]
+
+[node name="explosive_star_particles" parent="." instance=ExtResource( 1 )]

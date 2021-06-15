@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/gui/hud.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/hp_bar.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://scenes/gui/inventory_displayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/gui/UtilButton.gd" type="Script" id=8]
 [ext_resource path="res://scenes/gui/game_over_screen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/sfx/explosive_star_particles.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/sfx/explosive_dark_hearts_particles.tscn" type="PackedScene" id=11]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_toggle_inventory"
@@ -111,3 +113,9 @@ margin_left = 132.0
 margin_top = 200.0
 margin_right = 895.0
 margin_bottom = 385.0
+
+[node name="explosive_star_particles" parent="." instance=ExtResource( 10 )]
+position = Vector2( 560, 320 )
+
+[node name="explosive_dark_hearts_particles" parent="." instance=ExtResource( 11 )]
+position = Vector2( 0, 640 )

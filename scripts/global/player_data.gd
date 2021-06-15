@@ -30,7 +30,10 @@ var exit_penalty = 10 # how many stars you lose on site exit
 const MAX_STARS = 999999999
 var current_stars = 0
 
-var difficulty = "MEDIUM"
+var difficulty = "NORMAL"
+
+# the last difficulty the player chose, and is now defaulted everytime he enters main menu
+var prefferd_difficulty = "normal"
 
 var player_inventory = inventory.new(25)
 
@@ -52,7 +55,7 @@ var overlapping_crafting_tiles = {}
 signal energy_depleted
 signal player_died
 signal hp_changed
-signal stars_changed
+signal stars_changed(val) # val is the value by which the stars changed
 signal money_changed
 
 # Called when the node enters the scene tree for the first time.
@@ -71,6 +74,7 @@ func setup_player(_difficulty = "normal"):
 	current_site = "farm"
 	player_inventory.empty_inventory()
 	money = 0
+	unlocked_sites = ["farm"]
 
 func get_inventory():
 	return player_inventory
@@ -160,7 +164,7 @@ func set_stars(v):
 		current_stars = 0
 	else:
 		current_stars = v
-	emit_signal("stars_changed")
+	emit_signal("stars_changed", v)
 
 func add_stars(v):
 	set_stars(get_current_stars() + v)
