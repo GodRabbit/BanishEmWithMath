@@ -110,7 +110,19 @@
     "math_soul":{
         "id":"math_soul",
         "name":"Soul O Math",
-        "price":20,
+        "price":10,
         "hp":5
+    },
+    "star_piece":{
+        "id":"star_piece",
+        "name":"Star Piece",
+        "price":6,
+        "hp":-3
+    },
+    "cake_piece":{
+        "id":"cake_piece",
+        "name":"Cake Piece",
+        "price":6,
+        "hp":30
     }
 }

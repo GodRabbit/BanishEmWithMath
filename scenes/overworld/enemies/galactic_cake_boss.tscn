@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=1]
+[ext_resource path="res://images/enemies/galactic_cake/base.png" type="Texture" id=2]
+
+[node name="galactic_cake_boss" type="Area2D"]
+script = ExtResource( 1 )
+enemy_id = "galactic_cake"
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -48, -56, 56, -64, 48, 64, -72, 64 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.639598, 0.637097 )
+texture = ExtResource( 2 )

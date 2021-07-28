@@ -7,8 +7,10 @@ extends MarginContainer
 export var site_id = "farm"
 
 # nodes:
-onready var purchase_button = $main_container/purchase_button
+onready var purchase_button = $main_container/purchase_container/purchase_button
 onready var main_button = $main_container/main_button
+onready var purchase_label = $main_container/purchase_container/purchase_label
+onready var purchase_container = $main_container/purchase_container
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,14 +29,14 @@ func update_gui():
 	
 	if is_unlocked():
 		# if the site is unlocked the purchase button is useless
-		purchase_button.hide()
+		purchase_container.hide()
 		main_button.disabled = false
 	else:
 		# not unlocked yet, so you can't use the main button to go to the site
 		main_button.disabled = true
 		
 		# sets the purchase button text:
-		purchase_button.text = "Purchase: %d$" % enemies_data.get_site_price(site_id)
+		purchase_label.text = "%d" % enemies_data.get_site_price(site_id)
 
 # checks if this site was unlocked by the player
 func is_unlocked():

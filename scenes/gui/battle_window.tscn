@@ -1,10 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://images/gui/arrow.png" type="Texture" id=1]
 [ext_resource path="res://themes/gui_general.tres" type="Theme" id=2]
 [ext_resource path="res://scenes/gui/puzzle_displayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/gui/battle_window.gd" type="Script" id=4]
 [ext_resource path="res://fonts/Shadows_Into_Light/ShadowsIntoLight.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://images/gui/swords.png" type="Texture" id=6]
+[ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://images/gui/star2.png" type="Texture" id=8]
+[ext_resource path="res://scenes/sfx/stars_pop.tscn" type="PackedScene" id=9]
+[ext_resource path="res://images/particles/star4.png" type="Texture" id=10]
+[ext_resource path="res://scenes/sfx/stars_porminent.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 23
@@ -14,13 +20,64 @@ font_data = ExtResource( 5 )
 default_font = SubResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 7 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform vec4 blink_color = vec4(0.9, 0.9, 0.9, 0.5);
+uniform float angle = 45; // in degrees
+uniform float min_scale = 0.7;
+uniform float max_scale = 1.0;
+
+vec4 screen(vec4 base, vec4 blend){
+	return 1.0 - (1.0 - base) * (1.0 - blend);
+}
+
+void fragment(){
+	/*
+	vec4 t = texture(TEXTURE, UV);
+	if(UV.y/UV.x > 4.0*abs(sin(TIME/7.0))){
+		vec4 c = screen(vec4(1.0, 1.0, 0.5, 0.8), 0.5*t.rgba); // the new color
+		COLOR.rgba = c;
+	}
+	else{
+		COLOR = t;
+	}
+	
+	COLOR.a = t.a;*/
+}
+
+// returns a number between min_scale to max_scale
+
+float linear(float t){
+	return min_scale + (max_scale - min_scale)*t;
+}
+
+void vertex(){
+	VERTEX.x = (VERTEX.x - 33.0)*linear(abs(sin(TIME))) + 33.0;
+	VERTEX.y = (VERTEX.y - 32.0)*linear(abs(sin(TIME))) + 32.0;
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/blink_color = Plane( 0.9, 0.9, 0.9, 0.5 )
+shader_param/angle = 45.0
+shader_param/min_scale = 0.7
+shader_param/max_scale = 1.0
+
+[sub_resource type="DynamicFont" id=7]
 size = 65
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="Theme" id=4]
-default_font = SubResource( 3 )
+[sub_resource type="Theme" id=8]
+default_font = SubResource( 7 )
 
 [node name="battle_window" type="VBoxContainer"]
 margin_right = 361.0
@@ -33,7 +90,7 @@ __meta__ = {
 [node name="crafting_result" type="HBoxContainer" parent="."]
 visible = false
 margin_right = 361.0
-margin_bottom = 7.0
+margin_bottom = 79.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -67,17 +124,17 @@ texture = ExtResource( 1 )
 expand = true
 
 [node name="results_list" type="VBoxContainer" parent="crafting_result"]
-margin_left = 178.0
-margin_right = 183.0
-margin_bottom = 7.0
+margin_left = 162.0
+margin_right = 198.0
+margin_bottom = 79.0
 theme = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="result1" type="Label" parent="crafting_result/results_list"]
-margin_right = 5.0
-margin_bottom = 7.0
+margin_right = 36.0
+margin_bottom = 79.0
 text = "bloop
 "
 
@@ -88,11 +145,61 @@ margin_right = 361.0
 margin_bottom = 390.0
 alignment = 1
 
+[node name="result_container" type="HBoxContainer" parent="."]
+margin_top = 426.0
+margin_right = 361.0
+margin_bottom = 490.0
+theme = SubResource( 4 )
+
+[node name="star_container" type="HBoxContainer" parent="result_container"]
+margin_right = 93.0
+margin_bottom = 64.0
+
+[node name="star_label" type="Label" parent="result_container/star_container"]
+margin_top = 2.0
+margin_right = 23.0
+margin_bottom = 61.0
+text = "5"
+
+[node name="icon" type="TextureRect" parent="result_container/star_container"]
+material = SubResource( 6 )
+margin_left = 27.0
+margin_right = 93.0
+margin_bottom = 64.0
+texture = ExtResource( 8 )
+
+[node name="stars_pop" parent="result_container/star_container/icon" instance=ExtResource( 9 )]
+show_behind_parent = true
+position = Vector2( 29, 38 )
+texture = ExtResource( 10 )
+scale_amount = 0.1
+
+[node name="stars_porminent" parent="result_container/star_container/icon" instance=ExtResource( 11 )]
+position = Vector2( 32, 36 )
+rotation = -0.0698132
+
+[node name="dmg_container" type="HBoxContainer" parent="result_container"]
+margin_left = 97.0
+margin_right = 183.0
+margin_bottom = 64.0
+
+[node name="dmg_label" type="Label" parent="result_container/dmg_container"]
+margin_top = 2.0
+margin_right = 23.0
+margin_bottom = 61.0
+text = "5"
+
+[node name="icon" type="TextureRect" parent="result_container/dmg_container"]
+margin_left = 27.0
+margin_right = 86.0
+margin_bottom = 64.0
+texture = ExtResource( 6 )
+
 [node name="time_header_label" type="Label" parent="."]
 margin_top = 494.0
 margin_right = 361.0
 margin_bottom = 600.0
-theme = SubResource( 4 )
+theme = SubResource( 8 )
 text = "TIME:"
 __meta__ = {
 "_edit_use_anchors_": false

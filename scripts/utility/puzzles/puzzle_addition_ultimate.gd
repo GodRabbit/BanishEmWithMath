@@ -1,6 +1,6 @@
 extends "res://scripts/utility/puzzles/puzzle_abstract.gd"
 
-
+class_name puzzle_addition_ultimate
 # addition\subtraction with negatives and more than one number added
 
 var max_val = 20
@@ -28,7 +28,7 @@ func generate():
 	
 	var numbers = []
 	var ops = [] # operations
-	var solution = 0
+	solution = 0
 	
 	# choose the 1st number
 	var first = _pick_number(max_val)
@@ -65,7 +65,7 @@ func display_problem():
 	
 	for i in range(1, data["numbers"].size()):
 		result += data["ops"][i - 1]
-		result += data["numbers"][i]
+		result += math_util.display_number(data["numbers"][i])
 	
 	result += " = ???"
 	return result

@@ -83,3 +83,67 @@ static func calculate(operation, num1, num2):
 			return num1%num2
 		_:
 			return null
+
+# gets a dictionary of keys and weights, returns a random key
+# based on the weights
+static func get_random_key(d : Dictionary):
+	var total = 0
+	for k in d.keys():
+		total += d[k]
+	
+	randomize()
+	var number = randi() % (total + 1)
+	
+	total = 0
+	for k in d.keys():
+		total += d[k]
+		if total >= number:
+			return k
+	
+	return d.keys()[d.keys().size() - 1]
+
+class base_transform:
+	# a class for changing bases
+	
+	var d = 0 # decimal number
+	
+	func _init(_d):
+		d = _d
+	
+	func set_number(_d):
+		d = _d
+	
+	func get_number():
+		return d
+	
+	# turns d into a number in base b
+	# returns an array of the digits
+	func to_base(b : int):
+		# puts the new digits inside an array for printing
+		var arr = []
+		
+		var x = d
+		while x != 0:
+			arr.append(x % b)
+			x = int(x/b)
+		
+		return arr
+
+	 
+	# turn an array of digits into a number d
+	func from_base(arr : Array, base):
+		# gets d from an array <arr> and base <base>
+		d = 0
+		
+		for i in range(0, arr.size()):
+			d += arr[i]*int(pow(base, i))
+		
+		return d
+	
+	func digits_to_str(arr):
+		# print in reverse order
+		var result = ""
+		for i in range(0, arr.size()):
+			result += str(arr[arr.size() - i - 1])
+		return result
+

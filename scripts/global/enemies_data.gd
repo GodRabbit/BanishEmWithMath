@@ -33,6 +33,52 @@ var sites = {
 	"price":75,
 	"name":"The White Board"}}
 
+var zones = {
+	"zone0":{
+		"id":"zone0",
+		"name":"Zone 0",
+		"ages":[5, 7],
+		"sites":{
+			
+		},
+		"bosses":{
+			
+		}
+		
+	},
+	"zone1":{
+		"id":"zone1",
+		"name":"Zone 1",
+		"ages":[8, 12],
+		"sites":{
+			"farm":{},
+			"jungle":{"money":35},
+			"ocean":{"money":20},
+			"temple":{"money":75},
+			"fairy_forest":{"money":100}
+		}
+	}
+}
+
+var bosses = {
+	"galactic_cake":{
+		"id":"galactic_cake",
+		"name":"Galactic Cake",
+		"hp":150,
+		"background":"space",
+		"enemies":{ # a dictionary of enemy id and the weight of the enemy
+			"spider":10,
+			"disturbing_star":90
+#			"grape_moment":40,
+#			"jacko":30,
+#			"diversary":30,
+#			"spikey_boi":30
+		},
+		"wave_size":[2, 4],
+		"final_enemy":"plusumad" # deprecate??
+	}
+}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -148,6 +194,30 @@ func _ready():
 	10,
 	2,
 	{"math_soul":2}))
+	
+	_add_enemy(enemy_abstract.new("disturbing_star",
+	"Disturbing Star",
+	puzzle_addition_ultimate.new(),
+	60,
+	7,
+	1,
+	{"star_piece":2}))
+	
+	_add_enemy(enemy_abstract.new("piece_of_cake",
+	"Piece of Cake",
+	puzzle_prime_detection.new(),
+	20,
+	5,
+	1,
+	{"cake_piece":1}))
+	
+	_add_enemy(enemy_abstract.new("doom_cupcake",
+	"Doom Cupcake",
+	puzzle_addition_hard.new(),
+	20,
+	5,
+	3,
+	{"cake_piece":2}))
 
 
 
@@ -219,3 +289,6 @@ func get_site_name(site_id):
 
 func get_site_price(site_id):
 	return sites[site_id]["price"]
+
+func get_boss_by_id(boss_id):
+	return bosses[boss_id]

@@ -24,9 +24,16 @@ onready var results_list = $crafting_result/results_list
 onready var timer = $timer
 onready var puzzle_displayer = $puzzle_displayer
 onready var timer_label = $time_header_label/time_label
+onready var star_label = $result_container/star_container/star_label
+onready var dmg_label = $result_container/dmg_container/dmg_label
+onready var stars_pop_particle = $result_container/star_container/icon/stars_pop
+onready var stars_porminent_particle = $result_container/star_container/icon/stars_porminent
 
 # was the player out of time while crafting this?
 var is_timedout = false
+
+# a critical is when the player has only 1 hp, then the star gains are higher
+var is_critical = false
 
 signal answer_entered(correct, timout)
 
@@ -50,13 +57,31 @@ func get_enemy():
 #	setup_recipe()
 
 func setup_enemy():
+	if player_data.get_current_hp() == 1:
+		is_critical = true
+	else:
+		is_critical = false
+	
 	current_time = enemy.get_time()
 	is_timedout = false
 	
 	# set puzzle
 	puzzle_displayer.set_puzzle(enemy.get_puzzle())
 	
-	# set time:
+	# set dmg labels:
+	dmg_label.text = str(enemy.get_damage())
+	
+	# set strars label
+	# if critical, stars have higher value and show particles
+	if is_critical:
+		star_label.text = str(int(enemy.get_stars() * player_data.STARS_CRITICAL_MULTIPLIER))
+		stars_pop_particle.emitting = true
+		stars_porminent_particle.emitting = true
+	else:
+		star_label.text = str(enemy.get_stars())
+		stars_pop_particle.emitting = false
+		stars_porminent_particle.emitting = false
+	
 	# set time:
 	current_time = enemy.get_time() + 1
 	update_timer()
@@ -117,6 +142,9 @@ func update_timer():
 # called when the time is 0.
 func on_timeout():
 	is_timedout = true
+	star_label.text = str(0)
+	stars_pop_particle.emitting = false
+	stars_porminent_particle.emitting = false
 	#clear_results_list()
 #	for id in recipe.get_results().keys():
 #		var l = Label.new()

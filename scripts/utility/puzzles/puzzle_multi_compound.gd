@@ -20,7 +20,12 @@ func generate():
 	var y = 1 + randi() % max_val
 	data = {"x": x, "y": y}
 	
-	# proto-solution:
+	# if both x and y are 1, the split function cannot work
+	if x == 1 and y == 1: 
+		x = max_val
+		y = max_val
+	
+	# proto-soluti  on:
 	var s = x*y
 	
 	# that actual solution is an array of 2 numbers, who's sum is s

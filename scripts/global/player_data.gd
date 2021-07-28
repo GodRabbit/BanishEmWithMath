@@ -23,12 +23,15 @@ var current_energy = max_energy
 const MAX_MONEY = 999999999
 var money = 0
 
+
+# TODO: add a way to add hp upgrades and defenses to protect hp.
 var max_hp = 5
 var current_hp = max_hp
 
 var exit_penalty = 10 # how many stars you lose on site exit
 const MAX_STARS = 999999999
 var current_stars = 0
+const STARS_CRITICAL_MULTIPLIER = 1.5 # by how much stars are added on critical (player has 1 hp)
 
 var difficulty = "NORMAL"
 
@@ -238,7 +241,7 @@ func process_recipe(r : crafting_recipe, timeout = false):
 func absorb_enemy(e : enemy_abstract, timeout = false):
 	if !timeout:
 		if get_current_hp() == 1: # if the player's hp is 1, you get 50% more stars!
-			add_stars(int(e.get_stars()*1.5))
+			add_stars(int(e.get_stars()*STARS_CRITICAL_MULTIPLIER))
 		else:
 			add_stars(e.get_stars())
 		player_inventory.add_dictionary(e.get_items())

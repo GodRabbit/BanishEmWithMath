@@ -5,12 +5,16 @@ extends TextureRect
 
 # nodes:
 onready var heart_particles = $heart_particles
+onready var hardcore_particles = $hardcore_particles
 
 const TEXTURE_FULL = preload("res://images/gui/heart_full.png")
 const TEXTURE_EMPTY = preload("res://images/gui/heart_empty.png")
 
 # whether this heart is filled or not.
 export var filled = true
+
+# is this the last heart the player has?
+export var last_heart = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,10 +30,20 @@ func set_state(_filled : bool):
 func is_filled():
 	return filled
 
+func set_last_heart(val):
+	last_heart = val
+	update_gui()
+
 func update_gui():
 	if filled:
 		texture = TEXTURE_FULL
 		heart_particles.emitting = true
+		
+		if last_heart:
+			hardcore_particles.emitting = true
+		else:
+			hardcore_particles.emitting = false
 	else:
 		heart_particles.emitting = false
 		texture = TEXTURE_EMPTY
+		hardcore_particles.emitting = false

@@ -8,7 +8,9 @@ script = ExtResource( 1 )
 enemy_id = "cra_babi"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -8, -16, -128, -64, -112, 104, 88, 104, 104, -80 )
+position = Vector2( 8, -8 )
+polygon = PoolVector2Array( -8, -16, -64, -40, -72, 64, 32, 64, 48, -40 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )

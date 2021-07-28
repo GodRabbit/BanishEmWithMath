@@ -46,3 +46,11 @@ func is_fired():
 
 func set_pause(val):
 	paused = val
+
+# abstract method to be overided by the enemy
+func on_spawn():
+	print("on spawn test")
+
+# abstract methodto be overided by the enemy
+func on_death():
+	pass

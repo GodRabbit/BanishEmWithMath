@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/overworld/combat_test.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/hud.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/overworld/enemies/disturbing_star.tscn" type="PackedScene" id=3]
 [ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://images/gui/star_yellow.png" type="Texture" id=9]
 [ext_resource path="res://images/backgrounds/farm1.png" type="Texture" id=10]
@@ -22,6 +23,15 @@ position = Vector2( 536, 283.5 )
 texture = ExtResource( 10 )
 
 [node name="objects" type="YSort" parent="."]
+
+[node name="disturbing_star" parent="objects" instance=ExtResource( 3 )]
+position = Vector2( 96, 164 )
+
+[node name="disturbing_star2" parent="objects" instance=ExtResource( 3 )]
+position = Vector2( 416, 344 )
+
+[node name="disturbing_star3" parent="objects" instance=ExtResource( 3 )]
+position = Vector2( 696, 224 )
 
 [node name="hud" parent="." instance=ExtResource( 2 )]
 

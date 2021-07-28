@@ -37,5 +37,11 @@ func update_gui():
 			hearts_array[i].set_state(true) # fill the heart
 		else:
 			hearts_array[i].set_state(false) # fill the heart
+	
+	# if the player has only 1 hp, set the 1st heart in the array as last heart
+	if player_data.get_current_hp() == 1:
+		hearts_array[0].set_last_heart(true)
+	else:
+		hearts_array[0].set_last_heart(false)
 
 

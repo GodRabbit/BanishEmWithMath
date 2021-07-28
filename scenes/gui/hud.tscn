@@ -52,8 +52,8 @@ script = ExtResource( 8 )
 sound_id = "button_click1"
 
 [node name="stats_container" type="MarginContainer" parent="."]
-margin_right = 274.0
-margin_bottom = 80.0
+margin_right = 422.0
+margin_bottom = 50.0
 custom_constants/margin_right = 8
 custom_constants/margin_top = 16
 custom_constants/margin_left = 16
@@ -64,17 +64,19 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="stats_container"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 394.0
-margin_bottom = 96.0
+margin_right = 496.0
+margin_bottom = 70.0
+custom_constants/separation = 40
 
 [node name="hp_bar" parent="stats_container/HBoxContainer" instance=ExtResource( 2 )]
 margin_right = 170.0
-margin_bottom = 80.0
+margin_bottom = 54.0
 
 [node name="counters" type="HBoxContainer" parent="stats_container/HBoxContainer"]
-margin_left = 174.0
-margin_right = 378.0
-margin_bottom = 80.0
+margin_left = 210.0
+margin_right = 480.0
+margin_bottom = 54.0
+custom_constants/separation = 30
 
 [node name="star_counter" parent="stats_container/HBoxContainer/counters" instance=ExtResource( 3 )]
 anchor_left = 0.0
@@ -83,18 +85,18 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 100.0
-margin_bottom = 80.0
+margin_right = 120.0
+margin_bottom = 54.0
 
 [node name="money_counter" parent="stats_container/HBoxContainer/counters" instance=ExtResource( 4 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 104.0
+margin_left = 150.0
 margin_top = 0.0
-margin_right = 204.0
-margin_bottom = 80.0
+margin_right = 270.0
+margin_bottom = 54.0
 
 [node name="battle_window" parent="." instance=ExtResource( 5 )]
 visible = false

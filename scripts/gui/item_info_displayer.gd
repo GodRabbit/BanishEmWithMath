@@ -7,13 +7,13 @@ extends VBoxContainer
 var item_id = "none"
 
 # formatting:
-const HP_FORMATTING = "%d HP"
-const PRICE_FORMATTING = "%d $"
+const HP_FORMATTING = "%d"
+const PRICE_FORMATTING = "%d"
 
 # nodes:
 onready var name_label = $name_label
-onready var hp_label = $hp_label
-onready var price_label = $price_label
+onready var hp_label = $hp_container/hp_label
+onready var price_label = $price_container/price_label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

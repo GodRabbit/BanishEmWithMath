@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/gui/site_button.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://images/gui/gem1.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
@@ -20,21 +21,39 @@ __meta__ = {
 }
 
 [node name="main_container" type="VBoxContainer" parent="."]
-margin_right = 211.0
-margin_bottom = 122.0
+margin_right = 206.0
+margin_bottom = 171.0
 custom_constants/separation = 3
 
 [node name="TextureRect" type="TextureRect" parent="main_container"]
-margin_right = 211.0
+margin_right = 206.0
 
 [node name="main_button" type="Button" parent="main_container"]
 margin_top = 3.0
-margin_right = 211.0
+margin_right = 206.0
 margin_bottom = 61.0
 text = "Farm"
 
-[node name="purchase_button" type="Button" parent="main_container"]
+[node name="purchase_container" type="HBoxContainer" parent="main_container"]
 margin_top = 64.0
-margin_right = 211.0
-margin_bottom = 122.0
-text = "Purchase: 10$"
+margin_right = 206.0
+margin_bottom = 171.0
+rect_min_size = Vector2( 0, 50 )
+
+[node name="purchase_button" type="Button" parent="main_container/purchase_container"]
+margin_right = 149.0
+margin_bottom = 107.0
+text = "Purchase"
+
+[node name="purchase_label" type="Label" parent="main_container/purchase_container"]
+margin_left = 153.0
+margin_right = 179.0
+margin_bottom = 107.0
+text = "10
+"
+
+[node name="purchase_icon" type="TextureRect" parent="main_container/purchase_container"]
+margin_left = 183.0
+margin_right = 206.0
+margin_bottom = 107.0
+texture = ExtResource( 3 )

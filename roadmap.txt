@@ -1,0 +1,69 @@
+Kill Em With Math Planning:
+
+Each zone has its own sites and bosses (with some ovrlapping), the zones are divided by the player's age
+
+Zone 0: age 5 - 7: (TODO: small priority)
+Questions: numbers recognition, addition simple (<10) , addition (1-10), even and odd numbers (<20).
+Subtraction (< 10), blank addition (<10), blank subtraction (<10), addition compound (<10).
+
+3 sites + boss.
+
+Zone 1: age 8 - 12: (addition, subtraction, multiplication, division, fractions, primes)
+Questions: Addition (<100), Subtraction (<100), simple primes (< 30), multiplication (<10)
+Even and odd numbers (<100)
+
+Sites:
+Farm (Free) : Addition < 10, Addition < 50, Even & Odd, Subtraction < 20, addition compound < 20, subtraction < 50
+
+Ocean Or the Nile: multiplication < 5, Primes < 20, addition blank < 20, addition < 100, subtraction < 50, addition compound < 50, subtraction < 100
+addition < 200
+
+Jungle Or The Caves: Multiplication < 15, Primes < 50, addition blank < 40, Addition < 500, subtraction < 200, addition compound < 100, subtraction compound < 100
+subtraction blank < 30
+
+Boss: Galactic Cake: (200 stars)
+Addition Blank < 100, Addition Compound < 100, Subtraction Blank < 100, Subtraction Compound < 200
+
+Temple:
+Division < 50, Multiplication<20, multiplication compound < 15, Addition < 500 (fast), addition compound < 200 (fast)
+Primes hard < 130
+
+Fairy Forest: 
+Division < 100, Division (hard) < 100, Fractions < 5, addition (3 args) < 100, addition (3 args) compound < 100, multiplication + addition < 20
+primes (fast) < 130, multiplication blank < 20, division blank < 20
+
+Candyland: (hidden, easy exercises but tons of damage and less stars):
+multiplication < 5, Primes < 20, addition blank < 20, addition < 100, subtraction < 50, addition compound < 50, subtraction < 100
+addition < 200
+Addition < 10, Addition < 50, Even & Odd, Subtraction < 20, addition compound < 20, subtraction < 50
+
+Boss: The Pillow King (the background is a huge bed, its minions are small pillow warriors and mages): (600 stars)
+Division + reminder, Division hard < 200, Division blank, multiplication blank, Addition blank compound, subtraction blank compound,
+Fractions < 10
+
+The White Board (hidden, 100 gems):
+negaives addition\subtraction <100, negatives multiplication < 10, addition negatives (3-5 args) < 20 (slow), addition + multiplication negatives < 10
+addition\subtraction blank (negatives)< 10
+
+Crystal Planes (hidden, like the white board but with lethal damage)
+
+Zone 2: Age 13 - 16:
+
+sites: (every site from previous zone?)
+farm (free) ^
+
+candyland (20 gems) ^
+
+temple (30 gems) ^
+
+Fairy Forest (35 gems) ^
+
+The White board (100 gems) ^
+
+Crystal Planes (300 gems) ^
+
+Factory: (mainly binary to dec, binary to hex, dec to bin and so on)
+
+
+Zone 3: ages 17+: basic arithmetic, negatives, equations, binary, hex, complex numbers, gcd and lcd, primes
+
