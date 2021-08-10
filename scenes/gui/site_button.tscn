@@ -5,7 +5,7 @@
 [ext_resource path="res://images/gui/gem1.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 35
+size = 20
 font_data = ExtResource( 2 )
 
 [sub_resource type="Theme" id=2]
@@ -21,39 +21,39 @@ __meta__ = {
 }
 
 [node name="main_container" type="VBoxContainer" parent="."]
-margin_right = 206.0
-margin_bottom = 171.0
+margin_right = 136.0
+margin_bottom = 105.0
 custom_constants/separation = 3
 
 [node name="TextureRect" type="TextureRect" parent="main_container"]
-margin_right = 206.0
+margin_right = 136.0
 
 [node name="main_button" type="Button" parent="main_container"]
 margin_top = 3.0
-margin_right = 206.0
-margin_bottom = 61.0
+margin_right = 136.0
+margin_bottom = 39.0
 text = "Farm"
 
 [node name="purchase_container" type="HBoxContainer" parent="main_container"]
-margin_top = 64.0
-margin_right = 206.0
-margin_bottom = 171.0
+margin_top = 42.0
+margin_right = 136.0
+margin_bottom = 105.0
 rect_min_size = Vector2( 0, 50 )
 
 [node name="purchase_button" type="Button" parent="main_container/purchase_container"]
-margin_right = 149.0
-margin_bottom = 107.0
+margin_right = 90.0
+margin_bottom = 63.0
 text = "Purchase"
 
 [node name="purchase_label" type="Label" parent="main_container/purchase_container"]
-margin_left = 153.0
-margin_right = 179.0
-margin_bottom = 107.0
+margin_left = 94.0
+margin_right = 109.0
+margin_bottom = 63.0
 text = "10
 "
 
 [node name="purchase_icon" type="TextureRect" parent="main_container/purchase_container"]
-margin_left = 183.0
-margin_right = 206.0
-margin_bottom = 107.0
+margin_left = 113.0
+margin_right = 136.0
+margin_bottom = 63.0
 texture = ExtResource( 3 )

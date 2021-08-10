@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/gui/site_button.tscn" type="PackedScene" id=1]
+
+[node name="zone1_map" type="Node2D"]
+
+[node name="site_button_farm" parent="." instance=ExtResource( 1 )]
+margin_left = 448.0
+margin_top = 192.0
+margin_right = 584.0
+margin_bottom = 297.0
+
+[node name="site_button_jungle" parent="." instance=ExtResource( 1 )]
+margin_left = 168.0
+margin_top = 104.0
+margin_right = 304.0
+margin_bottom = 209.0
+site_id = "jungle"

@@ -1,14 +1,21 @@
 extends "res://scripts/utility/puzzles/puzzle_abstract.gd"
 
 
-# an abstract puzzle of addition. create general addition problems
+# an abstract puzzle of addition. create general addition problems.
 
 class_name puzzle_addition
 
+var max_val
+var min_val
+
+func _init(_min_val = 0, _max_val = 50):
+	max_val = _max_val
+	min_val = _min_val
+
 func generate():
 	randomize()
-	var x = randi() % 50
-	var y = randi() % 50
+	var x = min_val + randi() % (max_val - min_val + 1)
+	var y = min_val + randi() % (max_val - min_val + 1)
 	data = {"x": x, "y": y}
 	solution = x + y
 	
@@ -16,7 +23,8 @@ func generate():
 	
 	# create a bank of options:
 	var bank = []
-	for i in range(solution - 5, solution + 6):
+	var min_sol = int(max(solution - 10, 0))
+	for i in range(min_sol, solution + 10):
 		if i != solution:
 			bank.append(i)
 	

@@ -36,7 +36,7 @@ func update_gui():
 		main_button.disabled = true
 		
 		# sets the purchase button text:
-		purchase_label.text = "%d" % enemies_data.get_site_price(site_id)
+		purchase_label.text = "%d" % enemies_data.get_site_price(player_data.get_current_zone(), site_id)
 
 # checks if this site was unlocked by the player
 func is_unlocked():

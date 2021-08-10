@@ -8,7 +8,7 @@ var enemies_collection = []
 
 var sites = {
 "farm":
-	{"enemies":["angry_pear", "angry_apple", "wheaty", "sad_eggy"],
+	{"enemies":["angry_pear", "applady", "wheaty", "sad_eggy", "schnoop","leafonger"],
 	"backgrounds":["farm1"],
 	"price":0,
 	"name":"Farm"},
@@ -31,7 +31,15 @@ var sites = {
 	{"enemies":["plusumad", "demultiply", "diversary"],
 	"backgrounds":["white_board"],
 	"price":75,
-	"name":"The White Board"}}
+	"name":"The White Board"},
+"fairy_forest":
+	{
+	"enemies":["plusumad", "demultiply", "diversary"],
+	"backgrounds":["unknown"],
+	"price":75,
+	"name":"Fairy Forest"
+	}
+}
 
 var zones = {
 	"zone0":{
@@ -55,7 +63,12 @@ var zones = {
 			"jungle":{"money":35},
 			"ocean":{"money":20},
 			"temple":{"money":75},
-			"fairy_forest":{"money":100}
+			"fairy_forest":{"money":100},
+			"cemetery":{"money":150},
+			"the_white_board":{"money":150}
+		},
+		"bosses":{
+			"galactic_cake":{"stars":100}
 		}
 	}
 }
@@ -68,7 +81,9 @@ var bosses = {
 		"background":"space",
 		"enemies":{ # a dictionary of enemy id and the weight of the enemy
 			"spider":10,
-			"disturbing_star":90
+			"disturbing_star":90,
+			"doom_cupcake":90,
+			"piece_of_cake":90
 #			"grape_moment":40,
 #			"jacko":30,
 #			"diversary":30,
@@ -93,15 +108,15 @@ func _ready():
 	
 	_add_enemy(enemy_abstract.new("angry_pear",
 	"Angry Pear",
-	puzzle_multi_simple.new(),
+	puzzle_addition.new(0, 10),
 	30,
-	3,
 	1,
-	{"pear":2}))
+	1,
+	{"pear":1}))
 	
 	_add_enemy(enemy_abstract.new("angry_apple",
 	"Angry Apple",
-	puzzle_subtraction_simple.new(),
+	puzzle_subtraction.new(),
 	30,
 	3,
 	1,
@@ -109,23 +124,23 @@ func _ready():
 	
 	_add_enemy(enemy_abstract.new("wheaty",
 	"Wheaty",
-	puzzle_addition_compound.new(),
-	30,
-	5,
+	puzzle_addition.new(0, 50),
+	60,
+	3,
 	1,
-	{"wheat":4}))
+	{"wheat":2}))
 	
 	_add_enemy(enemy_abstract.new("sad_eggy",
 	"Sad Eggy",
-	puzzle_division_simple.new(),
-	30,
-	5,
+	puzzle_subtraction.new(20),
+	60,
+	3,
 	1,
 	{"egg":1}))
 	
 	_add_enemy(enemy_abstract.new("spikey_boi",
 	"Spikey Boi",
-	puzzle_addition_hard.new(),
+	puzzle_addition.new(50, 1000),
 	10,
 	5,
 	2,
@@ -133,7 +148,7 @@ func _ready():
 	
 	_add_enemy(enemy_abstract.new("grape_moment",
 	"Grape Moment",
-	puzzle_subtraction_simple.new(),
+	puzzle_subtraction.new(),
 	10,
 	5,
 	1,
@@ -141,23 +156,63 @@ func _ready():
 	
 	_add_enemy(enemy_abstract.new("cra_babi",
 	"Cra Babi",
-	puzzle_division.new(),
-	15,
-	5,
+	puzzle_multi_simple.new(0, 5),
+	30,
+	3,
 	1,
 	{"spider_eye":1, "spike":1}))
 	
+	_add_enemy(enemy_abstract.new("beach_ball", #TODO: Create scene
+	"Beach Ball", # TODO: change name
+	puzzle_prime_detection.new(20, true),
+	30,
+	3,
+	1,
+	{"spider_eye":1, "spike":1})) #TODO: change
+	
 	_add_enemy(enemy_abstract.new("boo_da_rang",
 	"Boo Da Rang",
-	puzzle_multi_compound.new(),
+	puzzle_addition_blank.new(0, 20),
 	30,
-	7,
+	4,
 	1,
-	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # whats going on..?
+	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: whats going on..?
+	
+	_add_enemy(enemy_abstract.new("flying_fish", # TODO: create scene
+	"Flying Fish", # TODO: change name
+	puzzle_addition.new(10, 100),
+	30,
+	3,
+	2,
+	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: change
+	
+	_add_enemy(enemy_abstract.new("water_schnoop", # TODO: create scene
+	"Water Schnoop",
+	puzzle_subtraction.new(50),
+	30,
+	4,
+	1,
+	{"ghost_hair":2}))
+	
+	_add_enemy(enemy_abstract.new("clamp", # TODO: create scene
+	"Clamp", #TODO: change name
+	puzzle_addition_compound.new(10, 50),
+	60,
+	6,
+	1,
+	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: change
+	
+	_add_enemy(enemy_abstract.new("water_snail", # TODO: create scene
+	"Water Snail", #TODO: change name!
+	puzzle_arithmetic_sequence.new(0, 100, -10, -1, true), # change to (0, 20, 0, 10, true)
+	60,
+	6,
+	1,
+	{"spider_eye":1, "spike":1, "apple":1, "egg":1}))
 	
 	_add_enemy(enemy_abstract.new("jacko",
 	"Jacko",
-	puzzle_prime_detection_easy.new(),
+	puzzle_prime_detection.new(100, true),
 	10,
 	10,
 	3,
@@ -203,7 +258,7 @@ func _ready():
 	1,
 	{"star_piece":2}))
 	
-	_add_enemy(enemy_abstract.new("piece_of_cake",
+	_add_enemy(enemy_abstract.new("piece_of_cake", # TODO: create scene
 	"Piece of Cake",
 	puzzle_prime_detection.new(),
 	20,
@@ -213,11 +268,35 @@ func _ready():
 	
 	_add_enemy(enemy_abstract.new("doom_cupcake",
 	"Doom Cupcake",
-	puzzle_addition_hard.new(),
+	puzzle_addition.new(0, 300),
 	20,
 	5,
 	3,
 	{"cake_piece":2}))
+	
+	_add_enemy(enemy_abstract.new("applady",
+	"Applady",
+	puzzle_even_odd.new(20),
+	20,
+	1,
+	1,
+	{"apple":1}))
+	
+	_add_enemy(enemy_abstract.new("leafonger",
+	"Leafonger",
+	puzzle_addition_compound.new(5, 20),
+	60,
+	5,
+	1,
+	{"leaf":1}))
+	
+	_add_enemy(enemy_abstract.new("schnoop",
+	"Schnoop",
+	puzzle_subtraction.new(50),
+	40,
+	3,
+	1,
+	{"ghost_hair":1}))
 
 
 
@@ -287,8 +366,9 @@ func get_background_id_by_site(site_id):
 func get_site_name(site_id):
 	return sites[site_id]["name"]
 
-func get_site_price(site_id):
-	return sites[site_id]["price"]
+func get_site_price(zone_id, site_id):
+	return zones[zone_id]["sites"][site_id]["money"]
+	#return sites[site_id]["price"]
 
 func get_boss_by_id(boss_id):
 	return bosses[boss_id]

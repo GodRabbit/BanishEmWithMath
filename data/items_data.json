@@ -124,5 +124,11 @@
         "name":"Cake Piece",
         "price":6,
         "hp":30
+    },
+    "leaf":{
+        "id":"leaf",
+        "name":"Leaf",
+        "price":3,
+        "hp":-4
     }
 }

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/gui/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/button_groups/difficulty_buttons.tres" type="ButtonGroup" id=2]
+[ext_resource path="res://scenes/gui/button_groups/zones_buttons.tres" type="ButtonGroup" id=3]
 
 [node name="main_menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -75,3 +76,45 @@ margin_right = 112.0
 margin_bottom = 154.0
 group = ExtResource( 2 )
 text = "HARDCORE"
+
+[node name="zones_container" type="VBoxContainer" parent="."]
+margin_left = 768.0
+margin_top = 64.0
+margin_right = 845.0
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="zones_label" type="Label" parent="zones_container"]
+margin_right = 160.0
+margin_bottom = 14.0
+text = "Pick a Zone:"
+
+[node name="zone0_button" type="CheckBox" parent="zones_container"]
+margin_top = 18.0
+margin_right = 160.0
+margin_bottom = 42.0
+group = ExtResource( 3 )
+text = "Zone 0: Ages 5 - 7"
+
+[node name="zone1_button" type="CheckBox" parent="zones_container"]
+margin_top = 46.0
+margin_right = 160.0
+margin_bottom = 70.0
+group = ExtResource( 3 )
+text = "Zone 1: Ages 8 - 12"
+
+[node name="zone2_button" type="CheckBox" parent="zones_container"]
+margin_top = 74.0
+margin_right = 160.0
+margin_bottom = 98.0
+group = ExtResource( 3 )
+text = "Zone 2: Ages 13 - 16"
+
+[node name="zone3_button" type="CheckBox" parent="zones_container"]
+margin_top = 102.0
+margin_right = 160.0
+margin_bottom = 126.0
+group = ExtResource( 3 )
+text = "Zone 3: Ages 17+"

@@ -36,7 +36,7 @@ func unpress_all_buttons():
 # call this after changing the puzzle
 func update_gui():
 	# displays the problem:
-	problem_label.text = puzzle.display_problem()
+	problem_label.bbcode_text = "\n[center]"+puzzle.display_problem()+"[/center]"
 	# displays the options:
 	randomize()
 	# choose the option which displays the correct answer:

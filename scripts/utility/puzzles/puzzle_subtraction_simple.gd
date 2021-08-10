@@ -1,13 +1,20 @@
 extends puzzle_abstract
 
-class_name puzzle_subtraction_simple
+class_name puzzle_subtraction
+
+# an abstract class for subtraction problems
 # the problem will be 
 # x - y = s
 
+var max_val
+
+func _init(_max_val = 30):
+	max_val = _max_val
+
 func generate():
 	randomize()
-	var y = randi() % 50
-	var s = randi() % 50
+	var y = randi() % max_val
+	var s = randi() % max_val
 	var x = y + s
 	data = {"x": x, "y": y}
 	solution = s

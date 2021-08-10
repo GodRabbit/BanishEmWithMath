@@ -10,11 +10,19 @@ extends puzzle_abstract
 
 class_name puzzle_addition_compound
 
+# min and max values for the solution:
+var max_val
+var min_val
+
+func _init(_min_val = 10, _max_val = 100):
+	min_val = _min_val
+	max_val = _max_val
+
 func generate():
 	randomize()
 	
 	# first choose the target value:
-	var x = 10 + randi() % 100
+	var x = min_val + randi() % (max_val - min_val + 1)
 	
 	# now we are gonna choose the problem:
 	var arr = math_util.split(x)

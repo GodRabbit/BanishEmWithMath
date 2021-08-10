@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/gui/math_displayer/math_component.gd" type="Script" id=1]
+[ext_resource path="res://scripts/gui/RichTextEffects/RichTextSuperscript.gd" type="Script" id=2]
+[ext_resource path="res://scripts/gui/RichTextEffects/RichTextSubscript.gd" type="Script" id=3]
+
+[sub_resource type="RichTextEffect" id=1]
+script = ExtResource( 2 )
+
+[sub_resource type="RichTextEffect" id=2]
+script = ExtResource( 3 )
+
+[node name="math_component" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="delete_me_test_only" type="RichTextLabel" parent="."]
+margin_right = 176.0
+margin_bottom = 112.0
+bbcode_enabled = true
+bbcode_text = "
+log[sub]2[/sub]10+log"
+text = "
+log210+log"
+custom_effects = [ SubResource( 1 ), SubResource( 2 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,7 +1,8 @@
 extends "res://scripts/utility/puzzles/puzzle_abstract.gd"
 
 
-class_name puzzle_prime_detection_easy
+# DEPRECATED
+#class_name puzzle_prime_detection_easy
 
 # in this problem the six options are six numbers only one of them is 
 # prime. in this easy version the numbers are below 100, and the composite

@@ -1,9 +1,9 @@
 extends "res://scripts/utility/puzzles/puzzle_abstract.gd"
 
-
+# DEPRECATED
 # an abstract puzzle of addition. create general addition problems
 
-class_name puzzle_addition_hard
+#class_name puzzle_addition_hard
 
 func generate():
 	randomize()

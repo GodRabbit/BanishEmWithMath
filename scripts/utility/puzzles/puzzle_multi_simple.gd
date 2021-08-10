@@ -2,10 +2,17 @@ extends puzzle_abstract
 
 class_name puzzle_multi_simple
 
+var max_val
+var min_val
+
+func _init(_min_val = 1, _max_val = 10):
+	max_val = _max_val
+	min_val = _min_val
+
 func generate():
 	randomize()
-	var y = randi() % 13
-	var x = randi() % 13
+	var y = min_val + randi() % (max_val - min_val + 1)
+	var x = min_val + randi() % (max_val - min_val + 1)
 	data = {"x": x, "y": y}
 	var s = x * y
 	solution = s

@@ -45,8 +45,9 @@ var player_inventory = inventory.new(25)
 const PRESSING_COOLDOWN_TIME = 2 # seconds
 var pressing_cooldown = false
 
-# site id for the next combat
-var current_site = "farm"
+var current_zone = "zone1" # the curretn zone. The age group thhat governs the sites
+var current_site = "farm" # site id for the next combat
+
 
 # DEPRECATED IN THIS GAME
 # every time the overworld player intersect with a crafting tile, the crafting tile
@@ -292,11 +293,18 @@ func on_cooldown_timer_tmeout():
 	pressing_cooldown = false
 	cooldown_timer.stop()
 
+# sets the current site to side id <s>
 func set_current_site(s):
 	current_site = s
 
 func get_current_site():
 	return current_site
+
+func get_current_zone():
+	return current_zone
+
+func set_current_zone(z_id):
+	current_zone = z_id
 
 # unlocks the site. doesn't include the price and reduction of money
 # check "purchase_site"
@@ -306,7 +314,7 @@ func unlock_site(site_id):
 # attempt to purchase a site as long as the player has enough money
 # otherwise do noting!
 func purchase_site(site_id):
-	var price = enemies_data.get_site_price(site_id)
+	var price = enemies_data.get_site_price(get_current_zone(), site_id)
 	if price <= money:
 		add_money(-price)
 		unlock_site(site_id)
