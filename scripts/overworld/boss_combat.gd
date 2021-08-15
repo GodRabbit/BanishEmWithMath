@@ -41,6 +41,8 @@ func _ready():
 func update_gui():
 	boss_hp_bar.value = (float(boss_current_hp)/float(boss_max_hp))*100.0
 
+# call this function when combat starts
+#  to setup all the varaiables needed
 func setup_combat(boss_id):
 	waves_over = false
 	boss_dic = enemies_data.get_boss_by_id(boss_id)
@@ -106,16 +108,17 @@ func add_boss_hp(val):
 func on_player_stars_changed(v):
 	add_boss_hp(-v)
 
+# called when hp = 0 and no more enemies
 func on_waves_over():
 	waves_over = true
 	
-	# spawn final boss
-	var e_id = boss_dic["final_enemy"]
-	var enemy_scene = load(ENEMY_PATH % e_id).instance()
-	objects_node.add_child(enemy_scene)
-	enemy_scene.global_position = CENTER_POS
-	enemy_scene.scale = Vector2(3, 3)
-	enemy_scene.connect("object_pressed", self, "on_object_area_pressed")
+#	# spawn final boss
+#	var e_id = boss_dic["final_enemy"]
+#	var enemy_scene = load(ENEMY_PATH % e_id).instance()
+#	objects_node.add_child(enemy_scene)
+#	enemy_scene.global_position = CENTER_POS
+#	enemy_scene.scale = Vector2(3, 3)
+#	enemy_scene.connect("object_pressed", self, "on_object_area_pressed")
 
 func spawn_wave():
 	# calculate the wave size: (num)

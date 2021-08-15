@@ -21,3 +21,7 @@ func _ready():
 
 func on_give_up_button_pressed():
 	transition.fade_to_main_menu()
+
+func _input(event):
+	if event.is_action_released("ui_give_money"):
+		player_data.add_money(1300)

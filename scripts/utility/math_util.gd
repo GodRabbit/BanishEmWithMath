@@ -20,6 +20,18 @@ static func split(x):
 		result.append(a)
 	return result
 
+# return an array of arrays with 2 elements that represents all 
+#  the ways to subtract to x. The largest subtractee is max_val
+# e.g. for x = 5:
+# [[6, 1], [7,2], [8, 3], [9, 4], [10, 5], [11,6],...[5 + max_val,max_val]]
+static func subtract_split(x, max_val):
+	var result = []
+	for i in range(1, max_val + 1):
+		var a = [x + i, i]
+		result.append(a)
+	return result
+
+# TODO: finish?
 # return an array of arrays with 2 elements that represent all the ways
 # to add to x or subtract to x (including negatives). "max_val" is the largest
 # number that the numbers can be (absolute value)
@@ -29,6 +41,7 @@ static func ultimate_split(x, max_val):
 	for i in range(-max_val, max_val):
 		pass
 
+# TODO: finish?
 # attempts to split value <val> into an array of arrays, each of size <amount>
 # such that their sum is <val>. A generalization of the 'split' function
 static func general_split(val, amount):
@@ -36,6 +49,8 @@ static func general_split(val, amount):
 
 # returns true\false based on if x is prime or not
 static func is_prime(x):
+	if x == 2:
+		return true
 	if x == 1 or x == 0 or x % 2 == 0:
 		return false
 	if x <= 101:
@@ -63,6 +78,7 @@ static func divide(x : int, y: int):
 	result.append(x % y)
 	return result
 
+# puts negative numbers inside parenthesis
 static func display_number(num):
 	if num < 0:
 		return "(%d)" % num

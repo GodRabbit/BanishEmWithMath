@@ -13,12 +13,14 @@ var sites = {
 	"price":0,
 	"name":"Farm"},
 "jungle":
-	{"enemies":["spikey_boi", "boo_da_rang", "grape_moment", "spider"],
+	{"enemies":["spikey_boi", "boo_da_rang", "grape_moment", "spider", "mossy_boo_da_rang",
+	"karen_melon", "jungle_schnoop", "hornet", "cool_banana", "man_go", "jungle_snail"],
 	"backgrounds":["jungle1"],
 	"price":30,
 	"name":"Jungle"},
 "ocean":
-	{"enemies":["cra_babi", "grape_moment", "boo_da_rang"],
+	{"enemies":["cra_babi", "boo_da_rang", "flying_fish",
+	"beach_ball","water_schnoop", "water_snail","karen_melon", "clamp"],
 	"backgrounds":["ocean1", "ocean2"],
 	"price":25,
 	"name":"Ocean"},
@@ -100,10 +102,10 @@ func _ready():
 	# can this be jsoned??
 	_add_enemy(enemy_abstract.new("spider", # id
 	"Spider", # name
-	puzzle_addition.new(), # puzzle
-	30, # time
-	2, # stars
-	1, # damage
+	puzzle_addition.new(100, 500), # puzzle
+	20, # time
+	5, # stars
+	2, # damage
 	{"spider_leg":1, "spider_eye":1})) 
 	
 	_add_enemy(enemy_abstract.new("angry_pear",
@@ -140,19 +142,19 @@ func _ready():
 	
 	_add_enemy(enemy_abstract.new("spikey_boi",
 	"Spikey Boi",
-	puzzle_addition.new(50, 1000),
-	10,
+	puzzle_prime_detection.new(50),
+	30,
 	5,
 	2,
 	{"spike":1}))
 	
 	_add_enemy(enemy_abstract.new("grape_moment",
 	"Grape Moment",
-	puzzle_subtraction.new(),
-	10,
+	puzzle_multi_simple.new(1, 15),
+	50,
 	5,
 	1,
-	{"grape":1}))
+	{"grape":3}))
 	
 	_add_enemy(enemy_abstract.new("cra_babi",
 	"Cra Babi",
@@ -162,7 +164,7 @@ func _ready():
 	1,
 	{"spider_eye":1, "spike":1}))
 	
-	_add_enemy(enemy_abstract.new("beach_ball", #TODO: Create scene
+	_add_enemy(enemy_abstract.new("beach_ball",
 	"Beach Ball", # TODO: change name
 	puzzle_prime_detection.new(20, true),
 	30,
@@ -178,7 +180,15 @@ func _ready():
 	1,
 	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: whats going on..?
 	
-	_add_enemy(enemy_abstract.new("flying_fish", # TODO: create scene
+	_add_enemy(enemy_abstract.new("mossy_boo_da_rang", 
+	"Mossy Boo Da Rang",
+	puzzle_addition_blank.new(0, 40),
+	20,
+	5,
+	1,
+	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: whats going on..?
+	
+	_add_enemy(enemy_abstract.new("flying_fish", #TODO: add sprite
 	"Flying Fish", # TODO: change name
 	puzzle_addition.new(10, 100),
 	30,
@@ -186,7 +196,7 @@ func _ready():
 	2,
 	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: change
 	
-	_add_enemy(enemy_abstract.new("water_schnoop", # TODO: create scene
+	_add_enemy(enemy_abstract.new("water_schnoop",
 	"Water Schnoop",
 	puzzle_subtraction.new(50),
 	30,
@@ -194,7 +204,7 @@ func _ready():
 	1,
 	{"ghost_hair":2}))
 	
-	_add_enemy(enemy_abstract.new("clamp", # TODO: create scene
+	_add_enemy(enemy_abstract.new("clamp", # TODO: add sprite
 	"Clamp", #TODO: change name
 	puzzle_addition_compound.new(10, 50),
 	60,
@@ -202,13 +212,61 @@ func _ready():
 	1,
 	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: change
 	
-	_add_enemy(enemy_abstract.new("water_snail", # TODO: create scene
+	_add_enemy(enemy_abstract.new("water_snail",
 	"Water Snail", #TODO: change name!
-	puzzle_arithmetic_sequence.new(0, 100, -10, -1, true), # change to (0, 20, 0, 10, true)
-	60,
+	puzzle_arithmetic_sequence.new(0, 20, 0, 10, true), 
+	40,
 	6,
 	1,
-	{"spider_eye":1, "spike":1, "apple":1, "egg":1}))
+	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: change
+	
+	_add_enemy(enemy_abstract.new("karen_melon",
+	"Karen Melon", 
+	puzzle_arithmetic_sequence.new(0, 60, -10, 0, true), 
+	60,
+	7,
+	1,
+	{"watermelon":1})) 
+	
+	_add_enemy(enemy_abstract.new("jungle_schnoop", 
+	"Jungle Schnoop", 
+	puzzle_subtraction.new(200), 
+	20,
+	5,
+	2,
+	{"ghost_hair":2}))
+	
+	_add_enemy(enemy_abstract.new("hornet", 
+	"Hornet", # TODO: change name
+	puzzle_addition_compound.new(10, 100),
+	40,
+	7,
+	1,
+	{"spike":2, "egg":1})) 
+	
+	_add_enemy(enemy_abstract.new("cool_banana", 
+	"Cool Banana!", # TODO: change name?
+	puzzle_subtraction_compound.new(5, 50, true), # change to subtraction compound when the bug ends!
+	40,
+	7,
+	1,
+	{"banana":1})) # TODO: change
+	
+	_add_enemy(enemy_abstract.new("man_go", 
+	"Man gO!", # TODO: change name?
+	puzzle_subtraction_blank.new(2, 20),
+	40,
+	7,
+	1,
+	{"mango":1}))
+	
+	_add_enemy(enemy_abstract.new("jungle_snail", 
+	"Jungle Snail", 
+	puzzle_arithmetic_sequence.new(0, 50, 0, 15, true),
+	25,
+	6,
+	2,
+	{"mango":1})) # TODO: change
 	
 	_add_enemy(enemy_abstract.new("jacko",
 	"Jacko",
@@ -258,7 +316,7 @@ func _ready():
 	1,
 	{"star_piece":2}))
 	
-	_add_enemy(enemy_abstract.new("piece_of_cake", # TODO: create scene
+	_add_enemy(enemy_abstract.new("piece_of_cake", 
 	"Piece of Cake",
 	puzzle_prime_detection.new(),
 	20,

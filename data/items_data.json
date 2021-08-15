@@ -68,8 +68,8 @@
     "grape":{
         "id":"grape",
         "name":"Grape",
-        "price":2,
-        "hp":2
+        "price":1,
+        "hp":1
     },
     "strawberry":{
         "id":"strawberry",
@@ -130,5 +130,23 @@
         "name":"Leaf",
         "price":3,
         "hp":-4
+    },
+    "watermelon":{
+        "id":"watermelon",
+        "name":"Watermelon",
+        "price":6,
+        "hp":6
+    },
+    "banana":{
+        "id":"banana",
+        "name":"Banana",
+        "price":4,
+        "hp":3
+    },
+    "mango":{
+        "id":"mango",
+        "name":"Mango",
+        "price":4,
+        "hp":2
     }
 }

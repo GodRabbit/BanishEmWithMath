@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/overworld/combat_test.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/hud.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/overworld/enemies/disturbing_star.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/overworld/enemies/applady.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/overworld/enemies/leafonger.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/overworld/enemies/man_go.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://images/gui/star_yellow.png" type="Texture" id=9]
 [ext_resource path="res://images/backgrounds/farm1.png" type="Texture" id=10]
@@ -19,6 +18,7 @@ font_data = ExtResource( 8 )
 
 [node name="combat_test" type="Node2D"]
 script = ExtResource( 1 )
+enemies = [ "man_go" ]
 
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 536, 283.5 )
@@ -35,50 +35,17 @@ position = Vector2( 416, 344 )
 [node name="disturbing_star3" parent="objects" instance=ExtResource( 3 )]
 position = Vector2( 696, 224 )
 
-[node name="applady" parent="objects" instance=ExtResource( 4 )]
-position = Vector2( 535, 160 )
+[node name="man_go" parent="objects" instance=ExtResource( 4 )]
+position = Vector2( 888, 168 )
 
-[node name="leafonger" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 382.5, 148 )
+[node name="man_go2" parent="objects" instance=ExtResource( 4 )]
+position = Vector2( 808, 343.999 )
 
-[node name="leafonger2" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 600, 376 )
+[node name="man_go3" parent="objects" instance=ExtResource( 4 )]
+position = Vector2( 936, 432 )
 
-[node name="leafonger3" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 912, 232 )
-
-[node name="leafonger4" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 888, 408 )
-
-[node name="leafonger5" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 784, 448 )
-
-[node name="leafonger6" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 652, 480 )
-
-[node name="leafonger7" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 488, 480 )
-
-[node name="leafonger8" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 232, 432 )
-
-[node name="leafonger9" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 280, 241.6 )
-
-[node name="leafonger10" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 136, 248 )
-
-[node name="leafonger11" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 95.9992, 441 )
-
-[node name="leafonger12" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 952, 520 )
-
-[node name="leafonger13" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 336, 480 )
-
-[node name="leafonger14" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 824, 88 )
+[node name="man_go4" parent="objects" instance=ExtResource( 4 )]
+position = Vector2( 788, 472 )
 
 [node name="hud" parent="." instance=ExtResource( 2 )]
 

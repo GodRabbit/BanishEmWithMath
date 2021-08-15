@@ -43,7 +43,8 @@ func generate():
 	# add ALL the splits into the bank.
 	# yes, some false options may add to the same wrong number
 	# its not a problem :] 
-	for i in range(x - 10, x + 10):
+	var m = int(max(x - 10, 0))
+	for i in range(m, x + 10):
 		if i != x:
 			var barr = math_util.split(i)
 			for y in barr:

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=1]
+[ext_resource path="res://images/enemies/beach_ball.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 24.0
+height = 32.0
+
+[node name="beach_ball" type="Area2D"]
+script = ExtResource( 1 )
+enemy_id = "beach_ball"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -1.90735e-06 )
+scale = Vector2( 0.586021, 0.586022 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

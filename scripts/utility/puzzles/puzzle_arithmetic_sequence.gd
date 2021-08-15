@@ -73,3 +73,8 @@ func generate():
 				bank.append(i)
 		
 		_pick_options_from_bank(bank)
+
+func display_problem() -> String:
+	var a0 = data["a0"]
+	var d = data["d"]
+	return "%d, %d, %d, ???" % [a0, a0 + d, a0 + 2*d]

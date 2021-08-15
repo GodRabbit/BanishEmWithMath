@@ -148,6 +148,16 @@ _global_script_classes=[ {
 "class": "puzzle_subtraction",
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_subtraction_simple.gd"
+}, {
+"base": "puzzle_abstract",
+"class": "puzzle_subtraction_blank",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/puzzle_subtraction_blank.gd"
+}, {
+"base": "puzzle_abstract",
+"class": "puzzle_subtraction_compound",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/puzzle_subtraction_compound.gd"
 } ]
 _global_script_class_icons={
 "RichTextButton": "",
@@ -177,7 +187,9 @@ _global_script_class_icons={
 "puzzle_multi_negatives": "",
 "puzzle_multi_simple": "",
 "puzzle_prime_detection": "",
-"puzzle_subtraction": ""
+"puzzle_subtraction": "",
+"puzzle_subtraction_blank": "",
+"puzzle_subtraction_compound": ""
 }
 
 [application]

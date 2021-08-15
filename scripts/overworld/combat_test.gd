@@ -18,6 +18,9 @@ const BACKGROUND_PATH = "res://images/backgrounds/%s.png"
 # the site where the combat occur
 var site = "none"
 
+export var enemies = []
+export var wave_size = 8 # max is 14
+
 # nodes:
 onready var hud = $hud
 onready var objects_node = $objects
@@ -39,6 +42,9 @@ func _ready():
 	for o in objects_node.get_children():
 		if o.is_in_group("object_areas"):
 			o.connect("object_pressed", self, "on_object_area_pressed")
+	
+	if enemies.size() > 0:
+		spawn_wave()
 	
 
 # setup the enemies and scene for the combat to start
@@ -138,3 +144,31 @@ func on_exit_button_pressed():
 	if !player_data.is_dead():
 		player_data.apply_exit_penalty()
 		transition.fade_to_overworld()
+
+# this function summons enemies. it looks weird because its a modified
+#  function from boss battle
+func spawn_wave():
+	# calculate the wave size: (num)
+	randomize()
+	var num = wave_size
+	
+	# a duplicate of enemy positions so you wouldn't be able to choose the same
+	#  spot twice
+	var e_poses = ENEMY_POSITIONS.duplicate()
+	
+	# num = how many enemies to spawn in this wave
+	for i in range(0, num):
+		# choose position (re-use the index var)
+		var index = randi() % e_poses.size()
+		var pos = e_poses[index]
+		e_poses.remove(index) # so you won't get the same pos twice
+		
+		var j = randi() % enemies.size()
+		var e_id = enemies[j]
+		
+		# load & instance the enemy:
+		var enemy_scene = load(ENEMY_PATH % e_id).instance()
+		objects_node.add_child(enemy_scene)
+		enemy_scene.global_position = pos
+		enemy_scene.connect("object_pressed", self, "on_object_area_pressed")
+		enemy_scene.on_spawn()
