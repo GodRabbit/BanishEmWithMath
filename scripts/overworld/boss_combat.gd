@@ -2,10 +2,15 @@ extends Node2D
 
 
 # a unique scenes for the boss combat.
-# each boss combat consists of waves to lower the Boss's HP
-# when the HP reach 0, the actual Boss appear on the screen and the player must 
-# answer the bosse's question - if the player succsseed  - the boss is defeated
-# if not - another question will appear.
+#  each boss combat consists of waves to lower the Boss's HP
+#  the Boss appear in the background -> sending the waves of enemies.
+#  when the HP reach 0, the boss is dead and an animation appears.
+
+# the relationshop between this scene and dynamic background (DB):
+# when you need to spawn enemies, you call DB's "on_spawn_enemies"
+# and yield until DB emit signal "ready_to_spawn" -> then you spawn new enemies.
+#  when the boss's hp is 0, call DB's "on_death" and wait for signal
+# "ready_to_die" and then you proceed normaly.
 
 const ENEMY_POSITIONS = [Vector2(600, 88), Vector2(216, 224), Vector2(760, 400), Vector2(456, 448),
 Vector2(432, 168), Vector2(840, 168), Vector2(952, 432), Vector2(608, 440), Vector2(328, 472),
@@ -14,12 +19,14 @@ Vector2(328, 304)]
 const CENTER_POS = Vector2(540.001, 261)
 
 const ENEMY_PATH = "res://scenes/overworld/enemies/%s.tscn"
+const DB_PATH = "res://scenes/dynamic_backgrounds/%s.tscn"
 
 # nodes:
 onready var hud = $hud
 onready var objects_node = $objects
 onready var boss_hp_bar = $hud/boss_hp_container/boss_hp_bar
 onready var boss_name_label = $hud/boss_hp_container/boss_name_label
+onready var db_container = $db_container
 
 var boss_id = "galactic_cake"
 var boss_max_hp = 50
@@ -49,6 +56,16 @@ func setup_combat(boss_id):
 	boss_max_hp = boss_dic["hp"]
 	set_boss_hp(boss_max_hp)
 	boss_name_label.text = boss_dic["name"]
+	
+	# set dynamic background:
+	var db = load(DB_PATH % boss_dic["background"]).instance()
+	db_container.add_child(db)
+
+func get_dynamic_background():
+	if db_container.get_children().size() > 0:
+		return db_container.get_children()[0]
+	else:
+		return null
 
 # destroy an object from node_objects
 func _destroy_object(o):
@@ -74,7 +91,7 @@ func on_battle_over(c, t):
 	
 	# when the current enemies end if the boss is still alive, create more enemies:
 	# no more enemies? call another wave
-	if objects_node.get_children().size() == 0 && !player_data.is_dead():
+	if objects_node.get_children().size() == 0 && !player_data.is_dead() && !waves_over:
 		spawn_wave()
 
 func on_pause_requested(v):
@@ -87,6 +104,8 @@ func pause_world(val : bool):
 	for o in objects_node.get_children():
 		if o.is_in_group("object_areas"):
 			o.set_pause(val)
+	
+	# TODO: Add boss pause?
 
 func set_boss_hp(val):
 	if val >= boss_max_hp:
@@ -112,7 +131,12 @@ func on_player_stars_changed(v):
 func on_waves_over():
 	waves_over = true
 	
-#	# spawn final boss
+	# deal with boss's death
+	get_dynamic_background().on_death()
+	yield(get_dynamic_background(), "ready_to_die")
+	
+	transition.fade_to_overworld()
+#	# spawn final boss # deprecated!
 #	var e_id = boss_dic["final_enemy"]
 #	var enemy_scene = load(ENEMY_PATH % e_id).instance()
 #	objects_node.add_child(enemy_scene)
@@ -121,6 +145,8 @@ func on_waves_over():
 #	enemy_scene.connect("object_pressed", self, "on_object_area_pressed")
 
 func spawn_wave():
+	get_dynamic_background().on_spawn_enemies()
+	yield(get_dynamic_background(), "ready_to_spawn")
 	# calculate the wave size: (num)
 	var wave_size = boss_dic["wave_size"]
 	randomize()

@@ -63,7 +63,7 @@ var zones = {
 		"sites":{
 			"farm":{},
 			"jungle":{"money":35},
-			"ocean":{"money":20},
+			"ocean":{"money":20, "apple":3, "pear":2},
 			"temple":{"money":75},
 			"fairy_forest":{"money":100},
 			"cemetery":{"money":150},
@@ -80,9 +80,8 @@ var bosses = {
 		"id":"galactic_cake",
 		"name":"Galactic Cake",
 		"hp":150,
-		"background":"space",
+		"background":"background_space",
 		"enemies":{ # a dictionary of enemy id and the weight of the enemy
-			"spider":10,
 			"disturbing_star":90,
 			"doom_cupcake":90,
 			"piece_of_cake":90
@@ -425,7 +424,7 @@ func get_site_name(site_id):
 	return sites[site_id]["name"]
 
 func get_site_price(zone_id, site_id):
-	return zones[zone_id]["sites"][site_id]["money"]
+	return zones[zone_id]["sites"][site_id]
 	#return sites[site_id]["price"]
 
 func get_boss_by_id(boss_id):

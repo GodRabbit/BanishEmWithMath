@@ -14,7 +14,8 @@ onready var item_amount_label = $main_container/item_texture/item_amount_label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_item(item_stack.new("apple_slice", 15))
+	pass
+	# set_item(item_stack.new("apple", 15))
 
 func set_item(_stack):
 	stack = _stack

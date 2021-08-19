@@ -314,10 +314,29 @@ func unlock_site(site_id):
 # attempt to purchase a site as long as the player has enough money
 # otherwise do noting!
 func purchase_site(site_id):
-	var price = enemies_data.get_site_price(get_current_zone(), site_id)
+	# TODO: Add item prices for purchase
+	var price_dic = enemies_data.get_site_price(get_current_zone(), site_id)
+	var price = price_dic["money"]
 	if price <= money:
-		add_money(-price)
-		unlock_site(site_id)
+		# loop through the items in price_dic and check you have enough:
+		var found = false # found an item you dont have enough of?
+		for k in price_dic.keys():
+			if k != "money":
+				# how much of item <k> the player has?
+				var amount = player_inventory.get_total_amount(k)
+				
+				# enough to pay for this site? no -> return and do nothing.
+				if amount < price_dic[k]:
+					found = true
+					return
+		
+		if !found: # the site can be purchased!
+			# purchase:
+			for k in price_dic.keys():
+				if k != "money":
+					player_inventory.remove_item(k, price_dic[k])
+			add_money(-price)
+			unlock_site(site_id)
 	
 
 func check_site(site_id):

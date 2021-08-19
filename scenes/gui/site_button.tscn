@@ -22,7 +22,7 @@ __meta__ = {
 
 [node name="main_container" type="VBoxContainer" parent="."]
 margin_right = 136.0
-margin_bottom = 105.0
+margin_bottom = 108.0
 custom_constants/separation = 3
 
 [node name="TextureRect" type="TextureRect" parent="main_container"]
@@ -57,3 +57,9 @@ margin_left = 113.0
 margin_right = 136.0
 margin_bottom = 63.0
 texture = ExtResource( 3 )
+
+[node name="additional_purchase_container" type="HBoxContainer" parent="main_container"]
+margin_top = 108.0
+margin_right = 136.0
+margin_bottom = 108.0
+custom_constants/separation = 0

@@ -1,15 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/gui/hud.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/overworld/boss_combat.gd" type="Script" id=3]
 [ext_resource path="res://images/gui/hp_bar_full.png" type="Texture" id=4]
 [ext_resource path="res://images/gui/hp_bar_empty.png" type="Texture" id=5]
-[ext_resource path="res://scenes/dynamic_backgrounds/background_space.tscn" type="PackedScene" id=6]
 
 [node name="boss_combat" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="background_space" parent="." instance=ExtResource( 6 )]
+[node name="db_container" type="Node2D" parent="."]
 
 [node name="objects" type="YSort" parent="."]
 

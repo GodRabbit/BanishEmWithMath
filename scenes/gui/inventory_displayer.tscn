@@ -12,42 +12,42 @@ __meta__ = {
 }
 
 [node name="main_container" type="HBoxContainer" parent="."]
-margin_right = 59.0
-margin_bottom = 271.0
+margin_right = 83.0
+margin_bottom = 273.0
 
 [node name="item_container" type="GridContainer" parent="main_container"]
-margin_bottom = 271.0
+margin_bottom = 273.0
 columns = 5
 
 [node name="button_container" type="VBoxContainer" parent="main_container"]
 margin_left = 4.0
-margin_right = 59.0
-margin_bottom = 271.0
+margin_right = 83.0
+margin_bottom = 273.0
 
 [node name="delete_button" type="Button" parent="main_container/button_container"]
-margin_right = 55.0
+margin_right = 79.0
 margin_bottom = 20.0
 text = "Delete"
 
 [node name="sell_button" type="Button" parent="main_container/button_container"]
 margin_top = 24.0
-margin_right = 55.0
+margin_right = 79.0
 margin_bottom = 44.0
 text = "Sell"
 
 [node name="eat_button" type="Button" parent="main_container/button_container"]
 margin_top = 48.0
-margin_right = 55.0
+margin_right = 79.0
 margin_bottom = 68.0
 text = "Eat"
 
 [node name="exit_button" type="Button" parent="main_container/button_container"]
 margin_top = 72.0
-margin_right = 55.0
+margin_right = 79.0
 margin_bottom = 92.0
 text = "Exit"
 
 [node name="item_info_displayer" parent="main_container/button_container" instance=ExtResource( 2 )]
 margin_top = 96.0
-margin_right = 55.0
-margin_bottom = 271.0
+margin_right = 79.0
+margin_bottom = 273.0
