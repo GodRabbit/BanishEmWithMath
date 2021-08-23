@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/overworld/enemies/bosses/boss_galactic_cake.tscn" type="PackedScene" id=6]
 [ext_resource path="res://images/noise/galactic_smoke.png" type="Texture" id=7]
 
-[sub_resource type="Shader" id=5]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 uniform sampler2D noise_texture;
@@ -28,21 +28,20 @@ void fragment(){
 	}
 }"
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/value = 0.218
 shader_param/back_color = null
 shader_param/noise_texture = ExtResource( 7 )
 
-[sub_resource type="Curve" id=1]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.127907, 0.960107 ), 0.0, 0.0, 0, 0, Vector2( 0.534884, 0.996471 ), 0.0, 0.0, 0, 0, Vector2( 0.895349, 0.978289 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0, 0.0738255, 0.892617, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "idle0"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("planet1:position")
 tracks/0/interp = 1
@@ -68,8 +67,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1208, -208 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "move_planets"
+[sub_resource type="Animation" id=6]
 length = 300.0
 loop = true
 tracks/0/type = "value"
@@ -101,7 +99,7 @@ tracks/1/keys = {
 script = ExtResource( 5 )
 
 [node name="back_sprite" type="Sprite" parent="."]
-material = SubResource( 6 )
+material = SubResource( 2 )
 position = Vector2( 520, 296 )
 texture = ExtResource( 3 )
 
@@ -117,8 +115,8 @@ emission_shape = 2
 emission_rect_extents = Vector2( 500, 300 )
 gravity = Vector2( 0, 0 )
 scale_amount_random = 1.0
-scale_amount_curve = SubResource( 1 )
-color_ramp = SubResource( 2 )
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )
 hue_variation = 0.06
 hue_variation_random = 1.0
 
@@ -134,5 +132,5 @@ texture = ExtResource( 1 )
 position = Vector2( 512, 288 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
-anims/idle0 = SubResource( 3 )
-anims/move_planets = SubResource( 4 )
+anims/idle0 = SubResource( 5 )
+anims/move_planets = SubResource( 6 )

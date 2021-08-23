@@ -28,8 +28,8 @@ Jungle (done):  Multiplication < 15(grape, t=50), Primes < 50 (spikey boi, t=30)
  subtraction compound < 100 (banana, t=40), subtraction blank < 30 (mango, t=50), arithmetic sequence, a0 < 50, 0 <= d <= 15(jungle snail, t=25),
  arithmetic sequence, a0 < 60,-10 <= d <= 0 (water melon karen, t=40)
 
-Boss: Galactic Cake: (200 stars)
-Addition Blank < 100 (cupcake, t=30), Addition Compound < 100 (star, t=40), Subtraction Blank < 100 (meteor, t=40), Subtraction Compound < 200 (piece of cake, t=40)
+Boss: Galactic Cake (done) : (200 stars)
+Addition Blank < 100 (cupcake, t=20), Addition Compound < 100 (star, t=40), Subtraction Blank < 100 (meteor, t=40), Subtraction Compound < 200 (piece of cake, t=40)
 
 Snowy Temple:
 Division < 50 (snowperson, t=60), Multiplication < 20 (snow crab, t=70), multiplication compound < 15 (pine tree, t=60), Addition < 500 (snowy spider, t=15), addition compound < 200 (frost queen, t=25)
