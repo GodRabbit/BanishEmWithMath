@@ -36,10 +36,10 @@ Division < 10 (snowperson, t=60), Multiplication < 20 (snowy cra babi, t=30), mu
 addition compound < 200 (cursed queen, t=25), 
 Primes hard < 130 (not a snake, t=40), subtraction compound < 100 (snowy schnoop, t=30), multiplication blank < 10 (owllo, t=35)
 
-Fairy Forest: 
+Fairy Swamp (done): 
 Division < 15 (punguy, t=40), Division (hard) < 100  (grandhamster, t=60) ,  Fractions add\subtract < 5 (goodbi, t=60), , addition (3 args) compound < 100 (fairy schnoop, t=35),
  fraction simplify < 10 (butter fly, t=40)
-primes hard (fast) < 130 (lady, t=30), multiplication blank < 20 (Fairy Owllo, t=30), division blank < 20 (Dark Owllo, t=35), arithmetic sequence a0 < 100, -20<=d<=20 (snail wizard, t=25)
+primes hard (fast) < 130 (fairy, t=30), multiplication blank < 20 (Fairy Owllo, t=30), division blank < 20 (Dark Owllo, t=35), arithmetic sequence a0 < 100, -20<=d<=20 (snail wizard, t=25)
 
 ancient cemetery: (instead of fairy forest?)
 Division blank < 20 (dark owllo, t = 35), division < 15 (dalilah, t =45), division (hard) < 15 (ghost schnoop, t=60), fractions < 5 (Jacko, t=45), Spider, Owllo,

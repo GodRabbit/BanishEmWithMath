@@ -254,6 +254,10 @@ player_data="*res://scenes/globals/player_data.tscn"
 sound_manager="*res://scenes/globals/sound_manager.tscn"
 transition="*res://scenes/globals/transition.tscn"
 
+[display]
+
+window/stretch/mode="2d"
+
 [input]
 
 ui_toggle_inventory={

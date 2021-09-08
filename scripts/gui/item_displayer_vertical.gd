@@ -29,14 +29,16 @@ func update_gui():
 		
 		# check item texture exists.
 		var path = FILE_PATH % item["id"]
-		var file2Check = File.new()
-		var doFileExists = file2Check.file_exists(path)
-		if doFileExists:
-			item_texture.texture = load(path)
-		else:
-			item_texture.texture = load(FILE_PATH % "none")
-	else:
-		item_name_label.text = ""
-		item_texture.texture = load(FILE_PATH % "none")
-		item_amount_label.text = ""
+		item_texture.texture = load(path)
+		
+#		var file2Check = File.new()
+#		var doFileExists = file2Check.file_exists(path)
+#		if doFileExists:
+#			item_texture.texture = load(path)
+#		else:
+#			item_texture.texture = load(FILE_PATH % "none")
+#	else:
+#		item_name_label.text = ""
+#		item_texture.texture = load(FILE_PATH % "none")
+#		item_amount_label.text = ""
 	
