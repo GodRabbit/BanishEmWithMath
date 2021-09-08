@@ -45,7 +45,6 @@ func _ready():
 	
 	if enemies.size() > 0:
 		spawn_wave()
-	
 
 # setup the enemies and scene for the combat to start
 func setup_combat():

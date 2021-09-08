@@ -2,10 +2,15 @@ extends "res://scripts/utility/puzzles/puzzle_abstract.gd"
 
 class_name puzzle_division_simple
 
+var max_val = 12
+
+func _init(_max_val = 12):
+	max_val = _max_val
+
 func generate():
 	randomize()
-	var y = 1 + randi() % 11
-	var s = randi() % 11
+	var y = 1 + randi() % max_val
+	var s = randi() % max_val
 	var x = y * s
 	data = {"x": x, "y": y}
 	solution = s
@@ -31,12 +36,10 @@ func generate():
 	
 	# bank may have too few options, fix it: 
 	if bank.size() < 5:
-		for i in range(-5, 5):
-			_check_and_add(bank, s + i)
-	
-	if bank.size() < 5:
-		for i in range(0, 20):
-			_check_and_add(bank, randi() % 20)
+		var m = int(max(s - 10, 0))
+		for i in range(m, s + 10):
+			if i != s:
+				_check_and_add(bank, i)
 	_pick_options_from_bank(bank)
 
 # returns a string that indicates how the problem will be presented

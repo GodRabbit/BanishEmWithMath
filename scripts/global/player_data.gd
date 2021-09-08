@@ -47,6 +47,7 @@ var pressing_cooldown = false
 
 var current_zone = "zone1" # the curretn zone. The age group thhat governs the sites
 var current_site = "farm" # site id for the next combat
+var current_boss = "galactic_cake" # boss id for the next boss combat
 
 
 # DEPRECATED IN THIS GAME
@@ -306,6 +307,12 @@ func get_current_zone():
 func set_current_zone(z_id):
 	current_zone = z_id
 
+func set_current_boss(boss_id):
+	current_boss = boss_id
+
+func get_current_boss():
+	return current_boss
+
 # unlocks the site. doesn't include the price and reduction of money
 # check "purchase_site"
 func unlock_site(site_id):
@@ -337,10 +344,12 @@ func purchase_site(site_id):
 					player_inventory.remove_item(k, price_dic[k])
 			add_money(-price)
 			unlock_site(site_id)
-	
+
 
 func check_site(site_id):
 	if unlocked_sites.has(site_id):
 		return true
 	else:
 		return false
+
+

@@ -2,6 +2,7 @@ extends puzzle_abstract
 
 class_name puzzle_arithmetic_ultimate
 
+# TODO: finish..? is this even possible?
 # A class for creating a general arithmetic problem, with n numbers
 # and n-1 operations between them. The result is alwyas an integer.
 # Each integer is always between 0 and max_val.

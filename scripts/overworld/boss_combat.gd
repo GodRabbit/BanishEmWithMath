@@ -42,7 +42,7 @@ func _ready():
 	
 	player_data.connect("stars_changed", self, "on_player_stars_changed")
 	
-	setup_combat("galactic_cake")
+	setup_combat()
 	spawn_wave()
 
 func update_gui():
@@ -50,7 +50,8 @@ func update_gui():
 
 # call this function when combat starts
 #  to setup all the varaiables needed
-func setup_combat(boss_id):
+func setup_combat():
+	var boss_id = player_data.get_current_boss()
 	waves_over = false
 	boss_dic = enemies_data.get_boss_by_id(boss_id)
 	boss_max_hp = boss_dic["hp"]

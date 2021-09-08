@@ -31,21 +31,99 @@ static func subtract_split(x, max_val):
 		result.append(a)
 	return result
 
-# TODO: finish?
-# return an array of arrays with 2 elements that represent all the ways
-# to add to x or subtract to x (including negatives). "max_val" is the largest
-# number that the numbers can be (absolute value)
-# no duplicates are returned.
-static func ultimate_split(x, max_val):
+# splits <x> into an array of size <num>.
+#  returns an array whose elements' sum is x. elements are positive
+#  running time: O(num)
+# pick random numbers and sum them.
+# then multply each by (x/sum)
+# such that the new sum will be x.
+# since there will be residue -> the difference will be divided
+# randomly by the slots in the resulted array
+static func split_into(x, num):
 	var result = []
-	for i in range(-max_val, max_val):
-		pass
+	randomize()
+	
+	# generate random elements and sum them
+	var sum = 0
+	for i in range(0, num):
+		var n = randi()
+		result.append(n)
+		sum += n
+	
+	# multiply each element by x/sum and sum them again:
+	var n_sum = 0 # new sum
+	for i in range(0, num):
+		result[i] = int((x/sum)*result[i])
+		n_sum += result[i]
+	
+	# split the difference randomly between the array slots
+	if n_sum < x:
+		var diff = x - n_sum
+		for i in range(0, diff):
+			var index = randi() % result.size()
+			result[index] = result[index] + 1
+	
+	return result
 
-# TODO: finish?
-# attempts to split value <val> into an array of arrays, each of size <amount>
-# such that their sum is <val>. A generalization of the 'split' function
-static func general_split(val, amount):
-	pass
+# randomly choose a random element of the array arr.
+static func _choose_random_element(arr : Array):
+	randomize()
+	var index = randi() % arr.size()
+	return arr[index]
+
+# splits <x> into an array of size <num> which includes
+#  both positive and negative numbers. X> 1
+#  (1) Split this number into subtraction or addition?
+#  (2) this creates 2 array slots. choose 1 of them randomly
+#  (3) repeat 1. until you have an array of size num
+static func ultimate_split_into(x, num):
+	var result = []
+	randomize()
+	var n = randi() % 2
+	if n == 0:
+		result = _choose_random_element(split(x))
+	else:
+		result = _choose_random_element(subtract_split(x, x))
+		result[1] = -result[1]
+	while result.size() < num:
+		# pick a random array index:
+		var index = randi() % result.size()
+		
+		n = randi() % 2
+		if n == 0: # split into addition:
+			var y = result[index]
+			if y == 1:
+				var arr = [1, 0]
+				result[index] = arr[0]
+				result.insert(index + 1, arr[1])
+			elif y == -1:
+				var arr = [0, -1]
+				result[index] = arr[0]
+				result.insert(index + 1, arr[1])
+			elif y == 0:
+				var arr = [0, 0]
+				result[index] = arr[0]
+				result.insert(index + 1, arr[1])
+			elif y > 0:
+				var arr = _choose_random_element(split(y))
+				result[index] = arr[0]
+				result.insert(index + 1, arr[1])
+			elif y < 0:
+				var arr = _choose_random_element(split(-y))
+				# both elements are now positive, but need to be negative in the array
+				result[index] = -arr[0]
+				result.insert(index + 1, -arr[1])
+		else: # split into subtraction
+			var y = result[index]
+			if y >= 0:
+				var arr = _choose_random_element(subtract_split(y, y))
+				result[index] = arr[0]
+				result.insert(index + 1, -arr[1])
+			elif y < 0:
+				var arr = _choose_random_element(subtract_split(-y, -y))
+				result[index] = -arr[0]
+				result.insert(index + 1, +arr[1])
+	return result
 
 # returns true\false based on if x is prime or not
 static func is_prime(x):
@@ -117,6 +195,12 @@ static func get_random_key(d : Dictionary):
 			return k
 	
 	return d.keys()[d.keys().size() - 1]
+
+static func gcd(a, b):
+	if b == 0:
+		return int(max(a, -a))
+	else:
+		return gcd(b, a % b)
 
 class base_transform:
 	# a class for changing bases

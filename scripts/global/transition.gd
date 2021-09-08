@@ -31,6 +31,11 @@ func fade_to_main_menu():
 	path = "res://scenes/gui/main_menu.tscn"
 	$anim.play("fade_to")
 
+func fade_to_boss_fight(boss_id):
+	path = "res://scenes/overworld/boss_combat.tscn"
+	player_data.set_current_boss(boss_id)
+	$anim.play("fade_to")
+
 # private function called from within the animation
 func _change_scene():
 	if(path != ""):

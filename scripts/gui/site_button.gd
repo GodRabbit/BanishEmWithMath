@@ -36,7 +36,8 @@ func update_gui():
 	else:
 		# not unlocked yet, so you can't use the main button to go to the site
 		main_button.disabled = true
-		
+		purchase_container.show()
+		addition_purchase_container.show()
 		
 		var site_price = enemies_data.get_site_price(player_data.get_current_zone(), site_id)
 		# sets the purchase money button text:

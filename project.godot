@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Fraction",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/fraction.gd"
+}, {
 "base": "Button",
 "class": "RichTextButton",
 "language": "GDScript",
@@ -105,6 +110,16 @@ _global_script_classes=[ {
 "path": "res://scripts/utility/puzzles/puzzle_addition_ultimate.gd"
 }, {
 "base": "puzzle_abstract",
+"class": "puzzle_addition_ultimate_easy",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/puzzle_addition_ultimate_easy.gd"
+}, {
+"base": "puzzle_abstract",
+"class": "puzzle_arithmetic_order",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/puzzle_arithmetic_order.gd"
+}, {
+"base": "puzzle_abstract",
 "class": "puzzle_arithmetic_sequence",
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_arithmetic_sequence.gd"
@@ -119,6 +134,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_division.gd"
 }, {
+"base": "puzzle_abstract",
+"class": "puzzle_division_blank",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/puzzle_division_blank.gd"
+}, {
 "base": "Node",
 "class": "puzzle_division_simple",
 "language": "GDScript",
@@ -128,6 +148,21 @@ _global_script_classes=[ {
 "class": "puzzle_even_odd",
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_even_odd.gd"
+}, {
+"base": "puzzle_abstract",
+"class": "puzzle_fractions_addition",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/puzzle_fractions_addition.gd"
+}, {
+"base": "puzzle_abstract",
+"class": "puzzle_fractions_simplify",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/puzzle_fractions_simplify.gd"
+}, {
+"base": "puzzle_abstract",
+"class": "puzzle_multi_blank",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/puzzle_multi_blank.gd"
 }, {
 "base": "puzzle_abstract",
 "class": "puzzle_multi_compound",
@@ -165,6 +200,7 @@ _global_script_classes=[ {
 "path": "res://scripts/utility/puzzles/puzzle_subtraction_compound.gd"
 } ]
 _global_script_class_icons={
+"Fraction": "",
 "RichTextButton": "",
 "RichTextSubscript": "",
 "RichTextSuperscript": "",
@@ -184,11 +220,17 @@ _global_script_class_icons={
 "puzzle_addition_compound": "",
 "puzzle_addition_negatives": "",
 "puzzle_addition_ultimate": "",
+"puzzle_addition_ultimate_easy": "",
+"puzzle_arithmetic_order": "",
 "puzzle_arithmetic_sequence": "",
 "puzzle_arithmetic_ultimate": "",
 "puzzle_division": "",
+"puzzle_division_blank": "",
 "puzzle_division_simple": "",
 "puzzle_even_odd": "",
+"puzzle_fractions_addition": "",
+"puzzle_fractions_simplify": "",
+"puzzle_multi_blank": "",
 "puzzle_multi_compound": "",
 "puzzle_multi_negatives": "",
 "puzzle_multi_simple": "",

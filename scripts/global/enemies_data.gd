@@ -34,12 +34,21 @@ var sites = {
 	"backgrounds":["white_board"],
 	"price":75,
 	"name":"The White Board"},
-"fairy_forest":
+"fairy_swamp":
 	{
-	"enemies":["plusumad", "demultiply", "diversary"],
-	"backgrounds":["unknown"],
+	"enemies":["punguy", "grandhamster", "goodbi", "fairy_schnoop", "butter_fly",
+	"fairy", "fairy_owllo", "dark_owllo", "snail_wizard"],
+	"backgrounds":["fairy_swamp"],
 	"price":75,
-	"name":"Fairy Forest"
+	"name":"Fairy Swamp"
+	},
+"snowy_mountain":
+	{
+	"enemies":["snowperson", "snowy_cra_babi", "pain_tree", "snowy_spider", "cursed_queen",
+	"not_a_snake", "snowy_schnoop", "owllo"],
+	"backgrounds":["snowy_mountain"],
+	"price":75,
+	"name":"Snowy Forest"
 	}
 }
 
@@ -62,12 +71,10 @@ var zones = {
 		"ages":[8, 12],
 		"sites":{
 			"farm":{},
-			"jungle":{"money":35},
 			"ocean":{"money":20, "apple":3, "pear":2},
-			"temple":{"money":75},
-			"fairy_forest":{"money":100},
-			"cemetery":{"money":150},
-			"the_white_board":{"money":150}
+			"jungle":{"money":35},
+			"snowy_mountain":{"money":100},
+			"fairy_swamp":{"money":125}
 		},
 		"bosses":{
 			"galactic_cake":{"stars":100}
@@ -184,7 +191,7 @@ func _ready():
 	1,
 	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: whats going on..?
 	
-	_add_enemy(enemy_abstract.new("flying_fish", #TODO: add sprite
+	_add_enemy(enemy_abstract.new("flying_fish", 
 	"Flying Fish", # TODO: change name
 	puzzle_addition.new(10, 100),
 	30,
@@ -200,8 +207,8 @@ func _ready():
 	1,
 	{"ghost_hair":2}))
 	
-	_add_enemy(enemy_abstract.new("clamp", # TODO: add sprite
-	"Clamp", #TODO: change name
+	_add_enemy(enemy_abstract.new("clamp", 
+	"Clamp", #TODO: change name?
 	puzzle_addition_compound.new(10, 50),
 	60,
 	6,
@@ -242,7 +249,7 @@ func _ready():
 	
 	_add_enemy(enemy_abstract.new("cool_banana", 
 	"Cool Banana!", # TODO: change name?
-	puzzle_subtraction_compound.new(5, 50, true), # change to subtraction compound when the bug ends!
+	puzzle_subtraction_compound.new(5, 50, true), 
 	40,
 	7,
 	1,
@@ -359,6 +366,145 @@ func _ready():
 	3,
 	1,
 	{"ghost_hair":1}))
+	
+	# snow enemies:
+	
+	_add_enemy(enemy_abstract.new("snowperson", 
+	"SnowPerson",
+	puzzle_division_simple.new(11),
+	60,
+	4,
+	1,
+	{"snowball":1})) # TODO: change to snowball
+	
+	_add_enemy(enemy_abstract.new("snowy_cra_babi", 
+	"Snowy Cra Babi",
+	puzzle_multi_simple.new(5, 15),
+	30,
+	5,
+	1,
+	{"ghost_hair":1})) # TODO: change
+	
+	_add_enemy(enemy_abstract.new("pain_tree", 
+	"Pain Tree",
+	puzzle_multi_compound.new(2, 10),
+	40,
+	6,
+	1,
+	{"leaf":3})) # TODO: change
+	
+	_add_enemy(enemy_abstract.new("snowy_spider", 
+	"Snowy Spider",
+	puzzle_addition.new(50, 500),
+	15,
+	5,
+	3,
+	{"spider_leg":2, "spider_eye":2})) 
+	
+	_add_enemy(enemy_abstract.new("cursed_queen", 
+	"Cursed Queen",
+	puzzle_addition_compound.new(10, 200),
+	30,
+	6,
+	2,
+	{"ghost_hair":4}))
+	
+	_add_enemy(enemy_abstract.new("not_a_snake", 
+	"Not a Snake",
+	puzzle_prime_detection.new(130, false),
+	45,
+	6,
+	2,
+	{"ghost_hair":2, "snowball":1}))
+	
+	_add_enemy(enemy_abstract.new("snowy_schnoop",
+	"Snowy Schnoop",
+	puzzle_subtraction_compound.new(15, 150, true),
+	40,
+	8,
+	2,
+	{"ghost_hair":3, "snowball":2}))
+	
+	_add_enemy(enemy_abstract.new("owllo", 
+	"Owllo",
+	puzzle_multi_blank.new(1, 15),
+	40,
+	6,
+	2,
+	{"ghost_hair":3, "snowball":2})) # TODO: change to feather?
+	
+	# fairy swamp enemies:
+	_add_enemy(enemy_abstract.new("goodbi", 
+	"GoodBi", # TODO: change?
+	puzzle_fractions_addition.new(5),
+	40,
+	10,
+	1,
+	{"ghost_hair":3, "snowball":2})) # TODO: change
+	
+	_add_enemy(enemy_abstract.new("punguy", 
+	"Punguy", 
+	puzzle_division_simple.new(10),
+	40,
+	7,
+	1,
+	{"ghost_hair":3, "snowball":2})) # TODO: change to mushr0om
+	
+	_add_enemy(enemy_abstract.new("grandhamster", # TODO: create scene
+	"GrandHamster", 
+	puzzle_division.new(11, 11),
+	45,
+	8,
+	1,
+	{"ghost_hair":3, "snowball":2})) # TODO: change
+	
+	_add_enemy(enemy_abstract.new("fairy_schnoop", 
+	"Fairy Schnoop", 
+	puzzle_addition_ultimate_easy.new(3, 95, true),
+	50,
+	8,
+	2,
+	{"ghost_hair":3, "snowball":2})) # TODO: change
+	
+	_add_enemy(enemy_abstract.new("butter_fly", 
+	"Butter Fly", 
+	puzzle_fractions_simplify.new(10, 10),
+	25,
+	8,
+	2,
+	{"ghost_hair":3, "snowball":2})) # TODO: change
+	
+	_add_enemy(enemy_abstract.new("fairy", 
+	"Fairy", 
+	puzzle_prime_detection.new(130, false),
+	25,
+	10,
+	2,
+	{"ghost_hair":3, "snowball":2})) # TODO: change
+	
+	_add_enemy(enemy_abstract.new("fairy_owllo", 
+	"Fairy Owllo", 
+	puzzle_multi_blank.new(3, 20),
+	25,
+	7,
+	2,
+	{"ghost_hair":3, "snowball":2}))  # TODO: change
+	
+	_add_enemy(enemy_abstract.new("dark_owllo", 
+	"Dark Owllo", 
+	puzzle_division_blank.new(1, 10),
+	30,
+	8,
+	2,
+	{"ghost_hair":3, "snowball":2}))  # TODO: change
+	
+	_add_enemy(enemy_abstract.new("snail_wizard", 
+	"Snail Wizard", 
+	puzzle_arithmetic_sequence.new(10, 70, -20, 20, true),
+	30,
+	8,
+	3,
+	{"ghost_hair":3, "snowball":2})) # TODO: change
 
 
 
@@ -431,6 +577,9 @@ func get_site_name(site_id):
 func get_site_price(zone_id, site_id):
 	return zones[zone_id]["sites"][site_id]
 	#return sites[site_id]["price"]
+
+func get_boss_star_price(zone_id, boss_id):
+	return zones[zone_id]["bosses"][boss_id]
 
 func get_boss_by_id(boss_id):
 	return bosses[boss_id]

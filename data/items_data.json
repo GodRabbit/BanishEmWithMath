@@ -148,5 +148,11 @@
         "name":"Mango",
         "price":4,
         "hp":2
+    },
+    "snowball":{
+        "id":"snowball",
+        "name":"Snowball",
+        "price":4,
+        "hp":1
     }
 }

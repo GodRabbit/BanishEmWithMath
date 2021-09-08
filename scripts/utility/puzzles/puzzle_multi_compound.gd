@@ -9,15 +9,19 @@ class_name puzzle_multi_compound
 # problem: 4 X 5 = ???
 # Solutions: 4 + 15, 13 + 12, 14 + 6, and so on..
 
-var max_val = 12
+const REAL_MIN_VAL = 2
 
-func _init(val = 12):
+var max_val = 12
+var min_val = 2 # please don't choose nothing smaller
+
+func _init(_min_val = 2, _max_val = 12):
 	max_val = 12
+	min_val = int(max(_min_val, REAL_MIN_VAL))
 
 func generate():
 	randomize()
-	var x = 1 + randi() % max_val
-	var y = 1 + randi() % max_val
+	var x = min_val + randi() % (max_val - min_val +1)
+	var y = 1 + randi() % (max_val - min_val + 1)
 	data = {"x": x, "y": y}
 	
 	# if both x and y are 1, the split function cannot work
@@ -25,7 +29,7 @@ func generate():
 		x = max_val
 		y = max_val
 	
-	# proto-soluti  on:
+	# proto-solution:
 	var s = x*y
 	
 	# that actual solution is an array of 2 numbers, who's sum is s
