@@ -71,7 +71,7 @@ var zones = {
 		"ages":[8, 12],
 		"sites":{
 			"farm":{},
-			"ocean":{"money":20, "apple":3, "pear":2},
+			"ocean":{"money":20},  #, "apple":3, "pear":2},
 			"jungle":{"money":35},
 			"snowy_mountain":{"money":100},
 			"fairy_swamp":{"money":125}

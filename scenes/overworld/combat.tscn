@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/overworld/combat.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/hud.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://images/gui/star_yellow.png" type="Texture" id=9]
 [ext_resource path="res://images/backgrounds/farm1.png" type="Texture" id=10]
+[ext_resource path="res://scenes/sfx/explosive_star_particles.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 54
@@ -94,3 +95,7 @@ margin_left = 220.0
 margin_right = 284.0
 margin_bottom = 61.0
 texture = ExtResource( 9 )
+
+[node name="particles" type="Node2D" parent="."]
+
+[node name="explosive_star_particles" parent="particles" instance=ExtResource( 11 )]

@@ -1,7 +1,5 @@
 extends Area2D
 
-class_name object_area
-
 # similar to crafting area, just for distructable objects.
 # when the player clicks on the area, the object will emit a signal and then
 # be destroyed.
@@ -12,6 +10,7 @@ export var enemy_id = "none"
 # a signal to be emitted when the player presses the object
 # r is a recipe_id associated with this object.
 signal object_pressed(r)
+signal death_animation_over
 
 # a boolean; is the object fired or not yet? Fired objects are objects the 
 # player pressed on them and are waiting deletion
@@ -51,6 +50,26 @@ func set_pause(val):
 func on_spawn():
 	print("on spawn test")
 
-# abstract methodto be overided by the enemy
+# play death animation and set the object for firing.
+# this method can be overided by the enemy
 func on_death():
-	pass
+	if fired:
+		# create a portal behind this enemy 
+		var portal = load("res://scenes/sfx/portal_effect.tscn").instance()
+		add_child(portal)
+		portal.show_behind_parent = true
+		yield(portal, "portal_opened")
+		# tween scale to 0
+		var tween = Tween.new()
+		self.add_child(tween) # this have to be added for the twin to work!
+		tween.interpolate_property(self, "scale", Vector2(1.0, 1.0), Vector2(0, 0), 1, 
+		Tween.TRANS_CUBIC)
+		tween.set_active(true)
+		tween.start()
+		var star_particles = load("res://scenes/sfx/explosive_star_particles.tscn").instance()
+		add_child(star_particles)
+		star_particles.restart()
+		yield(tween, "tween_all_completed")
+
+
+		emit_signal("death_animation_over")

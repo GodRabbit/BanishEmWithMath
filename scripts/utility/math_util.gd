@@ -14,6 +14,12 @@ const PRIMES = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,
 # [[1, 4], [2, 3]] 
 # notice how there are no duplicates like [1, 4] & [4, 1].
 static func split(x):
+	# special cases, 1, 0:
+	if x == 0:
+		return [[0, 0]]
+	elif x == 1:
+		return [[1, 0]]
+	# else:
 	var result = []
 	for i in range(1, int(x/2) + 1):
 		var a = [i, x - i]

@@ -120,6 +120,7 @@ margin_right = 895.0
 margin_bottom = 385.0
 
 [node name="explosive_star_particles" parent="." instance=ExtResource( 10 )]
+visible = false
 material = SubResource( 3 )
 position = Vector2( 560, 320 )
 

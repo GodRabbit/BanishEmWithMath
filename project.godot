@@ -74,11 +74,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/utility/math_util.gd"
 }, {
-"base": "Area2D",
-"class": "object_area",
-"language": "GDScript",
-"path": "res://scripts/overworld/object_area.gd"
-}, {
 "base": "Node",
 "class": "puzzle_abstract",
 "language": "GDScript",
@@ -213,7 +208,6 @@ _global_script_class_icons={
 "inventory": "",
 "item_stack": "",
 "math_util": "",
-"object_area": "",
 "puzzle_abstract": "",
 "puzzle_addition": "",
 "puzzle_addition_blank": "",

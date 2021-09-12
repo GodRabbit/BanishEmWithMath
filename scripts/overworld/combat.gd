@@ -24,6 +24,7 @@ onready var objects_node = $objects
 onready var exit_button = $exit_container/exit_button
 onready var exit_penalty_label = $exit_container/number_label
 onready var background_sprite = $background
+onready var explosive_star_particles = $particles/explosive_star_particles
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -105,8 +106,16 @@ func pause_world(val : bool):
 
 # destroy an object from node_objects
 func _destroy_object(o):
+	o.on_death()
+	yield(o, "death_animation_over")
+	deploy_stars_particles(o.global_position)
 	objects_node.remove_child(o)
 	o.queue_free()
+	
+	# check if there are no more enemies, to return to the overworld:
+	# if the player is dead you cant move to the next scene
+	if objects_node.get_children().size() == 0 && !player_data.is_dead():
+		on_area_cleared()
 
 # destroy objects that are object_areas, that are listed for destruction
 func _remove_fired_objects():
@@ -118,13 +127,14 @@ func _remove_fired_objects():
 
 # signal from hud
 func on_battle_over(c, t):
-	# remove objects that are marked for deletion
-	_remove_fired_objects()
-	
-	# check if there are no more enemies, to return to the overworld:
-	# if the player is dead you cant move to the next scene
-	if objects_node.get_children().size() == 0 && !player_data.is_dead():
-		transition.fade_to_overworld()
+	if c:
+		# remove dead enemies:
+		_remove_fired_objects()
+	if !c:
+		# if the question is incorrect set all the objects as unfired
+		for o in objects_node.get_children():
+			if o.is_in_group("object_areas"):
+				o.fired = false
 
 # signal from hud
 # v is boolean. true = pause; false = unpause
@@ -143,4 +153,12 @@ func on_exit_button_pressed():
 	if !player_data.is_dead():
 		player_data.apply_exit_penalty()
 		transition.fade_to_overworld()
-	
+
+# called when all the enemies are dead
+func on_area_cleared():
+	# TODO: add more animations screens and other fun stuff
+	transition.fade_to_overworld()
+
+func deploy_stars_particles(pos):
+	explosive_star_particles.global_position = pos
+	explosive_star_particles.restart()
