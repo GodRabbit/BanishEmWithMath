@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/gui/hud.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/sfx/explosive_star_particles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/overworld/boss_combat.gd" type="Script" id=3]
 [ext_resource path="res://images/gui/hp_bar_full.png" type="Texture" id=4]
 [ext_resource path="res://images/gui/hp_bar_empty.png" type="Texture" id=5]
+
+[sub_resource type="CanvasItemMaterial" id=1]
 
 [node name="boss_combat" type="Node2D"]
 script = ExtResource( 3 )
@@ -41,3 +44,8 @@ __meta__ = {
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 540.001, 261 )
+
+[node name="particles" type="Node2D" parent="."]
+
+[node name="explosive_star_particles" parent="particles" instance=ExtResource( 2 )]
+material = SubResource( 1 )

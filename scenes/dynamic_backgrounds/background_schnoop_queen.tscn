@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/overworld/enemies/bosses/boss_schnoop_queen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://images/backgrounds/schnoop_land.png" type="Texture" id=2]
+[ext_resource path="res://scripts/dynamic_backgrounds/background_schnoop_queen.gd" type="Script" id=3]
+
+[node name="background_schnoop_queen" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 496, 284 )
+texture = ExtResource( 2 )
+
+[node name="boss_schnoop_queen" parent="." instance=ExtResource( 1 )]
+position = Vector2( 492, 280 )

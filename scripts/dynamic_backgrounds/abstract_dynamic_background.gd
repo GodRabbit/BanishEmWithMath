@@ -13,7 +13,7 @@ signal ready_to_spawn
 # this tells the boss_combat that you can move to the next scene.
 signal ready_to_die
 
-# DERPRECATED!
+# DERPRECATED?
 # a signal the boss emits when the spawning animation is over and the waves can begin.
 signal ready_to_begin
 
@@ -26,6 +26,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
+# DEPRECATED?
 # the background is idle. nothing unique happens; what plays between 
 # unique animations.
 func idle():
@@ -33,11 +34,18 @@ func idle():
 
 # the background is doing an animation before spawning enemies.
 # at the end of the function call ready_to_spawn
+#  #NOTE: allways do an animation before calling the super method
+#    Why? i don't know. I guess you need to wait?!
 func on_spawn_enemies():
 	emit_signal("ready_to_spawn")
 
 func on_death():
 	emit_signal("ready_to_die")
 
+# deprecated?
 func on_enter():
 	emit_signal("ready_to_spawn")
+
+# called when the boss hp changed to "hp". hp is a number between 0.0 and 100.0
+func on_boss_health_changed(hp):
+	pass

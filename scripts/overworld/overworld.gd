@@ -21,6 +21,7 @@ func on_give_up_button_pressed():
 func _input(event):
 	if event.is_action_released("ui_give_money"):
 		player_data.add_money(1300)
+		player_data.add_stars(1000)
 
 func _empty_site_container():
 	for c in site_container.get_children():

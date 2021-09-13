@@ -52,18 +52,20 @@ multiplication < 5, Primes < 20, addition blank < 20, addition < 100, subtractio
 addition < 200
 Addition < 10, Addition < 50, Even & Odd, Subtraction < 20, addition compound < 20, subtraction < 50
 
-Boss: The Pillow King (the background is a huge bed, its minions are small pillow warriors and mages): (600 stars)
-Division + reminder, Division hard < 200, Division blank, multiplication blank, Addition blank compound, subtraction blank compound,
-Fractions < 10
+Boss: The Sleeping Count  (): (350 stars)
+Division + reminder, Division hard < 10 (sleepy bear, t=40), Division blank <10 (nightmare,  t=40), multiplication blank <15 (daydream, t=45),
+arith. order < 5 (rare, mr_pillowman, t = 20), Clock addition ??
+
+Boss: The Fiery pit
 
 Boss: The Fairy Prince
 
-Boss: Queen of Schnoops (final boss): (set the weights such that there is a 50% to get any regular schnoop)
+Boss: Queen of Schnoops (final boss done): (set the weights such that there is a 50% to get any regular schnoop)
 regular schnoops: (50% for 1 of them)
 subtraction < 50 (schnoop, t=60), subtraction < 50(water schnoop, t=30), subtraction < 100 (holy schnoop, t=30),
 subtraction < 200 (jungle schnoop, t=30), subtraction compound < 150 (snowy schnoop, t=30), addition (3 args) compound < 100 (fairy schnoop, t=35)
 stronger enemies:
-multiplication + addition (blank) <20 (elite schnoop, t=35),  arithmetic order < 10 (Mage Schnoop, t=35)
+arithmetic order < 10 (count schnoop, t=35),  arithmetic order < 10 (Mage Schnoop, t=35)
 
 The White Board (hidden, 100 gems):
 negaives addition\subtraction <100, negatives multiplication < 10, addition negatives (3-5 args) < 20 (slow), addition + multiplication negatives < 10

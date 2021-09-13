@@ -1,0 +1,6 @@
+List of known bugs:
+(*) Some enemies have weird drops.
+(*) Sleeping Count is too close to the stage'ss end on the last walk
+(*) When the player ha max amount of stars, bosses can't lose hp (change signal to "stars_added" and emit only when stars are added??)
+(*) Some items have missing textures
+(*)* Enemies won't spawn unless the "on_spawn_enemies()" in dynamic background wait for animations to end. This is highly bizzare.

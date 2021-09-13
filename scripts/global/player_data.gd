@@ -163,13 +163,14 @@ func get_current_stars():
 	return current_stars
 
 func set_stars(v):
+	var tmp = current_stars
 	if v >= MAX_STARS:
 		current_stars = v
 	elif v <= 0:
 		current_stars = 0
 	else:
 		current_stars = v
-	emit_signal("stars_changed", v)
+	emit_signal("stars_changed", current_stars - tmp) # the signal is for the change in stars
 
 func add_stars(v):
 	set_stars(get_current_stars() + v)

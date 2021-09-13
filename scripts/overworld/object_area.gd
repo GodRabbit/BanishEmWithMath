@@ -1,5 +1,6 @@
 extends Area2D
 
+class_name object_area
 # similar to crafting area, just for distructable objects.
 # when the player clicks on the area, the object will emit a signal and then
 # be destroyed.
@@ -27,7 +28,7 @@ func _ready():
 # NOTE: all mouse clicks will trigger this. not just the left!
 # fix this sometime. maybe.
 func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton && event.is_pressed():
+	if event is InputEventMouseButton && event.is_pressed() && !fired:
 		# check if the player can intercat with enemies or on cooldown:
 		# this mechanic is to prevent 2 enemies be pressed at the same time
 		if player_data.can_interact_with_enemies() and !paused:

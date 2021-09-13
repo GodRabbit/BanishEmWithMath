@@ -17,7 +17,10 @@ onready var price_label = $main_container/stars_container/price_label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player_data.connect("stars_changed", self, "on_player_stars_changed")
 	main_button.connect("pressed", self, "on_main_button_pressed")
+	set_boss_id(boss_id)
+	update_gui()
 
 func set_boss_id(id):
 	boss_id = id
@@ -29,10 +32,14 @@ func update_gui():
 	main_button.text = boss_dic["name"]
 	price_label.text = str(stars_price)
 	
-	if player_data.get_stars >= stars_price:
+	if player_data.get_current_stars() >= stars_price:
 		main_button.disabled = false
 	else:
 		main_button.disabled = true
 
 func on_main_button_pressed():
 	transition.fade_to_boss_fight(boss_id)
+
+func on_player_stars_changed(v):
+	print("player stars changed")
+	update_gui()

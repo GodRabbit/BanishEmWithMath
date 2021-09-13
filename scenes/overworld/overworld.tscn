@@ -69,13 +69,38 @@ __meta__ = {
 
 [node name="boss_button_container" type="GridContainer" parent="boss_scroll_container"]
 margin_right = 153.0
-margin_bottom = 117.0
+margin_bottom = 359.0
 
 [node name="boss_button" parent="boss_scroll_container/boss_button_container" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 153.0
 margin_bottom = 117.0
+
+[node name="boss_button3" parent="boss_scroll_container/boss_button_container" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 121.0
+margin_right = 153.0
+margin_bottom = 238.0
+boss_id = "sleeping_count"
+
+[node name="boss_button2" parent="boss_scroll_container/boss_button_container" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 242.0
+margin_right = 153.0
+margin_bottom = 359.0
+boss_id = "schnoop_queen"
+
+[node name="boss_button4" parent="boss_scroll_container/boss_button_container" instance=ExtResource( 6 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 363.0
+margin_right = 153.0
+margin_bottom = 480.0
+boss_id = "debug_test"
 
 [node name="give_up_button" type="Button" parent="."]
 margin_left = 704.0

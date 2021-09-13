@@ -77,7 +77,10 @@ var zones = {
 			"fairy_swamp":{"money":125}
 		},
 		"bosses":{
-			"galactic_cake":{"stars":100}
+			"galactic_cake":{"stars":50},
+			"sleeping_count":{"stars":150},
+			"schnoop_queen":{"stars":300},
+			"debug_test":{"stars":0}
 		}
 	}
 }
@@ -86,7 +89,7 @@ var bosses = {
 	"galactic_cake":{
 		"id":"galactic_cake",
 		"name":"Galactic Cake",
-		"hp":150,
+		"hp":75,
 		"background":"background_space",
 		"enemies":{ # a dictionary of enemy id and the weight of the enemy
 			"disturbing_star":90,
@@ -94,8 +97,47 @@ var bosses = {
 			"piece_of_cake":90,
 			"chocolate_meteor":70
 		},
-		"wave_size":[2, 4],
-		"final_enemy":"plusumad" # deprecate??
+		"wave_size":[2, 4]
+	},
+	"sleeping_count":{
+		"id":"sleeping_count",
+		"name":"Sleeping Count",
+		"hp":30,
+		"background":"background_the_stage",
+		"enemies":{ # a dictionary of enemy id and the weight of the enemy
+			"sleepy_bear":10,
+			"nightmare":10,
+			"daydream":10,
+			"mr_pillowman":2
+		},
+		"wave_size":[2, 4]
+	},
+	"schnoop_queen":{
+		"id":"schnoop_queen",
+		"name":"Schnoop Queen",
+		"hp":75,  # change into 150 later
+		"background":"background_schnoop_queen",
+		"enemies":{ # a dictionary of enemy id and the weight of the enemy
+			"schnoop":5,
+			"fairy_schnoop":5,
+			"snowy_schnoop":5,
+			"water_schnoop":5,
+			"jungle_schnoop":5
+		},
+		"wave_size":[3, 5]
+	},
+	"debug_test":{
+		"id":"debug_test",
+		"name":"Galactic Cake",
+		"hp":30,
+		"background":"background_test",
+		"enemies":{ # a dictionary of enemy id and the weight of the enemy
+			"disturbing_star":90,
+			"doom_cupcake":90,
+			"piece_of_cake":90,
+			"chocolate_meteor":70
+		},
+		"wave_size":[2, 4]
 	}
 }
 
@@ -450,7 +492,7 @@ func _ready():
 	1,
 	{"ghost_hair":3, "snowball":2})) # TODO: change to mushr0om
 	
-	_add_enemy(enemy_abstract.new("grandhamster", # TODO: create scene
+	_add_enemy(enemy_abstract.new("grandhamster", 
 	"GrandHamster", 
 	puzzle_division.new(11, 11),
 	45,
@@ -504,6 +546,39 @@ func _ready():
 	30,
 	8,
 	3,
+	{"ghost_hair":3, "snowball":2})) # TODO: change
+	
+	# sleeping count enemies:
+	_add_enemy(enemy_abstract.new("sleepy_bear",
+	"Sleepy Bear", 
+	puzzle_division.new(10, 10),
+	35,
+	7,
+	1,
+	{"ghost_hair":3, "snowball":2})) # TODO: change
+	
+	_add_enemy(enemy_abstract.new("nightmare", 
+	"Nightmare", 
+	puzzle_division_blank.new(1, 10),
+	45,
+	7,
+	1,
+	{"ghost_hair":3, "snowball":2}))  # TODO: change
+	
+	_add_enemy(enemy_abstract.new("daydream", 
+	"Daydream", 
+	puzzle_multi_blank.new(1, 15),
+	30,
+	7,
+	1,
+	{"ghost_hair":3, "snowball":2}))  # TODO: change
+	
+	_add_enemy(enemy_abstract.new("mr_pillowman", 
+	"Mr. pillowman", 
+	puzzle_arithmetic_order.new(),
+	55,
+	10,
+	1,
 	{"ghost_hair":3, "snowball":2})) # TODO: change
 
 
@@ -579,7 +654,7 @@ func get_site_price(zone_id, site_id):
 	#return sites[site_id]["price"]
 
 func get_boss_star_price(zone_id, boss_id):
-	return zones[zone_id]["bosses"][boss_id]
+	return zones[zone_id]["bosses"][boss_id]["stars"]
 
 func get_boss_by_id(boss_id):
 	return bosses[boss_id]

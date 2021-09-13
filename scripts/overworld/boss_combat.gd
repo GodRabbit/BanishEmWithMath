@@ -27,6 +27,7 @@ onready var objects_node = $objects
 onready var boss_hp_bar = $hud/boss_hp_container/boss_hp_bar
 onready var boss_name_label = $hud/boss_hp_container/boss_name_label
 onready var db_container = $db_container
+onready var explosive_star_particles = $particles/explosive_star_particles
 
 var boss_id = "galactic_cake"
 var boss_max_hp = 50
@@ -55,12 +56,14 @@ func setup_combat():
 	waves_over = false
 	boss_dic = enemies_data.get_boss_by_id(boss_id)
 	boss_max_hp = boss_dic["hp"]
-	set_boss_hp(boss_max_hp)
 	boss_name_label.text = boss_dic["name"]
 	
 	# set dynamic background:
 	var db = load(DB_PATH % boss_dic["background"]).instance()
 	db_container.add_child(db)
+	
+	set_boss_hp(boss_max_hp)
+	print("setup_combat "+str(boss_max_hp))
 
 func get_dynamic_background():
 	if db_container.get_children().size() > 0:
@@ -70,8 +73,16 @@ func get_dynamic_background():
 
 # destroy an object from node_objects
 func _destroy_object(o):
+	o.on_death()
+	yield(o, "death_animation_over")
+	deploy_stars_particles(o.global_position)
 	objects_node.remove_child(o)
 	o.queue_free()
+	
+	# when the current enemies end if the boss is still alive, create more enemies:
+	# no more enemies? call another wave
+	if objects_node.get_children().size() == 0 && !player_data.is_dead() && !waves_over:
+		spawn_wave()
 
 # destroy objects that are object_areas, that are listed for destruction
 func _remove_fired_objects():
@@ -89,11 +100,6 @@ func on_battle_over(c, t):
 		for o in objects_node.get_children():
 			if o.is_in_group("object_areas"):
 				o.fired = false
-	
-	# when the current enemies end if the boss is still alive, create more enemies:
-	# no more enemies? call another wave
-	if objects_node.get_children().size() == 0 && !player_data.is_dead() && !waves_over:
-		spawn_wave()
 
 func on_pause_requested(v):
 	pause_world(v)
@@ -116,6 +122,7 @@ func set_boss_hp(val):
 		on_waves_over()
 	else:
 		boss_current_hp = val
+	get_dynamic_background().on_boss_health_changed((float(val)/float(boss_max_hp))*100.0)
 	update_gui()
 
 func get_boss_hp():
@@ -146,8 +153,10 @@ func on_waves_over():
 #	enemy_scene.connect("object_pressed", self, "on_object_area_pressed")
 
 func spawn_wave():
+	print("boss combat spawn waves intitated for " + boss_dic["id"])
 	get_dynamic_background().on_spawn_enemies()
 	yield(get_dynamic_background(), "ready_to_spawn")
+	print("boss combat spawn wave the boss is ready to start")
 	# calculate the wave size: (num)
 	var wave_size = boss_dic["wave_size"]
 	randomize()
@@ -172,6 +181,7 @@ func spawn_wave():
 		enemy_scene.global_position = pos
 		enemy_scene.connect("object_pressed", self, "on_object_area_pressed")
 		enemy_scene.on_spawn()
+		print("boss combat spawn waves ended for " + boss_dic["id"])
 
 # signal from object areas
 # e_id is enemy id
@@ -179,3 +189,7 @@ func on_object_area_pressed(e_id):
 	# show crafting window
 	var e = enemies_data.get_enemy_by_id(e_id)
 	hud.call_battle(e)
+
+func deploy_stars_particles(pos):
+	explosive_star_particles.global_position = pos
+	explosive_star_particles.restart()

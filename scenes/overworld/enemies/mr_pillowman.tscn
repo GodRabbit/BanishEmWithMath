@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=1]
+[ext_resource path="res://images/enemies/mr_pillowman.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="mr_pillowman" type="Area2D"]
+script = ExtResource( 1 )
+enemy_id = "mr_pillowman"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -2.38419e-07 )
+scale = Vector2( 0.607143, 0.607143 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
