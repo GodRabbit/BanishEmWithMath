@@ -8,7 +8,8 @@ var enemies_collection = []
 
 var sites = {
 "farm":
-	{"enemies":["angry_pear", "applady", "wheaty", "sad_eggy", "schnoop","leafonger"],
+	{"enemies":["angry_pear", "applady", "wheaty", "sad_eggy", "schnoop",
+	"leafonger", "sneaky_cheese"],
 	"backgrounds":["farm1"],
 	"price":0,
 	"name":"Farm"},
@@ -20,7 +21,7 @@ var sites = {
 	"name":"Jungle"},
 "ocean":
 	{"enemies":["cra_babi", "boo_da_rang", "flying_fish",
-	"beach_ball","water_schnoop", "water_snail","karen_melon", "clamp"],
+	"beach_ball","water_schnoop", "water_snail","karen_melon", "clamp", "jellofish"],
 	"backgrounds":["ocean1", "ocean2"],
 	"price":25,
 	"name":"Ocean"},
@@ -37,7 +38,7 @@ var sites = {
 "fairy_swamp":
 	{
 	"enemies":["punguy", "grandhamster", "goodbi", "fairy_schnoop", "butter_fly",
-	"fairy", "fairy_owllo", "dark_owllo", "snail_wizard"],
+	"fairy", "fairy_owllo", "dark_owllo", "snail_wizard", "dark_cheese"],
 	"backgrounds":["fairy_swamp"],
 	"price":75,
 	"name":"Fairy Swamp"
@@ -102,7 +103,7 @@ var bosses = {
 	"sleeping_count":{
 		"id":"sleeping_count",
 		"name":"Sleeping Count",
-		"hp":30,
+		"hp":90,
 		"background":"background_the_stage",
 		"enemies":{ # a dictionary of enemy id and the weight of the enemy
 			"sleepy_bear":10,
@@ -147,11 +148,11 @@ func _ready():
 	# can this be jsoned??
 	_add_enemy(enemy_abstract.new("spider", # id
 	"Spider", # name
-	puzzle_addition.new(100, 500), # puzzle
-	20, # time
-	5, # stars
-	2, # damage
-	{"spider_leg":1, "spider_eye":1})) 
+	puzzle_minmax_subtraction.new(100), # puzzle
+	50, # time
+	7, # stars
+	1, # damage
+	{"spider_leg":1, "spider_eye":1}))
 	
 	_add_enemy(enemy_abstract.new("angry_pear",
 	"Angry Pear",
@@ -184,6 +185,14 @@ func _ready():
 	3,
 	1,
 	{"egg":1}))
+	
+	_add_enemy(enemy_abstract.new("sneaky_cheese", 
+	"Sneaky Cheese",
+	puzzle_minmax_basic.new(100),
+	20,
+	1,
+	1,
+	{"cheese":1})) 
 	
 	_add_enemy(enemy_abstract.new("spikey_boi",
 	"Spikey Boi",
@@ -271,7 +280,15 @@ func _ready():
 	60,
 	7,
 	1,
-	{"watermelon":1})) 
+	{"watermelon":1}))
+	
+	_add_enemy(enemy_abstract.new("jellofish", 
+	"JelloFish", 
+	puzzle_minmax_addition.new(100), 
+	50,
+	7,
+	1,
+	{"jelly":1}))
 	
 	_add_enemy(enemy_abstract.new("jungle_schnoop", 
 	"Jungle Schnoop", 
@@ -437,11 +454,11 @@ func _ready():
 	
 	_add_enemy(enemy_abstract.new("snowy_spider", 
 	"Snowy Spider",
-	puzzle_addition.new(50, 500),
-	15,
-	5,
-	3,
-	{"spider_leg":2, "spider_eye":2})) 
+	puzzle_minmax_multi.new(10),
+	50,
+	8,
+	1,
+	{"spider_leg":2, "spider_eye":2}))
 	
 	_add_enemy(enemy_abstract.new("cursed_queen", 
 	"Cursed Queen",
@@ -547,6 +564,14 @@ func _ready():
 	8,
 	3,
 	{"ghost_hair":3, "snowball":2})) # TODO: change
+	
+	_add_enemy(enemy_abstract.new("dark_cheese", 
+	"Dark Cheese", 
+	puzzle_minmax_division.new(10),
+	45,
+	8,
+	1,
+	{"cheese":3})) 
 	
 	# sleeping count enemies:
 	_add_enemy(enemy_abstract.new("sleepy_bear",

@@ -1,6 +1,7 @@
 extends Button
 
-
+# Deprecated!
+# see item_displayer_button2
 var stack = item_stack.new()
 
 const FILE_PATH = "res://images/items/%s.png"

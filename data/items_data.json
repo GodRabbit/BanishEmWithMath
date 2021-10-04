@@ -38,8 +38,8 @@
     "cheese":{
         "id":"cheese",
         "name":"Cheese",
-        "price":4,
-        "hp":5
+        "price":2,
+        "hp":2
     },
     "tomato":{
         "id":"tomato",
@@ -154,5 +154,11 @@
         "name":"Snowball",
         "price":4,
         "hp":1
+    },
+    "jelly":{
+        "id":"jelly",
+        "name":"Jelly",
+        "price":8,
+        "hp":-3
     }
 }

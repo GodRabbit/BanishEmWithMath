@@ -1,14 +1,14 @@
-extends MarginContainer
+extends Panel
 
-const item_displayer_button = preload("res://scenes/gui/item_displayer_button.tscn")
+const item_displayer_button = preload("res://scenes/gui/item_displayer_button2.tscn")
 
 # nodes:
-onready var item_container = $main_container/item_container
-onready var item_info_displayer = $main_container/button_container/item_info_displayer
-onready var delete_button = $main_container/button_container/delete_button
-onready var eat_button = $main_container/button_container/eat_button
-onready var exit_button = $main_container/button_container/exit_button
-onready var sell_button = $main_container/button_container/sell_button
+onready var item_container = $inventory_container/main_container/item_container
+onready var item_info_displayer = $inventory_container/main_container/item_info_displayer
+onready var delete_button = $inventory_container/main_container/button_container/delete_button
+onready var eat_button = $inventory_container/main_container/button_container/eat_button
+onready var exit_button = $inventory_container/main_container/button_container/exit_button
+onready var sell_button = $inventory_container/main_container/button_container/sell_button
 
 # the control wants to exit.
 signal request_exit

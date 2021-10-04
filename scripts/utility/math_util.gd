@@ -31,6 +31,11 @@ static func split(x):
 # e.g. for x = 5:
 # [[6, 1], [7,2], [8, 3], [9, 4], [10, 5], [11,6],...[5 + max_val,max_val]]
 static func subtract_split(x, max_val):
+	# special cases, 1, 0:
+	if x == 0:
+		return [[0, 0]]
+	elif x == 1:
+		return [[1, 0]]
 	var result = []
 	for i in range(1, max_val + 1):
 		var a = [x + i, i]
@@ -70,6 +75,23 @@ static func split_into(x, num):
 			result[index] = result[index] + 1
 	
 	return result
+
+# returns a dictionary of pairs of numbers (< max_val) such that their
+# multiplication is the key. No duplicate pairs allowed
+# i.e. pairs[6] = [[2,3]]
+# pairs[24] = [[3,8], [6,4], [2, 12]]
+static func split_divisors(max_val):
+	# insert all the pairs of numbers' multiplication into a dictionary
+	# e,g pairs[6] = [[2,3]]
+	# pairs[30] = [[15,2],[6,5],[3,10],[10,3]]
+	var pairs = {}
+	for i in range(2, max_val + 1):
+		for j in range(2, i + 1):
+			if pairs.has(i*j):
+				pairs[i*j].append([i, j])
+			else:
+				pairs[i*j] = [[i, j]]
+	return pairs
 
 # randomly choose a random element of the array arr.
 static func _choose_random_element(arr : Array):
@@ -207,6 +229,83 @@ static func gcd(a, b):
 		return int(max(a, -a))
 	else:
 		return gcd(b, a % b)
+
+# given an array of numbers
+# return an array of 2 elements, the first element is
+#  the max value, and the other element is all the rest of the elements (in array)
+static func find_max(arr : Array):
+	var index_max = 0 # the index of the largest element
+	var num_max = arr[0]
+	
+	for i in range(1, arr.size()):
+		if arr[i] > num_max:
+			num_max = arr[i]
+			index_max = i
+	
+	var result = [arr[index_max]]
+	var rest = arr.duplicate()
+	rest.remove(index_max)
+	result.append(rest)
+	return result
+
+static func find_min(arr : Array):
+	var index_min = 0 # the index of the largest element
+	var num_min = arr[0]
+	
+	for i in range(1, arr.size()):
+		if arr[i] < num_min:
+			num_min = arr[i]
+			index_min = i
+	
+	var result = [arr[index_min]]
+	var rest = arr.duplicate()
+	rest.remove(index_min)
+	result.append(rest)
+	return result
+
+# picks a number at random beteen 6 - > max_val, and 5 distinct smaller numbers
+#  the returned array has the max as the first element, and the rest
+#  are an array within array
+#  example [30, [1, 21, 8, 4, 7]]
+static func pick_max_number(max_val):
+	var M = int(max(6, max_val))
+	randomize()
+	# pick a random number for the max number.
+	var solution = 6 + randi() % (M - 5)
+	
+	# pick 5 random numbers smaller than the solution:
+	var numbers = range(0, solution)
+	
+	var arr = []
+	for i in range(0, 5):
+		var index = randi() % numbers.size()
+		arr.append(numbers[index])
+		
+		numbers.remove(index)
+	
+	return [solution, arr]
+
+# picks a number at random beteen 6 - > max_val, and 5 distinct bigger numbers
+#  the returned array has the min as the first element, and the rest
+#  are an array within array
+#  example [13, [14, 99, 56, 23, 40]]
+static func pick_min_number(max_val):
+	var M = int(max(6, max_val))
+	randomize()
+	# pick a random number for the min number.
+	var solution = 0 + randi() % (M - 5)
+	
+	# pick 5 random numbers bigger than the solution:
+	var numbers = range(solution + 1, M + 1)
+	
+	var arr = []
+	for i in range(0, 5):
+		var index = randi() % numbers.size()
+		arr.append(numbers[index])
+		
+		numbers.remove(index)
+	
+	return [solution, arr]  
 
 class base_transform:
 	# a class for changing bases

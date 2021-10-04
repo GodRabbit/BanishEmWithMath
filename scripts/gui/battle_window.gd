@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends Panel
 
 # turned into battle window in this project (from carfting_window at MathTownResidents)
 # the script for the battle window
@@ -19,15 +19,14 @@ var enemy : enemy_abstract
 var current_time = 23
 
 # nodes:
-onready var ingredients_list = $crafting_result/ingredients_list
-onready var results_list = $crafting_result/results_list
-onready var timer = $timer
-onready var puzzle_displayer = $puzzle_displayer
-onready var timer_label = $time_header_label/time_label
-onready var star_label = $result_container/star_container/star_label
-onready var dmg_label = $result_container/dmg_container/dmg_label
-onready var stars_pop_particle = $result_container/star_container/icon/stars_pop
-onready var stars_porminent_particle = $result_container/star_container/icon/stars_porminent
+
+onready var timer = $main_container/battle_window/timer
+onready var puzzle_displayer = $main_container/battle_window/puzzle_displayer
+onready var timer_label = $main_container/battle_window/result_container/time_header_label/time_label
+onready var star_label = $main_container/battle_window/result_container/star_container/star_label
+onready var dmg_label = $main_container/battle_window/result_container/dmg_container/dmg_label
+onready var stars_pop_particle = $main_container/battle_window/result_container/star_container/icon/stars_pop
+onready var stars_porminent_particle = $main_container/battle_window/result_container/star_container/icon/stars_porminent
 
 # was the player out of time while crafting this?
 var is_timedout = false

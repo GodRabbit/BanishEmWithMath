@@ -4,3 +4,20 @@ List of known bugs:
 (*) When the player ha max amount of stars, bosses can't lose hp (change signal to "stars_added" and emit only when stars are added??)
 (*) Some items have missing textures
 (*)* Enemies won't spawn unless the "on_spawn_enemies()" in dynamic background wait for animations to end. This is highly bizzare.
+(*) Schnoop Queen is missing several enemies
+
+Puzzle Features:
+Min\max problems - find the min\max number (simple)
+Min\max problems - find the min\max number (compound: addition\subtraction\multiplication\division)
+blank greater\less then - ??? > <number> (simple, compound addition subtraction, multiplication, division)
+
+
+Refinement points: (High priority):
+(*) All the buttons must change from base theme
+(*) Splash screen must be flawless
+(*) change screen resolution to higher, so that the beautiful shit you worked on will look nice.
+
+low priority:
+(*) mockup Battle Royal mode
+(*) elite and champion enemies
+(*) 

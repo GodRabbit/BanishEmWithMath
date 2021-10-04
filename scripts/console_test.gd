@@ -8,7 +8,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	test_fractions2()
+	test_minmax_generate_division()
 
 func test_split_into():
 	for i in range(0, 20):
@@ -43,3 +43,64 @@ func test_fractions():
 func test_fractions2():
 	var f = Fraction.new(1, 2)
 	print(f.generate_different(5, true))
+
+func test_minmax_puzzles():
+	for i in range(0, 20):
+		var p = puzzle_minmax_basic.new(100)
+		p.generate()
+		print(p.display_problem())
+		print(p.options)
+		print(p.solution)
+		print("_______________")
+
+func test_picking_minmax():
+	print("___MAX___")
+	for i in range(0, 10):
+		var a = math_util.pick_max_number(100)
+		print(a)
+		print("_______________")
+	print("___MIN___")
+	for i in range(0, 10):
+		var a = math_util.pick_min_number(100)
+		print(a)
+		print("_______________")
+
+func test_minmax_puzzles_addition():
+	for i in range(0, 20):
+		var p = puzzle_minmax_addition.new(100)
+		p.generate()
+		print(p.display_problem())
+		print(p.options)
+		print(p.solution)
+		print("_______________")
+
+func test_minmax_puzzles_subtraction():
+	for i in range(0, 20):
+		var p = puzzle_minmax_subtraction.new(100)
+		p.generate()
+		print(p.display_problem())
+		print(p.options)
+		print(p.solution)
+		print("_______________")
+
+func test_split_divisors():
+	print(math_util.split_divisors(10))
+	print("____________________")
+
+func test_minmax_generate_multi():
+	for i in range(0, 20):
+		var p = puzzle_minmax_multi.new()
+		p.generate_max()
+		print(p.display_problem())
+		print(p.options)
+		print(p.solution)
+		print("_________________")
+
+func test_minmax_generate_division():
+	for i in range(0, 20):
+		var p = puzzle_minmax_division.new()
+		p.generate_max()
+		print(p.display_problem())
+		print(p.options)
+		print(p.solution)
+		print("_________________")

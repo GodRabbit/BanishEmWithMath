@@ -1,53 +1,151 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/gui/inventory_displayer.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/item_info_displayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/Permanent_Marker/PermanentMarker-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://images/gui/button_pink_pressed.png" type="Texture" id=4]
+[ext_resource path="res://images/gui/button_pink_normal.png" type="Texture" id=5]
+[ext_resource path="res://images/gui/button_pink_hover.png" type="Texture" id=6]
+[ext_resource path="res://images/gui/puzzle_rect2.png" type="Texture" id=7]
 
-[node name="inventory_displayer" type="MarginContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 589, 589 )
+margin_left = 60.0
+margin_right = 59.0
+margin_top = 60.0
+margin_bottom = 69.0
+
+[sub_resource type="Theme" id=11]
+Panel/styles/panel = SubResource( 10 )
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 129, 135 )
+margin_left = 16.0
+margin_right = 17.0
+margin_top = 16.0
+margin_bottom = 23.0
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 128, 134 )
+margin_left = 16.0
+margin_right = 16.0
+margin_top = 16.0
+margin_bottom = 22.0
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 128, 128 )
+margin_left = 16.0
+margin_right = 16.0
+margin_top = 16.0
+margin_bottom = 16.0
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="DynamicFont" id=8]
+size = 17
+outline_size = 1
+outline_color = Color( 0.188235, 0.0156863, 0.2, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=9]
+default_font = SubResource( 8 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource( 1 )
+Button/styles/normal = SubResource( 2 )
+Button/styles/pressed = SubResource( 3 )
+CheckButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+CheckButton/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+CheckButton/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+CheckButton/colors/font_color_hover_pressed = Color( 1, 1, 1, 1 )
+CheckButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+CheckButton/constants/check_vadjust = 0
+CheckButton/constants/hseparation = 4
+CheckButton/fonts/font = null
+CheckButton/icons/off = null
+CheckButton/icons/off_disabled = null
+CheckButton/icons/on = null
+CheckButton/icons/on_disabled = null
+CheckButton/styles/disabled = null
+CheckButton/styles/focus = null
+CheckButton/styles/hover = SubResource( 4 )
+CheckButton/styles/hover_pressed = SubResource( 5 )
+CheckButton/styles/normal = SubResource( 6 )
+CheckButton/styles/pressed = SubResource( 7 )
+
+[node name="inventory_displayer" type="Panel"]
+margin_right = 592.0
+margin_bottom = 432.0
+theme = SubResource( 11 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="main_container" type="HBoxContainer" parent="."]
-margin_right = 83.0
-margin_bottom = 273.0
+[node name="inventory_container" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="item_container" type="GridContainer" parent="main_container"]
-margin_bottom = 273.0
-columns = 5
+[node name="main_container" type="HBoxContainer" parent="inventory_container"]
+margin_right = 576.0
+margin_bottom = 416.0
 
-[node name="button_container" type="VBoxContainer" parent="main_container"]
-margin_left = 4.0
-margin_right = 83.0
-margin_bottom = 273.0
+[node name="button_container" type="VBoxContainer" parent="inventory_container/main_container"]
+margin_right = 86.0
+margin_bottom = 416.0
+theme = SubResource( 9 )
 
-[node name="delete_button" type="Button" parent="main_container/button_container"]
-margin_right = 79.0
-margin_bottom = 20.0
+[node name="delete_button" type="Button" parent="inventory_container/main_container/button_container"]
+margin_right = 86.0
+margin_bottom = 63.0
 text = "Delete"
 
-[node name="sell_button" type="Button" parent="main_container/button_container"]
-margin_top = 24.0
-margin_right = 79.0
-margin_bottom = 44.0
+[node name="sell_button" type="Button" parent="inventory_container/main_container/button_container"]
+margin_top = 67.0
+margin_right = 86.0
+margin_bottom = 130.0
 text = "Sell"
 
-[node name="eat_button" type="Button" parent="main_container/button_container"]
-margin_top = 48.0
-margin_right = 79.0
-margin_bottom = 68.0
+[node name="eat_button" type="Button" parent="inventory_container/main_container/button_container"]
+margin_top = 134.0
+margin_right = 86.0
+margin_bottom = 197.0
 text = "Eat"
 
-[node name="exit_button" type="Button" parent="main_container/button_container"]
-margin_top = 72.0
-margin_right = 79.0
-margin_bottom = 92.0
+[node name="exit_button" type="Button" parent="inventory_container/main_container/button_container"]
+margin_top = 201.0
+margin_right = 86.0
+margin_bottom = 264.0
 text = "Exit"
 
-[node name="item_info_displayer" parent="main_container/button_container" instance=ExtResource( 2 )]
-margin_top = 96.0
-margin_right = 79.0
-margin_bottom = 273.0
+[node name="item_container" type="GridContainer" parent="inventory_container/main_container"]
+margin_left = 90.0
+margin_right = 90.0
+margin_bottom = 416.0
+columns = 5
+
+[node name="item_info_displayer" parent="inventory_container/main_container" instance=ExtResource( 2 )]
+margin_left = 94.0
+margin_right = 173.0
+margin_bottom = 416.0

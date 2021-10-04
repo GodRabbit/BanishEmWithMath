@@ -1,120 +1,282 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/gui/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/button_groups/difficulty_buttons.tres" type="ButtonGroup" id=2]
 [ext_resource path="res://scenes/gui/button_groups/zones_buttons.tres" type="ButtonGroup" id=3]
+[ext_resource path="res://themes/title_screen.tres" type="Theme" id=4]
+[ext_resource path="res://images/backgrounds/human_land.png" type="Texture" id=5]
+[ext_resource path="res://images/particles/portal.png" type="Texture" id=6]
+[ext_resource path="res://images/gui/title.png" type="Texture" id=7]
+[ext_resource path="res://images/backgrounds/cemetery1.png" type="Texture" id=8]
+[ext_resource path="res://themes/title_screen_buttons.tres" type="Theme" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle0"
+length = 20.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10, 20 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 560, 272 ), Vector2( 464, 272 ), Vector2( 560, 272 ) ]
+}
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+/*
+	Original code is by 9exa avaliable here:
+	https://godotshaders.com/shader/vortex-overlay/
+	[originally released under MIT license]
+*/
+uniform float max_blend : hint_range(0,1) = 0.5;
+uniform float rotation_offset : hint_range(0.0, 10.0) = 0.0; // has a cycle of 1. at exacly 1 this repeats itself.
+uniform float intensity : hint_range(0, 10);
+uniform bool invert = false;
+uniform vec2 rel_rect_size = vec2(1024, 600);
+uniform vec4 color : hint_color;
+
+float distFromCen(vec2 p) {
+	return distance(p, vec2(0.5));
+}
+//rotates by angle radians
+vec2 rotate(vec2 p, float angle){
+	return vec2(cos(angle)*p.x-sin(angle)*p.y, sin(angle)*p.x + cos(angle)*p.y);
+	}
+
+void fragment() {
+	vec4 c = mix(COLOR, color, 1.0);
+	
+	float distMod = invert ? distFromCen(UV) : 0.5 - distFromCen(UV);
+	float angle = (intensity * distMod  + rotation_offset)* 6.28318;
+	vec2 newp = rotate(UV-vec2(0.5), angle) + vec2(0.5);
+	vec2 disp = (newp - UV) * rel_rect_size * SCREEN_PIXEL_SIZE;
+	disp.y = -disp.y; // for some reason UV and SCEEN_UV are inveresed
+	COLOR = mix(texture(SCREEN_TEXTURE, SCREEN_UV + disp), color, max_blend * 2.0 * (0.5-distFromCen(UV)));
+	//COLOR = c;
+	//Doesn'[t apply effect outside of circle]
+	if (distFromCen(UV) > 0.5) {
+		COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/max_blend = 0.573
+shader_param/rotation_offset = 0.909214
+shader_param/intensity = 4.369
+shader_param/invert = false
+shader_param/rel_rect_size = Vector2( 400, 400 )
+shader_param/color = Color( 0.65098, 0.0784314, 0.784314, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 3
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle0"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/rotation_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+uniform float saturation : hint_range(0.0, 3.0) = 0.0;
+
+void fragment() {
+    vec4 tex_color = texture(TEXTURE, UV);
+
+    COLOR.rgb = mix(vec3(dot(tex_color.rgb, vec3(0.299, 0.587, 0.114))), tex_color.rgb, saturation);
+	COLOR.a = tex_color.a;
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/saturation = 0.421
 
 [node name="main_menu" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 534.082, 272 )
+texture = ExtResource( 5 )
+
+[node name="background_anim" type="AnimationPlayer" parent="background"]
+autoplay = "idle0"
+playback_speed = 0.3
+anims/idle0 = SubResource( 1 )
+
+[node name="portal_effect" type="Node2D" parent="."]
+position = Vector2( 512, 296 )
+scale = Vector2( 1.7, 1.7 )
+
+[node name="temp_test_dlt" type="Sprite" parent="portal_effect"]
+visible = false
+position = Vector2( 264, -48 )
+texture = ExtResource( 8 )
+
+[node name="portal" type="Sprite" parent="portal_effect"]
+material = SubResource( 3 )
+position = Vector2( -9.53674e-06, 7.62939e-06 )
+scale = Vector2( 1.10681, 1.10681 )
+texture = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="portal_effect/portal"]
+visible = false
+modulate = Color( 0.984314, 0.85098, 1, 1 )
+show_behind_parent = true
+material = SubResource( 4 )
+scale = Vector2( 0.492915, 0.500926 )
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="portal_effect/portal"]
+autoplay = "idle0"
+anims/idle0 = SubResource( 5 )
+
 [node name="button_container" type="VBoxContainer" parent="."]
-margin_left = 320.0
-margin_top = 128.0
-margin_right = 404.0
-margin_bottom = 168.0
+margin_left = 424.0
+margin_top = 208.0
+margin_right = 574.0
+margin_bottom = 340.0
+theme = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="new_game_button" type="Button" parent="button_container"]
-margin_right = 84.0
-margin_bottom = 20.0
+margin_right = 150.0
+margin_bottom = 64.0
 text = "NEW GAME"
 
 [node name="exit_game_button" type="Button" parent="button_container"]
-margin_top = 24.0
-margin_right = 84.0
-margin_bottom = 44.0
+margin_top = 68.0
+margin_right = 150.0
+margin_bottom = 132.0
 text = "EXIT"
 
 [node name="difficulty_container" type="VBoxContainer" parent="."]
-margin_left = 64.0
-margin_top = 64.0
-margin_right = 176.0
-margin_bottom = 218.0
+margin_left = 32.0
+margin_top = 24.0
+margin_right = 243.0
+margin_bottom = 294.0
+theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="difficulty_label" type="Label" parent="difficulty_container"]
-margin_right = 112.0
-margin_bottom = 14.0
+margin_right = 211.0
+margin_bottom = 26.0
 text = "Choose Difficulty:"
 
 [node name="super_easy_button" type="CheckBox" parent="difficulty_container"]
-margin_top = 18.0
-margin_right = 112.0
-margin_bottom = 42.0
+margin_top = 30.0
+margin_right = 211.0
+margin_bottom = 64.0
 group = ExtResource( 2 )
 text = "Super Easy"
 
 [node name="easy_button" type="CheckBox" parent="difficulty_container"]
-margin_top = 46.0
-margin_right = 112.0
-margin_bottom = 70.0
+margin_top = 68.0
+margin_right = 211.0
+margin_bottom = 102.0
 group = ExtResource( 2 )
 text = "Easy"
 
 [node name="normal_button" type="CheckBox" parent="difficulty_container"]
-margin_top = 74.0
-margin_right = 112.0
-margin_bottom = 98.0
+margin_top = 106.0
+margin_right = 211.0
+margin_bottom = 140.0
 pressed = true
 group = ExtResource( 2 )
 text = "Normal"
 
 [node name="hard_button" type="CheckBox" parent="difficulty_container"]
-margin_top = 102.0
-margin_right = 112.0
-margin_bottom = 126.0
+margin_top = 144.0
+margin_right = 211.0
+margin_bottom = 178.0
 group = ExtResource( 2 )
 text = "Hard"
 
 [node name="hardcore_button" type="CheckBox" parent="difficulty_container"]
-margin_top = 130.0
-margin_right = 112.0
-margin_bottom = 154.0
+margin_top = 182.0
+margin_right = 211.0
+margin_bottom = 216.0
 group = ExtResource( 2 )
 text = "HARDCORE"
 
 [node name="zones_container" type="VBoxContainer" parent="."]
-margin_left = 768.0
-margin_top = 64.0
-margin_right = 845.0
-margin_bottom = 104.0
+margin_left = 24.0
+margin_top = 320.0
+margin_right = 290.0
+margin_bottom = 543.0
+theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="zones_label" type="Label" parent="zones_container"]
-margin_right = 160.0
-margin_bottom = 14.0
+margin_right = 266.0
+margin_bottom = 26.0
 text = "Pick a Zone:"
 
 [node name="zone0_button" type="CheckBox" parent="zones_container"]
-margin_top = 18.0
-margin_right = 160.0
-margin_bottom = 42.0
+margin_top = 30.0
+margin_right = 266.0
+margin_bottom = 64.0
 group = ExtResource( 3 )
 text = "Zone 0: Ages 5 - 7"
 
 [node name="zone1_button" type="CheckBox" parent="zones_container"]
-margin_top = 46.0
-margin_right = 160.0
-margin_bottom = 70.0
+margin_top = 68.0
+margin_right = 266.0
+margin_bottom = 102.0
 group = ExtResource( 3 )
 text = "Zone 1: Ages 8 - 12"
 
 [node name="zone2_button" type="CheckBox" parent="zones_container"]
-margin_top = 74.0
-margin_right = 160.0
-margin_bottom = 98.0
+margin_top = 106.0
+margin_right = 266.0
+margin_bottom = 140.0
 group = ExtResource( 3 )
 text = "Zone 2: Ages 13 - 16"
 
 [node name="zone3_button" type="CheckBox" parent="zones_container"]
-margin_top = 102.0
-margin_right = 160.0
-margin_bottom = 126.0
+margin_top = 144.0
+margin_right = 266.0
+margin_bottom = 178.0
 group = ExtResource( 3 )
 text = "Zone 3: Ages 17+"
+
+[node name="title" type="Sprite" parent="."]
+material = SubResource( 7 )
+position = Vector2( 504, 104 )
+scale = Vector2( 0.592308, 0.592308 )
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 577.295
+margin_right = 517.0
+margin_bottom = 591.295
+text = "TIP: Difficulty only affect max HP and exit costs, not the difficulty of questions."
+__meta__ = {
+"_edit_use_anchors_": false
+}

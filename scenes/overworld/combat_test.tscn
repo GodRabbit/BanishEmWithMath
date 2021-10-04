@@ -17,7 +17,7 @@ font_data = ExtResource( 8 )
 
 [node name="combat_test" type="Node2D"]
 script = ExtResource( 1 )
-enemies = [ "sleepy_bear" ]
+enemies = [ "snowy_spider" ]
 
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 536, 283.5 )
