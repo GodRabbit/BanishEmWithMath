@@ -272,12 +272,13 @@ _global_script_class_icons={
 
 [application]
 
-config/name="KillEmWithMath"
+config/name="BanishEmWithMath"
 run/main_scene="res://scenes/gui/main_menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
+game_settings="*res://scenes/globals/game_settings.tscn"
 items_data="*res://scenes/globals/items_data.tscn"
 enemies_data="*res://scenes/globals/enemies_data.tscn"
 player_data="*res://scenes/globals/player_data.tscn"

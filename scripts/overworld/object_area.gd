@@ -1,5 +1,12 @@
 extends Area2D
 
+# copyright 2021 Dor "GodRabbit" Shlush
+# this file is part of "BanishEmWithMath"
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 class_name object_area
 # similar to crafting area, just for distructable objects.
 # when the player clicks on the area, the object will emit a signal and then

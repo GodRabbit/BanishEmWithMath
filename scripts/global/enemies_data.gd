@@ -1,5 +1,11 @@
 extends Node
 
+# copyright 2021 Dor "GodRabbit" Shlush
+# this file is part of "BanishEmWithMath"
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 # a global class the holds all the enemies data.
 # each enemy must be registered and added to this class.
@@ -12,36 +18,42 @@ var sites = {
 	"leafonger", "sneaky_cheese"],
 	"backgrounds":["farm1"],
 	"price":0,
-	"name":"Farm"},
+	"name":"Farm",
+	"music":"magic-2072"},
 "jungle":
 	{"enemies":["spikey_boi", "boo_da_rang", "grape_moment", "spider", "mossy_boo_da_rang",
 	"karen_melon", "jungle_schnoop", "hornet", "cool_banana", "man_go", "jungle_snail"],
 	"backgrounds":["jungle1"],
 	"price":30,
-	"name":"Jungle"},
+	"name":"Jungle",
+	"music":"fluidity-100-ig-edit-4558"},
 "ocean":
 	{"enemies":["cra_babi", "boo_da_rang", "flying_fish",
 	"beach_ball","water_schnoop", "water_snail","karen_melon", "clamp", "jellofish"],
 	"backgrounds":["ocean1", "ocean2"],
 	"price":25,
-	"name":"Ocean"},
+	"name":"Ocean",
+	"music":"geovane-bruno-drone-in-the-ocean-3593"},
 "cemetery":
 	{"enemies":["spider", "delilah", "jacko"],
 	"backgrounds":["cemetery1"],
 	"price":50,
-	"name":"Cemetery"},
+	"name":"Cemetery",
+	"music":""},
 "the_white_board":
 	{"enemies":["plusumad", "demultiply", "diversary"],
 	"backgrounds":["white_board"],
 	"price":75,
-	"name":"The White Board"},
+	"name":"The White Board",
+	"music":""},
 "fairy_swamp":
 	{
 	"enemies":["punguy", "grandhamster", "goodbi", "fairy_schnoop", "butter_fly",
 	"fairy", "fairy_owllo", "dark_owllo", "snail_wizard", "dark_cheese"],
 	"backgrounds":["fairy_swamp"],
 	"price":75,
-	"name":"Fairy Swamp"
+	"name":"Fairy Swamp",
+	"music":"heavy-1297"
 	},
 "snowy_mountain":
 	{
@@ -49,7 +61,8 @@ var sites = {
 	"not_a_snake", "snowy_schnoop", "owllo"],
 	"backgrounds":["snowy_mountain"],
 	"price":75,
-	"name":"Snowy Forest"
+	"name":"Snowy Forest",
+	"music":"snow-tornado-7813"
 	}
 }
 
@@ -98,7 +111,8 @@ var bosses = {
 			"piece_of_cake":90,
 			"chocolate_meteor":70
 		},
-		"wave_size":[2, 4]
+		"wave_size":[2, 4],
+		"music":"cardio-166bpm-b-min-4110"
 	},
 	"sleeping_count":{
 		"id":"sleeping_count",
@@ -111,7 +125,8 @@ var bosses = {
 			"daydream":10,
 			"mr_pillowman":2
 		},
-		"wave_size":[2, 4]
+		"wave_size":[2, 4],
+		"music":"house-fashion-5000"
 	},
 	"schnoop_queen":{
 		"id":"schnoop_queen",
@@ -125,7 +140,8 @@ var bosses = {
 			"water_schnoop":5,
 			"jungle_schnoop":5
 		},
-		"wave_size":[3, 5]
+		"wave_size":[3, 5],
+		"music":"perfect-dark170-fmin-4390"
 	},
 	"debug_test":{
 		"id":"debug_test",
@@ -138,7 +154,8 @@ var bosses = {
 			"piece_of_cake":90,
 			"chocolate_meteor":70
 		},
-		"wave_size":[2, 4]
+		"wave_size":[2, 4],
+		"music":""
 	}
 }
 
@@ -683,3 +700,9 @@ func get_boss_star_price(zone_id, boss_id):
 
 func get_boss_by_id(boss_id):
 	return bosses[boss_id]
+
+func get_boss_music(boss_id):
+	return bosses[boss_id]["music"]
+
+func get_site_music(site_id):
+	return sites[site_id]["music"]

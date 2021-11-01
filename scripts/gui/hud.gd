@@ -1,5 +1,12 @@
 extends CanvasLayer
 
+# copyright 2021 Dor "GodRabbit" Shlush
+# this file is part of "BanishEmWithMath"
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 # hud script for the overworld scenes.
 
 enum WINDOWS_IDS {NONE, BATTLE_WINDOW, INVENTORY_DISPLAYER, GAME_OVER_WINDOW}

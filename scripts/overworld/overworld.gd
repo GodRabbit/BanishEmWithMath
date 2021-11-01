@@ -1,5 +1,11 @@
 extends Node2D
 
+# copyright 2021 Dor "GodRabbit" Shlush
+# this file is part of "BanishEmWithMath"
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 # An overworld scene that connects to combat, market and more.
 
@@ -9,9 +15,14 @@ var current_zone = "zone1"
 onready var give_up_button = $give_up_button
 onready var site_container = $site_scroll_container/site_container
 
+const BACKGROUND_MUSIC_ID = "background-loop-melodic-techno-03-2691"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	give_up_button.connect("pressed", self, "on_give_up_button_pressed")
+	
+	if sound_manager.current_music_id != BACKGROUND_MUSIC_ID:
+		sound_manager.play_music(BACKGROUND_MUSIC_ID)
 	
 	update_gui()
 

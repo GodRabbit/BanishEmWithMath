@@ -1,5 +1,11 @@
 extends Node2D
 
+# copyright 2021 Dor "GodRabbit" Shlush
+# this file is part of "BanishEmWithMath"
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 # a unique scenes for the boss combat.
 #  each boss combat consists of waves to lower the Boss's HP
@@ -64,6 +70,11 @@ func setup_combat():
 	
 	set_boss_hp(boss_max_hp)
 	print("setup_combat "+str(boss_max_hp))
+	
+	# play music:
+	var music_id = enemies_data.get_boss_music(boss_id)
+	if music_id != "":
+		sound_manager.play_music(music_id)
 
 func get_dynamic_background():
 	if db_container.get_children().size() > 0:

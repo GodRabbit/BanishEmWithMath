@@ -1,5 +1,11 @@
 extends "res://scripts/utility/puzzles/puzzle_abstract.gd"
 
+# copyright 2021 Dor "GodRabbit" Shlush
+# this file is part of "BanishEmWithMath"
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 # DEPRECATED
 #class_name puzzle_prime_detection_easy

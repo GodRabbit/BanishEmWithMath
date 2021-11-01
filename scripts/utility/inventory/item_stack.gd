@@ -1,5 +1,12 @@
 extends Node
 
+# copyright 2021 Dor "GodRabbit" Shlush
+# this file is part of "BanishEmWithMath"
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 # an abstract class to represent an item stack in the inventory.
 # [an inventory is basically just array of item stacks.]
 # an item stack can be empty if  item id == "none" or item_amount = 0.

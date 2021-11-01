@@ -9,12 +9,11 @@
 [ext_resource path="res://shaders/saturation.shader" type="Shader" id=7]
 [ext_resource path="res://scripts/overworld/enemies/bosses/boss_schnoop_queen.gd" type="Script" id=8]
 
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 7 )
 shader_param/saturation = 1.0
 
-[sub_resource type="Animation" id=1]
-resource_name = "0pose"
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath("body:position")
 tracks/0/interp = 1
@@ -88,7 +87,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.8, 0.8 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 resource_name = "death"
 tracks/0/type = "value"
 tracks/0/path = NodePath("body:position")
@@ -163,8 +162,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.8, 0.8 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle"
+[sub_resource type="Animation" id=4]
 length = 6.0
 loop = true
 tracks/0/type = "value"
@@ -327,8 +325,7 @@ tracks/6/keys = {
 "values": [ 1.0, 0.417, 1.2, 1.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "0pose"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("body/hand1_right:rotation_degrees")
 tracks/0/interp = 1
@@ -402,8 +399,7 @@ tracks/5/keys = {
 "values": [ -15.0 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "hands_primed"
+[sub_resource type="Animation" id=7]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("body/hand1_right:rotation_degrees")
@@ -478,8 +474,7 @@ tracks/5/keys = {
 "values": [ -15.0, -73.8764 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "idle"
+[sub_resource type="Animation" id=8]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -559,7 +554,7 @@ tracks/5/keys = {
 script = ExtResource( 8 )
 
 [node name="body" type="Sprite" parent="."]
-material = SubResource( 7 )
+material = SubResource( 1 )
 position = Vector2( -1.90735e-06, 1.52588e-05 )
 scale = Vector2( 0.621212, 0.621212 )
 texture = ExtResource( 3 )
@@ -598,7 +593,7 @@ flip_h = true
 show_behind_parent = true
 use_parent_material = true
 position = Vector2( 32.1951, 38.6341 )
-rotation = 0.523598
+rotation = 0.523599
 texture = ExtResource( 2 )
 offset = Vector2( 51.5122, -57.9512 )
 
@@ -630,13 +625,13 @@ flip_h = true
 
 [node name="anim_body" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/0pose = SubResource( 1 )
-anims/death = SubResource( 8 )
-anims/idle = SubResource( 2 )
+anims/0pose = SubResource( 2 )
+anims/death = SubResource( 3 )
+anims/idle = SubResource( 4 )
 anims/primed = SubResource( 5 )
 
 [node name="anim_hands" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/0pose = SubResource( 3 )
-anims/hands_primed = SubResource( 6 )
-anims/idle = SubResource( 4 )
+anims/0pose = SubResource( 6 )
+anims/hands_primed = SubResource( 7 )
+anims/idle = SubResource( 8 )

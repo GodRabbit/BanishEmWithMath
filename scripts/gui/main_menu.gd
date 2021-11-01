@@ -1,5 +1,11 @@
 extends Node2D
 
+# copyright 2021 Dor "GodRabbit" Shlush
+# this file is part of "BanishEmWithMath"
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 # nodes:
 onready var new_game_button = $button_container/new_game_button
@@ -10,6 +16,7 @@ onready var normal_button = $difficulty_container/normal_button
 onready var hard_button = $difficulty_container/hard_button
 onready var hardcore_button = $difficulty_container/hardcore_button
 
+const BACKGROUND_MUSIC_ID = "background-loop-melodic-techno-03-2691"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +25,8 @@ func _ready():
 	
 	# sets the button to pressed according to the last difficulty the player chose
 	get_node("difficulty_container/%s_button" % player_data.prefferd_difficulty.to_lower()).pressed = true
-		
+	
+	sound_manager.play_music(BACKGROUND_MUSIC_ID)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

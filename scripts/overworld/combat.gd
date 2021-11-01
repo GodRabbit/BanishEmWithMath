@@ -1,5 +1,11 @@
 extends Node2D
 
+# copyright 2021 Dor "GodRabbit" Shlush
+# this file is part of "BanishEmWithMath"
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 # a master scene for the combat
 
@@ -93,7 +99,11 @@ func setup_combat():
 		objects_node.add_child(enemy_scene)
 		enemy_scene.global_position = pos
 		enemy_scene.connect("object_pressed", self, "on_object_area_pressed")
-		
+	
+	# play music:
+	var music_id = enemies_data.get_site_music(site)
+	if music_id != "":
+		sound_manager.play_music(music_id)
 
 # go through every object that should pause while a window is open
 # and (un)pause

@@ -242,7 +242,7 @@ margin_top = 30.0
 margin_right = 266.0
 margin_bottom = 64.0
 group = ExtResource( 3 )
-text = "Zone 0: Ages 5 - 7"
+text = "Zone 0: Ages 5 - 7 (WIP)"
 
 [node name="zone1_button" type="CheckBox" parent="zones_container"]
 margin_top = 68.0
@@ -256,14 +256,14 @@ margin_top = 106.0
 margin_right = 266.0
 margin_bottom = 140.0
 group = ExtResource( 3 )
-text = "Zone 2: Ages 13 - 16"
+text = "Zone 2: Ages 13 - 16 (WIP)"
 
 [node name="zone3_button" type="CheckBox" parent="zones_container"]
 margin_top = 144.0
 margin_right = 266.0
 margin_bottom = 178.0
 group = ExtResource( 3 )
-text = "Zone 3: Ages 17+"
+text = "Zone 3: Ages 17+ (WIP)"
 
 [node name="title" type="Sprite" parent="."]
 material = SubResource( 7 )

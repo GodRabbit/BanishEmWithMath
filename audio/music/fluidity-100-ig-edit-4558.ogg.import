@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fluidity-100-ig-edit-4558.ogg-08c96a7b03e4e788474a450ba444325c.oggstr"
+
+[deps]
+
+source_file="res://audio/music/fluidity-100-ig-edit-4558.ogg"
+dest_files=[ "res://.import/fluidity-100-ig-edit-4558.ogg-08c96a7b03e4e788474a450ba444325c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

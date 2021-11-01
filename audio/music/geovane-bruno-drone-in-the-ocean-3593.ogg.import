@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/geovane-bruno-drone-in-the-ocean-3593.ogg-8d1645ed0feeb6a113ec9c7561d299a1.oggstr"
+
+[deps]
+
+source_file="res://audio/music/geovane-bruno-drone-in-the-ocean-3593.ogg"
+dest_files=[ "res://.import/geovane-bruno-drone-in-the-ocean-3593.ogg-8d1645ed0feeb6a113ec9c7561d299a1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

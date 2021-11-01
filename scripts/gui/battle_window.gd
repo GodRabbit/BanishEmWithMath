@@ -1,5 +1,12 @@
 extends Panel
 
+# copyright 2021 Dor "GodRabbit" Shlush
+# this file is part of "BanishEmWithMath"
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 # turned into battle window in this project (from carfting_window at MathTownResidents)
 # the script for the battle window
 # 

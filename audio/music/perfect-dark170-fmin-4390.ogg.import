@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/perfect-dark170-fmin-4390.ogg-9d26d78f7c5c4337dd23d20697308548.oggstr"
+
+[deps]
+
+source_file="res://audio/music/perfect-dark170-fmin-4390.ogg"
+dest_files=[ "res://.import/perfect-dark170-fmin-4390.ogg-9d26d78f7c5c4337dd23d20697308548.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
