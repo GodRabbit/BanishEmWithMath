@@ -15,7 +15,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -80.0, 0.0 ]
+"values": [ -56.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -31,7 +31,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, -80.0 ]
+"values": [ 0.0, -56.0 ]
 }
 
 [node name="sound_manager" type="Node"]
@@ -40,7 +40,6 @@ script = ExtResource( 1 )
 [node name="ui_stream_player" type="AudioStreamPlayer" parent="."]
 
 [node name="music_stream_player" type="AudioStreamPlayer" parent="."]
-volume_db = -80.0
 
 [node name="anim" type="AnimationPlayer" parent="."]
 anims/fade_in = SubResource( 1 )

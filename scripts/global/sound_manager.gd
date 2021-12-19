@@ -26,6 +26,8 @@ var current_music_id = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	music_stream_player.connect("finished", self, "on_music_stream_player_finished")
+	game_settings.connect("audio_settings_changed", self, "on_audio_setting_change")
+	on_audio_setting_change("music")
 
 
 func play_sound(id):
@@ -55,3 +57,25 @@ func play_music(id):
 
 func on_music_stream_player_finished():
 	music_stream_player.play()
+
+# called when the game settings changed
+func on_audio_setting_change(channel):
+	match channel:
+		"music","master":
+			# get the volume for the channel in the settings:
+			var db = game_settings.get_audio_db("music")
+			music_stream_player.volume_db = db
+			
+			# set the correct volume in the fade in and fade outs animations:
+			var fade_in_anim = anim.get_animation("fade_in")
+			var idx = fade_in_anim.find_track("music_stream_player:volume_db")
+#			print("track found at " +str(idx))
+			fade_in_anim.track_set_key_value(idx, 1, db)
+	
+			var fade_out_anim = anim.get_animation("fade_out")
+			var idx2 = fade_out_anim.find_track("music_stream_player:volume_db")
+			fade_out_anim.track_set_key_value(idx2, 0, db)
+		"ui","master":
+			# get the volume for the channel in the settings:
+			var db = game_settings.get_audio_db("ui")
+			ui_stream_player.volume_db = db

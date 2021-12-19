@@ -62,8 +62,8 @@
     "mushroom":{
         "id":"mushroom",
         "name":"Mushroom",
-        "price":4,
-        "hp":1
+        "price":14,
+        "hp":3
     },
     "grape":{
         "id":"grape",
@@ -160,5 +160,41 @@
         "name":"Jelly",
         "price":8,
         "hp":-3
+    },
+    "glass_shard":{
+        "id":"glass_shard",
+        "name":"Glass Shard",
+        "price":4,
+        "hp":-10
+    },
+    "moss_ball":{
+        "id":"moss_ball",
+        "name":"Moss Ball",
+        "price":10,
+        "hp":2
+    },
+    "dragon_scale":{
+        "id":"dragon_scale",
+        "name":"Dragon Scale",
+        "price":10,
+        "hp":3
+    },
+    "pearl":{
+        "id":"pearl",
+        "name":"Pearl",
+        "price":11,
+        "hp":0
+    },
+    "shell":{
+        "id":"shell",
+        "name":"shell",
+        "price":8,
+        "hp":1
+    },
+    "fairy_dust":{
+        "id":"fairy_dust",
+        "name":"fairy_dust",
+        "price":8,
+        "hp":2
     }
 }

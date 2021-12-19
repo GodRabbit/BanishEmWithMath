@@ -17,10 +17,10 @@ font_data = ExtResource( 8 )
 
 [node name="combat_test" type="Node2D"]
 script = ExtResource( 1 )
-enemies = [ "snowy_spider" ]
+enemies = [ "man_go" ]
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 536, 283.5 )
+position = Vector2( 992, 512 )
 texture = ExtResource( 10 )
 
 [node name="objects" type="YSort" parent="."]
@@ -37,10 +37,10 @@ position = Vector2( 696, 224 )
 [node name="hud" parent="." instance=ExtResource( 2 )]
 
 [node name="exit_container" type="HBoxContainer" parent="."]
-margin_left = 432.0
-margin_top = 537.6
-margin_right = 694.0
-margin_bottom = 598.6
+margin_left = 840.0
+margin_top = 1000.0
+margin_right = 1124.0
+margin_bottom = 1061.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

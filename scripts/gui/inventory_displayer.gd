@@ -19,6 +19,7 @@ onready var sell_button = $inventory_container/main_container/button_container/s
 
 # the control wants to exit.
 signal request_exit
+signal item_sold
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -86,4 +87,5 @@ func on_sell_button_pressed():
 	
 	if index != -1:
 		player_data.sell_item_at(index)
+		emit_signal("item_sold")
 	update_gui()

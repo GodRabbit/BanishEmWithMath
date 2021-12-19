@@ -34,33 +34,32 @@ WINDOWS_IDS.GAME_OVER_WINDOW: true
 # false = unpause
 signal request_pause(val)
 signal battle_over(correct, timeout) # battle is done, and the player is alive
+signal inventory_opened
 
 # nodes:
 #onready var crafting_manager = $crafting_manager
 onready var battle_window = $battle_window
 onready var inventory_displayer = $inventory_displayer
 onready var inventory_button = $inventory_button
-onready var crafting_button = $crafting_button
+onready var volume_button = $volume_button
 onready var game_over_window = $game_over_screen
 onready var explosive_dark_heart_particles = $explosive_dark_hearts_particles
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# when a crafting button is pressed in the manager, you need to set the 
-	# recipe and open the crafting window:
-	#crafting_manager.connect("crafting_pressed", self, "on_crafting_pressed")
-	
 	battle_window.connect("answer_entered", self, "on_answer_entered")
 	
 	inventory_button.connect("pressed", self, "on_inventory_button_pressed")
-	
-	crafting_button.connect("pressed", self, "on_crafting_button_pressed")
 	
 	player_data.connect("player_died", self, "on_player_died")
 	
 	inventory_displayer.connect("request_exit", self, "on_inventory_displayer_request_exit")
 	
+	volume_button.connect("pressed", self, "on_volume_button_pressed")
+	
 	#tile_placing_menu.connect("tile_selected", self, "on_tile_placing_pressed")
+	
+	update_audio_button()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -117,6 +116,7 @@ func show_window(window_id):
 			# before inventory displayer is shown, you need to update the gui
 			# from the global player.
 			inventory_displayer.update_gui()
+			emit_signal("inventory_opened")
 #		WINDOWS_IDS.CRAFTING_MANAGER:
 #			pass
 #			# before the crafting manager is shown, you need to update which 
@@ -199,3 +199,19 @@ func on_player_died():
 # the exit button on inventory_displayer was pressed
 func on_inventory_displayer_request_exit():
 	show_window(WINDOWS_IDS.NONE)
+
+# updates the graphic for the audio button
+func update_audio_button():
+	var audio_lvl = game_settings.get_audio_level("master")
+	var path = "res://images/gui/volume_%d.png" % audio_lvl
+	volume_button.texture_normal = load(path)
+
+func on_volume_button_pressed():
+	game_settings.set_audio_level("master", game_settings.get_audio_level("master") + 1)
+	
+	# update image:
+	update_audio_button()
+	
+	# debug:
+	print("music db is %f" % game_settings.get_audio_db("music"))
+	

@@ -1,0 +1,20 @@
+(V) Change name in github and Godot V
+(V) Licensing (mozilla) V
+(V) volume settings 
+
+
+
+(2) add tutorial
+(3) make formal versions with branching
+(4) Video trailer \ images from the game
+(5) publish to github and itch.io (for download link)
+(6) marketing in discord\reddit and so on..
+
+UI tasks:
+(1) main menu after zone need to be more vibrant and alive. feel playfull like the game's main menu
+(2) color code the sites, and give them personality
+(3) Don't let monsters be under the ui on the combat scenes
+(3) center the monsters as much as possible
+(4) small generic animations for each enemy
+(5) consistent ui for ALL the buttons so there will be a universal game knowledge of how buttons (other ui elements) look like
+(6) Make each site has its own monsters locations

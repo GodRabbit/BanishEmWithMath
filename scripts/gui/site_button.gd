@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Node2D
 
 # copyright 2021 Dor "GodRabbit" Shlush
 # this file is part of "BanishEmWithMath"
@@ -13,12 +13,18 @@ extends MarginContainer
 
 export var site_id = "farm"
 
+const SITE_ICON_PATH = "res://images/gui/background_icons/%s_icon.png"
+const RIBBON_IMAGE_PATH = "res://images/gui/background_icons/ribbon_%s.png"
+
 # nodes:
 onready var purchase_button = $main_container/purchase_container/purchase_button
-onready var main_button = $main_container/main_button
+onready var main_button = $main_button
+onready var ribbon_button = $ribbon_button
+onready var site_name_label = $ribbon_button/site_name_label
 onready var purchase_label = $main_container/purchase_container/purchase_label
 onready var purchase_container = $main_container/purchase_container
 onready var addition_purchase_container = $main_container/additional_purchase_container
+onready var anim = $anim
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,17 +38,22 @@ func set_site_id(id):
 
 func update_gui():
 	# TODO: add the texture for each of the sites, and a textureRect
-	# that turn gray when the site is unlocked
-	main_button.text = enemies_data.get_site_name(site_id)
+	# button turn gray when the site is unlocked?
+	ribbon_button.texture_normal = load(RIBBON_IMAGE_PATH % site_id)
+	main_button.texture_normal = load(SITE_ICON_PATH % site_id)
 	
 	if is_unlocked():
 		# if the site is unlocked the purchase button is useless
 		purchase_container.hide()
 		addition_purchase_container.hide()
 		main_button.disabled = false
+		ribbon_button.disabled = false
+		anim.play("unlocked")
 	else:
 		# not unlocked yet, so you can't use the main button to go to the site
+		anim.play("locked")
 		main_button.disabled = true
+		ribbon_button.disabled = true
 		purchase_container.show()
 		addition_purchase_container.show()
 		
@@ -72,6 +83,10 @@ func is_unlocked():
 
 func on_purchase_button_pressed():
 	player_data.purchase_site(site_id)
+	purchase_container.hide() # to prevent multiple pressing of the purchase button
+	if is_unlocked():
+		anim.play("unlocking")
+		yield(anim, "animation_finished")
 	update_gui()
 
 func on_main_button_pressed():

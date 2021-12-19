@@ -99,8 +99,8 @@ __meta__ = {
 }
 
 [node name="battle_window" type="VBoxContainer" parent="main_container"]
-margin_right = 415.0
-margin_bottom = 325.0
+margin_right = 493.0
+margin_bottom = 425.0
 custom_constants/separation = 7
 __meta__ = {
 "_edit_use_anchors_": false
@@ -109,14 +109,14 @@ __meta__ = {
 [node name="puzzle_displayer" parent="main_container/battle_window" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 415.0
-margin_bottom = 240.0
+margin_right = 493.0
+margin_bottom = 354.0
 size_flags_vertical = 4
 
 [node name="result_container" type="HBoxContainer" parent="main_container/battle_window"]
-margin_top = 247.0
-margin_right = 415.0
-margin_bottom = 311.0
+margin_top = 361.0
+margin_right = 493.0
+margin_bottom = 425.0
 grow_vertical = 0
 theme = SubResource( 4 )
 

@@ -1,21 +1,28 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/gui/hud.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/hp_bar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/gui/star_counter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/gui/money_counter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/gui/battle_window.tscn" type="PackedScene" id=5]
-[ext_resource path="res://images/gui/background.png" type="Texture" id=6]
 [ext_resource path="res://scenes/gui/inventory_displayer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scripts/gui/UtilButton.gd" type="Script" id=8]
 [ext_resource path="res://scenes/gui/game_over_screen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://images/gui/volume_2.png" type="Texture" id=10]
 [ext_resource path="res://scenes/sfx/explosive_dark_hearts_particles.tscn" type="PackedScene" id=11]
+[ext_resource path="res://images/gui/inventory_button.png" type="Texture" id=12]
+[ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_toggle_inventory"
 
 [sub_resource type="ShortCut" id=2]
 shortcut = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 19
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 13 )
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -26,33 +33,33 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -425.0
-margin_top = -220.0
-margin_right = 168.0
-margin_bottom = 204.0
+margin_left = 266.0
+margin_top = -212.0
+margin_right = 859.0
+margin_bottom = 212.0
 
-[node name="inventory_button" type="Button" parent="."]
-margin_left = 944.0
-margin_top = 80.0
-margin_right = 1017.0
-margin_bottom = 100.0
+[node name="inventory_button" type="TextureButton" parent="."]
+margin_left = 1864.0
+margin_top = 320.0
+margin_right = 1950.0
+margin_bottom = 430.0
 shortcut = SubResource( 2 )
-text = "Inventory"
-script = ExtResource( 8 )
+texture_normal = ExtResource( 12 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-sound_id = "button_click1"
 
-[node name="crafting_button" type="Button" parent="."]
-visible = false
-margin_left = 728.0
-margin_top = 104.0
-margin_right = 788.0
-margin_bottom = 124.0
-text = "Crafting"
-script = ExtResource( 8 )
-sound_id = "button_click1"
+[node name="Label" type="Label" parent="inventory_button"]
+margin_left = 8.0
+margin_top = 110.0
+margin_right = 77.0
+margin_bottom = 139.0
+custom_fonts/font = SubResource( 3 )
+text = "Inventory"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="stats_container" type="MarginContainer" parent="."]
 margin_right = 422.0
@@ -67,19 +74,19 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="stats_container"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 496.0
+margin_right = 586.0
 margin_bottom = 70.0
-custom_constants/separation = 40
+custom_constants/separation = 80
 
 [node name="hp_bar" parent="stats_container/HBoxContainer" instance=ExtResource( 2 )]
 margin_right = 170.0
 margin_bottom = 54.0
 
 [node name="counters" type="HBoxContainer" parent="stats_container/HBoxContainer"]
-margin_left = 210.0
-margin_right = 480.0
+margin_left = 250.0
+margin_right = 570.0
 margin_bottom = 54.0
-custom_constants/separation = 30
+custom_constants/separation = 80
 
 [node name="star_counter" parent="stats_container/HBoxContainer/counters" instance=ExtResource( 3 )]
 anchor_left = 0.0
@@ -96,33 +103,37 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 150.0
+margin_left = 200.0
 margin_top = 0.0
-margin_right = 270.0
+margin_right = 320.0
 margin_bottom = 54.0
 
 [node name="battle_window" parent="." instance=ExtResource( 5 )]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 296.0
-margin_top = 72.0
-margin_right = -344.0
-margin_bottom = -32.0
-
-[node name="Sprite" type="Sprite" parent="battle_window"]
-visible = false
-show_behind_parent = true
-position = Vector2( 216, 300 )
-scale = Vector2( 1.53005, 1.53061 )
-texture = ExtResource( 6 )
+margin_left = 723.0
+margin_top = 200.0
+margin_right = -609.0
+margin_bottom = -228.0
 
 [node name="game_over_screen" parent="." instance=ExtResource( 9 )]
 visible = false
-margin_left = 132.0
-margin_top = 200.0
-margin_right = 895.0
-margin_bottom = 385.0
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 1403.0
+margin_bottom = 545.0
 
 [node name="explosive_dark_hearts_particles" parent="." instance=ExtResource( 11 )]
 position = Vector2( 0, 640 )
+
+[node name="volume_button" type="TextureButton" parent="."]
+margin_left = 32.0
+margin_top = 1000.0
+margin_right = 82.0
+margin_bottom = 1050.0
+texture_normal = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

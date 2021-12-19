@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=1]
 [ext_resource path="res://images/enemies/man_go.png" type="Texture" id=2]
+[ext_resource path="res://scenes/overworld/enemies/enemy_animations/animated_vertical_bob.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 40.0
@@ -12,8 +13,12 @@ script = ExtResource( 1 )
 enemy_id = "man_go"
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8 )
 shape = SubResource( 1 )
+
+[node name="animated_vertical_bob" parent="." instance=ExtResource( 3 )]
+enemy_id = "man_go"

@@ -9,7 +9,7 @@ extends Node2D
 
 # a master scene for the combat
 
-const ENEMY_POSITIONS = [Vector2(600, 88), Vector2(216, 224), Vector2(760, 400), Vector2(456, 448),
+var ENEMY_POSITIONS = [Vector2(600, 88), Vector2(216, 224), Vector2(760, 400), Vector2(456, 448),
 Vector2(432, 168), Vector2(840, 168), Vector2(952, 432), Vector2(608, 440), Vector2(328, 472),
 Vector2(80, 104), Vector2(96, 360), Vector2(550, 264), Vector2(712, 240),
 Vector2(328, 304)]
@@ -52,8 +52,24 @@ func _ready():
 #func _process(delta):
 #	pass
 
+# create <N> vector2 for possible positions of enemies
+func _create_enemy_positions(N, start_pos, end_pos):
+	ENEMY_POSITIONS = []
+	var x_range = end_pos.x - start_pos.x
+	var y_range = end_pos.y - start_pos.y
+	for i in range(0, N):
+		var x = rand_range(0, x_range)
+		var y = rand_range(0, y_range)
+		
+		var pos = start_pos + Vector2(x, y)
+		ENEMY_POSITIONS.append(pos)
+		
+
+
 # setup the enemies and scene for the combat to start
 func setup_combat():
+	_create_enemy_positions(10, Vector2(216, 208), Vector2(1728, 888))
+	
 	# remove objects from previous session:
 	for o in objects_node.get_children():
 		objects_node.remove_child(o)

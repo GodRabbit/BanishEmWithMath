@@ -5,6 +5,8 @@ List of known bugs:
 (*) Some items have missing textures
 (*)* Enemies won't spawn unless the "on_spawn_enemies()" in dynamic background wait for animations to end. This is highly bizzare.
 (*) Schnoop Queen is missing several enemies
+(*) you can challenge the final boss without finishing the other sites\bosses
+(*) The bosses are spoiled from the beginning instead of appearing 1 after the other
 
 Puzzle Features:
 Min\max problems - find the min\max number (simple)
@@ -16,8 +18,13 @@ Refinement points: (High priority):
 (*) All the buttons must change from base theme
 (*) Splash screen must be flawless
 (*) change screen resolution to higher, so that the beautiful shit you worked on will look nice.
+(*) create analsys for items and star drops
+(*) create a stat collecting scene. for achievements\quests later on
+(*) visual representation of items enter the inventory ('suck' style or stardew style?)
 
 low priority:
 (*) mockup Battle Royal mode
 (*) elite and champion enemies
-(*) 
+(*) Quests for more stars and more max hp (Beat the Farm with 1hp, beat the jungle 3 times without eating, beat the ocean without losing hp, etc)
+(*) (very low priority!) Alternate Bosses for each zone
+(*) randomizer!

@@ -48,3 +48,7 @@ func _change_scene():
 	if(path != ""):
 		get_tree().change_scene(path)
 		get_tree().set_pause(false)
+
+func fade_to_tutorial():
+	path = "res://scenes/tutorial/tutorial_scene.tscn"
+	$anim.play("fade_to")

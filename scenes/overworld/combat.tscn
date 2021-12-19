@@ -1,14 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/overworld/combat.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/hud.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/overworld/enemies/angry_pear.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/overworld/enemies/wheaty.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/overworld/enemies/angry_apple.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/overworld/enemies/boo_da_rang.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/overworld/enemies/cra_babi.tscn" type="PackedScene" id=7]
 [ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://images/gui/star_yellow.png" type="Texture" id=9]
+[ext_resource path="res://images/gui/star2.png" type="Texture" id=9]
 [ext_resource path="res://images/backgrounds/farm1.png" type="Texture" id=10]
 [ext_resource path="res://scenes/sfx/explosive_star_particles.tscn" type="PackedScene" id=11]
 
@@ -24,78 +19,50 @@ font_data = ExtResource( 8 )
 script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 536, 283.5 )
+position = Vector2( 988, 525 )
 texture = ExtResource( 10 )
 
 [node name="objects" type="YSort" parent="."]
 
-[node name="angry_pear2" parent="objects" instance=ExtResource( 3 )]
-position = Vector2( 600, 88 )
-
-[node name="angry_pear3" parent="objects" instance=ExtResource( 3 )]
-position = Vector2( 432, 168 )
-
-[node name="angry_pear4" parent="objects" instance=ExtResource( 3 )]
-position = Vector2( 840, 140 )
-
-[node name="angry_pear5" parent="objects" instance=ExtResource( 3 )]
-position = Vector2( 952, 432 )
-
-[node name="wheaty" parent="objects" instance=ExtResource( 4 )]
-position = Vector2( 760, 400 )
-
-[node name="angry_apple" parent="objects" instance=ExtResource( 5 )]
-position = Vector2( 456, 448 )
-
-[node name="boo_da_rang" parent="objects" instance=ExtResource( 6 )]
-position = Vector2( 234, 136 )
-
-[node name="cra_babi" parent="objects" instance=ExtResource( 7 )]
-position = Vector2( 144, 96 )
-
-[node name="cra_babi2" parent="objects" instance=ExtResource( 7 )]
-position = Vector2( 208, 384 )
-
-[node name="cra_babi3" parent="objects" instance=ExtResource( 7 )]
-position = Vector2( 592, 261 )
-
-[node name="cra_babi4" parent="objects" instance=ExtResource( 7 )]
-position = Vector2( 896, 96 )
-
-[node name="cra_babi5" parent="objects" instance=ExtResource( 7 )]
-position = Vector2( 872, 472 )
-
 [node name="hud" parent="." instance=ExtResource( 2 )]
 
 [node name="exit_container" type="HBoxContainer" parent="."]
-margin_left = 432.0
-margin_top = 537.6
-margin_right = 694.0
-margin_bottom = 598.6
+margin_left = 824.0
+margin_top = 1000.0
+margin_right = 1110.0
+margin_bottom = 1064.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="exit_button" type="Button" parent="exit_container"]
 margin_right = 133.0
-margin_bottom = 61.0
+margin_bottom = 64.0
 custom_fonts/font = SubResource( 1 )
 text = "EXIT"
 
 [node name="number_label" type="Label" parent="exit_container"]
 margin_left = 137.0
-margin_top = 5.0
+margin_top = 6.0
 margin_right = 216.0
-margin_bottom = 56.0
+margin_bottom = 57.0
 custom_fonts/font = SubResource( 2 )
 text = "-10"
 
 [node name="icon" type="TextureRect" parent="exit_container"]
 margin_left = 220.0
-margin_right = 284.0
-margin_bottom = 61.0
+margin_right = 286.0
+margin_bottom = 64.0
 texture = ExtResource( 9 )
 
 [node name="particles" type="Node2D" parent="."]
 
 [node name="explosive_star_particles" parent="particles" instance=ExtResource( 11 )]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="p0" type="Position2D" parent="Node2D"]
+position = Vector2( 216, 208 )
+
+[node name="p3" type="Position2D" parent="Node2D"]
+position = Vector2( 1728, 888 )

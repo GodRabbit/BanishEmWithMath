@@ -172,7 +172,7 @@ func get_current_stars():
 func set_stars(v):
 	var tmp = current_stars
 	if v >= MAX_STARS:
-		current_stars = v
+		current_stars = MAX_STARS
 	elif v <= 0:
 		current_stars = 0
 	else:

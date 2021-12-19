@@ -18,7 +18,7 @@ extends Node2D
 #  when the boss's hp is 0, call DB's "on_death" and wait for signal
 # "ready_to_die" and then you proceed normaly.
 
-const ENEMY_POSITIONS = [Vector2(600, 88), Vector2(216, 224), Vector2(760, 400), Vector2(456, 448),
+var ENEMY_POSITIONS = [Vector2(600, 88), Vector2(216, 224), Vector2(760, 400), Vector2(456, 448),
 Vector2(432, 168), Vector2(840, 168), Vector2(952, 432), Vector2(608, 440), Vector2(328, 472),
 Vector2(80, 104), Vector2(96, 360), Vector2(550, 264), Vector2(712, 240),
 Vector2(328, 304)]
@@ -34,6 +34,7 @@ onready var boss_hp_bar = $hud/boss_hp_container/boss_hp_bar
 onready var boss_name_label = $hud/boss_hp_container/boss_name_label
 onready var db_container = $db_container
 onready var explosive_star_particles = $particles/explosive_star_particles
+onready var boss_hp_label = $hud/boss_hp_container/boss_hp_label
 
 var boss_id = "galactic_cake"
 var boss_max_hp = 50
@@ -52,12 +53,27 @@ func _ready():
 	setup_combat()
 	spawn_wave()
 
+# create <N> vector2 for possible positions of enemies
+func _create_enemy_positions(N, start_pos, end_pos):
+	ENEMY_POSITIONS = []
+	var x_range = end_pos.x - start_pos.x
+	var y_range = end_pos.y - start_pos.y
+	for i in range(0, N):
+		var x = rand_range(0, x_range)
+		var y = rand_range(0, y_range)
+		
+		var pos = start_pos + Vector2(x, y)
+		ENEMY_POSITIONS.append(pos)
+
 func update_gui():
 	boss_hp_bar.value = (float(boss_current_hp)/float(boss_max_hp))*100.0
+	boss_hp_label.text = "%d / %d" % [int(boss_current_hp), boss_max_hp]
 
 # call this function when combat starts
 #  to setup all the varaiables needed
 func setup_combat():
+	_create_enemy_positions(10, Vector2(216, 208), Vector2(1728, 888))
+	
 	var boss_id = player_data.get_current_boss()
 	waves_over = false
 	boss_dic = enemies_data.get_boss_by_id(boss_id)
@@ -133,7 +149,8 @@ func set_boss_hp(val):
 		on_waves_over()
 	else:
 		boss_current_hp = val
-	get_dynamic_background().on_boss_health_changed((float(val)/float(boss_max_hp))*100.0)
+	if boss_current_hp > 0:
+		get_dynamic_background().on_boss_health_changed((float(boss_current_hp)/float(boss_max_hp))*100.0)
 	update_gui()
 
 func get_boss_hp():

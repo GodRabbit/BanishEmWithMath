@@ -171,6 +171,14 @@ func _ready():
 	1, # damage
 	{"spider_leg":1, "spider_eye":1}))
 	
+	_add_enemy(enemy_abstract.new("tutorial_schnoop",
+	"Hatched Schnoop",
+	puzzle_addition.new(0, 5),
+	40,
+	5,
+	1,
+	{"apple":15, "pear":15, "ghost_hair":2}))
+	
 	_add_enemy(enemy_abstract.new("angry_pear",
 	"Angry Pear",
 	puzzle_addition.new(0, 10),
@@ -241,7 +249,7 @@ func _ready():
 	30,
 	3,
 	1,
-	{"spider_eye":1, "spike":1})) #TODO: change
+	{"glass_shard":1})) #TODO: change?
 	
 	_add_enemy(enemy_abstract.new("boo_da_rang",
 	"Boo Da Rang",
@@ -249,7 +257,7 @@ func _ready():
 	30,
 	4,
 	1,
-	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: whats going on..?
+	{"moss_ball":1})) 
 	
 	_add_enemy(enemy_abstract.new("mossy_boo_da_rang", 
 	"Mossy Boo Da Rang",
@@ -257,7 +265,7 @@ func _ready():
 	20,
 	5,
 	1,
-	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: whats going on..?
+	{"moss_ball":2})) 
 	
 	_add_enemy(enemy_abstract.new("flying_fish", 
 	"Flying Fish", # TODO: change name
@@ -265,7 +273,7 @@ func _ready():
 	30,
 	3,
 	2,
-	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: change
+	{"dragon_scale":1})) 
 	
 	_add_enemy(enemy_abstract.new("water_schnoop",
 	"Water Schnoop",
@@ -273,7 +281,7 @@ func _ready():
 	30,
 	4,
 	1,
-	{"ghost_hair":2}))
+	{"ghost_hair":2, "glass_shard":1}))
 	
 	_add_enemy(enemy_abstract.new("clamp", 
 	"Clamp", #TODO: change name?
@@ -281,7 +289,7 @@ func _ready():
 	60,
 	6,
 	1,
-	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: change
+	{"glass_shard":1, "pearl":1})) 
 	
 	_add_enemy(enemy_abstract.new("water_snail",
 	"Water Snail", #TODO: change name!
@@ -289,7 +297,7 @@ func _ready():
 	40,
 	6,
 	1,
-	{"spider_eye":1, "spike":1, "apple":1, "egg":1})) # TODO: change
+	{"shell":1})) 
 	
 	_add_enemy(enemy_abstract.new("karen_melon",
 	"Karen Melon", 
@@ -329,7 +337,7 @@ func _ready():
 	40,
 	7,
 	1,
-	{"banana":1})) # TODO: change
+	{"banana":1})) 
 	
 	_add_enemy(enemy_abstract.new("man_go", 
 	"Man gO!", # TODO: change name?
@@ -345,7 +353,7 @@ func _ready():
 	25,
 	6,
 	2,
-	{"mango":1})) # TODO: change
+	{"shell":1, "moss_ball":1})) 
 	
 	_add_enemy(enemy_abstract.new("jacko",
 	"Jacko",
@@ -451,7 +459,7 @@ func _ready():
 	60,
 	4,
 	1,
-	{"snowball":1})) # TODO: change to snowball
+	{"snowball":1})) 
 	
 	_add_enemy(enemy_abstract.new("snowy_cra_babi", 
 	"Snowy Cra Babi",
@@ -459,7 +467,7 @@ func _ready():
 	30,
 	5,
 	1,
-	{"ghost_hair":1})) # TODO: change
+	{"spider_eye":2, "pearl":1})) # TODO: change?
 	
 	_add_enemy(enemy_abstract.new("pain_tree", 
 	"Pain Tree",
@@ -467,7 +475,7 @@ func _ready():
 	40,
 	6,
 	1,
-	{"leaf":3})) # TODO: change
+	{"leaf":5})) # TODO: change?
 	
 	_add_enemy(enemy_abstract.new("snowy_spider", 
 	"Snowy Spider",
@@ -516,7 +524,7 @@ func _ready():
 	40,
 	10,
 	1,
-	{"ghost_hair":3, "snowball":2})) # TODO: change
+	{"jelly":3})) # TODO: change?
 	
 	_add_enemy(enemy_abstract.new("punguy", 
 	"Punguy", 
@@ -524,7 +532,7 @@ func _ready():
 	40,
 	7,
 	1,
-	{"ghost_hair":3, "snowball":2})) # TODO: change to mushr0om
+	{"mushroom":1})) 
 	
 	_add_enemy(enemy_abstract.new("grandhamster", 
 	"GrandHamster", 
@@ -532,7 +540,7 @@ func _ready():
 	45,
 	8,
 	1,
-	{"ghost_hair":3, "snowball":2})) # TODO: change
+	{"mushroom":1, "pearl":1, "fairy_dust":1})) # TODO: change? (maybe to chess queen piece?)
 	
 	_add_enemy(enemy_abstract.new("fairy_schnoop", 
 	"Fairy Schnoop", 
@@ -540,7 +548,7 @@ func _ready():
 	50,
 	8,
 	2,
-	{"ghost_hair":3, "snowball":2})) # TODO: change
+	{"ghost_hair":3, "fairy_dust":2})) 
 	
 	_add_enemy(enemy_abstract.new("butter_fly", 
 	"Butter Fly", 
@@ -548,7 +556,7 @@ func _ready():
 	25,
 	8,
 	2,
-	{"ghost_hair":3, "snowball":2})) # TODO: change
+	{"fairy_dust":3})) # TODO: change?
 	
 	_add_enemy(enemy_abstract.new("fairy", 
 	"Fairy", 
@@ -556,7 +564,7 @@ func _ready():
 	25,
 	10,
 	2,
-	{"ghost_hair":3, "snowball":2})) # TODO: change
+	{"fairy_dust":5})) # TODO: change?
 	
 	_add_enemy(enemy_abstract.new("fairy_owllo", 
 	"Fairy Owllo", 
@@ -564,7 +572,7 @@ func _ready():
 	25,
 	7,
 	2,
-	{"ghost_hair":3, "snowball":2}))  # TODO: change
+	{"fairy_dust":6}))  # TODO: change?
 	
 	_add_enemy(enemy_abstract.new("dark_owllo", 
 	"Dark Owllo", 
@@ -572,7 +580,7 @@ func _ready():
 	30,
 	8,
 	2,
-	{"ghost_hair":3, "snowball":2}))  # TODO: change
+	{"ghost_hair":3, "fairy_dust":2}))  # TODO: change?
 	
 	_add_enemy(enemy_abstract.new("snail_wizard", 
 	"Snail Wizard", 
@@ -580,7 +588,7 @@ func _ready():
 	30,
 	8,
 	3,
-	{"ghost_hair":3, "snowball":2})) # TODO: change
+	{"shell":3, "fairy_dust":1})) 
 	
 	_add_enemy(enemy_abstract.new("dark_cheese", 
 	"Dark Cheese", 
@@ -597,7 +605,7 @@ func _ready():
 	35,
 	7,
 	1,
-	{"ghost_hair":3, "snowball":2})) # TODO: change
+	{"sleep_essence":3})) # TODO: change?
 	
 	_add_enemy(enemy_abstract.new("nightmare", 
 	"Nightmare", 
@@ -605,7 +613,7 @@ func _ready():
 	45,
 	7,
 	1,
-	{"ghost_hair":3, "snowball":2}))  # TODO: change
+	{"ghost_hair":1, "sleep_essence":3}))  
 	
 	_add_enemy(enemy_abstract.new("daydream", 
 	"Daydream", 
@@ -613,7 +621,7 @@ func _ready():
 	30,
 	7,
 	1,
-	{"ghost_hair":3, "snowball":2}))  # TODO: change
+	{"ghost_hair":1, "sleep_essence":3}))  
 	
 	_add_enemy(enemy_abstract.new("mr_pillowman", 
 	"Mr. pillowman", 
@@ -621,7 +629,7 @@ func _ready():
 	55,
 	10,
 	1,
-	{"ghost_hair":3, "snowball":2})) # TODO: change
+	{"ghost_hair":2, "sleep_essence":5})) # TODO: change? (maybe moustache?)
 
 
 

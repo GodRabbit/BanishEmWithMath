@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=1]
 [ext_resource path="res://images/enemies/applady.png" type="Texture" id=2]
+[ext_resource path="res://scenes/overworld/enemies/enemy_animations/animated_rotation.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 32.0
@@ -11,9 +12,14 @@ script = ExtResource( 1 )
 enemy_id = "applady"
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( -1.90735e-06, -3.8147e-06 )
 scale = Vector2( 0.461765, 0.460533 )
 texture = ExtResource( 2 )
+
+[node name="animated_rotation" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 0.462, 0.461 )
+enemy_id = "applady"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 16 )

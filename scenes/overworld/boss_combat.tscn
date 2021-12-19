@@ -18,10 +18,10 @@ script = ExtResource( 3 )
 [node name="hud" parent="." instance=ExtResource( 1 )]
 
 [node name="boss_hp_container" type="VBoxContainer" parent="hud"]
-margin_left = 43.0
-margin_top = 520.0
-margin_right = 632.0
-margin_bottom = 569.0
+margin_left = 120.0
+margin_top = 992.0
+margin_right = 709.0
+margin_bottom = 1059.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -41,6 +41,12 @@ texture_progress = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="boss_hp_label" type="Label" parent="hud/boss_hp_container"]
+margin_top = 71.0
+margin_right = 589.0
+margin_bottom = 85.0
+text = "35/70"
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 540.001, 261 )

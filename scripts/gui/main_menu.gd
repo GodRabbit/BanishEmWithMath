@@ -15,6 +15,7 @@ onready var easy_button = $difficulty_container/easy_button
 onready var normal_button = $difficulty_container/normal_button
 onready var hard_button = $difficulty_container/hard_button
 onready var hardcore_button = $difficulty_container/hardcore_button
+onready var tutorial_button = $button_container/tutorial_button
 
 const BACKGROUND_MUSIC_ID = "background-loop-melodic-techno-03-2691"
 
@@ -22,6 +23,8 @@ const BACKGROUND_MUSIC_ID = "background-loop-melodic-techno-03-2691"
 func _ready():
 	# signals:
 	new_game_button.connect("pressed", self, "on_new_game_button_pressed")
+	exit_game_button.connect("pressed", self, "on_exit_game_button_pressed")
+	tutorial_button.connect("pressed", self, "on_tutorial_button_pressed")
 	
 	# sets the button to pressed according to the last difficulty the player chose
 	get_node("difficulty_container/%s_button" % player_data.prefferd_difficulty.to_lower()).pressed = true
@@ -52,3 +55,9 @@ func on_new_game_button_pressed():
 	player_data.setup_player(get_difficulty())
 	player_data.prefferd_difficulty = get_difficulty()
 	transition.fade_to_overworld()
+
+func on_exit_game_button_pressed():
+	get_tree().quit()
+
+func on_tutorial_button_pressed():
+	transition.fade_to_tutorial()

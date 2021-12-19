@@ -60,7 +60,7 @@ __meta__ = {
 }
 
 [node name="problem_label" type="Label" parent="."]
-margin_right = 415.0
+margin_right = 1371.0
 margin_bottom = 73.0
 rect_min_size = Vector2( 200, 56 )
 text = "
@@ -72,8 +72,8 @@ __meta__ = {
 
 [node name="options_container" type="GridContainer" parent="."]
 margin_top = 81.0
-margin_right = 415.0
-margin_bottom = 183.0
+margin_right = 1371.0
+margin_bottom = 259.0
 custom_constants/vseparation = 20
 custom_constants/hseparation = 20
 columns = 3
@@ -82,8 +82,8 @@ __meta__ = {
 }
 
 [node name="option_button0" type="Button" parent="options_container"]
-margin_right = 125.0
-margin_bottom = 41.0
+margin_right = 151.0
+margin_bottom = 79.0
 toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource( 2 )
@@ -91,9 +91,9 @@ group = ExtResource( 2 )
 text = "option a"
 
 [node name="option_button1" type="Button" parent="options_container"]
-margin_left = 145.0
-margin_right = 270.0
-margin_bottom = 41.0
+margin_left = 171.0
+margin_right = 322.0
+margin_bottom = 79.0
 toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource( 4 )
@@ -101,9 +101,9 @@ group = ExtResource( 2 )
 text = "option a"
 
 [node name="option_button2" type="Button" parent="options_container"]
-margin_left = 290.0
-margin_right = 415.0
-margin_bottom = 41.0
+margin_left = 342.0
+margin_right = 493.0
+margin_bottom = 79.0
 toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource( 6 )
@@ -111,9 +111,9 @@ group = ExtResource( 2 )
 text = "option a"
 
 [node name="option_button3" type="Button" parent="options_container"]
-margin_top = 61.0
-margin_right = 125.0
-margin_bottom = 102.0
+margin_top = 99.0
+margin_right = 151.0
+margin_bottom = 178.0
 toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource( 8 )
@@ -121,10 +121,10 @@ group = ExtResource( 2 )
 text = "option a"
 
 [node name="option_button4" type="Button" parent="options_container"]
-margin_left = 145.0
-margin_top = 61.0
-margin_right = 270.0
-margin_bottom = 102.0
+margin_left = 171.0
+margin_top = 99.0
+margin_right = 322.0
+margin_bottom = 178.0
 toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource( 10 )
@@ -132,10 +132,10 @@ group = ExtResource( 2 )
 text = "option a"
 
 [node name="option_button5" type="Button" parent="options_container"]
-margin_left = 290.0
-margin_top = 61.0
-margin_right = 415.0
-margin_bottom = 102.0
+margin_left = 342.0
+margin_top = 99.0
+margin_right = 493.0
+margin_bottom = 178.0
 toggle_mode = true
 shortcut_in_tooltip = false
 shortcut = SubResource( 12 )
@@ -143,9 +143,9 @@ group = ExtResource( 2 )
 text = "option a"
 
 [node name="accept_button" type="Button" parent="."]
-margin_top = 191.0
-margin_right = 106.0
-margin_bottom = 232.0
+margin_top = 267.0
+margin_right = 132.0
+margin_bottom = 346.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 shortcut_in_tooltip = false
@@ -156,9 +156,9 @@ __meta__ = {
 }
 
 [node name="main_container" type="VBoxContainer" parent="."]
-margin_top = 600.0
-margin_right = 415.0
-margin_bottom = 600.0
+margin_top = 1080.0
+margin_right = 1371.0
+margin_bottom = 1080.0
 custom_constants/separation = 40
 alignment = 1
 __meta__ = {

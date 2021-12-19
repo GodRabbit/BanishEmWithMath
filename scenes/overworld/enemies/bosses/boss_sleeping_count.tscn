@@ -4,10 +4,9 @@
 [ext_resource path="res://images/enemies/sleeping_count/sleeping_count_pre.png" type="Texture" id=2]
 [ext_resource path="res://images/particles/heart1.png" type="Texture" id=3]
 
-[sub_resource type="CanvasItemMaterial" id=2]
+[sub_resource type="CanvasItemMaterial" id=1]
 
-[sub_resource type="Animation" id=1]
-resource_name = "blink"
+[sub_resource type="Animation" id=2]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("body:visible")
@@ -45,7 +44,7 @@ scale = Vector2( 0.443662, 0.443662 )
 texture = ExtResource( 2 )
 
 [node name="explosive_hearts_particles" type="CPUParticles2D" parent="."]
-material = SubResource( 2 )
+material = SubResource( 1 )
 emitting = false
 amount = 40
 lifetime = 4.0
@@ -63,4 +62,4 @@ scale_amount = 0.6
 color = Color( 0.227451, 0.0156863, 0.27451, 1 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
-anims/blink = SubResource( 1 )
+anims/blink = SubResource( 2 )

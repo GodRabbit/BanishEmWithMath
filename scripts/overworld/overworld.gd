@@ -9,11 +9,15 @@ extends Node2D
 
 # An overworld scene that connects to combat, market and more.
 
+const SITES_LOCATIONS = [Vector2(128, 136), Vector2(176, 288), Vector2(427, 294),
+Vector2(446, 160), Vector2(792, 208), Vector2(888, 360), Vector2(591, 450),
+Vector2(243, 454)]
+
 var current_zone = "zone1"
 
 # nodes:
 onready var give_up_button = $give_up_button
-onready var site_container = $site_scroll_container/site_container
+onready var site_container = $site_container
 
 const BACKGROUND_MUSIC_ID = "background-loop-melodic-techno-03-2691"
 
@@ -35,9 +39,17 @@ func _input(event):
 		player_data.add_stars(1000)
 
 func _empty_site_container():
-	for c in site_container.get_children():
-		site_container.remove_child(c)
-		c.queue_free()
+	# p are points to place the sites buttons
+	for p in site_container.get_children():
+		if p.get_children().size() > 0:
+			for c in p.get_children():
+				p.remove_child(c)
+				c.queue_free()
+
+func insert_to_site_container(n):
+	for p in site_container.get_children():
+		if p.get_children().size() == 0:
+			p.add_child(n)
 
 func update_gui():
 	 # update site container:
@@ -46,9 +58,10 @@ func update_gui():
 	
 	for s in sites:
 		var b = load("res://scenes/gui/site_button.tscn").instance()
-		site_container.add_child(b)
+		insert_to_site_container(b)
 		b.set_site_id(s)
+		#b.position = pos
 		b.update_gui()
-	
-	# TODO: add the same bor boss fights
+		
+	# TODO: add the same for boss fights
 	

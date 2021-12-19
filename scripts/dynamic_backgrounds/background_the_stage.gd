@@ -11,8 +11,8 @@ extends dynamic_background
 # dynamic background for the stage, the home of the feared "Sleeping Count".
 
 # consts:
-const START_POS = Vector2(504, 208)
-const END_POS = Vector2(504, 416)
+const START_POS = Vector2(1008, 375.746)
+const END_POS = Vector2(1008, 832)
 
 # the reveal hasn't happened yet
 var is_revealed = false
