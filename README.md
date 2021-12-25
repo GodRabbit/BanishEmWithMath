@@ -18,6 +18,9 @@ The game is in early access, many features are still missing. feel free to leave
 Future Features:
 
 -Animations & sound effects for all the enemies
+
 -More unique bosses
+
 -**Battle royale** mode
+
 -Harder math problems, for high-school and college students
