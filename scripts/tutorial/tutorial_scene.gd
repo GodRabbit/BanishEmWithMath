@@ -25,15 +25,16 @@ onready var input_timer = $input_timer # DEPRECATED
 onready var combat_anim = $mini_combat/combat_anim
 onready var tutorial_schnoop = $mini_combat/tutorial_schnoop
 onready var hud = $hud
+onready var exit_button = $hud/exit_button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	exit_button.connect("pressed", self, "on_exit_button_pressed")
 	input_timer.connect("timeout", self, "on_input_timer_cooldown") # DEPRECATED
 	dialogue_button.connect("pressed", self, "on_dialogue_button_pressed")
 	hud.connect("inventory_opened", self, "on_inventory_opened")
 	hud.inventory_displayer.connect("item_sold", self, "on_sell")
 	# combat signals
-	hud.connect("battle_over", self, "on_battle_over")
 	tutorial_schnoop.connect("object_pressed", self, "on_tutorial_schnoop_pressed")
 	hud.connect("battle_over", self, "on_battle_over")
 	set_phase("prologue")
@@ -43,7 +44,7 @@ func _ready():
 # each phase has dialogue, and at the end of the dialogue the event function
 # will be called.
 var phases = {"prologue":{
-	"dialogue":["Weird enemies evaded our planet!",
+	"dialogue":["Weird enemies invaded our planet!",
 	"You can banish them with the power of MATH!",
 	"Oh no here's one of them!",
 	"Press on him to banish him!"],
@@ -86,7 +87,7 @@ var phases = {"prologue":{
 				"event":""
 			}, 
 			  "end":{
-				"dialogue":["Great job!", "You are now ready to play!"],
+				"dialogue":["Great job!", "You are now ready to save the world!"],
 				"event":"on_end"
 			}}
 
@@ -175,4 +176,7 @@ func on_sell():
 	pass
 
 func on_end():
+	transition.fade_to_main_menu()
+
+func on_exit_button_pressed():
 	transition.fade_to_main_menu()

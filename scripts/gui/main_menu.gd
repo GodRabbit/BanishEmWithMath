@@ -16,6 +16,7 @@ onready var normal_button = $difficulty_container/normal_button
 onready var hard_button = $difficulty_container/hard_button
 onready var hardcore_button = $difficulty_container/hardcore_button
 onready var tutorial_button = $button_container/tutorial_button
+onready var version_label = $credits_container/version_label
 
 const BACKGROUND_MUSIC_ID = "background-loop-melodic-techno-03-2691"
 
@@ -30,7 +31,8 @@ func _ready():
 	get_node("difficulty_container/%s_button" % player_data.prefferd_difficulty.to_lower()).pressed = true
 	
 	sound_manager.play_music(BACKGROUND_MUSIC_ID)
-
+	
+	version_label.text = "Version %s" % [game_settings.settings["game_data"]["version"]]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

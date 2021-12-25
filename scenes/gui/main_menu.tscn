@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/gui/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/button_groups/difficulty_buttons.tres" type="ButtonGroup" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://images/gui/title.png" type="Texture" id=7]
 [ext_resource path="res://images/backgrounds/cemetery1.png" type="Texture" id=8]
 [ext_resource path="res://themes/title_screen_buttons.tres" type="Theme" id=9]
+[ext_resource path="res://themes/credit_theme.tres" type="Theme" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle0"
@@ -189,42 +190,42 @@ __meta__ = {
 
 [node name="difficulty_label" type="Label" parent="difficulty_container"]
 margin_right = 211.0
-margin_bottom = 26.0
+margin_bottom = 31.0
 text = "Choose Difficulty:"
 
 [node name="super_easy_button" type="CheckBox" parent="difficulty_container"]
-margin_top = 30.0
+margin_top = 35.0
 margin_right = 211.0
-margin_bottom = 64.0
+margin_bottom = 74.0
 group = ExtResource( 2 )
 text = "Super Easy"
 
 [node name="easy_button" type="CheckBox" parent="difficulty_container"]
-margin_top = 68.0
+margin_top = 78.0
 margin_right = 211.0
-margin_bottom = 102.0
+margin_bottom = 117.0
 group = ExtResource( 2 )
 text = "Easy"
 
 [node name="normal_button" type="CheckBox" parent="difficulty_container"]
-margin_top = 106.0
+margin_top = 121.0
 margin_right = 211.0
-margin_bottom = 140.0
+margin_bottom = 160.0
 pressed = true
 group = ExtResource( 2 )
 text = "Normal"
 
 [node name="hard_button" type="CheckBox" parent="difficulty_container"]
-margin_top = 144.0
+margin_top = 164.0
 margin_right = 211.0
-margin_bottom = 178.0
+margin_bottom = 203.0
 group = ExtResource( 2 )
 text = "Hard"
 
 [node name="hardcore_button" type="CheckBox" parent="difficulty_container"]
-margin_top = 182.0
+margin_top = 207.0
 margin_right = 211.0
-margin_bottom = 216.0
+margin_bottom = 246.0
 group = ExtResource( 2 )
 text = "HARDCORE"
 
@@ -240,10 +241,11 @@ __meta__ = {
 
 [node name="zones_label" type="Label" parent="zones_container"]
 margin_right = 266.0
-margin_bottom = 26.0
+margin_bottom = 31.0
 text = "Pick a Zone:"
 
 [node name="zone0_button" type="CheckBox" parent="zones_container"]
+visible = false
 margin_top = 30.0
 margin_right = 266.0
 margin_bottom = 64.0
@@ -251,23 +253,25 @@ group = ExtResource( 3 )
 text = "Zone 0: Ages 5 - 7 (WIP)"
 
 [node name="zone1_button" type="CheckBox" parent="zones_container"]
-margin_top = 68.0
+margin_top = 35.0
 margin_right = 266.0
-margin_bottom = 102.0
+margin_bottom = 74.0
 group = ExtResource( 3 )
 text = "Zone 1: Ages 8 - 12"
 
 [node name="zone2_button" type="CheckBox" parent="zones_container"]
-margin_top = 106.0
-margin_right = 266.0
-margin_bottom = 140.0
+margin_top = 78.0
+margin_right = 306.0
+margin_bottom = 117.0
+disabled = true
 group = ExtResource( 3 )
 text = "Zone 2: Ages 13 - 16 (WIP)"
 
 [node name="zone3_button" type="CheckBox" parent="zones_container"]
-margin_top = 144.0
-margin_right = 266.0
-margin_bottom = 178.0
+margin_top = 121.0
+margin_right = 269.0
+margin_bottom = 160.0
+disabled = true
 group = ExtResource( 3 )
 text = "Zone 3: Ages 17+ (WIP)"
 
@@ -287,12 +291,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="."]
-margin_left = 1792.0
-margin_top = 1056.0
-margin_right = 1961.0
-margin_bottom = 1070.0
-text = "Copyright Dor Shlush 2021"
+[node name="credits_container" type="VBoxContainer" parent="."]
+margin_left = 1576.0
+margin_top = 952.0
+margin_right = 1927.0
+margin_bottom = 1035.0
+theme = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="creator_label" type="Label" parent="credits_container"]
+margin_right = 351.0
+margin_bottom = 25.0
+text = "Copyright GodRabbit 2021"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="version_label" type="Label" parent="credits_container"]
+margin_top = 29.0
+margin_right = 351.0
+margin_bottom = 54.0
+text = "Version ssss-alpha"
+
+[node name="release_label" type="Label" parent="credits_container"]
+margin_top = 58.0
+margin_right = 351.0
+margin_bottom = 83.0
+text = "Realeased under MPL 2.0"
 __meta__ = {
 "_edit_use_anchors_": false
 }

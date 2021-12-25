@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/tutorial/tutorial_scene.gd" type="Script" id=1]
 [ext_resource path="res://images/backgrounds/farm1.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://themes/button_style_boxes/main_button_normal.tres" type="StyleBox" id=10]
 [ext_resource path="res://themes/button_style_boxes/main_button_pressed.tres" type="StyleBox" id=11]
 [ext_resource path="res://themes/button_style_boxes/main_button_hover.tres" type="StyleBox" id=12]
+[ext_resource path="res://themes/title_screen_buttons.tres" type="Theme" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "enter_schnoop"
@@ -124,6 +125,17 @@ margin_left = 904.0
 margin_right = 1056.0
 margin_bottom = 160.0
 text = "Continue"
+
+[node name="exit_button" type="Button" parent="hud"]
+margin_left = 1872.0
+margin_top = 980.0
+margin_right = 1943.0
+margin_bottom = 1048.0
+theme = ExtResource( 13 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="input_timer" type="Timer" parent="."]
 one_shot = true

@@ -15,6 +15,9 @@ var settings = {
 		"music":3, # TODO: implement
 		"sfx":2, # TODO: implement
 		"ui":2  # TODO: implement
+	},
+	"game_data":{
+		"version":"0.1.11-alpha"
 	}
 }
 
