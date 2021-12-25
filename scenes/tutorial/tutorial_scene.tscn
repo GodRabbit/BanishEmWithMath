@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/tutorial/tutorial_scene.gd" type="Script" id=1]
 [ext_resource path="res://images/backgrounds/farm1.png" type="Texture" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://scenes/sfx/explosive_star_particles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://images/gui/puzzle_rect2.png" type="Texture" id=8]
+[ext_resource path="res://themes/button_style_boxes/main_button_disabled.tres" type="StyleBox" id=9]
+[ext_resource path="res://themes/button_style_boxes/main_button_normal.tres" type="StyleBox" id=10]
+[ext_resource path="res://themes/button_style_boxes/main_button_pressed.tres" type="StyleBox" id=11]
+[ext_resource path="res://themes/button_style_boxes/main_button_hover.tres" type="StyleBox" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "enter_schnoop"
@@ -33,6 +37,17 @@ font_data = ExtResource( 7 )
 
 [sub_resource type="Theme" id=3]
 default_font = SubResource( 2 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = ExtResource( 9 )
+Button/styles/focus = null
+Button/styles/hover = ExtResource( 12 )
+Button/styles/normal = ExtResource( 10 )
+Button/styles/pressed = ExtResource( 11 )
 Panel/icons/ = null
 
 [sub_resource type="StyleBoxTexture" id=4]
@@ -95,7 +110,7 @@ margin_bottom = 160.0
 custom_constants/separation = 30
 
 [node name="dialogue_label" type="RichTextLabel" parent="hud/dialogue_panel/dialogue_container/hbox"]
-margin_right = 894.0
+margin_right = 874.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 400, 20 )
 size_flags_horizontal = 3
@@ -105,7 +120,7 @@ __meta__ = {
 }
 
 [node name="dialogue_button" type="Button" parent="hud/dialogue_panel/dialogue_container/hbox"]
-margin_left = 924.0
+margin_left = 904.0
 margin_right = 1056.0
 margin_bottom = 160.0
 text = "Continue"

@@ -19,4 +19,4 @@ func _ready():
 
 
 func on_pressed():
-	sound_manager.play_sound(sound_id)
+	sound_manager.play_ui_sound(sound_id)

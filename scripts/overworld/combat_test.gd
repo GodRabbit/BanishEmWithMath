@@ -62,7 +62,7 @@ func setup_combat():
 #		objects_node.remove_child(o)
 #		o.queue_free()
 	
-	exit_penalty_label.text = str(player_data.exit_penalty)
+	exit_penalty_label.text = "-" + str(player_data.exit_penalty)
 	
 	# get the site from the player data
 #	site = player_data.get_current_site()

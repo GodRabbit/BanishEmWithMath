@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/gui/hud.tscn" type="PackedScene" id=1]
-[ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/overworld/overworld.gd" type="Script" id=3]
 [ext_resource path="res://images/backgrounds/overworld.png" type="Texture" id=4]
+[ext_resource path="res://themes/title_screen_buttons.tres" type="Theme" id=5]
 [ext_resource path="res://scenes/gui/boss_button.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
-size = 53
+size = 47
+outline_size = 2
+outline_color = Color( 0.466667, 0.207843, 0.470588, 1 )
 font_data = ExtResource( 2 )
 
 [node name="overworld" type="Node2D"]
@@ -32,29 +35,29 @@ __meta__ = {
 }
 
 [node name="boss_button_container" type="GridContainer" parent="boss_scroll_container"]
-margin_right = 153.0
-margin_bottom = 359.0
+margin_right = 158.0
+margin_bottom = 416.0
 
 [node name="boss_button" parent="boss_scroll_container/boss_button_container" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 153.0
-margin_bottom = 117.0
+margin_right = 158.0
+margin_bottom = 136.0
 
 [node name="boss_button3" parent="boss_scroll_container/boss_button_container" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 121.0
-margin_right = 153.0
-margin_bottom = 238.0
+margin_top = 140.0
+margin_right = 158.0
+margin_bottom = 276.0
 boss_id = "sleeping_count"
 
 [node name="boss_button2" parent="boss_scroll_container/boss_button_container" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 242.0
-margin_right = 153.0
-margin_bottom = 359.0
+margin_top = 280.0
+margin_right = 158.0
+margin_bottom = 416.0
 boss_id = "schnoop_queen"
 
 [node name="boss_button4" parent="boss_scroll_container/boss_button_container" instance=ExtResource( 6 )]
@@ -67,10 +70,11 @@ margin_bottom = 480.0
 boss_id = "debug_test"
 
 [node name="give_up_button" type="Button" parent="."]
-margin_left = 1680.0
-margin_top = 992.0
-margin_right = 1920.0
-margin_bottom = 1049.0
+margin_left = 1648.0
+margin_top = 952.0
+margin_right = 1908.0
+margin_bottom = 1041.0
+theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 1 )
 text = "I Give up"
 __meta__ = {

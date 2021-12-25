@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/overworld/combat_test.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/hud.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/overworld/enemies/disturbing_star.tscn" type="PackedScene" id=3]
+[ext_resource path="res://images/gui/star2.png" type="Texture" id=4]
+[ext_resource path="res://themes/title_screen_buttons.tres" type="Theme" id=5]
 [ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://images/gui/star_yellow.png" type="Texture" id=9]
 [ext_resource path="res://images/backgrounds/farm1.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
@@ -38,29 +39,30 @@ position = Vector2( 696, 224 )
 
 [node name="exit_container" type="HBoxContainer" parent="."]
 margin_left = 840.0
-margin_top = 1000.0
-margin_right = 1124.0
-margin_bottom = 1061.0
+margin_top = 936.0
+margin_right = 1144.0
+margin_bottom = 1025.0
+theme = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="exit_button" type="Button" parent="exit_container"]
-margin_right = 133.0
-margin_bottom = 61.0
+margin_right = 153.0
+margin_bottom = 89.0
 custom_fonts/font = SubResource( 1 )
 text = "EXIT"
 
 [node name="number_label" type="Label" parent="exit_container"]
-margin_left = 137.0
-margin_top = 5.0
-margin_right = 216.0
-margin_bottom = 56.0
+margin_left = 157.0
+margin_top = 19.0
+margin_right = 236.0
+margin_bottom = 70.0
 custom_fonts/font = SubResource( 2 )
 text = "-10"
 
 [node name="icon" type="TextureRect" parent="exit_container"]
-margin_left = 220.0
-margin_right = 284.0
-margin_bottom = 61.0
-texture = ExtResource( 9 )
+margin_left = 240.0
+margin_right = 306.0
+margin_bottom = 89.0
+texture = ExtResource( 4 )

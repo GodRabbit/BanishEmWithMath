@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/gui/site_button.gd" type="Script" id=1]
 [ext_resource path="res://images/gui/background_icons/ribbon_farm.png" type="Texture" id=2]
 [ext_resource path="res://images/gui/gem1.png" type="Texture" id=3]
 [ext_resource path="res://images/gui/background_icons/farm_icon.png" type="Texture" id=4]
 [ext_resource path="res://images/particles/portal.png" type="Texture" id=5]
+[ext_resource path="res://themes/title_screen_buttons.tres" type="Theme" id=6]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -164,6 +165,7 @@ margin_left = -16.0
 margin_top = 146.0
 margin_right = 120.0
 margin_bottom = 199.0
+theme = ExtResource( 6 )
 custom_constants/separation = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -177,33 +179,33 @@ margin_bottom = 39.0
 text = "Farm"
 
 [node name="purchase_container" type="HBoxContainer" parent="main_container"]
-margin_right = 136.0
-margin_bottom = 50.0
+margin_right = 155.0
+margin_bottom = 68.0
 rect_min_size = Vector2( 0, 50 )
 
 [node name="purchase_button" type="Button" parent="main_container/purchase_container"]
-margin_right = 56.0
-margin_bottom = 50.0
+margin_right = 104.0
+margin_bottom = 68.0
 text = "Unlock"
 
 [node name="purchase_label" type="Label" parent="main_container/purchase_container"]
-margin_left = 60.0
-margin_top = 9.0
-margin_right = 76.0
-margin_bottom = 40.0
+margin_left = 108.0
+margin_top = 2.0
+margin_right = 128.0
+margin_bottom = 65.0
 text = "10
 "
 
 [node name="purchase_icon" type="TextureRect" parent="main_container/purchase_container"]
-margin_left = 80.0
-margin_right = 103.0
-margin_bottom = 50.0
+margin_left = 132.0
+margin_right = 155.0
+margin_bottom = 68.0
 texture = ExtResource( 3 )
 
 [node name="additional_purchase_container" type="HBoxContainer" parent="main_container"]
-margin_top = 53.0
+margin_top = 71.0
 margin_right = 136.0
-margin_bottom = 53.0
+margin_bottom = 71.0
 custom_constants/separation = 0
 
 [node name="anim" type="AnimationPlayer" parent="."]

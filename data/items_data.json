@@ -193,8 +193,14 @@
     },
     "fairy_dust":{
         "id":"fairy_dust",
-        "name":"fairy_dust",
+        "name":"Fairy Dust",
         "price":8,
         "hp":2
+    },
+    "sleep_essence":{
+        "id":"sleep_essence",
+        "name":"Sleep Essence",
+        "price":3,
+        "hp":-3
     }
 }

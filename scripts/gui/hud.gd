@@ -158,6 +158,9 @@ func on_answer_entered(c, t):
 	if c: # the player won:
 		player_data.absorb_enemy(battle_window.get_enemy(), t)
 		emit_signal("battle_over", c, t)
+		
+		# TODO: change to a non garbage sound
+		# sound_manager.play_ui_sound("ui_success")
 	else:
 		explosive_dark_heart_particles.restart()
 		# the player lost

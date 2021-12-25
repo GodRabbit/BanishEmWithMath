@@ -13,11 +13,15 @@ extends Node
 # nodes:
 onready var ui_stream_player = $ui_stream_player
 onready var music_stream_player = $music_stream_player
+onready var sfx_stream_player = $sfx_stream_player
 onready var anim = $anim
 
 onready var button_click1 = preload("res://audio/ui/kenny/impactMetal_heavy_001.ogg")
+onready var ui_success = preload("res://audio/sfx/success-1-6297.ogg")
+onready var sfx_swoosh1 = preload("res://audio/sfx/swoosh-6428.ogg")
 
-onready var sfx_ids = {"button_click1": button_click1}
+onready var sfx_ids = {"button_click1": button_click1, 
+"ui_success":ui_success, "sfx_swoosh1":sfx_swoosh1}
 
 const audio_music_path = "res://audio/music/%s.ogg"
 
@@ -30,11 +34,17 @@ func _ready():
 	on_audio_setting_change("music")
 
 
-func play_sound(id):
+func play_ui_sound(id):
 	if sfx_ids.has(id):
 		sfx_ids[id].loop = false
 		ui_stream_player.stream = sfx_ids[id]
 		ui_stream_player.play()
+
+func play_sfx_sound(id):
+	if sfx_ids.has(id):
+		sfx_ids[id].loop = false
+		sfx_stream_player.stream = sfx_ids[id]
+		sfx_stream_player.play()
 
 func _change_music_track(id):
 	if current_music_id == id && music_stream_player.playing:
@@ -79,3 +89,6 @@ func on_audio_setting_change(channel):
 			# get the volume for the channel in the settings:
 			var db = game_settings.get_audio_db("ui")
 			ui_stream_player.volume_db = db
+		"sfx","master":
+			var db = game_settings.get_audio_db("sfx")
+			sfx_stream_player.volume_db = db

@@ -47,5 +47,4 @@ func on_main_button_pressed():
 	transition.fade_to_boss_fight(boss_id)
 
 func on_player_stars_changed(v):
-	print("player stars changed")
 	update_gui()

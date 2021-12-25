@@ -34,6 +34,8 @@ onready var star_label = $main_container/battle_window/result_container/star_con
 onready var dmg_label = $main_container/battle_window/result_container/dmg_container/dmg_label
 onready var stars_pop_particle = $main_container/battle_window/result_container/star_container/icon/stars_pop
 onready var stars_porminent_particle = $main_container/battle_window/result_container/star_container/icon/stars_porminent
+onready var main_container = $main_container
+
 
 # was the player out of time while crafting this?
 var is_timedout = false
@@ -92,6 +94,14 @@ func setup_enemy():
 	current_time = enemy.get_time() + 1
 	update_timer()
 	timer.start()
+	
+	# center the control
+	main_container.set_anchor(0.5, 0.5, 0.5, 0.5)
+	var r_size = main_container.rect_size
+	main_container.margin_left = -r_size.x/2
+	main_container.margin_right = -r_size.x/2
+	main_container.margin_bottom = -r_size.y/2
+	main_container.margin_top = -r_size.y/2
 
 #func setup_recipe():
 #	current_time = recipe.get_time()
