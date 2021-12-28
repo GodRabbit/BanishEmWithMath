@@ -240,7 +240,7 @@ __meta__ = {
 }
 
 [node name="zones_label" type="Label" parent="zones_container"]
-margin_right = 266.0
+margin_right = 306.0
 margin_bottom = 31.0
 text = "Pick a Zone:"
 
@@ -254,7 +254,7 @@ text = "Zone 0: Ages 5 - 7 (WIP)"
 
 [node name="zone1_button" type="CheckBox" parent="zones_container"]
 margin_top = 35.0
-margin_right = 266.0
+margin_right = 306.0
 margin_bottom = 74.0
 group = ExtResource( 3 )
 text = "Zone 1: Ages 8 - 12"
@@ -269,7 +269,7 @@ text = "Zone 2: Ages 13 - 16 (WIP)"
 
 [node name="zone3_button" type="CheckBox" parent="zones_container"]
 margin_top = 121.0
-margin_right = 269.0
+margin_right = 306.0
 margin_bottom = 160.0
 disabled = true
 group = ExtResource( 3 )
