@@ -7,6 +7,7 @@ extends Node
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
+# global class for holding the data of all the items in the game.
 var items_data = {}
 
 

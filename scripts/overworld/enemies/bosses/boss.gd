@@ -6,7 +6,7 @@ extends Node2D
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-# DERPRECATED!
+# !!!DERPRECATED!!!!
 # Author note: why not to push this into the dynamic background? is there a 
 #  an advantage to keep this seperate??
 # An abstract class that represnts the boss animated in the boss_combat scene.

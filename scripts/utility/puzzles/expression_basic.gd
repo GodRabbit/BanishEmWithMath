@@ -1,4 +1,4 @@
-extends Node
+extends Reference
 
 # copyright 2021 Dor "GodRabbit" Shlush
 # this file is part of "BanishEmWithMath"

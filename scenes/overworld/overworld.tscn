@@ -35,29 +35,29 @@ __meta__ = {
 }
 
 [node name="boss_button_container" type="GridContainer" parent="boss_scroll_container"]
-margin_right = 158.0
-margin_bottom = 416.0
+margin_right = 181.0
+margin_bottom = 431.0
 
 [node name="boss_button" parent="boss_scroll_container/boss_button_container" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 158.0
-margin_bottom = 136.0
+margin_right = 181.0
+margin_bottom = 141.0
 
 [node name="boss_button3" parent="boss_scroll_container/boss_button_container" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 140.0
-margin_right = 158.0
-margin_bottom = 276.0
+margin_top = 145.0
+margin_right = 181.0
+margin_bottom = 286.0
 boss_id = "sleeping_count"
 
 [node name="boss_button2" parent="boss_scroll_container/boss_button_container" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 280.0
-margin_right = 158.0
-margin_bottom = 416.0
+margin_top = 290.0
+margin_right = 181.0
+margin_bottom = 431.0
 boss_id = "schnoop_queen"
 
 [node name="boss_button4" parent="boss_scroll_container/boss_button_container" instance=ExtResource( 6 )]

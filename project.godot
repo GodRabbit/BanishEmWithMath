@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
+"base": "Reference",
 "class": "Fraction",
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/fraction.gd"
@@ -44,7 +44,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/overworld/enemies/enemy_animations/animated_enemy_sprite.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "complex",
 "language": "GDScript",
 "path": "res://scripts/utility/complex.gd"
@@ -59,22 +59,22 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/dynamic_backgrounds/abstract_dynamic_background.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "enemy_abstract",
 "language": "GDScript",
 "path": "res://scripts/utility/enemy_abstract.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "inventory",
 "language": "GDScript",
 "path": "res://scripts/utility/inventory/inventory.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "item_stack",
 "language": "GDScript",
 "path": "res://scripts/utility/inventory/item_stack.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "math_util",
 "language": "GDScript",
 "path": "res://scripts/utility/math_util.gd"
@@ -84,7 +84,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/overworld/object_area.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "puzzle_abstract",
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_abstract.gd"
@@ -281,7 +281,7 @@ _global_script_class_icons={
 config/name="BanishEmWithMath"
 run/main_scene="res://scenes/gui/main_menu.tscn"
 boot_splash/image="res://images/gui/splash_screen.png"
-config/icon="res://icon.ico"
+config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
 [autoload]
