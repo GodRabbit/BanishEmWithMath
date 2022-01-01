@@ -14,6 +14,8 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 54
+outline_size = 2
+outline_color = Color( 0.0509804, 0.0117647, 0.0117647, 1 )
 font_data = ExtResource( 8 )
 
 [node name="combat" type="Node2D"]

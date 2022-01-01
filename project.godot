@@ -349,6 +349,10 @@ ui_give_money={
  ]
 }
 
+[logging]
+
+file_logging/enable_file_logging=true
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

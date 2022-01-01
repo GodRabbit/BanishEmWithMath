@@ -9,6 +9,7 @@ extends dynamic_background
 
 # nodes:
 onready var boss_schnoop_queen = $boss_schnoop_queen
+onready var anim = $anim
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +19,7 @@ func _ready():
 func on_spawn_enemies():
 	boss_schnoop_queen.start_spawn_anim()
 	yield(boss_schnoop_queen,"spawn_anim_finished")
+	anim.play("shockwave")
 	.on_spawn_enemies()
 
 func on_death():
