@@ -1,0 +1,6 @@
+Banish'Em With Math changelog:
+
+v0.1.12alpha:
+-- Fixed a bug which caused certain abstract classes to leak at exit.
+-- visual upgrade for the Schnoop Queen boss fight
+-- Added changelog for the versions.

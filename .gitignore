@@ -1,0 +1,10 @@
+# release files are not entered
+*.pck
+*.exe
+*.zip
+*.rar
+*.x86_64
+.import/
+export.cfg
+export_presets.cfg
+
