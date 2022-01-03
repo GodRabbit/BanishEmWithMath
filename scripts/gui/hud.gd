@@ -150,7 +150,6 @@ func on_answer_entered(c, t):
 	# close the crafting window:
 	close_exclusive_window()
 	
-	print("Answer is " + str(c))
 	if !c:
 		battle_window.get_problem()._print_puzzle()
 	
@@ -216,5 +215,5 @@ func on_volume_button_pressed():
 	update_audio_button()
 	
 	# debug:
-	print("music db is %f" % game_settings.get_audio_db("music"))
+	# print("music db is %f" % game_settings.get_audio_db("music"))
 	

@@ -85,7 +85,6 @@ func setup_combat():
 	db_container.add_child(db)
 	
 	set_boss_hp(boss_max_hp)
-	print("setup_combat "+str(boss_max_hp))
 	
 	# play music:
 	var music_id = enemies_data.get_boss_music(boss_id)
@@ -165,26 +164,21 @@ func on_player_stars_changed(v):
 
 # called when hp = 0 and no more enemies
 func on_waves_over():
+	Log.log_print("initiated death for boss " + boss_dic["id"])
 	waves_over = true
 	
 	# deal with boss's death
 	get_dynamic_background().on_death()
 	yield(get_dynamic_background(), "ready_to_die")
 	
+	Log.log_print("death is over for boss " + boss_dic["id"] +"; transition to overworld begins")
 	transition.fade_to_overworld()
-#	# spawn final boss # deprecated!
-#	var e_id = boss_dic["final_enemy"]
-#	var enemy_scene = load(ENEMY_PATH % e_id).instance()
-#	objects_node.add_child(enemy_scene)
-#	enemy_scene.global_position = CENTER_POS
-#	enemy_scene.scale = Vector2(3, 3)
-#	enemy_scene.connect("object_pressed", self, "on_object_area_pressed")
 
 func spawn_wave():
-	print("boss combat spawn waves intitated for " + boss_dic["id"])
+	Log.log_print("boss combat spawn waves intitated for " + boss_dic["id"])
 	get_dynamic_background().on_spawn_enemies()
 	yield(get_dynamic_background(), "ready_to_spawn")
-	print("boss combat spawn wave the boss is ready to start")
+	Log.log_print("boss combat spawn wave the boss is ready to start")
 	# calculate the wave size: (num)
 	var wave_size = boss_dic["wave_size"]
 	randomize()
@@ -209,7 +203,7 @@ func spawn_wave():
 		enemy_scene.global_position = pos
 		enemy_scene.connect("object_pressed", self, "on_object_area_pressed")
 		enemy_scene.on_spawn()
-		print("boss combat spawn waves ended for " + boss_dic["id"])
+		Log.log_print("boss combat spawn waves ended for " + boss_dic["id"])
 
 # signal from object areas
 # e_id is enemy id

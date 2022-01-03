@@ -1,8 +1,53 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/dynamic_backgrounds/background_the_stage.gd" type="Script" id=1]
 [ext_resource path="res://images/backgrounds/the_stage.png" type="Texture" id=2]
 [ext_resource path="res://scenes/overworld/enemies/bosses/boss_sleeping_count.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("boss_sleeping_count:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/path = NodePath("boss_sleeping_count:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("boss_sleeping_count:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
 
 [node name="background_the_stage" type="Node2D"]
 script = ExtResource( 1 )
@@ -13,3 +58,9 @@ texture = ExtResource( 2 )
 
 [node name="boss_sleeping_count" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1008, 832 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/RESET = SubResource( 1 )
+anims/death = SubResource( 2 )
+anims/idle = SubResource( 3 )

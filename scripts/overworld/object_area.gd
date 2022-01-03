@@ -56,7 +56,7 @@ func set_pause(val):
 
 # abstract method to be overided by the enemy
 func on_spawn():
-	print("on spawn test")
+	pass
 
 # play death animation and set the object for firing.
 # this method can be overided by the enemy

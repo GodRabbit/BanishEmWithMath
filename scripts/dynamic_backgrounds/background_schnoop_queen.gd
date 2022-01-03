@@ -28,4 +28,4 @@ func on_death():
 	.on_death()
 
 func on_boss_health_changed(hp):
-	print("schnoop queen changed hp")
+	Log.log_print("schnoop queen changed hp")

@@ -7,10 +7,16 @@ extends Node2D
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-class_name dynamic_background
 # an abstract scene that represents the background on boss fights.
 # the center piece is the boss, that appear and spawns minions
 # and then die when the fight ends.
+
+# IMPORTANT NOTE: You must implement all the animation for spawn and death
+# to let processes in the background finish. More than 1 sec of animation 
+#  should be enough. Bug reason is still unknown.
+
+class_name dynamic_background
+
 
 # a signal that the background must emit, that its ready to spawn
 # enemies (usually after on_spawn_enemies is over)
@@ -47,7 +53,9 @@ func on_spawn_enemies():
 	emit_signal("ready_to_spawn")
 
 func on_death():
+	Log.log_print("abstract dynamic background was sent a death request")
 	emit_signal("ready_to_die")
+	
 
 # deprecated?
 func on_enter():

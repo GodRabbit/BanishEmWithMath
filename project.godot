@@ -287,6 +287,7 @@ config/windows_native_icon="res://icon.ico"
 [autoload]
 
 game_settings="*res://scenes/globals/game_settings.tscn"
+Log="*res://scenes/globals/Log.tscn"
 items_data="*res://scenes/globals/items_data.tscn"
 enemies_data="*res://scenes/globals/enemies_data.tscn"
 player_data="*res://scenes/globals/player_data.tscn"
@@ -346,6 +347,11 @@ ui_6={
 ui_give_money={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_i_win={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":47,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

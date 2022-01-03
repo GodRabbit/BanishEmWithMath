@@ -18,6 +18,7 @@ var settings = {
 	},
 	"game_data":{
 		"version":"0.1.13-alpha",
+		"debug_mode":true,
 		"allow_cheating":true
 	}
 }
@@ -63,3 +64,6 @@ func _transform(audio_level, audio_db):
 	var new_db = _percent_to_db(audio_percent*audio_level_percent/100.0)
 	
 	return new_db
+
+func get_setting(sett_id):
+	return settings[sett_id]

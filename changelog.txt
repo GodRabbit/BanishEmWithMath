@@ -9,3 +9,5 @@ v0.1.13alpha:
 * Galactic cake HP lowered 75 -> 55
 * visual upgrade for the overworld
 * visual upgrade for the galactic cake boss fight
+* BUGFIX: sleeping count boss fight sometimes not exit the fight when hp reaches 0
+* Added logging with debug mode for tracing problems

@@ -17,8 +17,12 @@ const END_POS = Vector2(1008, 832)
 # the reveal hasn't happened yet
 var is_revealed = false
 
+# death flag to prevent animation race condition between death & spawn enemies
+var is_dead = false
+
 # nodes:
 onready var boss_sleeping_count = $boss_sleeping_count
+onready var anim = $anim
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,7 +37,9 @@ func _change_pos(s):
 
 # called when the boss hp changed to "hp". hp is a number between 0.0 and 100.0
 func on_boss_health_changed(hp):
-	print("on boss hp changed sleeping count hp is "+str(hp))
+	Log.log_print("on boss hp changed sleeping count hp is "+ str(hp))
+	if hp == 0.0:
+		is_dead = true
 	var inv = 100.0 - hp
 	if inv < 50.0:
 		_change_pos(inv*2.0)
@@ -44,9 +50,16 @@ func on_boss_health_changed(hp):
 			boss_sleeping_count.reveal()
 
 func on_spawn_enemies():
+	if is_dead:
+		return
 	boss_sleeping_count.start_spawn_animation()
 	yield(boss_sleeping_count, "spawn_animation_finished")
 	.on_spawn_enemies()
 
 func on_death():
+	Log.log_print("sleeping count was sent a death request;")
+	is_dead = true
+	anim.play("death")
+	yield(anim, "animation_finished")
 	.on_death()
+	#Log.log_print("Sleeping count 'on_death' was emitted!")

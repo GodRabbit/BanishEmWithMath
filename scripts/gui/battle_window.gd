@@ -169,3 +169,8 @@ func on_timeout():
 
 func on_answer_clicked(correct):
 	emit_signal("answer_entered", correct, is_timedout)
+
+func _input(event):
+	if event.is_action_pressed("ui_i_win") && game_settings.get_setting("game_data")["allow_cheating"] && is_visible():
+		Log.log_print("player cheated this question")
+		on_answer_clicked(true)
