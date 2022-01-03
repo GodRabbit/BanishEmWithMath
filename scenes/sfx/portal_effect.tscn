@@ -37,7 +37,7 @@ void fragment() {
 	disp.y = -disp.y; // for some reason UV and SCEEN_UV are inveresed
 	COLOR = mix(texture(SCREEN_TEXTURE, SCREEN_UV + disp), color, max_blend * 2.0 * (0.5-distFromCen(UV)));
 	//COLOR = c;
-	//Doesn'[t apply effect outside of circle]
+	//Doesn't apply effect outside of circle
 	if (distFromCen(UV) > 0.5) {
 		COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
 	}

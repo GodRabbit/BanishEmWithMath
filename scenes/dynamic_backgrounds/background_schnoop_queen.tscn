@@ -50,9 +50,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("shockwave:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "shockwave"
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("shockwave:material:shader_param/size")
 tracks/0/interp = 2
@@ -60,10 +73,22 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0.1, 1.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.46 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("shockwave:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [node name="background_schnoop_queen" type="Node2D"]
@@ -87,6 +112,7 @@ color = Color( 0.184314, 0.027451, 0.027451, 0.945098 )
 hue_variation_random = 0.39
 
 [node name="shockwave" type="Sprite" parent="."]
+visible = false
 material = SubResource( 2 )
 position = Vector2( 1002, 530.625 )
 scale = Vector2( 0.981509, 0.787759 )
