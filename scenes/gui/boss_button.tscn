@@ -26,14 +26,14 @@ margin_right = 1188.0
 [node name="main_button" type="Button" parent="main_container"]
 margin_top = 4.0
 margin_right = 1188.0
-margin_bottom = 68.0
+margin_bottom = 73.0
 theme = ExtResource( 4 )
 text = "Galactic Cake"
 
 [node name="stars_container" type="HBoxContainer" parent="main_container"]
-margin_top = 72.0
+margin_top = 77.0
 margin_right = 1188.0
-margin_bottom = 136.0
+margin_bottom = 141.0
 alignment = 1
 
 [node name="price_label" type="Label" parent="main_container/stars_container"]

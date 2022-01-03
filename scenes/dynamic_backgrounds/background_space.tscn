@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://images/backgrounds/space/planet2.png" type="Texture" id=1]
 [ext_resource path="res://images/backgrounds/space/planet1.png" type="Texture" id=2]
@@ -7,32 +7,16 @@
 [ext_resource path="res://scripts/dynamic_backgrounds/background_space.gd" type="Script" id=5]
 [ext_resource path="res://scenes/overworld/enemies/bosses/boss_galactic_cake.tscn" type="PackedScene" id=6]
 [ext_resource path="res://images/noise/galactic_smoke.png" type="Texture" id=7]
+[ext_resource path="res://images/backgrounds/space/milky-way-gae7619fa6_1920.jpg" type="Texture" id=8]
+[ext_resource path="res://shaders/movement_noise.tres" type="Shader" id=9]
 
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
-
-uniform sampler2D noise_texture;
-uniform float value : hint_range(-1.3, 1.3);
-uniform vec4 back_color : hint_color;
-
-void fragment(){
-	vec4 uv = texture(TEXTURE, UV);
-	vec4 noise_uv = texture(noise_texture, UV);
-	
-	if(noise_uv.r <= 0.3){
-		//COLOR.a = noise_uv.r;
-		COLOR.rgb = 0.5*noise_uv.rgb;
-	}
-	else{
-		COLOR.rgb = back_color.rgb;
-	}
-}"
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
-shader_param/value = 0.218
-shader_param/back_color = null
-shader_param/noise_texture = ExtResource( 7 )
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 9 )
+shader_param/movement = Vector2( 0, 1 )
+shader_param/trans = 1.0
+shader_param/speed = 0.03
+shader_param/noise_tex = ExtResource( 7 )
+shader_param/color_tex = ExtResource( 8 )
 
 [sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.127907, 0.960107 ), 0.0, 0.0, 0, 0, Vector2( 0.534884, 0.996471 ), 0.0, 0.0, 0, 0, Vector2( 0.895349, 0.978289 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
@@ -99,8 +83,13 @@ tracks/1/keys = {
 script = ExtResource( 5 )
 
 [node name="back_sprite" type="Sprite" parent="."]
-material = SubResource( 2 )
 position = Vector2( 992, 528 )
+texture = ExtResource( 3 )
+
+[node name="back_noise" type="Sprite" parent="."]
+modulate = Color( 0.541176, 0.211765, 0.596078, 1 )
+material = SubResource( 7 )
+position = Vector2( 1000, 520 )
 texture = ExtResource( 3 )
 
 [node name="stars" type="CPUParticles2D" parent="."]

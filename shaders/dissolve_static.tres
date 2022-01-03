@@ -1,0 +1,21 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise_texture;
+uniform float value : hint_range(-1.3, 1.3);
+uniform vec4 back_color : hint_color;
+
+void fragment(){
+	vec4 uv = texture(TEXTURE, UV);
+	vec4 noise_uv = texture(noise_texture, UV);
+	
+	if(noise_uv.r <= 0.3){
+		//COLOR.a = noise_uv.r;
+		COLOR.rgb = 0.5*noise_uv.rgb;
+	}
+	else{
+		COLOR.rgb = back_color.rgb;
+	}
+}"

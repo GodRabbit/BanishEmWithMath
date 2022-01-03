@@ -103,7 +103,7 @@ var bosses = {
 	"galactic_cake":{
 		"id":"galactic_cake",
 		"name":"Galactic Cake",
-		"hp":75,
+		"hp":55,
 		"background":"background_space",
 		"enemies":{ # a dictionary of enemy id and the weight of the enemy
 			"disturbing_star":90,

@@ -1,0 +1,25 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform vec2 movement = vec2(0.0, 1.0);
+uniform float trans : hint_range(0.0, 1.0) = 1.0; // transperency
+uniform sampler2D noise_tex;
+uniform sampler2D color_tex;
+uniform float speed : hint_range(0.0, 1.0) = 0.05;
+
+float distCen(vec2 p){
+	return p.x - 0.5;
+}
+
+void fragment(){
+	vec4 c = COLOR;
+	vec3 g = (texture(noise_tex, abs(mod(UV + movement*TIME*speed, 1.0)))).rgb;
+	vec3 b = (texture(color_tex, abs(mod(UV + movement*TIME*speed, 1.0)))).rgb;
+	COLOR.rgb = b;
+	COLOR.a = (1.0 - distance(g, vec3(0.0, 0.0, 0.0))) * trans*trans;
+
+}
+
+"

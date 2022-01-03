@@ -1,6 +1,11 @@
 Banish'Em With Math changelog:
 
 v0.1.12alpha:
--- Fixed a bug which caused certain abstract classes to leak at exit.
--- visual upgrade for the Schnoop Queen boss fight
--- Added changelog for the versions.
+* Fixed a bug which caused certain abstract classes to leak at exit.
+* visual upgrade for the Schnoop Queen boss fight
+* Added changelog for the versions.
+
+v0.1.13alpha:
+* Galactic cake HP lowered 75 -> 55
+* visual upgrade for the overworld
+* visual upgrade for the galactic cake boss fight

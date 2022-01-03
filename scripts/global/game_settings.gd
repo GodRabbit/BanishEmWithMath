@@ -17,8 +17,8 @@ var settings = {
 		"ui":2  # TODO: implement
 	},
 	"game_data":{
-		"version":"0.1.12-alpha",
-		"allow_cheating":false
+		"version":"0.1.13-alpha",
+		"allow_cheating":true
 	}
 }
 

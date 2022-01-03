@@ -131,8 +131,8 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="main_button"]
 show_behind_parent = true
 material = SubResource( 4 )
-position = Vector2( 52, 75 )
-scale = Vector2( 0.508772, 0.555184 )
+position = Vector2( 54, 76 )
+scale = Vector2( 0.578947, 0.662207 )
 texture = ExtResource( 5 )
 
 [node name="ribbon_button" type="TextureButton" parent="."]
