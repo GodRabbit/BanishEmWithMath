@@ -18,7 +18,7 @@ var settings = {
 	},
 	"game_data":{
 		"version":"0.1.12-alpha",
-		"allow_cheating":true
+		"allow_cheating":false
 	}
 }
 

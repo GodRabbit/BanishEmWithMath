@@ -7,4 +7,6 @@
 .import/
 export.cfg
 export_presets.cfg
-
+buglist.txt
+roadmap.txt
+tasks.txt
