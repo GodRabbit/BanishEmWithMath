@@ -158,10 +158,13 @@ func on_answer_entered(c, t):
 		player_data.absorb_enemy(battle_window.get_enemy(), t)
 		emit_signal("battle_over", c, t)
 		
-		# TODO: change to a non garbage sound
+		# TODO: change to a better sound? Its really hard to find something good
 		# sound_manager.play_ui_sound("ui_success")
 	else:
 		explosive_dark_heart_particles.restart()
+		# sound effect:
+		sound_manager.play_ui_sound("sfx_negative")
+		
 		# the player lost
 		var dmg  = battle_window.get_enemy().get_damage()
 		player_data.add_hp(-dmg)

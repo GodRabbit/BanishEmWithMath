@@ -17,11 +17,12 @@ onready var sfx_stream_player = $sfx_stream_player
 onready var anim = $anim
 
 onready var button_click1 = preload("res://audio/ui/kenny/impactMetal_heavy_001.ogg")
-onready var ui_success = preload("res://audio/sfx/success-1-6297.ogg")
+onready var ui_success = preload("res://audio/sfx/positive2.ogg")
 onready var sfx_swoosh1 = preload("res://audio/sfx/swoosh-6428.ogg")
+onready var sfx_negative = preload("res://audio/sfx/negative.ogg")
 
 onready var sfx_ids = {"button_click1": button_click1, 
-"ui_success":ui_success, "sfx_swoosh1":sfx_swoosh1}
+"ui_success":ui_success, "sfx_swoosh1":sfx_swoosh1, "sfx_negative":sfx_negative}
 
 const audio_music_path = "res://audio/music/%s.ogg"
 
@@ -32,6 +33,8 @@ func _ready():
 	music_stream_player.connect("finished", self, "on_music_stream_player_finished")
 	game_settings.connect("audio_settings_changed", self, "on_audio_setting_change")
 	on_audio_setting_change("music")
+	on_audio_setting_change("sfx")
+	on_audio_setting_change("ui")
 
 
 func play_ui_sound(id):

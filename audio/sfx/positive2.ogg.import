@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/positive2.ogg-04dac820acb008454218c4fd8676fd54.oggstr"
+
+[deps]
+
+source_file="res://audio/sfx/positive2.ogg"
+dest_files=[ "res://.import/positive2.ogg-04dac820acb008454218c4fd8676fd54.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

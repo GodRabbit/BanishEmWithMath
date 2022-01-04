@@ -13,8 +13,8 @@ var settings = {
 	"audio":{ # audio settings from 0 ,1, 2,  3
 		"master":2, 
 		"music":3, # TODO: implement
-		"sfx":2, # TODO: implement
-		"ui":2  # TODO: implement
+		"sfx":3, # TODO: implement
+		"ui":3  # TODO: implement
 	},
 	"game_data":{
 		"version":"0.1.13-alpha",
