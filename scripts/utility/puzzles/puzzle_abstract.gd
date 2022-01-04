@@ -76,9 +76,9 @@ func _fix_faulty_bank(bank : Array, a, b):
 		_check_and_add(bank, (a*i + b*r))
 
 func _print_puzzle():
-	print(data)
-	print(options)
-	print(solution)
+	Log.log_print(str(data))
+	Log.log_print(str(options))
+	Log.log_print(str(solution))
 
 # returns a string that indicates how the problem will be presented
 # in the displayer scene.
