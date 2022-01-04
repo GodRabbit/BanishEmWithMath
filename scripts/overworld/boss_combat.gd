@@ -35,6 +35,7 @@ onready var boss_name_label = $hud/boss_hp_container/boss_name_label
 onready var db_container = $db_container
 onready var explosive_star_particles = $particles/explosive_star_particles
 onready var boss_hp_label = $hud/boss_hp_container/boss_hp_label
+onready var exit_game_button = $hud/exit_game_button
 
 var boss_id = "galactic_cake"
 var boss_max_hp = 50
@@ -47,6 +48,8 @@ func _ready():
 	hud.connect("battle_over", self, "on_battle_over")
 	hud.connect("request_pause", self, "on_pause_requested")
 	hud.show_window(hud.WINDOWS_IDS.NONE)
+	
+	exit_game_button.connect("pressed", self, "on_exit_game_button")
 	
 	player_data.connect("stars_changed", self, "on_player_stars_changed")
 	
@@ -215,3 +218,8 @@ func on_object_area_pressed(e_id):
 func deploy_stars_particles(pos):
 	explosive_star_particles.global_position = pos
 	explosive_star_particles.restart()
+
+func on_exit_game_button():
+	Log.log_print("player gave up on the boss and exited to main menu")
+	# TODO: Add a confirmation dialogue box!
+	transition.fade_to_main_menu()
