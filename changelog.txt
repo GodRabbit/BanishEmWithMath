@@ -14,4 +14,5 @@ v0.1.13alpha:
 * BUGFIX: Fixed an artifact that caused the portal to slightly vanish the schnoop queen when it opened on her body.
     This is caused by 2 screen shaders being activated at the same time. the objects between them (on the draw order) will vanish. 
     This was solved by hiding the shockwave effect until it is needed.
-* changed the volume button
+* changed the volume button to be more visible
+* BUGFIX: Galactic Cake fight: one of the panets didn't move correctly.
