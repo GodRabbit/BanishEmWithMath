@@ -36,6 +36,9 @@ signal request_pause(val)
 signal battle_over(correct, timeout) # battle is done, and the player is alive
 signal inventory_opened
 
+# a flag for boss fights; as certain gui elements must consider it.
+var is_boss_fight = false
+
 # nodes:
 #onready var crafting_manager = $crafting_manager
 onready var battle_window = $battle_window
@@ -66,10 +69,15 @@ func _ready():
 	
 	update_audio_button()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+# is this hud on a boss fight?
+func set_is_boss_fight(value : bool):
+	is_boss_fight = value
+	if value:
+		inventory_button.disabled = true
+		inventory_button.hide()
+	else:
+		inventory_button.disabled = false
+		inventory_button.show()
 
 # gets the window node based on the window_id enum
 # settings window is not here on purpose. it can actually be open while other windows are open

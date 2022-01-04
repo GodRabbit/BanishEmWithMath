@@ -75,6 +75,7 @@ func update_gui():
 # call this function when combat starts
 #  to setup all the varaiables needed
 func setup_combat():
+	hud.set_is_boss_fight(true)
 	_create_enemy_positions(10, Vector2(216, 208), Vector2(1728, 888))
 	
 	var boss_id = player_data.get_current_boss()

@@ -68,6 +68,7 @@ func _create_enemy_positions(N, start_pos, end_pos):
 
 # setup the enemies and scene for the combat to start
 func setup_combat():
+	hud.set_is_boss_fight(false)
 	_create_enemy_positions(10, Vector2(216, 208), Vector2(1728, 888))
 	
 	# remove objects from previous session:

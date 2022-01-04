@@ -18,6 +18,7 @@ var current_zone = "zone1"
 # nodes:
 onready var give_up_button = $give_up_button
 onready var site_container = $site_container
+onready var hud = $hud
 
 const BACKGROUND_MUSIC_ID = "background-loop-melodic-techno-03-2691"
 
@@ -28,6 +29,7 @@ func _ready():
 	if sound_manager.current_music_id != BACKGROUND_MUSIC_ID:
 		sound_manager.play_music(BACKGROUND_MUSIC_ID)
 	
+	hud.set_is_boss_fight(false)
 	update_gui()
 
 func on_give_up_button_pressed():
