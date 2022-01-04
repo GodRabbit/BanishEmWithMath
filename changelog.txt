@@ -16,3 +16,5 @@ v0.1.13alpha:
     This was solved by hiding the shockwave effect until it is needed.
 * changed the volume button to be more visible
 * BUGFIX: Galactic Cake fight: one of the panets didn't move correctly.
+* Added success and failure sound effects
+* Added settings window gui for sound & volume

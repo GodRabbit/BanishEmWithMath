@@ -44,6 +44,8 @@ onready var inventory_button = $inventory_button
 onready var volume_button = $volume_button
 onready var game_over_window = $game_over_screen
 onready var explosive_dark_heart_particles = $explosive_dark_hearts_particles
+onready var settings_window = $settings_window
+onready var settings_button = $settings_button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -54,6 +56,9 @@ func _ready():
 	player_data.connect("player_died", self, "on_player_died")
 	
 	inventory_displayer.connect("request_exit", self, "on_inventory_displayer_request_exit")
+	
+	settings_window.connect("request_exit", self, "on_settings_window_request_exit")
+	settings_button.connect("pressed", self, "on_settings_button_pressed")
 	
 	volume_button.connect("pressed", self, "on_volume_button_pressed")
 	
@@ -67,6 +72,7 @@ func _ready():
 #	pass
 
 # gets the window node based on the window_id enum
+# settings window is not here on purpose. it can actually be open while other windows are open
 func get_window_node(window_id):
 	match window_id:
 		WINDOWS_IDS.NONE:
@@ -220,3 +226,13 @@ func on_volume_button_pressed():
 	# debug:
 	# print("music db is %f" % game_settings.get_audio_db("music"))
 	
+
+func on_settings_button_pressed():
+	if settings_window.is_visible_in_tree():
+		settings_window.hide()
+	else:
+		settings_window.show()
+
+func on_settings_window_request_exit():
+	if settings_window.is_visible_in_tree():
+		settings_window.hide()

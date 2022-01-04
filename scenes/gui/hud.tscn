@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/gui/hud.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/hp_bar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/gui/star_counter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/gui/money_counter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/gui/battle_window.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/gui/settings_window.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/gui/inventory_displayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://images/gui/gear.png" type="Texture" id=8]
 [ext_resource path="res://scenes/gui/game_over_screen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://images/gui/volume_2.png" type="Texture" id=10]
 [ext_resource path="res://scenes/sfx/explosive_dark_hearts_particles.tscn" type="PackedScene" id=11]
@@ -128,12 +130,32 @@ margin_bottom = 545.0
 position = Vector2( 0, 640 )
 
 [node name="volume_button" type="TextureButton" parent="."]
+visible = false
 margin_left = 32.0
 margin_top = 1000.0
 margin_right = 82.0
 margin_bottom = 1050.0
+disabled = true
 texture_normal = ExtResource( 10 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="settings_button" type="TextureButton" parent="."]
+margin_left = 32.0
+margin_top = 1000.0
+margin_right = 82.0
+margin_bottom = 1050.0
+texture_normal = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settings_window" parent="." instance=ExtResource( 6 )]
+visible = false
+margin_left = 40.0
+margin_top = 552.0
+margin_right = 40.96
+margin_bottom = 552.2

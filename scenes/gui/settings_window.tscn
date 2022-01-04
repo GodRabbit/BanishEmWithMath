@@ -1,0 +1,179 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://images/gui/puzzle_rect1.png" type="Texture" id=2]
+[ext_resource path="res://themes/button_style_boxes/main_button_normal.tres" type="StyleBox" id=3]
+[ext_resource path="res://themes/button_style_boxes/main_button_pressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://themes/button_style_boxes/main_button_hover.tres" type="StyleBox" id=5]
+[ext_resource path="res://themes/button_style_boxes/main_button_disabled.tres" type="StyleBox" id=6]
+[ext_resource path="res://scripts/gui/settings_window.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=4]
+size = 19
+outline_color = Color( 0.54902, 0.345098, 0.513726, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 589, 589 )
+margin_left = 30.0
+margin_right = 29.0
+margin_top = 30.0
+margin_bottom = 29.0
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=1]
+default_font = SubResource( 2 )
+Button/colors/font_color = Color( 0, 0, 0, 1 )
+Button/colors/font_color_disabled = Color( 0, 0, 0, 1 )
+Button/colors/font_color_focus = Color( 0, 0, 0, 1 )
+Button/colors/font_color_hover = Color( 0, 0, 0, 1 )
+Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+Button/constants/hseparation = 0
+Button/fonts/font = SubResource( 4 )
+Button/styles/disabled = ExtResource( 6 )
+Button/styles/focus = ExtResource( 5 )
+Button/styles/hover = ExtResource( 5 )
+Button/styles/normal = ExtResource( 3 )
+Button/styles/pressed = ExtResource( 4 )
+Panel/styles/panel = SubResource( 3 )
+
+[node name="settings_window" type="Control"]
+anchor_right = 0.283
+anchor_bottom = 0.363
+margin_right = -0.340027
+margin_bottom = -0.0400085
+theme = SubResource( 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main_panel" type="Panel" parent="."]
+margin_right = 552.0
+margin_bottom = 392.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main_container" type="VBoxContainer" parent="main_panel"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 312.0
+margin_bottom = 248.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sound_header_label" type="Label" parent="main_panel/main_container"]
+margin_right = 485.0
+margin_bottom = 45.0
+text = "Sound Settings"
+
+[node name="master_volume_box" type="HBoxContainer" parent="main_panel/main_container"]
+margin_top = 49.0
+margin_right = 485.0
+margin_bottom = 99.0
+
+[node name="master_header_label" type="Label" parent="main_panel/main_container/master_volume_box"]
+margin_top = 2.0
+margin_right = 81.0
+margin_bottom = 47.0
+text = "Master"
+align = 1
+valign = 1
+
+[node name="master_slider" type="HSlider" parent="main_panel/main_container/master_volume_box"]
+margin_left = 85.0
+margin_right = 485.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 400, 50 )
+max_value = 3.0
+value = 2.0
+tick_count = 4
+ticks_on_borders = true
+
+[node name="music_volume_box" type="HBoxContainer" parent="main_panel/main_container"]
+margin_top = 103.0
+margin_right = 485.0
+margin_bottom = 153.0
+
+[node name="music_header_label" type="Label" parent="main_panel/main_container/music_volume_box"]
+margin_top = 2.0
+margin_right = 75.0
+margin_bottom = 47.0
+text = "Music "
+align = 1
+valign = 1
+
+[node name="music_slider" type="HSlider" parent="main_panel/main_container/music_volume_box"]
+margin_left = 79.0
+margin_right = 479.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 400, 50 )
+max_value = 3.0
+value = 2.0
+tick_count = 4
+ticks_on_borders = true
+
+[node name="sfx_volume_box" type="HBoxContainer" parent="main_panel/main_container"]
+margin_top = 157.0
+margin_right = 485.0
+margin_bottom = 207.0
+
+[node name="sfx_header_label" type="Label" parent="main_panel/main_container/sfx_volume_box"]
+margin_top = 2.0
+margin_right = 72.0
+margin_bottom = 47.0
+text = "SFX  "
+
+[node name="sfx_slider" type="HSlider" parent="main_panel/main_container/sfx_volume_box"]
+margin_left = 76.0
+margin_right = 476.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 400, 50 )
+max_value = 3.0
+value = 2.0
+tick_count = 4
+ticks_on_borders = true
+
+[node name="ui_volume_box" type="HBoxContainer" parent="main_panel/main_container"]
+margin_top = 211.0
+margin_right = 485.0
+margin_bottom = 261.0
+
+[node name="ui_header_label" type="Label" parent="main_panel/main_container/ui_volume_box"]
+margin_top = 2.0
+margin_right = 77.0
+margin_bottom = 47.0
+text = "UI     "
+
+[node name="ui_slider" type="HSlider" parent="main_panel/main_container/ui_volume_box"]
+margin_left = 81.0
+margin_right = 481.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 400, 50 )
+max_value = 3.0
+value = 2.0
+tick_count = 4
+ticks_on_borders = true
+
+[node name="button_container" type="HBoxContainer" parent="main_panel/main_container"]
+margin_top = 265.0
+margin_right = 485.0
+margin_bottom = 332.0
+custom_constants/separation = 40
+
+[node name="save_button" type="Button" parent="main_panel/main_container/button_container"]
+margin_right = 71.0
+margin_bottom = 67.0
+text = "Save"
+
+[node name="cancel_button" type="Button" parent="main_panel/main_container/button_container"]
+margin_left = 111.0
+margin_right = 192.0
+margin_bottom = 67.0
+text = "cancel"
