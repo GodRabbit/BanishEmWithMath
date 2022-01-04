@@ -19,3 +19,5 @@ v0.1.13alpha:
 * Added settings window gui for sound & volume
 * Visual upgrade for the game over window
 * Added "Exit Game" button on bosses to prevent the player from locking on the screen.
+* Changed numpad keybinding on puzzles to be closer to the keyboard layout.
+* Visual tweak: Made pressed\hover buttons on the main theme more noticeable and vibrant.
