@@ -17,7 +17,7 @@ onready var sfx_stream_player = $sfx_stream_player
 onready var anim = $anim
 
 onready var button_click1 = preload("res://audio/ui/kenny/impactMetal_heavy_001.ogg")
-onready var ui_success = preload("res://audio/sfx/positive2.ogg")
+onready var ui_success = preload("res://audio/sfx/242501__gabrielaraujo__powerup-success.ogg")
 onready var sfx_swoosh1 = preload("res://audio/sfx/swoosh-6428.ogg")
 onready var sfx_negative = preload("res://audio/sfx/negative.ogg")
 

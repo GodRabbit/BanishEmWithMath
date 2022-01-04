@@ -159,7 +159,7 @@ func on_answer_entered(c, t):
 		emit_signal("battle_over", c, t)
 		
 		# TODO: change to a better sound? Its really hard to find something good
-		# sound_manager.play_ui_sound("ui_success")
+		sound_manager.play_ui_sound("ui_success")
 	else:
 		explosive_dark_heart_particles.restart()
 		# sound effect:
