@@ -11,3 +11,7 @@ v0.1.13alpha:
 * visual upgrade for the galactic cake boss fight
 * BUGFIX: sleeping count boss fight sometimes not exit the fight when hp reaches 0
 * Added logging with debug mode for tracing problems
+* BUGFIX: Fixed an artifact that caused the portal to slightly vanish the schnoop queen when it opened on her body.
+    This is caused by 2 screen shaders being activated at the same time. the objects between them (on the draw order) will vanish. 
+    This was solved by hiding the shockwave effect until it is needed.
+* changed the volume button
