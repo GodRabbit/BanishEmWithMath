@@ -21,3 +21,4 @@ v0.1.13alpha:
 * Added "Exit Game" button on bosses to prevent the player from locking on the screen.
 * Changed numpad keybinding on puzzles to be closer to the keyboard layout.
 * Visual tweak: Made pressed\hover buttons on the main theme more noticeable and vibrant.
+* minor visual tweak: Bosses now has a header so you'd know what they are.
