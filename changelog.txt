@@ -18,3 +18,4 @@ v0.1.13alpha:
 * BUGFIX: Galactic Cake fight: one of the panets didn't move correctly.
 * Added success and failure sound effects
 * Added settings window gui for sound & volume
+* Visual upgrade for the game over window
