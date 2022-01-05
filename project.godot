@@ -89,7 +89,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_abstract.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "puzzle_addition",
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_addition.gd"
@@ -109,7 +109,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_addition_negatives.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "puzzle_addition_ultimate",
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_addition_ultimate.gd"
@@ -144,7 +144,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_division_blank.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "puzzle_division_simple",
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_division_simple.gd"
