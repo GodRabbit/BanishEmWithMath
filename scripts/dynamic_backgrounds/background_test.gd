@@ -1,7 +1,7 @@
 extends "res://scripts/dynamic_backgrounds/abstract_dynamic_background.gd"
 
 
-# copyright 2021 Dor "GodRabbit" Shlush
+# copyright 2021,2022 Dor "GodRabbit" Shlush
 # this file is part of "BanishEmWithMath"
 
 # This Source Code Form is subject to the terms of the Mozilla Public

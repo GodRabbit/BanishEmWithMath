@@ -1,6 +1,6 @@
 extends "res://scripts/utility/puzzles/puzzle_abstract.gd"
 
-# copyright 2021 Dor "GodRabbit" Shlush
+# copyright 2021,2022 Dor "GodRabbit" Shlush
 # this file is part of "BanishEmWithMath"
 
 # This Source Code Form is subject to the terms of the Mozilla Public

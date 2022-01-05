@@ -1,6 +1,6 @@
 extends Node
 
-# copyright 2021 Dor "GodRabbit" Shlush
+# copyright 2021,2022 Dor "GodRabbit" Shlush
 # this file is part of "BanishEmWithMath"
 
 # This Source Code Form is subject to the terms of the Mozilla Public
@@ -18,8 +18,8 @@ var settings = {
 	},
 	"game_data":{
 		"version":"0.1.13-alpha",
-		"debug_mode":true,
-		"allow_cheating":true
+		"debug_mode":false,
+		"allow_cheating":false
 	}
 }
 
