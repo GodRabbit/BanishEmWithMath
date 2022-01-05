@@ -24,3 +24,4 @@ v0.1.13alpha:
 * Minor visual tweak: Bosses now has a header so you'd know what they are.
 * Gameplay: Inventory no longer available while boss fights are active.
 * Visual tweak: Changed spider eye sprite to be less gorey. Changed its name to "spider pearl".
+* Updated copyright for 2022
