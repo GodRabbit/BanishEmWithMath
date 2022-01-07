@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gabrielaraujo__success.ogg-f24219685934483776ead53f21225a56.oggstr"
+
+[deps]
+
+source_file="res://audio/sfx/gabrielaraujo__success.ogg"
+dest_files=[ "res://.import/gabrielaraujo__success.ogg-f24219685934483776ead53f21225a56.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
