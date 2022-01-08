@@ -630,6 +630,15 @@ func _ready():
 	10,
 	1,
 	{"ghost_hair":2, "sleep_essence":5})) # TODO: change? (maybe moustache?)
+	
+	# advanced enemies:
+	_add_enemy(enemy_abstract.new("infused_schnoop", 
+	"Infused Schnoop", 
+	puzzle_powers_two.new(),
+	20,
+	1,
+	1,
+	{"ghost_hair":2}))
 
 
 

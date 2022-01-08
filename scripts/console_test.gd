@@ -10,7 +10,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	test_minmax_generate_division()
+	test_puzzle_powers_two()
 
 func test_split_into():
 	for i in range(0, 20):
@@ -106,3 +106,12 @@ func test_minmax_generate_division():
 		print(p.options)
 		print(p.solution)
 		print("_________________")
+
+func test_puzzle_powers_two():
+	for i in range(0, 20):
+		var p = puzzle_powers_two.new()
+		p.generate()
+		print(p.display_problem())
+		print(p.options)
+		print(p.solution)
+		print("_______________")

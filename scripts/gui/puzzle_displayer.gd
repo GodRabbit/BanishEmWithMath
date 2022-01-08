@@ -13,10 +13,13 @@ var puzzle #: puzzle_abstract
 # choose the option which displays the correct answer
 var correct_option = 0
 
+const EXPRESSION_CLASS_PATH = "res://scenes/gui/math_displayer/%s.tscn"
+
 #nodes:
 onready var accept_button = $accept_button
 onready var problem_label = $problem_label
 onready var options_container = $options_container
+onready var puzzle_container = $puzzle_container
 
 signal answer_clicked(correct)
 
@@ -43,8 +46,24 @@ func unpress_all_buttons():
 # call this after changing the puzzle
 func update_gui():
 	# displays the problem:
-	# Rich text: problem_label.bbcode_text = "\n[center]"+puzzle.display_problem()+"[/center]"
-	problem_label.text = puzzle.display_problem()
+	
+	# first, remove all the children of puzzle_container:
+	for c in puzzle_container.get_children():
+		puzzle_container.remove_child(c)
+		c.queue_free()
+	
+	# load the respective class
+	var exprsn_class = load(EXPRESSION_CLASS_PATH % puzzle.get_display_class_name()).instance()
+	puzzle_container.add_child(exprsn_class)
+	
+	# if the display data is empty (default in string problems, get the display problem)
+	if puzzle.get_display_data().empty():
+		var d = {"str": puzzle.display_problem()}
+		exprsn_class.set_display_data(d)
+	else:
+		exprsn_class.set_display_data(puzzle.get_display_data())
+	#problem_label.text = puzzle.display_problem()
+	
 	# displays the options:
 	randomize()
 	# choose the option which displays the correct answer:

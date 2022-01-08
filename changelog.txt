@@ -25,3 +25,6 @@ v0.1.13alpha:
 * Gameplay: Inventory no longer available while boss fights are active.
 * Visual tweak: Changed spider eye sprite to be less gorey. Changed its name to "spider pearl".
 * Updated copyright for 2022
+
+v0.1.14alpha: (The lore update)
+*

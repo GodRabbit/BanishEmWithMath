@@ -1,4 +1,5 @@
-extends Control
+extends expression_display
+
 
 # copyright 2021,2022 Dor "GodRabbit" Shlush
 # this file is part of "BanishEmWithMath"
@@ -7,8 +8,9 @@ extends Control
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-# !!!!!!!!DEPRECATED!!!!!!!!
-# an abstract gui component for math expressions. all math components 
-#  extends this.
+# nodes:
+onready var exprsn_power = $main_container/expression_power
 
-
+func update_gui():
+	var dd = get_display_data()
+	exprsn_power.set_display_data(dd)

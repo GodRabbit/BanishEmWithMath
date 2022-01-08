@@ -17,9 +17,9 @@ var settings = {
 		"ui":3  # TODO: implement
 	},
 	"game_data":{
-		"version":"0.1.13-alpha",
-		"debug_mode":false,
-		"allow_cheating":false
+		"version":"0.1.14-alpha",
+		"debug_mode":true,
+		"allow_cheating":true
 	}
 }
 

@@ -36,7 +36,7 @@ func get_options():
 	return options
 
 # check if the element <e> is in <arr>
-# if not it add it.
+# if not, it add it.
 # if positive_only is true - it only add e if e is a positive int.
 # you cannot add an element that is equal to solution
 func _check_and_add(arr : Array, e : int, positive_only = true):
@@ -84,6 +84,16 @@ func _print_puzzle():
 # in the displayer scene.
 func display_problem() -> String:
 	return ""
+
+# returns a dictionary that represents how to display the problem in
+# an expression_display control.
+func get_display_data():
+	return {}
+
+# returns a class name of the expression_displayer that corresponds to this
+#  problem. default is the string expresseion (only a string and nothing more)
+func get_display_class_name():
+	return "expression_string"
 
 # take an option or solution as an argument and turn them
 # into a string. Most of the time its just a conversion

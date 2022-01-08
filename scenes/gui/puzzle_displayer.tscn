@@ -59,7 +59,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="puzzle_container" type="MarginContainer" parent="."]
+margin_right = 1371.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+
 [node name="problem_label" type="Label" parent="."]
+visible = false
 margin_right = 1371.0
 margin_bottom = 73.0
 rect_min_size = Vector2( 200, 56 )
@@ -71,9 +77,9 @@ __meta__ = {
 }
 
 [node name="options_container" type="GridContainer" parent="."]
-margin_top = 81.0
+margin_top = 108.0
 margin_right = 1371.0
-margin_bottom = 259.0
+margin_bottom = 286.0
 custom_constants/vseparation = 20
 custom_constants/hseparation = 20
 columns = 3
@@ -143,9 +149,9 @@ group = ExtResource( 2 )
 text = "option a"
 
 [node name="accept_button" type="Button" parent="."]
-margin_top = 267.0
+margin_top = 294.0
 margin_right = 132.0
-margin_bottom = 346.0
+margin_bottom = 373.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 shortcut_in_tooltip = false

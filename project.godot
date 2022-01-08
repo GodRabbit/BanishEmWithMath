@@ -64,6 +64,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/utility/enemy_abstract.gd"
 }, {
+"base": "Control",
+"class": "expression_display",
+"language": "GDScript",
+"path": "res://scripts/gui/math_displayer/expression_display.gd"
+}, {
 "base": "Reference",
 "class": "inventory",
 "language": "GDScript",
@@ -210,6 +215,11 @@ _global_script_classes=[ {
 "path": "res://scripts/utility/puzzles/puzzle_multi_simple.gd"
 }, {
 "base": "puzzle_abstract",
+"class": "puzzle_powers_two",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/puzzle_powers_two.gd"
+}, {
+"base": "puzzle_abstract",
 "class": "puzzle_prime_detection",
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_prime_detection.gd"
@@ -241,6 +251,7 @@ _global_script_class_icons={
 "crafting_recipe": "",
 "dynamic_background": "",
 "enemy_abstract": "",
+"expression_display": "",
 "inventory": "",
 "item_stack": "",
 "math_util": "",
@@ -270,6 +281,7 @@ _global_script_class_icons={
 "puzzle_multi_compound": "",
 "puzzle_multi_negatives": "",
 "puzzle_multi_simple": "",
+"puzzle_powers_two": "",
 "puzzle_prime_detection": "",
 "puzzle_subtraction": "",
 "puzzle_subtraction_blank": "",
