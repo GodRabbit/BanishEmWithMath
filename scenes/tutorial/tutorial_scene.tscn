@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scripts/tutorial/tutorial_scene.gd" type="Script" id=1]
-[ext_resource path="res://images/backgrounds/farm1.png" type="Texture" id=2]
+[ext_resource path="res://images/backgrounds/simulation_off.png" type="Texture" id=2]
 [ext_resource path="res://scenes/gui/hud.tscn" type="PackedScene" id=3]
 [ext_resource path="res://images/backgrounds/overworld.png" type="Texture" id=4]
 [ext_resource path="res://scenes/overworld/enemies/tutorial_schnoop.tscn" type="PackedScene" id=5]
@@ -15,22 +15,112 @@
 [ext_resource path="res://themes/title_screen_buttons.tres" type="Theme" id=13]
 [ext_resource path="res://images/NPCs/commander.png" type="Texture" id=14]
 [ext_resource path="res://images/NPCs/telephone.png" type="Texture" id=15]
+[ext_resource path="res://images/backgrounds/farm_morning.png" type="Texture" id=16]
+[ext_resource path="res://images/noise/galactic_smoke.png" type="Texture" id=17]
+[ext_resource path="res://images/backgrounds/space/milky-way-gae7619fa6_1920.jpg" type="Texture" id=18]
 
-[sub_resource type="Animation" id=1]
-resource_name = "enter_schnoop"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("tutorial_schnoop:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1061, -148 ), Vector2( 1031, 474 ) ]
+[sub_resource type="Shader" id=9]
+code = "shader_type canvas_item;
+
+uniform sampler2D inner_texture;
+uniform sampler2D outer_edge_texture;
+uniform sampler2D noise_texture;
+uniform sampler2D off_texture;
+uniform bool is_on = true;
+uniform float radius : hint_range(0.0, 0.5) = 0.45;
+uniform float distortion_mult :hint_range(-2.0, 2.0) = 1.0;
+uniform float aspect = 1.0;
+uniform float horizon_mult : hint_range(-1.0, 1.0) = 1.0; // this is hilarious, play with this for some fun
+uniform float speed :hint_range(0.0, 10.0) = 1.0;
+uniform float noise_factor : hint_range(0.0, 5.0) = 1.0;
+/* 
+are the coordients x and y are within the 'circle'.
+This will change according to the texture resolution.
+ return is less than 0 when the coordinates are within the 'circle'
+returns more than 0 otherwise. 
+used to make 'radial' patterns and checks, see example use below.
+*/
+float is_circled(float x, float y, float r){
+	return (x-0.5)*(x-0.5)+(y-0.5)*(y-0.5) - r*r;
 }
+
+//float circle(vec2 v, vec2 center){
+//	return pow((v.x - center.x), 2.0) + pow((v.y - center.y), 2.0);
+//}
+
+float f(float x){
+	return pow(x, 1.5);
+}
+
+vec2 distort2(vec2 v){
+	vec2 u = v;
+	return vec2(f(u.x), f(u.y));
+}
+/*
+ taken from https://godotshaders.com/shader/2d-radial-distortion-fisheye-barrel/
+	released under cc0. made some minor changes here and there.
+*/
+vec2 distort(vec2 p)
+{
+	float d = length(p);
+	float z = sqrt(distortion_mult + d * d * -distortion_mult) * horizon_mult;
+	float r = atan(d, z) / 3.1415926535 ;
+	float phi = atan(p.y, p.x);
+	return vec2(r * cos(phi) * (1.0 / aspect) + 0.5, r * sin(phi) + 0.5);
+}
+
+void fragment(){
+	float circle_val = is_circled(UV.x, UV.y, radius); 
+	if(circle_val < 0.0){ // inner circle
+		// displace around the center
+		vec2 disp = distort((UV - vec2(0.5, 0.5)));
+		
+		// get the distortion value from the texture
+		vec4 t = texture(noise_texture, mod(UV - speed*TIME, vec2(1.0, 1.0)));
+	    float noise_val = (t.r + t.g + t.b)/3.0;
+		
+		// distort the  inner texture according to the disp & noise
+		vec4 color1;
+		if(is_on){ // if the texture is on, display inner texture instead of off texture
+			color1 = texture(inner_texture, mod(disp + noise_factor*noise_val, vec2(1.0,1.0)));
+		}
+		else{
+			color1 = texture(off_texture, mod(disp + noise_factor*noise_val, vec2(1.0,1.0)));
+		}
+		
+		
+		COLOR = mix(color1, vec4(0.0, 0.0, 0.4, 1.0), 0.1);
+	}
+	else if (circle_val > 0.0 && circle_val < 0.02){ // outer edge:
+		vec4 t = texture(noise_texture, mod(UV + 0.6*speed*TIME, vec2(1.0, 1.0)));
+		float noise_val = (t.r + t.g + t.b)/3.0;
+		vec4 color1 = texture(inner_texture, mod(UV + noise_factor*noise_val, vec2(1.0, 1.0)));
+		
+		vec4 color2 = texture(outer_edge_texture, mod(UV + noise_factor*noise_val + 0.02*TIME, vec2(1.0, 1.0)));
+		color2 = mix(color2, vec4(0.0, 0.0, 0.4, 1.0), 0.6);
+		COLOR = mix(color1 ,color2, 0.5);
+		//COLOR.a = 0.5;
+	}
+	else{
+		vec4 color1 = texture(TEXTURE, UV);
+		vec4 color2 = texture(outer_edge_texture, mod(UV + noise_factor + 0.01*TIME,1.0));
+		COLOR = mix(color1, color2, 0.3);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 9 )
+shader_param/is_on = true
+shader_param/radius = 0.45
+shader_param/distortion_mult = 0.06
+shader_param/aspect = 1.0
+shader_param/horizon_mult = 0.007
+shader_param/speed = 0.02
+shader_param/noise_factor = 0.01
+shader_param/inner_texture = ExtResource( 16 )
+shader_param/outer_edge_texture = ExtResource( 18 )
+shader_param/noise_texture = ExtResource( 17 )
+shader_param/off_texture = ExtResource( 2 )
 
 [sub_resource type="Shader" id=5]
 code = "/*
@@ -380,20 +470,105 @@ margin_right = 19.0
 margin_top = 20.0
 margin_bottom = 19.0
 
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("background:material:shader_param/is_on")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("background:material:shader_param/horizon_mult")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.007 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "close_simulation"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("background:material:shader_param/is_on")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, false ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "enter_schnoop"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("tutorial_schnoop:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1061, -148 ), Vector2( 1031, 474 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "open_simulation"
+tracks/0/type = "value"
+tracks/0/path = NodePath("background:material:shader_param/is_on")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("background:material:shader_param/horizon_mult")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.007, 0.007, 0.834 ]
+}
+
 [node name="tutorial_scene" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="mini_combat" type="Node2D" parent="."]
 
 [node name="background" type="Sprite" parent="mini_combat"]
-position = Vector2( 992, 556 )
-texture = ExtResource( 2 )
+material = SubResource( 10 )
+position = Vector2( 988, 544 )
+scale = Vector2( 1.76127, 1.5859 )
+texture = ExtResource( 4 )
 
 [node name="tutorial_schnoop" parent="mini_combat" instance=ExtResource( 5 )]
 position = Vector2( 1061, -148 )
-
-[node name="combat_anim" type="AnimationPlayer" parent="mini_combat"]
-anims/enter_schnoop = SubResource( 1 )
 
 [node name="mini_overworld" type="Node2D" parent="."]
 visible = false
@@ -406,7 +581,7 @@ texture = ExtResource( 4 )
 
 [node name="npc_sprite_shader" type="Sprite" parent="hud"]
 material = SubResource( 6 )
-position = Vector2( 345.5, 948 )
+position = Vector2( 469.5, 952 )
 texture = ExtResource( 14 )
 
 [node name="npc_sprite_anim" type="AnimationPlayer" parent="hud/npc_sprite_shader"]
@@ -421,10 +596,10 @@ scale = Vector2( 0.937783, 0.946832 )
 texture = ExtResource( 15 )
 
 [node name="dialogue_panel" type="Panel" parent="hud"]
-margin_left = 453.5
-margin_top = 860.0
-margin_right = 1549.5
-margin_bottom = 1028.0
+margin_left = 577.5
+margin_top = 864.0
+margin_right = 1673.5
+margin_bottom = 1032.0
 theme = SubResource( 3 )
 custom_styles/panel = SubResource( 4 )
 __meta__ = {
@@ -478,3 +653,10 @@ __meta__ = {
 one_shot = true
 
 [node name="explosive_star_particles" parent="." instance=ExtResource( 6 )]
+
+[node name="combat_anim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../mini_combat")
+anims/RESET = SubResource( 11 )
+anims/close_simulation = SubResource( 13 )
+anims/enter_schnoop = SubResource( 1 )
+anims/open_simulation = SubResource( 12 )

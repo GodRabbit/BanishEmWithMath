@@ -16,7 +16,7 @@ var sites = {
 "farm":
 	{"enemies":["angry_pear", "applady", "wheaty", "sad_eggy", "schnoop",
 	"leafonger", "sneaky_cheese"],
-	"backgrounds":["farm1"],
+	"backgrounds":["farm_day", "farm_morning", "farm_night", "farm_sunset"],
 	"price":0,
 	"name":"Farm",
 	"music":"magic-2072"},

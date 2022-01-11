@@ -22,7 +22,7 @@ onready var dialogue_label = $hud/dialogue_panel/dialogue_container/hbox/dialogu
 onready var dialogue_button = $hud/dialogue_panel/dialogue_container/hbox/dialogue_button
 onready var explosive_star_particles = $explosive_star_particles
 onready var input_timer = $input_timer # DEPRECATED
-onready var combat_anim = $mini_combat/combat_anim
+onready var combat_anim = $combat_anim
 onready var tutorial_schnoop = $mini_combat/tutorial_schnoop
 onready var hud = $hud
 onready var exit_button = $hud/exit_button
@@ -38,56 +38,77 @@ func _ready():
 	tutorial_schnoop.connect("object_pressed", self, "on_tutorial_schnoop_pressed")
 	hud.connect("battle_over", self, "on_battle_over")
 	set_phase("prologue")
+	combat_anim.play("close_simulation")
 
 
 
 # each phase has dialogue, and at the end of the dialogue the event function
 # will be called.
 var phases = {"prologue":{
-	"dialogue":["Weird enemies invaded our planet!",
-	"You can banish them with the power of MATH!",
-	"Oh no here's one of them!",
-	"Press on him to banish him!"],
+	"dialogue":["Welcome to the catastrophe headquarters!",
+	"Sorry I can't be here on your first day of training, but this little screen will do",
+	"As you obviously know, the earth has been invaded by alien creatures",
+	"they already infected most of our world, and even parts of the universe",
+	"You are here because you have a personal duty to help quarantine this menace",
+	"Using our newest technology, The Banishing Machine.. hrm.. trademarked... ",
+	"We can banish those pesky creatures to another dimension! hrm..so it would be someone else's problem)",
+	"You use it by aiming at an enemy, and solving a calculation. Pretty simple most of the times...hrm..",
+	"Successful calculation will banish the enemy to oblivion, and even give you some of its parts as loot!",
+	"hrm... but... a failed calculation will enrage it and give it an opportunity to hurt you",
+	"hrmm...so that will be an ill advised life choice",
+	"I think it's time for a practice run. I captured one of those abominations, it's a baby Schnoop",
+	"hrm...I probably should activate the simulation chamber..."],
 	"event":"on_prologue"
 }, 
 			  "hit_enemy":{
-				"dialogue":["Here it is! Press on him with your mouse to banish him!"],
+				"dialogue":["Lets go.. hrm...",
+				"Click on it for an attempt to banish it"],
 				"event":"on_hit_enemy"
 			},
 			"enemy_missed":{
-				"dialogue":["Oh no! its still alive! Try again!"],
+				"dialogue":["Oh ... hrm... it's still here! try to banish it again!"],
 				"event":"on_enemy_missed"
 			},
+			"prologue2":{
+				"dialogue":["Well, you're clearly a natural",
+				"Just remember... hrm...  stronger aliens can hurt a lot and are harder to banish",
+				"Before the training is done, you need to know how to get around. Those creatures infected many remote places",
+				"We have the technology to teleport you to key sites of infection, but those teleporters aren't free",
+				"they need gems for an initial recharge. Luckily, those aliens drops items that you can sell for gems, try it out "],
+				"event":"on_prologue2"
+			},
 			  "solve_puzzle":{
-				"dialogue":["To banish the abomination, you must solve the puzzle!"],
+				"dialogue":["Now you should finish the banishing process with a calculation"],
 				"event":"on_solve_puzzle"
 			}, 
-			  "transition_overworld":{
+			  "transition_overworld":{ # Deprecated? probably yes.
 				"dialogue":["Now that all the enemies are gone we can return to our base"],
 				"event":"on_transition_overworld"
 			},
 			"open_inventory":{
-				"dialogue":["Killing this enemy gave us some items that we can either eat or sell",
-				"Press on the bag to the right to see your inventory"],
+				"dialogue":["Open the bag on the right to see your inventory"],
 				"event":"on_open_inventory"
 			},
 			  "sell":{
-				"dialogue":["Good job! Now you can sell or eat the items you got",
-				"Different items replanish your health, and some can even take away your health",
-				"You can select an item to view how much HP it restores and for how many gems it can sell",
-				"We need gems to purchase teleporters for new places. Sell an items to get more gems"],
+				"dialogue":["Now you can sell or eat the items you got",
+				"Look to the right to see how much each item is worth and how much health you going to replanish if you eat it",
+				"While some items may look mighty delicious, some can hurt you if you eat them",
+				"Well.. hrm... We need gems to recharge those teleporters, so try and sell something from your inventory"],
 				"event":"on_sell"
 			}, 
-			  "purchase_site":{
+			  "purchase_site":{ # DEPRECATED
 				"dialogue":["Good job!"],
 				"event":"on_purchase_site"
 			},
-			  "fight_second_enemy":{
+			  "fight_second_enemy":{ # DEPRECATED
 				"dialogue":["Good job!"],
 				"event":""
 			}, 
-			  "end":{
-				"dialogue":["Great job!", "You are now ready to save the world!"],
+			  "end":{ 
+				"dialogue":["Thats it, you're now ready to do your part, I'm sure that with your help... hrm...",
+				"civilization will be back to normal in no time",
+				"Don't forget, your life is precious for us, so do your best to survive",
+				"Good luck"],
 				"event":"on_end"
 			}}
 
@@ -149,7 +170,7 @@ func on_battle_over(c, t):
 		yield(tutorial_schnoop, "death_animation_over")
 		deploy_stars_particles(tutorial_schnoop.global_position)
 		tutorial_schnoop.queue_free()
-		set_phase("open_inventory")
+		set_phase("prologue2")
 	if !c:
 		# if the question is incorrect set all the objects as unfired
 		tutorial_schnoop.fired = false
@@ -164,6 +185,8 @@ func on_inventory_opened():
 # event functions:
 # after the prologue text, an enemy should appear:
 func on_prologue():
+	combat_anim.play("open_simulation")
+	yield(combat_anim, "animation_finished")
 	combat_anim.play("enter_schnoop")
 	set_phase("hit_enemy")
 
@@ -174,6 +197,9 @@ func on_hit_enemy():
 func on_sell():
 	set_phase("end")
 	pass
+
+func on_prologue2():
+	set_phase("open_inventory")
 
 func on_end():
 	transition.fade_to_main_menu()
