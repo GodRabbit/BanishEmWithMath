@@ -51,7 +51,7 @@ var phases = {"prologue":{
 	"they already infected most of our world, and even parts of the universe",
 	"You are here because you have a personal duty to help quarantine this menace",
 	"Using our newest technology, The Banishing Machine.. hrm.. trademarked... ",
-	"We can banish those pesky creatures to another dimension! hrm..so it would be someone else's problem)",
+	"We can banish those pesky creatures to another dimension! (hrm..so it would be someone else's problem)",
 	"You use it by aiming at an enemy, and solving a calculation. Pretty simple most of the times...hrm..",
 	"Successful calculation will banish the enemy to oblivion, and even give you some of its parts as loot!",
 	"hrm... but... a failed calculation will enrage it and give it an opportunity to hurt you",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scripts/tutorial/tutorial_scene.gd" type="Script" id=1]
 [ext_resource path="res://images/backgrounds/simulation_off.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://images/backgrounds/overworld.png" type="Texture" id=4]
 [ext_resource path="res://scenes/overworld/enemies/tutorial_schnoop.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/sfx/explosive_star_particles.tscn" type="PackedScene" id=6]
-[ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://images/gui/puzzle_rect2.png" type="Texture" id=8]
 [ext_resource path="res://themes/button_style_boxes/main_button_disabled.tres" type="StyleBox" id=9]
 [ext_resource path="res://themes/button_style_boxes/main_button_normal.tres" type="StyleBox" id=10]
@@ -18,6 +18,7 @@
 [ext_resource path="res://images/backgrounds/farm_morning.png" type="Texture" id=16]
 [ext_resource path="res://images/noise/galactic_smoke.png" type="Texture" id=17]
 [ext_resource path="res://images/backgrounds/space/milky-way-gae7619fa6_1920.jpg" type="Texture" id=18]
+[ext_resource path="res://images/backgrounds/simulation_back.png" type="Texture" id=19]
 
 [sub_resource type="Shader" id=9]
 code = "shader_type canvas_item;
@@ -56,6 +57,11 @@ vec2 distort2(vec2 v){
 	vec2 u = v;
 	return vec2(f(u.x), f(u.y));
 }
+
+float linear_transform(){
+	return 0.0;
+}
+
 /*
  taken from https://godotshaders.com/shader/2d-radial-distortion-fisheye-barrel/
 	released under cc0. made some minor changes here and there.
@@ -99,11 +105,11 @@ void fragment(){
 		vec4 color2 = texture(outer_edge_texture, mod(UV + noise_factor*noise_val + 0.02*TIME, vec2(1.0, 1.0)));
 		color2 = mix(color2, vec4(0.0, 0.0, 0.4, 1.0), 0.6);
 		COLOR = mix(color1 ,color2, 0.5);
-		//COLOR.a = 0.5;
+		COLOR.a = 1.0 - 50.0*circle_val; // creating gradient on the outer edge
 	}
 	else{
 		vec4 color1 = texture(TEXTURE, UV);
-		vec4 color2 = texture(outer_edge_texture, mod(UV + noise_factor + 0.01*TIME,1.0));
+		vec4 color2 = texture(outer_edge_texture, mod(UV + noise_factor + 0.005*TIME,1.0));
 		COLOR = mix(color1, color2, 0.3);
 	}
 }"
@@ -111,11 +117,11 @@ void fragment(){
 [sub_resource type="ShaderMaterial" id=10]
 shader = SubResource( 9 )
 shader_param/is_on = true
-shader_param/radius = 0.45
+shader_param/radius = 0.4
 shader_param/distortion_mult = 0.06
 shader_param/aspect = 1.0
 shader_param/horizon_mult = 0.007
-shader_param/speed = 0.02
+shader_param/speed = 0.01
 shader_param/noise_factor = 0.01
 shader_param/inner_texture = ExtResource( 16 )
 shader_param/outer_edge_texture = ExtResource( 18 )
@@ -385,69 +391,13 @@ shader_param/clip_warp = false
 shader_param/vignette_intensity = 0.4
 shader_param/vignette_opacity = 0.5
 
-[sub_resource type="Animation" id=7]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("../npc_sprite_shader:material:shader_param/mask_type")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 2 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../npc_sprite_shader:material:shader_param/bloomAmount")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 16.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("../npc_sprite_shader:material:shader_param/hardScan")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -8.0 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("../npc_sprite_shader:material:shader_param/res")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 128, 256 ) ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "idle"
-length = 3.0
-loop = true
-
 [sub_resource type="DynamicFont" id=2]
 size = 35
 outline_size = 1
 outline_color = Color( 0.00784314, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
-[sub_resource type="Theme" id=3]
+[sub_resource type="Theme" id=14]
 default_font = SubResource( 2 )
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
@@ -563,9 +513,9 @@ script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="mini_combat"]
 material = SubResource( 10 )
-position = Vector2( 988, 544 )
-scale = Vector2( 1.76127, 1.5859 )
-texture = ExtResource( 4 )
+position = Vector2( 990, 542 )
+scale = Vector2( 0.989505, 0.899585 )
+texture = ExtResource( 19 )
 
 [node name="tutorial_schnoop" parent="mini_combat" instance=ExtResource( 5 )]
 position = Vector2( 1061, -148 )
@@ -584,12 +534,6 @@ material = SubResource( 6 )
 position = Vector2( 469.5, 952 )
 texture = ExtResource( 14 )
 
-[node name="npc_sprite_anim" type="AnimationPlayer" parent="hud/npc_sprite_shader"]
-root_node = NodePath("")
-autoplay = "idle"
-anims/RESET = SubResource( 7 )
-anims/idle = SubResource( 8 )
-
 [node name="telephone" type="Sprite" parent="hud/npc_sprite_shader"]
 position = Vector2( -2.2794, -0.625013 )
 scale = Vector2( 0.937783, 0.946832 )
@@ -600,7 +544,7 @@ margin_left = 577.5
 margin_top = 864.0
 margin_right = 1673.5
 margin_bottom = 1032.0
-theme = SubResource( 3 )
+theme = SubResource( 14 )
 custom_styles/panel = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -610,21 +554,21 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
-margin_top = 4.0
+margin_top = 16.0
 margin_right = -20.0
-margin_bottom = -4.0
+margin_bottom = -16.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="hbox" type="HBoxContainer" parent="hud/dialogue_panel/dialogue_container"]
 margin_right = 1056.0
-margin_bottom = 160.0
+margin_bottom = 136.0
 custom_constants/separation = 30
 
 [node name="dialogue_label" type="RichTextLabel" parent="hud/dialogue_panel/dialogue_container/hbox"]
-margin_right = 874.0
-margin_bottom = 160.0
+margin_right = 833.0
+margin_bottom = 136.0
 rect_min_size = Vector2( 400, 20 )
 size_flags_horizontal = 3
 text = "This is the dialogue Text!"
@@ -633,9 +577,9 @@ __meta__ = {
 }
 
 [node name="dialogue_button" type="Button" parent="hud/dialogue_panel/dialogue_container/hbox"]
-margin_left = 904.0
+margin_left = 863.0
 margin_right = 1056.0
-margin_bottom = 160.0
+margin_bottom = 136.0
 text = "Continue"
 
 [node name="exit_button" type="Button" parent="hud"]

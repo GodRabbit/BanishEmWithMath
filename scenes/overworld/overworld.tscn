@@ -10,7 +10,7 @@
 [ext_resource path="res://images/backgrounds/black.png" type="Texture" id=8]
 [ext_resource path="res://images/backgrounds/space/constellations-2609647_1920.jpg" type="Texture" id=9]
 [ext_resource path="res://images/noise/galactic_smoke.png" type="Texture" id=10]
-[ext_resource path="res://images/backgrounds/human_land.png" type="Texture" id=11]
+[ext_resource path="res://images/backgrounds/simulation_back.png" type="Texture" id=11]
 [ext_resource path="res://images/gui/bosses_header.png" type="Texture" id=12]
 
 [sub_resource type="Shader" id=7]
@@ -79,8 +79,8 @@ script = ExtResource( 3 )
 
 [node name="background" type="Sprite" parent="."]
 modulate = Color( 0.294118, 0.0941176, 0.258824, 1 )
-position = Vector2( 664, 480 )
-scale = Vector2( 1.42329, 1.38091 )
+position = Vector2( 993, 548 )
+scale = Vector2( 0.992504, 0.909544 )
 texture = ExtResource( 11 )
 
 [node name="background_noise" type="Sprite" parent="."]
