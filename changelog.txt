@@ -27,4 +27,9 @@ v0.1.13alpha:
 * Updated copyright for 2022
 
 v0.1.14alpha: (The lore update)
-*
+* Framework: Added abstract expression controls for more advanced display of problems. As a preperations for questions regarding integrals, fractions, equations and more!
+* New Enemy (& puzzle): Infused Schnoop. Questions about powers of 2. 
+* Tutorial: 
+** Changed the tutorial text to better reflect the underlying story.
+** Added new backgrounds for the tutorial including new shaders.
+* Visual: Added several more sprites for The Farm. Morning, sunset, day and night.
