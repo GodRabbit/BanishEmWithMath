@@ -174,55 +174,55 @@ __meta__ = {
 [node name="site_container" type="Node" parent="."]
 
 [node name="p0" type="Position2D" parent="site_container"]
-position = Vector2( 128, 189 )
+position = Vector2( 128, 192 )
 __meta__ = {
 "_gizmo_extents_": 15.2
 }
 
 [node name="p1" type="Position2D" parent="site_container"]
-position = Vector2( 456, 192 )
+position = Vector2( 448, 192 )
 __meta__ = {
 "_gizmo_extents_": 15.2
 }
 
 [node name="p2" type="Position2D" parent="site_container"]
-position = Vector2( 728, 192 )
+position = Vector2( 704, 192 )
 __meta__ = {
 "_gizmo_extents_": 15.2
 }
 
 [node name="p3" type="Position2D" parent="site_container"]
-position = Vector2( 980, 192 )
+position = Vector2( 960, 192 )
 __meta__ = {
 "_gizmo_extents_": 15.2
 }
 
 [node name="p4" type="Position2D" parent="site_container"]
-position = Vector2( 128, 541 )
+position = Vector2( 128, 511 )
 __meta__ = {
 "_gizmo_extents_": 15.2
 }
 
 [node name="p5" type="Position2D" parent="site_container"]
-position = Vector2( 456, 541 )
+position = Vector2( 448, 512 )
 __meta__ = {
 "_gizmo_extents_": 15.2
 }
 
 [node name="p6" type="Position2D" parent="site_container"]
-position = Vector2( 728, 544 )
+position = Vector2( 704, 511 )
 __meta__ = {
 "_gizmo_extents_": 15.2
 }
 
 [node name="p7" type="Position2D" parent="site_container"]
-position = Vector2( 980, 541 )
+position = Vector2( 960, 512 )
 __meta__ = {
 "_gizmo_extents_": 15.2
 }
 
 [node name="p8" type="Position2D" parent="site_container"]
-position = Vector2( 128, 768 )
+position = Vector2( 576, 703 )
 __meta__ = {
 "_gizmo_extents_": 15.2
 }
