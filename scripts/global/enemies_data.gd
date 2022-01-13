@@ -321,7 +321,7 @@ func _ready():
 	20,
 	5,
 	2,
-	{"ghost_hair":2}))
+	{"ghost_hair":2, "moss_ball":1}))
 	
 	_add_enemy(enemy_abstract.new("hornet", 
 	"Hornet", # TODO: change name
@@ -711,6 +711,10 @@ func get_site_name(site_id):
 func get_site_price(zone_id, site_id):
 	return zones[zone_id]["sites"][site_id]
 	#return sites[site_id]["price"]
+
+# returns an array of eneies ids that belong to site <site_id>
+func get_site_enemies(site_id):
+	return sites[site_id]["enemies"]
 
 func get_boss_star_price(zone_id, boss_id):
 	return zones[zone_id]["bosses"][boss_id]["stars"]

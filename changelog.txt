@@ -33,3 +33,4 @@ v0.1.14alpha: (The lore update)
 ** Changed the tutorial text to better reflect the underlying story.
 ** Added new backgrounds for the tutorial including new shaders.
 * Visual: Added several more sprites for The Farm. Morning, sunset, day and night.
+* Visual Bug Fix: Reordered site button positions to be symmetric and aligned correctly

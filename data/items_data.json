@@ -98,7 +98,7 @@
     "ghost_hair":{
         "id":"ghost_hair",
         "name":"Ghost Hair",
-        "price":5,
+        "price":2,
         "hp":-1
     },
     "pumpkin":{
@@ -164,7 +164,7 @@
     "glass_shard":{
         "id":"glass_shard",
         "name":"Glass Shard",
-        "price":4,
+        "price":2,
         "hp":-10
     },
     "moss_ball":{
@@ -182,13 +182,13 @@
     "pearl":{
         "id":"pearl",
         "name":"Pearl",
-        "price":11,
+        "price":7,
         "hp":0
     },
     "shell":{
         "id":"shell",
         "name":"shell",
-        "price":8,
+        "price":5,
         "hp":1
     },
     "fairy_dust":{

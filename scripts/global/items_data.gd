@@ -31,3 +31,25 @@ func get_item_by_id(id):
 		return items_data[id]
 	else:
 		return {}
+
+func get_item_price(item_id):
+	var it = get_item_by_id(item_id)
+	return it["price"]
+
+# gets a dictionary of items ids (keys) and amounts
+#  returns the average gems price of those items
+func get_average_gems(items_list : Dictionary) -> float:
+	var sum = 0
+	var count = 0
+	for id in items_list.keys():
+		sum += get_item_price(id)*items_list[id]
+		count += items_list[id]
+	return float(sum)/float(count)
+
+# gets a dictionary of items ids (keys) and amounts
+#  returns the total gems price of those items
+func get_total_gems(items_list : Dictionary) -> int:
+	var sum = 0
+	for id in items_list.keys():
+		sum += get_item_price(id)*items_list[id]
+	return sum

@@ -10,7 +10,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	test_puzzle_powers_two()
+	test_balance_tester_function({"grape":3, "ghost_hair":2, "apple":3})
 
 func test_split_into():
 	for i in range(0, 20):
@@ -115,3 +115,6 @@ func test_puzzle_powers_two():
 		print(p.options)
 		print(p.solution)
 		print("_______________")
+
+func test_balance_tester_function(item_ids):
+	Log.log_print(str(items_data.get_average_gems(item_ids)))
