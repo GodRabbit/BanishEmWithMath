@@ -91,7 +91,7 @@ texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 5000, 5000 )
 
 [node name="background_particles" type="CPUParticles2D" parent="."]
-position = Vector2( 1031, 525 )
+position = Vector2( 998, 511 )
 amount = 30
 lifetime = 6.0
 texture = ExtResource( 7 )
