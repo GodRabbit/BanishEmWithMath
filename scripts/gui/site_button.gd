@@ -90,4 +90,7 @@ func on_purchase_button_pressed():
 	update_gui()
 
 func on_main_button_pressed():
+	# the timer start if it hasn't started yet
+	if !player_data.is_timer_activated(): 
+		player_data.start_timer()
 	transition.fade_to_combat(site_id)

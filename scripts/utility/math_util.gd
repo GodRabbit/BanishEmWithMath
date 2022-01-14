@@ -314,6 +314,29 @@ static func pick_min_number(max_val):
 	
 	return [solution, arr]  
 
+# turns miliseconds into a dictionary of the form 
+# ["hrs":<hours>, "mnts":<minutes>, "secs":<seconds>, "ms":<miliseconds>]
+static func ms_to_time_dictionary(ms):
+	# how many seconds:
+	var secs = int(ms / 1000)
+	
+	var _ms = int((ms % 1000)/100)
+	
+	# how many minutes it is:
+	var mnts = int(secs/60)
+	
+	# get the reminder of the seconds
+	secs = secs % 60
+	
+	# how many hours it is:
+	var hrs = int(mnts/60)
+	
+	# get the reminder of the minutes:
+	mnts = mnts % 60
+	
+	var d = {"secs":secs, "hrs":hrs, "mnts":mnts, "ms":_ms}
+	return d
+
 class base_transform:
 	# a class for changing bases
 	

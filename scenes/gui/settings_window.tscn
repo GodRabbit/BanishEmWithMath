@@ -54,7 +54,7 @@ __meta__ = {
 
 [node name="main_panel" type="Panel" parent="."]
 margin_right = 552.0
-margin_bottom = 392.0
+margin_bottom = 520.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -161,10 +161,36 @@ value = 2.0
 tick_count = 4
 ticks_on_borders = true
 
-[node name="button_container" type="HBoxContainer" parent="main_panel/main_container"]
+[node name="ui_header_label" type="Label" parent="main_panel/main_container"]
 margin_top = 265.0
 margin_right = 485.0
-margin_bottom = 332.0
+margin_bottom = 310.0
+text = "User interface settings:"
+
+[node name="timer_box" type="HBoxContainer" parent="main_panel/main_container"]
+margin_top = 314.0
+margin_right = 485.0
+margin_bottom = 384.0
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="timer_header_label" type="Label" parent="main_panel/main_container/timer_box"]
+margin_top = 12.0
+margin_right = 148.0
+margin_bottom = 57.0
+text = "Show Timer"
+
+[node name="show_timer_checkbox" type="CheckButton" parent="main_panel/main_container/timer_box"]
+margin_left = 198.0
+margin_right = 294.0
+margin_bottom = 70.0
+
+[node name="button_container" type="HBoxContainer" parent="main_panel/main_container"]
+margin_top = 388.0
+margin_right = 485.0
+margin_bottom = 455.0
 custom_constants/separation = 40
 
 [node name="save_button" type="Button" parent="main_panel/main_container/button_container"]

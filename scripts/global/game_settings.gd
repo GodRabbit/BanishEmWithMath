@@ -12,9 +12,12 @@ signal audio_settings_changed(channel)
 var settings = {
 	"audio":{ # audio settings from 0 ,1, 2,  3
 		"master":2, 
-		"music":3, # TODO: implement
-		"sfx":3, # TODO: implement
-		"ui":3  # TODO: implement
+		"music":3, 
+		"sfx":3, 
+		"ui":3  
+	},
+	"ui":{
+		"show_timer":false
 	},
 	"game_data":{
 		"version":"0.1.14-alpha",
@@ -67,3 +70,9 @@ func _transform(audio_level, audio_db):
 
 func get_setting(sett_id):
 	return settings[sett_id]
+
+func is_timer_shown():
+	return get_setting("ui")["show_timer"]
+
+func set_timer_shown(val : bool):
+	settings["ui"]["show_timer"] = val

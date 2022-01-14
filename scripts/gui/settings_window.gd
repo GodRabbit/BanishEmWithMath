@@ -16,6 +16,9 @@ onready var music_slider = $main_panel/main_container/music_volume_box/music_sli
 onready var sfx_slider = $main_panel/main_container/sfx_volume_box/sfx_slider
 onready var ui_slider  = $main_panel/main_container/ui_volume_box/ui_slider
 
+# ui nodes:
+onready var show_timer_checkbox = $main_panel/main_container/timer_box/show_timer_checkbox
+
 # buttons nodes:
 onready var save_button = $main_panel/main_container/button_container/save_button
 onready var cancel_button = $main_panel/main_container/button_container/cancel_button
@@ -39,10 +42,14 @@ func update_gui():
 
 func on_save_button_pressed():
 	# save the data in the settings:
+	# sound settings:
 	game_settings.set_audio_level("master", int(master_slider.value))
 	game_settings.set_audio_level("music", int(music_slider.value))
 	game_settings.set_audio_level("sfx", int(sfx_slider.value))
 	game_settings.set_audio_level("ui", int(ui_slider.value))
+	
+	# ui settings:
+	game_settings.set_timer_shown(show_timer_checkbox.pressed)
 	emit_signal("request_exit")
 
 func on_cancel_button_pressed():

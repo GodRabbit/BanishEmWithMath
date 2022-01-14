@@ -49,6 +49,7 @@ onready var game_over_window = $game_over_screen
 onready var explosive_dark_heart_particles = $explosive_dark_hearts_particles
 onready var settings_window = $settings_window
 onready var settings_button = $settings_button
+onready var timer_label = $stats_container/HBoxContainer/timer_label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -68,6 +69,14 @@ func _ready():
 	#tile_placing_menu.connect("tile_selected", self, "on_tile_placing_pressed")
 	
 	update_audio_button()
+	update_ui_from_settings()
+
+func _process(delta):
+	if game_settings.is_timer_shown():
+		var ms = player_data.get_time_elapsed()
+		var time_dic = math_util.ms_to_time_dictionary(ms)
+		var s = "%02d:%02d:%02d.%d" % [time_dic["hrs"], time_dic["mnts"], time_dic["secs"], time_dic["ms"]]
+		timer_label.text = s
 
 # is this hud on a boss fight?
 func set_is_boss_fight(value : bool):
@@ -219,6 +228,7 @@ func on_player_died():
 func on_inventory_displayer_request_exit():
 	show_window(WINDOWS_IDS.NONE)
 
+# DEPRECATED
 # updates the graphic for the audio button
 func update_audio_button():
 	var audio_lvl = game_settings.get_audio_level("master")
@@ -243,4 +253,13 @@ func on_settings_button_pressed():
 
 func on_settings_window_request_exit():
 	if settings_window.is_visible_in_tree():
+		update_ui_from_settings()
 		settings_window.hide()
+
+# a function to update set to update the ui of the HUD from the game_settings
+func update_ui_from_settings():
+	# timer ui:
+	if game_settings.is_timer_shown():
+		timer_label.show()
+	else:
+		timer_label.hide()

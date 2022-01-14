@@ -56,6 +56,9 @@ var current_zone = "zone1" # the curretn zone. The age group thhat governs the s
 var current_site = "farm" # site id for the next combat
 var current_boss = "galactic_cake" # boss id for the next boss combat
 
+# timer data:
+var timer_activated = false
+var player_start_time = 0
 
 # DEPRECATED IN THIS GAME
 # every time the overworld player intersect with a crafting tile, the crafting tile
@@ -87,6 +90,8 @@ func setup_player(_difficulty = "normal"):
 	player_inventory.empty_inventory()
 	money = 0
 	unlocked_sites = ["farm"]
+	
+	reset_timer_data()
 
 func get_inventory():
 	return player_inventory
@@ -360,4 +365,24 @@ func check_site(site_id):
 	else:
 		return false
 
+func reset_timer_data():
+	timer_activated = false
+	player_start_time = 0
 
+func start_timer():
+	timer_activated = true
+	player_start_time = OS.get_ticks_msec()
+
+func is_timer_activated():
+	return timer_activated
+
+func get_player_start_time():
+	return player_start_time
+
+# gets the time elapsed in miliseconds
+func get_time_elapsed():
+	if is_timer_activated():
+		var current = OS.get_ticks_msec()
+		return current - get_player_start_time()
+	else:
+		return -1 # for debug purposes

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/gui/hud.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/hp_bar.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scenes/sfx/explosive_dark_hearts_particles.tscn" type="PackedScene" id=11]
 [ext_resource path="res://images/gui/inventory_button.png" type="Texture" id=12]
 [ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=14]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_toggle_inventory"
@@ -25,6 +26,12 @@ size = 19
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 37
+outline_size = 2
+outline_color = Color( 0.333333, 0.0156863, 0.317647, 1 )
+font_data = ExtResource( 14 )
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -76,7 +83,7 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="stats_container"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 586.0
+margin_right = 915.0
 margin_bottom = 70.0
 custom_constants/separation = 80
 
@@ -109,6 +116,15 @@ margin_left = 200.0
 margin_top = 0.0
 margin_right = 320.0
 margin_bottom = 54.0
+
+[node name="timer_label" type="Label" parent="stats_container/HBoxContainer"]
+margin_left = 650.0
+margin_top = 9.0
+margin_right = 899.0
+margin_bottom = 44.0
+custom_colors/font_color = Color( 1, 0.866667, 0.988235, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "00:00:00.00"
 
 [node name="battle_window" parent="." instance=ExtResource( 5 )]
 visible = false

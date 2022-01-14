@@ -35,3 +35,4 @@ v0.1.14alpha: (The lore update)
 * Visual: Added several more sprites for The Farm. Morning, sunset, day and night.
 * Visual Bug Fix: Reordered site button positions to be symmetric and aligned correctly
 * Gameplay: Lots of balance changes for enemies and items.
+* Gameplay: Added timer for recording the amount of timed play. Added a setting for showing or hiding it. default is hiding.
