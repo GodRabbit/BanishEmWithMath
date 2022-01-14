@@ -596,7 +596,7 @@ func _ready():
 	45,
 	8,
 	1,
-	{"cheese":3})) 
+	{"cheese":5}))
 	
 	# sleeping count enemies:
 	_add_enemy(enemy_abstract.new("sleepy_bear",
