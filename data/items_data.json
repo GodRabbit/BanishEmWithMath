@@ -98,7 +98,7 @@
     "ghost_hair":{
         "id":"ghost_hair",
         "name":"Ghost Hair",
-        "price":2,
+        "price":1,
         "hp":-1
     },
     "pumpkin":{
@@ -116,14 +116,14 @@
     "star_piece":{
         "id":"star_piece",
         "name":"Star Piece",
-        "price":6,
+        "price":4,
         "hp":-3
     },
     "cake_piece":{
         "id":"cake_piece",
         "name":"Cake Piece",
-        "price":6,
-        "hp":30
+        "price":4,
+        "hp":2
     },
     "leaf":{
         "id":"leaf",
@@ -140,13 +140,13 @@
     "banana":{
         "id":"banana",
         "name":"Banana",
-        "price":4,
+        "price":8,
         "hp":3
     },
     "mango":{
         "id":"mango",
         "name":"Mango",
-        "price":4,
+        "price":6,
         "hp":2
     },
     "snowball":{
@@ -170,7 +170,7 @@
     "moss_ball":{
         "id":"moss_ball",
         "name":"Moss Ball",
-        "price":10,
+        "price":11,
         "hp":2
     },
     "dragon_scale":{
@@ -194,8 +194,8 @@
     "fairy_dust":{
         "id":"fairy_dust",
         "name":"Fairy Dust",
-        "price":8,
-        "hp":2
+        "price":12,
+        "hp":4
     },
     "sleep_essence":{
         "id":"sleep_essence",

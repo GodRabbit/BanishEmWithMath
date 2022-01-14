@@ -33,6 +33,10 @@ func _ready():
 	f = order_site_enemies_gems("jungle")
 	print("jungle:")
 	print(f)
+	
+	f = order_site_enemies_gems("snowy_mountain")
+	print("snowy_mountain:")
+	print(f)
 
 # returns the average of the enemy's gem drops according to item prices
 func get_enemy_average_gem_drops(e : enemy_abstract):
@@ -95,6 +99,9 @@ func analyze_site_gems(site_id) -> Dictionary:
 	d["min_enemy_gems"] = min_enemy_gems
 	d["avg_gems"] = float(sum)/float(enemies.size())
 	return d
+
+func analyze_boss_stars(boss_id):
+	pass
 
 # gets a site_id and return an array of 2 valued arrays
 # [[<enemy_id0>, <amount0>], [<enemy_id1>, <amount1>], ...]

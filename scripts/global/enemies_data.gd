@@ -225,7 +225,7 @@ func _ready():
 	30,
 	5,
 	2,
-	{"spike":1}))
+	{"spike":2}))
 	
 	_add_enemy(enemy_abstract.new("grape_moment",
 	"Grape Moment",
@@ -401,7 +401,7 @@ func _ready():
 	40,
 	5,
 	1,
-	{"star_piece":2}))
+	{"star_piece":1}))
 	
 	_add_enemy(enemy_abstract.new("piece_of_cake", 
 	"Piece of Cake",
@@ -417,7 +417,7 @@ func _ready():
 	20,
 	5,
 	1,
-	{"cake_piece":2}))
+	{"cake_piece":1}))
 	
 	_add_enemy(enemy_abstract.new("chocolate_meteor",
 	"chocolate_meteor",
@@ -425,7 +425,7 @@ func _ready():
 	40,
 	5,
 	1,
-	{"cake_piece":2})) # TODO: change?
+	{"cake_piece":1})) # TODO: change?
 	
 	_add_enemy(enemy_abstract.new("applady",
 	"Applady",
@@ -459,7 +459,7 @@ func _ready():
 	60,
 	4,
 	1,
-	{"snowball":1})) 
+	{"snowball":3})) 
 	
 	_add_enemy(enemy_abstract.new("snowy_cra_babi", 
 	"Snowy Cra Babi",
@@ -499,7 +499,7 @@ func _ready():
 	45,
 	6,
 	2,
-	{"ghost_hair":2, "snowball":1}))
+	{"ghost_hair":4, "snowball":2}))
 	
 	_add_enemy(enemy_abstract.new("snowy_schnoop",
 	"Snowy Schnoop",
@@ -507,7 +507,7 @@ func _ready():
 	40,
 	8,
 	2,
-	{"ghost_hair":3, "snowball":2}))
+	{"ghost_hair":5, "snowball":4}))
 	
 	_add_enemy(enemy_abstract.new("owllo", 
 	"Owllo",
@@ -524,7 +524,7 @@ func _ready():
 	40,
 	10,
 	1,
-	{"jelly":3})) # TODO: change?
+	{"jelly":3})) 
 	
 	_add_enemy(enemy_abstract.new("punguy", 
 	"Punguy", 
@@ -540,7 +540,7 @@ func _ready():
 	45,
 	8,
 	1,
-	{"mushroom":1, "pearl":1, "fairy_dust":1})) # TODO: change? (maybe to chess queen piece?)
+	{"pearl":1, "fairy_dust":1})) # TODO: change? (maybe to chess queen piece?)
 	
 	_add_enemy(enemy_abstract.new("fairy_schnoop", 
 	"Fairy Schnoop", 
@@ -548,7 +548,7 @@ func _ready():
 	50,
 	8,
 	2,
-	{"ghost_hair":3, "fairy_dust":2})) 
+	{"ghost_hair":2, "fairy_dust":1})) 
 	
 	_add_enemy(enemy_abstract.new("butter_fly", 
 	"Butter Fly", 
@@ -556,7 +556,7 @@ func _ready():
 	25,
 	8,
 	2,
-	{"fairy_dust":3})) # TODO: change?
+	{"fairy_dust":1})) # TODO: change?
 	
 	_add_enemy(enemy_abstract.new("fairy", 
 	"Fairy", 
@@ -564,7 +564,7 @@ func _ready():
 	25,
 	10,
 	2,
-	{"fairy_dust":5})) # TODO: change?
+	{"fairy_dust":2})) # TODO: change?
 	
 	_add_enemy(enemy_abstract.new("fairy_owllo", 
 	"Fairy Owllo", 
@@ -572,7 +572,7 @@ func _ready():
 	25,
 	7,
 	2,
-	{"fairy_dust":6}))  # TODO: change?
+	{"fairy_dust":2}))  # TODO: change?
 	
 	_add_enemy(enemy_abstract.new("dark_owllo", 
 	"Dark Owllo", 
@@ -580,7 +580,7 @@ func _ready():
 	30,
 	8,
 	2,
-	{"ghost_hair":3, "fairy_dust":2}))  # TODO: change?
+	{"ghost_hair":4, "fairy_dust":1}))  # TODO: change?
 	
 	_add_enemy(enemy_abstract.new("snail_wizard", 
 	"Snail Wizard", 
@@ -588,7 +588,7 @@ func _ready():
 	30,
 	8,
 	3,
-	{"shell":3, "fairy_dust":1})) 
+	{"shell":2, "fairy_dust":1})) 
 	
 	_add_enemy(enemy_abstract.new("dark_cheese", 
 	"Dark Cheese", 
