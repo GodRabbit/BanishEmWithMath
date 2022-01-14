@@ -1,11 +1,103 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/gui/debug/balance_tester.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+extra_spacing_space = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
 
 [node name="balance_tester" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="main_container" type="HBoxContainer" parent="."]
+margin_right = 1980.0
+margin_bottom = 1072.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scroll_container" type="ScrollContainer" parent="main_container"]
+margin_right = 1000.0
+margin_bottom = 1072.0
+rect_min_size = Vector2( 1000, 1000 )
+
+[node name="text_container" type="MarginContainer" parent="main_container/scroll_container"]
+margin_right = 1000.0
+margin_bottom = 1000.0
+rect_min_size = Vector2( 1000, 1000 )
+
+[node name="text_label" type="RichTextLabel" parent="main_container/scroll_container/text_container"]
+margin_right = 1000.0
+margin_bottom = 1000.0
+custom_constants/line_separation = 5
+text = "This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+v
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+v
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdggggThis is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+v
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdggggThis is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+v
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg
+This is atexr hdhdfbdgggg"
+
+[node name="exit_button" type="Button" parent="main_container"]
+margin_left = 1004.0
+margin_right = 1077.0
+margin_bottom = 1072.0
+text = "Exit"

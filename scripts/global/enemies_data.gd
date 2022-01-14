@@ -712,18 +712,22 @@ func get_site_price(zone_id, site_id):
 	return zones[zone_id]["sites"][site_id]
 	#return sites[site_id]["price"]
 
-# returns an array of eneies ids that belong to site <site_id>
-func get_site_enemies(site_id):
-	return sites[site_id]["enemies"]
-
 func get_boss_star_price(zone_id, boss_id):
 	return zones[zone_id]["bosses"][boss_id]["stars"]
 
 func get_boss_by_id(boss_id):
 	return bosses[boss_id]
 
+# plz note that these are dictionaries with weights and not 
+# an array
+func get_enemies_by_boss(boss_id):
+	return get_boss_by_id(boss_id)["enemies"]
+
 func get_boss_music(boss_id):
 	return bosses[boss_id]["music"]
 
 func get_site_music(site_id):
 	return sites[site_id]["music"]
+
+func get_zone_by_id(zone_id):
+	return zones[zone_id]
