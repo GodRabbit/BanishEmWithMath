@@ -15,6 +15,9 @@ const HEART_SINGLE = preload("res://scenes/gui/heart_single.tscn")
 
 var hearts_array = []
 
+# is the hp bar has skulls instead of hearts??
+export var alternate = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_data.connect("hp_changed", self, "update_gui")
@@ -36,9 +39,14 @@ func update_max_hp():
 	
 	update_gui()
 
+func set_alternate(val : bool):
+	alternate = val
+	update_gui()
+
 # updates the health
 func update_gui():
 	for i in range(0, player_data.get_max_hp()):
+		hearts_array[i].set_alternate(alternate)
 		if i < player_data.get_current_hp():
 			hearts_array[i].set_state(true) # fill the heart
 		else:

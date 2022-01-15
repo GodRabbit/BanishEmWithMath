@@ -38,6 +38,10 @@ func set_state(_filled : bool):
 	filled = _filled
 	update_gui()
 
+func set_alternate(val : bool):
+	alternate = val
+	update_gui()
+
 func is_filled():
 	return filled
 
@@ -46,15 +50,28 @@ func set_last_heart(val):
 	update_gui()
 
 func update_gui():
-	if filled:
-		texture = TEXTURE_FULL
-		heart_particles.emitting = true
-		
-		if last_heart:
-			hardcore_particles.emitting = true
+	if !alternate:
+		if filled:
+			texture = TEXTURE_FULL
+			heart_particles.emitting = true
+			
+			if last_heart:
+				hardcore_particles.emitting = true
+			else:
+				hardcore_particles.emitting = false
 		else:
+			heart_particles.emitting = false
+			texture = TEXTURE_EMPTY
 			hardcore_particles.emitting = false
 	else:
 		heart_particles.emitting = false
-		texture = TEXTURE_EMPTY
-		hardcore_particles.emitting = false
+		if filled:
+			texture = TEXTURE_FULL_ALTERNATE
+			
+			if last_heart:
+				hardcore_particles.emitting = true
+			else:
+				hardcore_particles.emitting = false
+		else:
+			texture = TEXTURE_EMPTY_ALTERNATE
+			hardcore_particles.emitting = false

@@ -50,6 +50,7 @@ onready var explosive_dark_heart_particles = $explosive_dark_hearts_particles
 onready var settings_window = $settings_window
 onready var settings_button = $settings_button
 onready var timer_label = $stats_container/HBoxContainer/timer_label
+onready var hp_bar = $stats_container/HBoxContainer/hp_bar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -222,12 +223,14 @@ func call_battle(e : enemy_abstract):
 # signal from player
 # show game over screen
 func on_player_died():
+	hp_bar.set_alternate(true)
 	game_over_window.set_won(false)
 	show_window(WINDOWS_IDS.GAME_OVER_WINDOW)
 
 # signal from player
 # show game over screen
 func on_player_won_the_game():
+	hp_bar.set_alternate(true)
 	game_over_window.set_won(true)
 	show_window(WINDOWS_IDS.GAME_OVER_WINDOW)
 
