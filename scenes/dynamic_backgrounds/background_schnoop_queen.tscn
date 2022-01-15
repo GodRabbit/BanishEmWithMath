@@ -188,7 +188,7 @@ tracks/9/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("words_particles1:visible")
+tracks/10/path = NodePath("words_particles2:emitting")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -200,24 +200,12 @@ tracks/10/keys = {
 "values": [ false ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("words_particles2:emitting")
+tracks/11/path = NodePath("words_particles1:emitting")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("words_particles1:emitting")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -439,7 +427,6 @@ color_ramp = SubResource( 5 )
 hue_variation_random = 0.55
 
 [node name="words_particles1" type="CPUParticles2D" parent="."]
-visible = false
 modulate = Color( 1, 1, 1, 0.854902 )
 position = Vector2( 992, 520 )
 emitting = false
