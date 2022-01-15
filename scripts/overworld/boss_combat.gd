@@ -171,6 +171,9 @@ func on_waves_over():
 	Log.log_print("initiated death for boss " + boss_dic["id"])
 	waves_over = true
 	
+	# prevent the enemies from being clicked:
+	pause_world(true)
+	
 	# deal with boss's death
 	get_dynamic_background().on_death()
 	yield(get_dynamic_background(), "ready_to_die")

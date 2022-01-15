@@ -59,6 +59,8 @@ var current_boss = "galactic_cake" # boss id for the next boss combat
 # timer data:
 var timer_activated = false
 var player_start_time = 0
+var player_end_time = 0
+var timer_paused = true
 
 # DEPRECATED IN THIS GAME
 # every time the overworld player intersect with a crafting tile, the crafting tile
@@ -368,13 +370,25 @@ func check_site(site_id):
 func reset_timer_data():
 	timer_activated = false
 	player_start_time = 0
+	timer_paused = true
 
 func start_timer():
 	timer_activated = true
 	player_start_time = OS.get_ticks_msec()
+	timer_paused = false
+
+func pause_timer():
+	timer_paused = true
+	player_end_time = OS.get_ticks_msec()
 
 func is_timer_activated():
 	return timer_activated
+
+func is_timer_paused():
+	return timer_paused
+
+func unpause_timer():
+	timer_paused = false
 
 func get_player_start_time():
 	return player_start_time
@@ -382,7 +396,10 @@ func get_player_start_time():
 # gets the time elapsed in miliseconds
 func get_time_elapsed():
 	if is_timer_activated():
-		var current = OS.get_ticks_msec()
-		return current - get_player_start_time()
+		if !timer_paused:
+			var current = OS.get_ticks_msec()
+			return current - get_player_start_time()
+		else:
+			return player_end_time - get_player_start_time()
 	else:
 		return -1 # for debug purposes
