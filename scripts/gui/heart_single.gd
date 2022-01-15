@@ -15,6 +15,9 @@ onready var hardcore_particles = $hardcore_particles
 
 const TEXTURE_FULL = preload("res://images/gui/heart_full.png")
 const TEXTURE_EMPTY = preload("res://images/gui/heart_empty.png")
+const TEXTURE_FULL_ALTERNATE = preload("res://images/gui/skull_full.png")
+const TEXTURE_EMPTY_ALTERNATE = preload("res://images/gui/skull_empty.png")
+
 
 # whether this heart is filled or not.
 export var filled = true
@@ -22,6 +25,8 @@ export var filled = true
 # is this the last heart the player has?
 export var last_heart = false
 
+# is this an alternate hp bar where instead of hearts we have skulls?
+export var alternate = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

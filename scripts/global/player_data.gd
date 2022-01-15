@@ -74,6 +74,7 @@ signal player_died
 signal hp_changed
 signal stars_changed(val) # val is the value by which the stars changed
 signal money_changed
+signal won_the_game
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -172,6 +173,11 @@ func sell_item_at(index):
 
 func is_dead():
 	return get_current_hp() <= 0
+
+# call this function when the player wins the game
+func win_the_game():
+	set_hp(1)
+	emit_signal("won_the_game")
 
 func get_current_stars():
 	return current_stars

@@ -58,6 +58,7 @@ func _ready():
 	inventory_button.connect("pressed", self, "on_inventory_button_pressed")
 	
 	player_data.connect("player_died", self, "on_player_died")
+	player_data.connect("won_the_game", self, "on_player_won_the_game")
 	
 	inventory_displayer.connect("request_exit", self, "on_inventory_displayer_request_exit")
 	
@@ -221,6 +222,13 @@ func call_battle(e : enemy_abstract):
 # signal from player
 # show game over screen
 func on_player_died():
+	game_over_window.set_won(false)
+	show_window(WINDOWS_IDS.GAME_OVER_WINDOW)
+
+# signal from player
+# show game over screen
+func on_player_won_the_game():
+	game_over_window.set_won(true)
 	show_window(WINDOWS_IDS.GAME_OVER_WINDOW)
 
 # signal from inventory displayer

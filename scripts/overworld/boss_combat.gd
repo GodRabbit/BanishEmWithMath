@@ -179,7 +179,10 @@ func on_waves_over():
 	yield(get_dynamic_background(), "ready_to_die")
 	
 	Log.log_print("death is over for boss " + boss_dic["id"] +"; transition to overworld begins")
-	transition.fade_to_overworld()
+	if get_dynamic_background().is_final_boss():
+		player_data.win_the_game()
+	else:
+		transition.fade_to_overworld()
 
 func spawn_wave():
 	Log.log_print("boss combat spawn waves intitated for " + boss_dic["id"])
