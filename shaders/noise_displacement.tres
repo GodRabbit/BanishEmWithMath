@@ -1,0 +1,18 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise_texture;
+uniform float speed : hint_range(0.0, 5.0) = 1.0;
+uniform float noise_factor : hint_range(0.0, 5.0) = 1.0;
+
+void fragment(){
+	// get the distortion value from the texture
+	vec4 t = texture(noise_texture, mod(UV - speed*TIME, vec2(1.0, 1.0)));
+	float noise_val = (t.r + t.g + t.b)/3.0;
+	// distort the  inner texture according to the disp & noise
+	vec4 color1;
+	 // if the texture is on, display inner texture instead of off texture
+	COLOR = texture(TEXTURE, mod(UV + noise_factor*noise_val, vec2(1.0,1.0)));
+}"

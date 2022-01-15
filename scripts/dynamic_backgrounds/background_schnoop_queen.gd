@@ -10,10 +10,11 @@ extends dynamic_background
 # nodes:
 onready var boss_schnoop_queen = $boss_schnoop_queen
 onready var anim = $anim
+onready var hearts_particles = $hearts_particles
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	hearts_particles.emitting = false
 
 
 func on_spawn_enemies():
@@ -23,9 +24,13 @@ func on_spawn_enemies():
 	.on_spawn_enemies()
 
 func on_death():
-	boss_schnoop_queen.anim_body.play("death")
-	yield(boss_schnoop_queen.anim_body, "animation_finished")
+	boss_schnoop_queen.start_death_idle()
+	anim.play("death")
+	yield(anim, "animation_finished")
 	.on_death()
 
 func on_boss_health_changed(hp):
 	Log.log_print("schnoop queen changed hp")
+
+func call_schnoop_queen_disappear():
+	boss_schnoop_queen.anim_body.play("death")

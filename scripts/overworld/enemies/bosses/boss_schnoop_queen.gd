@@ -29,3 +29,7 @@ func start_spawn_anim():
 	yield(anim_hands,"animation_finished")
 	anim_body.play("idle")
 	anim_hands.play("idle")
+
+func start_death_idle():
+	anim_body.play("death_idle")
+	anim_hands.play("idle")
