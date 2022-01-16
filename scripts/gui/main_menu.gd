@@ -41,6 +41,12 @@ func _ready():
 	# sets the button to pressed according to the last difficulty the player chose
 	get_node("difficulty_container/%s_button" % player_data.prefferd_difficulty.to_lower()).pressed = true
 	
+	# hide the hs button unless there is atleast 1 record:
+	if hs_data.get_entries_size("zone1") >= 1:
+		hs_button.show()
+	else:
+		hs_button.hide()
+	
 	sound_manager.play_music(BACKGROUND_MUSIC_ID)
 	
 	version_label.text = "Version %s" % [game_settings.settings["game_data"]["version"]]
