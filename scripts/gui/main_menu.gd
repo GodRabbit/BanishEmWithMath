@@ -79,6 +79,8 @@ func on_exit_game_button_pressed():
 	get_tree().quit()
 
 func on_tutorial_button_pressed():
+	player_data.setup_player(get_difficulty())
+	player_data.prefferd_difficulty = get_difficulty()
 	transition.fade_to_tutorial()
 
 func on_settings_button_pressed():
