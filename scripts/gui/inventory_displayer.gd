@@ -16,6 +16,7 @@ onready var delete_button = $inventory_container/main_container/button_container
 onready var eat_button = $inventory_container/main_container/button_container/eat_button
 onready var exit_button = $inventory_container/main_container/button_container/exit_button
 onready var sell_button = $inventory_container/main_container/button_container/sell_button
+onready var sell_stack_button = $inventory_container/main_container/button_container/sell_stack_button
 
 # the control wants to exit.
 signal request_exit
@@ -30,6 +31,7 @@ func _ready():
 	eat_button.connect("pressed", self, "on_eat_button_pressed")
 	exit_button.connect("pressed", self, "on_exit_button_pressed")
 	sell_button.connect("pressed", self, "on_sell_button_pressed")
+	sell_stack_button.connect("pressed", self, "on_sell_stack_button_pressed")
 
 # setup the corerct amount of buttons in the item_container
 # check first if even necessary.
@@ -83,9 +85,25 @@ func on_exit_button_pressed():
 	emit_signal("request_exit")
 
 func on_sell_button_pressed():
+	# if shift is pressed sell entire stack
+	var is_shift = false
+	if Input.is_action_pressed("ui_shift"):
+		is_shift = true
+
 	var index = find_pressed_item()
 	
 	if index != -1:
-		player_data.sell_item_at(index)
+		if !is_shift: # sell single item
+			player_data.sell_item_at(index)
+		else: # sell entire stack
+			player_data.sell_stack_at(index)
+		emit_signal("item_sold")
+	update_gui()
+
+func on_sell_stack_button_pressed():
+	var index = find_pressed_item()
+	
+	if index != -1:
+		player_data.sell_stack_at(index)
 		emit_signal("item_sold")
 	update_gui()

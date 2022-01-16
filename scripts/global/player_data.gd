@@ -155,6 +155,7 @@ func eat_item_at(index):
 	else:
 		return
 
+# sells an item that is at the <index> place in the inventory
 func sell_item_at(index):
 	var s = player_inventory.get_stack_at(index)
 	if !s.is_empty():
@@ -168,6 +169,24 @@ func sell_item_at(index):
 		
 		# add the money:
 		add_money(sell_price)
+	else:
+		return
+
+# sells entire stack at the <index>
+func sell_stack_at(index):
+	var s = player_inventory.get_stack_at(index)
+	if !s.is_empty():
+		# get item's data:
+		var item_id = s.get_item_id()
+		var item = items_data.get_item_by_id(item_id)
+		var sell_price = item["price"]
+		var amount = s.get_amount()
+		
+		# remove the stack of items
+		player_inventory.remove_item_at(index, amount)
+		
+		# add money:
+		add_money(sell_price * amount)
 	else:
 		return
 

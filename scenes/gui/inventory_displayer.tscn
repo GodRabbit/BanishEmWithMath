@@ -112,40 +112,46 @@ margin_right = 576.0
 margin_bottom = 416.0
 
 [node name="button_container" type="VBoxContainer" parent="inventory_container/main_container"]
-margin_right = 86.0
+margin_right = 122.0
 margin_bottom = 416.0
 theme = SubResource( 11 )
 
 [node name="delete_button" type="Button" parent="inventory_container/main_container/button_container"]
-margin_right = 86.0
+margin_right = 122.0
 margin_bottom = 63.0
 text = "Delete"
 
 [node name="sell_button" type="Button" parent="inventory_container/main_container/button_container"]
 margin_top = 67.0
-margin_right = 86.0
+margin_right = 122.0
 margin_bottom = 130.0
 text = "Sell"
 
-[node name="eat_button" type="Button" parent="inventory_container/main_container/button_container"]
+[node name="sell_stack_button" type="Button" parent="inventory_container/main_container/button_container"]
 margin_top = 134.0
-margin_right = 86.0
+margin_right = 122.0
 margin_bottom = 197.0
+text = "Sell Stack"
+
+[node name="eat_button" type="Button" parent="inventory_container/main_container/button_container"]
+margin_top = 201.0
+margin_right = 122.0
+margin_bottom = 264.0
 text = "Eat"
 
 [node name="exit_button" type="Button" parent="inventory_container/main_container/button_container"]
-margin_top = 201.0
-margin_right = 86.0
-margin_bottom = 264.0
+margin_top = 268.0
+margin_right = 122.0
+margin_bottom = 331.0
 text = "Exit"
 
 [node name="item_container" type="GridContainer" parent="inventory_container/main_container"]
-margin_left = 90.0
-margin_right = 90.0
+margin_left = 126.0
+margin_right = 126.0
 margin_bottom = 416.0
 columns = 5
 
 [node name="item_info_displayer" parent="inventory_container/main_container" instance=ExtResource( 2 )]
-margin_left = 94.0
-margin_right = 173.0
+margin_left = 130.0
+margin_right = 209.0
 margin_bottom = 416.0
