@@ -38,6 +38,6 @@ v0.1.14alpha: (The lore update)
 * Gameplay: Added timer for recording the amount of timed play. Added a setting for showing or hiding it. default is hiding.
 * Visual upgrade: Schnoop Queen death animation visual upgrade
 * Gameplay: The game has an end. When you beat the final boss a game over screen appears!
-* Bug Fix: Can't activate enemies when the boss is playing death animation
+* Bug Fix: You no longer can activate enemies when the boss is playing death animation
 * Visual feature: The hp bar changes to skulls when you lose and win.
 * Gameplay: Added an option to sell an entire stack (also Shift + sell sells entire stack)
