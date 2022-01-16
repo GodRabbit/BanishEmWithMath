@@ -21,8 +21,8 @@ var settings = {
 	},
 	"game_data":{
 		"version":"0.1.14-alpha",
-		"debug_mode":true,
-		"allow_cheating":true
+		"debug_mode":false,
+		"allow_cheating":false
 	}
 }
 

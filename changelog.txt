@@ -41,3 +41,5 @@ v0.1.14alpha: (The lore update)
 * Bug Fix: You no longer can activate enemies when the boss is playing death animation
 * Visual feature: The hp bar changes to skulls when you lose and win.
 * Gameplay: Added an option to sell an entire stack (also Shift + sell sells entire stack)
+* Gameplay: Added 'High Score' screen for best times.
+* Bug Fix: You no longer keep your health into the tutorial if you play the tutorial after a session.
