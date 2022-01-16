@@ -70,6 +70,11 @@ _global_script_classes=[ {
 "path": "res://scripts/gui/math_displayer/expression_display.gd"
 }, {
 "base": "Reference",
+"class": "hs_entry",
+"language": "GDScript",
+"path": "res://scripts/utility/hs_entry.gd"
+}, {
+"base": "Reference",
 "class": "inventory",
 "language": "GDScript",
 "path": "res://scripts/utility/inventory/inventory.gd"
@@ -252,6 +257,7 @@ _global_script_class_icons={
 "dynamic_background": "",
 "enemy_abstract": "",
 "expression_display": "",
+"hs_entry": "",
 "inventory": "",
 "item_stack": "",
 "math_util": "",
@@ -305,6 +311,7 @@ enemies_data="*res://scenes/globals/enemies_data.tscn"
 player_data="*res://scenes/globals/player_data.tscn"
 sound_manager="*res://scenes/globals/sound_manager.tscn"
 transition="*res://scenes/globals/transition.tscn"
+hs_data="*res://scenes/globals/hs_data.tscn"
 
 [display]
 

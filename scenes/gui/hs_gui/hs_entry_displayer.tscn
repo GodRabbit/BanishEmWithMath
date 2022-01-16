@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://themes/hs_theme.tres" type="Theme" id=1]
+[ext_resource path="res://images/gui/star2.png" type="Texture" id=2]
+[ext_resource path="res://scripts/gui/hs_gui/hs_entry_displayer.gd" type="Script" id=3]
+
+[node name="hs_entry_displayer" type="HBoxContainer"]
+margin_right = 436.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main_label" type="Label" parent="."]
+margin_top = 12.0
+margin_right = 845.0
+margin_bottom = 43.0
+text = "1. (02 Sep '22) NORMAL Difficulty ; 00:30:02.34 ; "
+
+[node name="stars_label" type="Label" parent="."]
+margin_left = 849.0
+margin_top = 12.0
+margin_right = 913.0
+margin_bottom = 43.0
+text = "343"
+
+[node name="stars_texture" type="TextureRect" parent="."]
+margin_left = 917.0
+margin_right = 972.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 55, 55 )
+texture = ExtResource( 2 )
+expand = true

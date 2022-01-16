@@ -10,7 +10,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	test_time_functions(827456)
+	test_hs_data()
 
 func test_split_into():
 	for i in range(0, 20):
@@ -122,3 +122,11 @@ func test_balance_tester_function(item_ids):
 func test_time_functions(ms):
 	var d = math_util.ms_to_time_dictionary(ms)
 	print(d)
+
+func test_hs_data():
+	randomize()
+	for i in range(0, 30):
+		var h = hs_entry.new("zone1", "NORMAL", randi() % 30000, 4, OS.get_datetime())
+		hs_data.add_score(h)
+	
+	hs_data.log_print_hs("zone1")

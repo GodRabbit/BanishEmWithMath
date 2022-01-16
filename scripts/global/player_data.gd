@@ -196,6 +196,9 @@ func is_dead():
 # call this function when the player wins the game
 func win_the_game():
 	set_hp(1)
+	# add score to the hs_data:
+	var h = hs_entry.new(current_zone, difficulty, get_time_elapsed(), current_stars, OS.get_datetime())
+	hs_data.add_score(h)
 	emit_signal("won_the_game")
 
 func get_current_stars():

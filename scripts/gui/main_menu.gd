@@ -17,6 +17,8 @@ onready var hard_button = $difficulty_container/hard_button
 onready var hardcore_button = $difficulty_container/hardcore_button
 onready var tutorial_button = $button_container/tutorial_button
 onready var version_label = $credits_container/version_label
+onready var hs_table_displayer = $hs_table_displayer
+onready var hs_button = $button_container/hs_button
 
 onready var settings_window = $settings_window
 onready var settings_button = $settings_button
@@ -32,6 +34,9 @@ func _ready():
 	
 	settings_button.connect("pressed", self, "on_settings_button_pressed")
 	settings_window.connect("request_exit", self, "on_settings_window_request_exit")
+	
+	hs_button.connect("pressed", self, "on_hs_button_pressed")
+	hs_table_displayer.connect("request_exit", self, "on_hs_table_displayer_request_exit")
 	
 	# sets the button to pressed according to the last difficulty the player chose
 	get_node("difficulty_container/%s_button" % player_data.prefferd_difficulty.to_lower()).pressed = true
@@ -79,4 +84,13 @@ func on_settings_button_pressed():
 func on_settings_window_request_exit():
 	if settings_window.is_visible_in_tree():
 		settings_window.hide()
-	
+
+func on_hs_button_pressed():
+	if hs_table_displayer.is_visible_in_tree():
+		hs_table_displayer.hide()
+	else:
+		hs_table_displayer.show()
+
+func on_hs_table_displayer_request_exit():
+	if hs_table_displayer.is_visible_in_tree():
+		hs_table_displayer.hide()

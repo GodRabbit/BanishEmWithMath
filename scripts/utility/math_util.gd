@@ -337,6 +337,33 @@ static func ms_to_time_dictionary(ms):
 	var d = {"secs":secs, "hrs":hrs, "mnts":mnts, "ms":_ms}
 	return d
 
+static func get_month_abbr_from_number(month):
+	match month:
+		1:
+			return "Jan"
+		2:
+			return "Fab"
+		3:
+			return "Mar"
+		4:
+			return "Apr"
+		5:
+			return "May"
+		6:
+			return "Jun"
+		7:
+			return "Jul"
+		8:
+			return "Aug"
+		9:
+			return "Sep"
+		10:
+			return "Oct"
+		11:
+			return "Nov"
+		12:
+			return "Dec"
+
 class base_transform:
 	# a class for changing bases
 	
@@ -381,4 +408,3 @@ class base_transform:
 		for i in range(0, arr.size()):
 			result += str(arr[arr.size() - i - 1])
 		return result
-
