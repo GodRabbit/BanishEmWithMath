@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/global/top_story_data.gd" type="Script" id=1]
+
+[node name="top_story_data" type="Node"]
+script = ExtResource( 1 )

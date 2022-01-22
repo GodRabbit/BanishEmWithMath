@@ -8,7 +8,7 @@ extends Node
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 # global class for holding the data of all the items in the game.
-var items_data = {}
+var items_data_dict = {}
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,18 +17,18 @@ func _ready():
 	file.open("res://data/items_data.json", file.READ)
 	var text = file.get_as_text()
 	var res = JSON.parse(text) #parse text to dictionary
-	items_data = res.result #save the result
+	items_data_dict = res.result #save the result
 	file.close() #close file
 
 func get_random_item_id():
 	randomize()
-	var index = randi() % items_data.keys().size()
-	var key = items_data.keys()[index]
+	var index = randi() % items_data_dict.keys().size()
+	var key = items_data_dict.keys()[index]
 	return key
 
 func get_item_by_id(id):
-	if items_data.has(id):
-		return items_data[id]
+	if items_data_dict.has(id):
+		return items_data_dict[id]
 	else:
 		return {}
 
