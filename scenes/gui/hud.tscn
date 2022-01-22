@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/gui/hud.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/hp_bar.tscn" type="PackedScene" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://images/gui/inventory_button.png" type="Texture" id=12]
 [ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://scenes/gui/top_news_button.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/gui/top_stories_displayer.tscn" type="PackedScene" id=16]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_toggle_inventory"
@@ -48,9 +50,9 @@ margin_right = 859.0
 margin_bottom = 212.0
 
 [node name="inventory_button" type="TextureButton" parent="."]
-margin_left = 1864.0
-margin_top = 320.0
-margin_right = 1950.0
+margin_left = 1816.0
+margin_top = 256.0
+margin_right = 1942.0
 margin_bottom = 430.0
 shortcut = SubResource( 2 )
 texture_normal = ExtResource( 12 )
@@ -60,10 +62,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="inventory_button"]
-margin_left = 8.0
-margin_top = 110.0
-margin_right = 77.0
-margin_bottom = 139.0
+margin_left = 33.0
+margin_top = 180.0
+margin_right = 102.0
+margin_bottom = 209.0
 custom_fonts/font = SubResource( 3 )
 text = "Inventory"
 __meta__ = {
@@ -175,3 +177,16 @@ margin_left = 88.0
 margin_top = 488.0
 margin_right = 88.96
 margin_bottom = 488.2
+
+[node name="top_news_button" parent="." instance=ExtResource( 15 )]
+margin_left = 1840.0
+margin_top = 496.0
+margin_right = 1940.0
+margin_bottom = 668.0
+
+[node name="top_stories_displayer" parent="." instance=ExtResource( 16 )]
+visible = false
+margin_left = 1072.0
+margin_top = 16.0
+margin_right = -212.0
+margin_bottom = 16.0

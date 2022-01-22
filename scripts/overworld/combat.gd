@@ -184,6 +184,7 @@ func on_exit_button_pressed():
 # called when all the enemies are dead
 func on_area_cleared():
 	# TODO: add more animations screens and other fun stuff
+	player_data.add_visited_site(site)
 	transition.fade_to_overworld()
 
 func deploy_stars_particles(pos):

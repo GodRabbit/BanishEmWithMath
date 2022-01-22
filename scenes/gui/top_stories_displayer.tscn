@@ -1,0 +1,187 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://images/gui/puzzle_rect2.png" type="Texture" id=1]
+[ext_resource path="res://fonts/Quicksand/Quicksand-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://images/gui/top_news_header.png" type="Texture" id=3]
+[ext_resource path="res://fonts/Permanent_Marker/PermanentMarker-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://themes/button_style_boxes/main_button_hover.tres" type="StyleBox" id=5]
+[ext_resource path="res://themes/button_style_boxes/main_button_disabled.tres" type="StyleBox" id=6]
+[ext_resource path="res://themes/button_style_boxes/main_button_normal.tres" type="StyleBox" id=7]
+[ext_resource path="res://themes/button_style_boxes/main_button_pressed.tres" type="StyleBox" id=8]
+[ext_resource path="res://images/gui/arrow_pressed.png" type="Texture" id=9]
+[ext_resource path="res://images/gui/arrow_disabled.png" type="Texture" id=10]
+[ext_resource path="res://images/gui/arrow_normal.png" type="Texture" id=11]
+[ext_resource path="res://scripts/gui/top_stories_displayer.gd" type="Script" id=12]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 589, 589 )
+margin_left = 36.0
+margin_right = 37.0
+margin_top = 36.0
+margin_bottom = 37.0
+
+[sub_resource type="DynamicFont" id=5]
+outline_size = 1
+outline_color = Color( 0.67451, 0.482353, 0.678431, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 5 )
+Button/colors/font_color = Color( 0.211765, 0.0745098, 0.176471, 1 )
+Button/colors/font_color_disabled = Color( 0, 0, 0, 1 )
+Button/colors/font_color_focus = Color( 0, 0, 0, 1 )
+Button/colors/font_color_hover = Color( 0, 0, 0, 1 )
+Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+Button/constants/hseparation = 0
+Button/fonts/font = null
+Button/styles/disabled = ExtResource( 6 )
+Button/styles/focus = null
+Button/styles/hover = ExtResource( 5 )
+Button/styles/normal = ExtResource( 7 )
+Button/styles/pressed = ExtResource( 8 )
+Panel/styles/panel = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 44
+outline_size = 1
+outline_color = Color( 0.00784314, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 17
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+outline_size = 1
+font_data = ExtResource( 2 )
+
+[node name="top_stories_displayer" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1284.0
+theme = SubResource( 2 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="panel" type="Panel" parent="."]
+anchor_right = 0.966
+anchor_bottom = 0.933
+margin_right = 39.664
+margin_bottom = 8.35999
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main_container" type="VBoxContainer" parent="panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 24.0
+margin_right = -16.0
+margin_bottom = -24.0
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="header_button" type="TextureButton" parent="panel/main_container"]
+margin_right = 672.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 640, 80 )
+texture_normal = ExtResource( 3 )
+expand = true
+
+[node name="scroll_container" type="ScrollContainer" parent="panel/main_container"]
+margin_top = 94.0
+margin_right = 672.0
+margin_bottom = 894.0
+rect_min_size = Vector2( 600, 800 )
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="content_container" type="VBoxContainer" parent="panel/main_container/scroll_container"]
+margin_right = 500.0
+margin_bottom = 995.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="header_label" type="RichTextLabel" parent="panel/main_container/scroll_container/content_container"]
+margin_right = 500.0
+margin_bottom = 224.0
+rect_min_size = Vector2( 500, 200 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 3 )
+text = "This is a very long and annoying to read header its very very long oh so long"
+fit_content_height = true
+scroll_active = false
+
+[node name="signature_label" type="Label" parent="panel/main_container/scroll_container/content_container"]
+margin_top = 228.0
+margin_right = 500.0
+margin_bottom = 250.0
+custom_fonts/font = SubResource( 6 )
+text = "Jan, 12, by Lizzy Mclizabeth"
+
+[node name="body_label" type="RichTextLabel" parent="panel/main_container/scroll_container/content_container"]
+margin_top = 254.0
+margin_right = 500.0
+margin_bottom = 995.0
+rect_min_size = Vector2( 500, 500 )
+custom_fonts/normal_font = SubResource( 4 )
+text = "This is a very long and annoying to read header its very very long oh so long
+
+very very long body
+
+oh boy
+
+this is really long
+
+oh jeez
+
+so long 
+
+how can this be so long
+
+oh lawd it continues
+
+this is insanity"
+fit_content_height = true
+scroll_active = false
+
+[node name="button_container" type="HBoxContainer" parent="panel/main_container"]
+margin_top = 908.0
+margin_right = 672.0
+margin_bottom = 970.0
+custom_constants/separation = 100
+alignment = 1
+
+[node name="left_button" type="TextureButton" parent="panel/main_container/button_container"]
+margin_left = 83.0
+margin_right = 198.0
+margin_bottom = 62.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 10 )
+
+[node name="close_button" type="Button" parent="panel/main_container/button_container"]
+margin_left = 298.0
+margin_right = 374.0
+margin_bottom = 62.0
+text = "Close"
+
+[node name="right_button" type="TextureButton" parent="panel/main_container/button_container"]
+margin_left = 474.0
+margin_right = 589.0
+margin_bottom = 62.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 10 )
+flip_h = true

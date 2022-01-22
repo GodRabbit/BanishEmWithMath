@@ -7,7 +7,8 @@
     "Scientists warns that a large concentration of creatures in the city is highly concernging."],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Leroy Ezekir"
     },
     "":{
         "id":"",
@@ -15,7 +16,8 @@
         "body":[],
         "zones":[],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":""
     },
     "explosive_bunnies":{
         "id":"explosive_bunnies",
@@ -25,7 +27,8 @@
     "In probably unrelated news, 2 found dead, covered in rabbit's fur, after an explosion occured near their lungs."],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Joseph Fumprum"
     },
     "alien_from_space1":{
         "id":"alien_from_space1",
@@ -36,7 +39,8 @@
         "Clearly, both sides have firm beliefs and we encourage the freedom to make your own mind by yourself."],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Sarah Derering"
     },
     "all_hope_is_lost":{
         "id":"all_hope_is_lost",
@@ -47,7 +51,8 @@
 "At the day of publishing, the woman's post got re-oystered 20,000 times!"],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Shantelle Wall"
     },
     "schnoops_list":{
         "id":"schnoops_list",
@@ -61,7 +66,8 @@
      "5. The Schnoops find all human life completely and utterly disgusting. They will attack any human on sight, so stay far away from them"],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"ZeHern"
     },
     "catastrophe_headquarter":{
         "id":"catastrophe_headquarter",
@@ -72,7 +78,8 @@
         "We salute the patriotic heroes who agree to join the Banishing Act even if it can cost them their own life"],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Blanchefleur StarCaste"
     },
     "hamsters_playing_chess":{
         "id":"hamsters_playing_chess",
@@ -84,7 +91,8 @@
         "deafeat you in 14 moves."],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Camille Fleur"
     },
     "the_opposition_at_fault":{
         "id":"the_opposition_at_fault",
@@ -97,7 +105,8 @@
         "Clearly, this matter requires a serious investigation."],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Kitt Garban"
     },
     "boss_monsters":{
         "id":"boss_monsters",
@@ -109,7 +118,8 @@
         "We send our hopes and prayers to the honourable people who sacrificed their life for this mission'."],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Jean Alcare, CH"
     },
     "those_are_not_fairies":{
         "id":"those_are_not_fairies",
@@ -119,7 +129,8 @@
         "Further social media research suggests that their vertical mouth can unhinge and swallow an entire person."],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Karen Mattison-Smith"
     },
     "the_galactic_cake":{
         "id":"the_galactic_cake",
@@ -129,7 +140,8 @@
         "Later that day, an 'Oyster' post reported seeing a giant cake storming through the store and into space - transfiguring all the surrounding stardust into delicous goods."],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Oliver Faere"
     },
     "the_schnoop_hunter":{
         "id":"the_schnoop_hunter",
@@ -140,7 +152,8 @@
         "Judith is sure that this alien has something to do with her father, nevertheless the CH insist that this is impossible, as the creature is clearly from space."],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Oliver Faere"
     },
     "we_own_everything":{
         "id":"we_own_everything",
@@ -152,7 +165,8 @@
         "This is truly an amazing day for free speech"],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Urbac Canice"
     },
     "nb_schnoop":{
         "id":"nb_schnoop",
@@ -164,7 +178,8 @@
     "I will find smart people the best people there are at biologogy [SIC] to investigate the gender of the Schnoops and prevent them entering the wrong bathrooms'"],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Edward Lizeay"
     },
     "faroff_nuns":{
         "id":"faroff_nuns",
@@ -175,7 +190,8 @@
         "No one expected the Schnoop queen to arrive on site and demolish the place to rubble. The faith of the Far-Off Nuns is unknown, but some say they saw them deep within the Darkened City."],
         "zones":["zone1", "zone2", "zone3"],
         "flags":[],
-        "publisher":""
+        "publisher":"",
+        "writer":"Oliver Faere"
     }
 
 }

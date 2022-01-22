@@ -67,6 +67,8 @@ var unseen_stories = [] # an array of stories' ids that the player havn't got ye
 var seen_stories = [] # an array of the stories' ids the player already got
 var news_notification = false # is the player got a new notification?
 
+var visited_sites = {}
+
 # DEPRECATED IN THIS GAME
 # every time the overworld player intersect with a crafting tile, the crafting tile
 # inserts its id into this dictionary as a key, and removes
@@ -100,6 +102,7 @@ func setup_player(_difficulty = "normal"):
 	money = 0
 	unlocked_sites = ["farm"]
 	
+	visited_sites = {}
 	setup_top_stories()
 	reset_timer_data()
 
@@ -460,6 +463,9 @@ func add_random_top_story() -> bool:
 	else:
 		return false
 
+func get_news_notification():
+	return news_notification
+
 # sets the notification flag to cleared; it means the player saw the latest news they got
 func clear_news_notification():
 	emit_signal("news_notification_changed", false)
@@ -469,3 +475,10 @@ func get_unseen_stories():
 
 func get_seen_stories():
 	return seen_stories
+
+# also used for boss_ids
+func add_visited_site(site_id):
+	if visited_sites.has(site_id):
+		visited_sites[site_id] = visited_sites[site_id] + 1
+	else:
+		visited_sites[site_id] = 1
