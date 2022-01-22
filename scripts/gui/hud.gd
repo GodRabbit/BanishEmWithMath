@@ -9,7 +9,7 @@ extends CanvasLayer
 
 # hud script for the overworld scenes.
 
-enum WINDOWS_IDS {NONE, BATTLE_WINDOW, INVENTORY_DISPLAYER, GAME_OVER_WINDOW}
+enum WINDOWS_IDS {NONE, BATTLE_WINDOW, INVENTORY_DISPLAYER, GAME_OVER_WINDOW, TOP_STORIES_WINDOW}
 var current_window_id = WINDOWS_IDS.NONE
 
 # a dictionary that hold a boolean value for each window id in the enum
@@ -17,7 +17,8 @@ var current_window_id = WINDOWS_IDS.NONE
 const IS_WINDOW_PAUSE = {WINDOWS_IDS.NONE:false, 
 WINDOWS_IDS.BATTLE_WINDOW:true,
 WINDOWS_IDS.INVENTORY_DISPLAYER: false,
-WINDOWS_IDS.GAME_OVER_WINDOW: true}
+WINDOWS_IDS.GAME_OVER_WINDOW: true,
+WINDOWS_IDS.TOP_STORIES_WINDOW: false}
 
 # a dictionary that holds whether the window is exclusive
 # i.e the window cannot be interrupted by other windows opening
@@ -26,7 +27,8 @@ const IS_WINDOW_EXCLUSIVE = {
 WINDOWS_IDS.NONE:false, 
 WINDOWS_IDS.BATTLE_WINDOW:true,
 WINDOWS_IDS.INVENTORY_DISPLAYER: false,
-WINDOWS_IDS.GAME_OVER_WINDOW: true
+WINDOWS_IDS.GAME_OVER_WINDOW: true,
+WINDOWS_IDS.TOP_STORIES_WINDOW: false
 }
 
 # request the main scene to be paused\unpaused
@@ -51,6 +53,8 @@ onready var settings_window = $settings_window
 onready var settings_button = $settings_button
 onready var timer_label = $stats_container/HBoxContainer/timer_label
 onready var hp_bar = $stats_container/HBoxContainer/hp_bar
+onready var top_stories_button = $top_stories_button
+onready var top_stories_displayer = $top_stories_displayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -68,6 +72,8 @@ func _ready():
 	
 	volume_button.connect("pressed", self, "on_volume_button_pressed")
 	
+	top_stories_button.connect("pressed", self, "on_top_stories_button_pressed")
+	top_stories_displayer.connect("request_exit", self, "on_top_stories_displayer_request_exit")
 	#tile_placing_menu.connect("tile_selected", self, "on_tile_placing_pressed")
 	
 	update_audio_button()
@@ -102,6 +108,8 @@ func get_window_node(window_id):
 			return inventory_displayer
 		WINDOWS_IDS.GAME_OVER_WINDOW:
 			return game_over_window
+		WINDOWS_IDS.TOP_STORIES_WINDOW:
+			return top_stories_displayer
 
 # closes all the windows opened.
 func close_all_windows():
@@ -274,3 +282,22 @@ func update_ui_from_settings():
 		timer_label.show()
 	else:
 		timer_label.hide()
+
+# toggle visibility of the story_displayer
+func _toggle_top_stories_displayer():
+	if top_stories_displayer.is_visible_in_tree():
+		top_stories_displayer.hide()
+		top_stories_button.pressed = false
+	else:
+		top_stories_displayer.show()
+		top_stories_button.pressed = true
+
+# signal from top_stories_button
+# close or open the top_stories_displayer
+func on_top_stories_button_pressed():
+	_toggle_top_stories_displayer()
+
+# signal from top_stories_displayer
+# close the top_stories_displayer
+func on_top_stories_displayer_request_exit():
+	_toggle_top_stories_displayer()

@@ -18,7 +18,7 @@ func _ready():
 
 
 func update_gui():
-	if player_data.get_news_notification():
+	if player_data.get_news_notification() && game_settings.get_enable_news_notifications():
 		notification_particles.emitting = true
 	else:
 		notification_particles.emitting = false
