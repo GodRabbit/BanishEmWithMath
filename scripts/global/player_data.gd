@@ -62,6 +62,11 @@ var player_start_time = 0
 var player_end_time = 0
 var timer_paused = true
 
+# everything related to the news stories:
+var unseen_stories = [] # an array of stories' ids that the player havn't got yet
+var seen_stories = [] # an array of the stories' ids the player already got
+var news_notification = false # is the player got a new notification?
+
 # DEPRECATED IN THIS GAME
 # every time the overworld player intersect with a crafting tile, the crafting tile
 # inserts its id into this dictionary as a key, and removes
@@ -75,6 +80,7 @@ signal hp_changed
 signal stars_changed(val) # val is the value by which the stars changed
 signal money_changed
 signal won_the_game
+signal news_notification_changed(val) # the player either got or cleared notification
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -94,6 +100,7 @@ func setup_player(_difficulty = "normal"):
 	money = 0
 	unlocked_sites = ["farm"]
 	
+	setup_top_stories()
 	reset_timer_data()
 
 func get_inventory():
@@ -431,3 +438,34 @@ func get_time_elapsed():
 			return player_end_time - get_player_start_time()
 	else:
 		return -1 # for debug purposes
+
+# load the stories from story data into the player unseen_stories
+# and clears their seen_stories
+func setup_top_stories():
+	seen_stories = []
+	unseen_stories = top_story_data.get_top_stories_by_zone(get_current_zone())
+
+# adds a random top story from the unseen to the seen
+# and set the notification to true
+# return true if succeds and false if the unseen stories are empty
+func add_random_top_story() -> bool:
+	if unseen_stories.size() > 0:
+		# pick a random top_story_id:
+		var rand_id = math_util._choose_random_element(unseen_stories)
+		unseen_stories.erase(rand_id)
+		seen_stories.append(rand_id)
+		news_notification = true
+		emit_signal("news_notification_changed", true)
+		return true
+	else:
+		return false
+
+# sets the notification flag to cleared; it means the player saw the latest news they got
+func clear_news_notification():
+	emit_signal("news_notification_changed", false)
+
+func get_unseen_stories():
+	return unseen_stories
+
+func get_seen_stories():
+	return seen_stories

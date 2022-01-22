@@ -17,7 +17,9 @@ var settings = {
 		"ui":3  
 	},
 	"ui":{
-		"show_timer":false
+		"show_timer":false,
+		"enable_news_notifications":true, # whether the phone move anytime the player get notifications
+		"show_news":true # whether the entire news section are enabled or disabled
 	},
 	"game_data":{
 		"version":"0.1.15-alpha",
@@ -76,3 +78,15 @@ func is_timer_shown():
 
 func set_timer_shown(val : bool):
 	settings["ui"]["show_timer"] = val
+
+func get_enable_news_notifications():
+	return get_setting("ui")["enable_news_notifications"]
+
+func set_enable_news_notifications(val : bool):
+	settings["ui"]["enable_news_notifications"] = val
+
+func get_show_news():
+	return get_setting("ui")["show_news"]
+
+func set_show_news(val : bool):
+	settings["ui"]["show_news"] = val
