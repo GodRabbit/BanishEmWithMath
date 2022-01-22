@@ -61,8 +61,8 @@ func update_gui():
 		# load the story into the displayer:
 		var story_id = stories_ids[current_index]
 		var story_dict = top_story_data.get_top_story_by_id(story_id)
-		header_label.text = story_dict["header"]
-		body_label.text = story_dict["body"]
+		header_label.text = story_dict["head"]
+		update_body_from_lines(story_dict["body"])
 		
 		# deal with the signature:
 		var date_str = _generate_random_date_string()
@@ -72,6 +72,20 @@ func update_gui():
 		# scroll to 0:
 		scrol_container.scroll_vertical = 0
 		
+
+func _body_clear_lines():
+	body_label.text = ""
+
+func _body_add_line(line : String):
+	var s = body_label.text
+	s += str(line) +"\n"
+	body_label.text = s
+
+func update_body_from_lines(arr : Array):
+	_body_clear_lines()
+	for s in arr:
+		_body_add_line(s)
+		_body_add_line("")
 
 func _generate_random_date_string():
 	randomize()
@@ -95,3 +109,7 @@ func on_right_button_pressed():
 	else:
 		current_index = current_index + 1
 		update_gui()
+
+func show():
+	player_data.clear_news_notification()
+	.show()

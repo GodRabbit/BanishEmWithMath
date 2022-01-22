@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://images/gui/puzzle_rect2.png" type="Texture" id=1]
 [ext_resource path="res://fonts/Quicksand/Quicksand-VariableFont_wght.ttf" type="DynamicFontData" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://images/gui/arrow_disabled.png" type="Texture" id=10]
 [ext_resource path="res://images/gui/arrow_normal.png" type="Texture" id=11]
 [ext_resource path="res://scripts/gui/top_stories_displayer.gd" type="Script" id=12]
+[ext_resource path="res://fonts/Merriweather/Merriweather-Regular.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://fonts/Merriweather/Merriweather-Black.ttf" type="DynamicFontData" id=14]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
@@ -46,7 +48,7 @@ Panel/styles/panel = SubResource( 1 )
 size = 44
 outline_size = 1
 outline_color = Color( 0.00784314, 0, 0, 1 )
-font_data = ExtResource( 2 )
+font_data = ExtResource( 14 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 17
@@ -54,8 +56,7 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 30
-outline_size = 1
-font_data = ExtResource( 2 )
+font_data = ExtResource( 13 )
 
 [node name="top_stories_displayer" type="Control"]
 anchor_right = 1.0
@@ -107,7 +108,7 @@ __meta__ = {
 
 [node name="content_container" type="VBoxContainer" parent="panel/main_container/scroll_container"]
 margin_right = 500.0
-margin_bottom = 995.0
+margin_bottom = 1022.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -115,7 +116,7 @@ __meta__ = {
 
 [node name="header_label" type="RichTextLabel" parent="panel/main_container/scroll_container/content_container"]
 margin_right = 500.0
-margin_bottom = 224.0
+margin_bottom = 232.0
 rect_min_size = Vector2( 500, 200 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
@@ -124,16 +125,16 @@ fit_content_height = true
 scroll_active = false
 
 [node name="signature_label" type="Label" parent="panel/main_container/scroll_container/content_container"]
-margin_top = 228.0
+margin_top = 236.0
 margin_right = 500.0
-margin_bottom = 250.0
+margin_bottom = 258.0
 custom_fonts/font = SubResource( 6 )
 text = "Jan, 12, by Lizzy Mclizabeth"
 
 [node name="body_label" type="RichTextLabel" parent="panel/main_container/scroll_container/content_container"]
-margin_top = 254.0
+margin_top = 262.0
 margin_right = 500.0
-margin_bottom = 995.0
+margin_bottom = 1022.0
 rect_min_size = Vector2( 500, 500 )
 custom_fonts/normal_font = SubResource( 4 )
 text = "This is a very long and annoying to read header its very very long oh so long

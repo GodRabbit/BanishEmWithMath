@@ -468,6 +468,7 @@ func get_news_notification():
 
 # sets the notification flag to cleared; it means the player saw the latest news they got
 func clear_news_notification():
+	news_notification = false
 	emit_signal("news_notification_changed", false)
 
 func get_unseen_stories():

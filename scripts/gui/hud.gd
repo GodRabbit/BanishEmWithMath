@@ -64,6 +64,7 @@ func _ready():
 	
 	player_data.connect("player_died", self, "on_player_died")
 	player_data.connect("won_the_game", self, "on_player_won_the_game")
+	player_data.connect("news_notification_changed", self, "on_player_news_notification_changed")
 	
 	inventory_displayer.connect("request_exit", self, "on_inventory_displayer_request_exit")
 	
@@ -292,6 +293,7 @@ func _toggle_top_stories_displayer():
 		top_stories_displayer.hide()
 		top_stories_button.pressed = false
 	else:
+		top_stories_displayer.setup_stories()
 		top_stories_displayer.show()
 		top_stories_button.pressed = true
 
@@ -304,3 +306,9 @@ func on_top_stories_button_pressed():
 # close the top_stories_displayer
 func on_top_stories_displayer_request_exit():
 	_toggle_top_stories_displayer()
+
+# signal from player
+# show notification on the 'phone' (top_stories_button)
+# val unnecessery?
+func on_player_news_notification_changed(val : bool):
+	top_stories_button.update_gui()

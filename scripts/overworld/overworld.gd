@@ -36,9 +36,13 @@ func on_give_up_button_pressed():
 	transition.fade_to_main_menu()
 
 func _input(event):
-	if event.is_action_released("ui_give_money") && game_settings.settings["game_data"]["allow_cheating"]:
+	var allow_cheating = game_settings.settings["game_data"]["allow_cheating"]
+	if event.is_action_released("ui_give_money") && allow_cheating:
 		player_data.add_money(1300)
 		player_data.add_stars(1000)
+	
+	if event.is_action_pressed("ui_add_story") && allow_cheating:
+		player_data.add_random_top_story()
 
 func _empty_site_container():
 	# p are points to place the sites buttons
