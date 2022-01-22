@@ -121,6 +121,9 @@ func close_all_windows():
 			var w = get_window_node(val)
 			if w != null:
 				w.hide()
+	
+	# extra details:
+	top_stories_button.pressed = false
 
 # the only way to close an exclusive window.
 # exclusive window is a window that cannot be closed by opening other windows and

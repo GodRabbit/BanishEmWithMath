@@ -143,7 +143,7 @@ text = "Eat"
 margin_top = 268.0
 margin_right = 122.0
 margin_bottom = 331.0
-text = "Exit"
+text = "Close"
 
 [node name="item_container" type="GridContainer" parent="inventory_container/main_container"]
 margin_left = 126.0

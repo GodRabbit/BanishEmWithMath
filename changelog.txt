@@ -43,3 +43,7 @@ v0.1.14alpha: (The lore update)
 * Gameplay: Added an option to sell an entire stack (also Shift + sell sells entire stack)
 * Gameplay: Added 'High Score' screen for best times.
 * Bug Fix: You no longer keep your health into the tutorial if you play the tutorial after a session.
+
+v0.1.15alpha: (The Even More Lore update):
+* Gameplay: Added news stories that popup every now and then that help the player get to know the world (Added 15+ stories)
+* Tweak: Changed inventory "Exit" button to "Close" to prevent confusion with 'Exit' the game
