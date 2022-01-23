@@ -31,6 +31,17 @@ func _ready():
 	
 	hud.set_is_boss_fight(false)
 	update_gui()
+	
+	# add random news stories every now and then (but not when first entering)
+	if player_data._get_visited_to_story_ratio() >= 3.0:
+		# if the player was barely getting news stories -> make sure to add another
+		# (unlucky prevention)
+		player_data.add_random_top_story()
+	elif player_data._get_visited_to_story_ratio() > 0.0:
+		randomize()
+		var num = randi() % 10
+		if num <= 5:
+			player_data.add_random_top_story()
 
 func on_give_up_button_pressed():
 	transition.fade_to_main_menu()

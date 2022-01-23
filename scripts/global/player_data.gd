@@ -447,6 +447,16 @@ func get_time_elapsed():
 func setup_top_stories():
 	seen_stories = []
 	unseen_stories = top_story_data.get_top_stories_by_zone(get_current_zone())
+	
+	add_top_story("catastrophe_headquarter")
+
+func add_top_story(top_story_id):
+	if unseen_stories.has(top_story_id):
+		unseen_stories.erase(top_story_id)
+		seen_stories.append(top_story_id)
+		return true
+	else:
+		return false
 
 # adds a random top story from the unseen to the seen
 # and set the notification to true
@@ -483,3 +493,13 @@ func add_visited_site(site_id):
 		visited_sites[site_id] = visited_sites[site_id] + 1
 	else:
 		visited_sites[site_id] = 1
+
+# gets the total of visited sites
+func get_visited_total():
+	var total = 0
+	for s_id in visited_sites:
+		total = visited_sites[s_id]
+	return total
+
+func _get_visited_to_story_ratio():
+	return float(get_visited_total())/float(seen_stories.size())
