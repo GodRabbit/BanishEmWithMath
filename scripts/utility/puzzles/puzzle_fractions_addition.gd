@@ -86,4 +86,4 @@ func display_option(val):
 	return str(val)
 
 func display_problem():
-	return str(data["x"]) + " " + type + " " + str(data["y"])
+	return str(data["x"]) + " " + type + " " + str(data["y"]) + " = ???"
