@@ -294,17 +294,17 @@ func _ready():
 	_add_enemy(enemy_abstract.new("water_snail",
 	"Water Snail", #TODO: change name!
 	puzzle_arithmetic_sequence.new(0, 20, 0, 10, true), 
-	40,
+	20,
 	6,
-	1,
+	2,
 	{"shell":1})) 
 	
 	_add_enemy(enemy_abstract.new("karen_melon",
 	"Karen Melon", 
 	puzzle_arithmetic_sequence.new(0, 60, -10, 0, true), 
-	60,
+	20,
 	7,
-	1,
+	2,
 	{"watermelon":1}))
 	
 	_add_enemy(enemy_abstract.new("jellofish", 
@@ -350,9 +350,9 @@ func _ready():
 	_add_enemy(enemy_abstract.new("jungle_snail", 
 	"Jungle Snail", 
 	puzzle_arithmetic_sequence.new(0, 50, 0, 15, true),
-	25,
+	20,
 	6,
-	2,
+	3,
 	{"shell":1, "moss_ball":1})) 
 	
 	_add_enemy(enemy_abstract.new("jacko",
@@ -585,9 +585,9 @@ func _ready():
 	_add_enemy(enemy_abstract.new("snail_wizard", 
 	"Snail Wizard", 
 	puzzle_arithmetic_sequence.new(10, 70, -20, 20, true),
-	30,
+	20,
 	8,
-	3,
+	4,
 	{"shell":2, "fairy_dust":1})) 
 	
 	_add_enemy(enemy_abstract.new("dark_cheese", 
