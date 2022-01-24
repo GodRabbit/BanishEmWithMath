@@ -31,6 +31,9 @@ func generate_addition():
 	solution = f1.copy()
 	solution.add(f2)
 	
+	f1.simplify()
+	f2.simplify()
+	solution.simplify()
 	data = {"x":f1, "y":f2}
 
 func generate_subtraction():
@@ -47,6 +50,9 @@ func generate_subtraction():
 	var f2 = solution.copy()
 	f2.add(f1)
 	
+	f1.simplify()
+	f2.simplify()
+	solution.simplify()
 	data = {"x":f2, "y":f1}
 
 func generate():
@@ -74,6 +80,10 @@ func generate():
 			bank.append(f)
 	
 	_pick_options_from_bank(bank)
+
+func display_option(val):
+	val.simplify()
+	return str(val)
 
 func display_problem():
 	return str(data["x"]) + " " + type + " " + str(data["y"])

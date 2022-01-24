@@ -23,6 +23,10 @@ func from_array(a : Array):
 
 # simplify this fraction
 func simplify():
+	if numer == denom:
+		numer = 1
+		denom = 1
+		return
 	var g = math_util.gcd(numer, denom)
 	while g > 1:
 		numer = int(numer/g)

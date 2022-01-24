@@ -10,7 +10,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	test_hs_data()
+	test_simplification()
 
 func test_split_into():
 	for i in range(0, 20):
@@ -130,3 +130,8 @@ func test_hs_data():
 		hs_data.add_score(h)
 	
 	hs_data.log_print_hs("zone1")
+
+func test_simplification():
+	var f = Fraction.new(3, 3)
+	f.simplify()
+	Log.log_print(str(f))
