@@ -61,8 +61,8 @@ offsets = PoolRealArray( 0, 0.890196, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [node name="top_news_button" type="TextureButton"]
-margin_right = 100.0
-margin_bottom = 172.0
+margin_right = 64.0
+margin_bottom = 122.0
 rect_pivot_offset = Vector2( 64, 96 )
 toggle_mode = true
 texture_normal = ExtResource( 1 )
@@ -81,13 +81,13 @@ anims/ring = SubResource( 3 )
 
 [node name="notification_particles" type="CPUParticles2D" parent="."]
 show_behind_parent = true
-position = Vector2( 50, 84 )
+position = Vector2( 32, 60 )
 emitting = false
 amount = 5
 lifetime = 2.0
 texture = ExtResource( 3 )
 gravity = Vector2( 0, 0 )
-scale_amount = 1.2
+scale_amount = 0.8
 scale_amount_curve = SubResource( 4 )
 color_ramp = SubResource( 5 )
 hue_variation = 0.14
