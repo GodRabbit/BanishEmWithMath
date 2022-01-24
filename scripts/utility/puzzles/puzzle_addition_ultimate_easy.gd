@@ -51,7 +51,7 @@ func generate():
 	_pick_options_from_bank(bank)
 
 func display_problem():
-	return _chain_add(data["arr"])
+	return _chain_add(data["arr"]) + " = ???"
 
 func display_option(val):
 	if options_compound:
