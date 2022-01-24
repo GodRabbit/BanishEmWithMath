@@ -286,6 +286,15 @@ func update_ui_from_settings():
 		timer_label.show()
 	else:
 		timer_label.hide()
+	
+	# should the news button be hidden?
+	if game_settings.get_show_news():
+		top_stories_button.show()
+	else:
+		top_stories_button.hide()
+	
+	if !game_settings.get_enable_news_notifications():
+		top_stories_button.remove_particles()
 
 # toggle visibility of the story_displayer
 func _toggle_top_stories_displayer():

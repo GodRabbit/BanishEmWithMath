@@ -18,6 +18,8 @@ onready var ui_slider  = $main_panel/main_container/ui_volume_box/ui_slider
 
 # ui nodes:
 onready var show_timer_checkbox = $main_panel/main_container/timer_box/show_timer_checkbox
+onready var news_notification_checkbox = $main_panel/main_container/news_notification_container/news_notification_checkbox
+onready var cancel_news_checkbox = $main_panel/main_container/cancel_news_container/cancel_news_checkbox
 
 # buttons nodes:
 onready var save_button = $main_panel/main_container/button_container/save_button
@@ -39,6 +41,11 @@ func update_gui():
 	music_slider.value = game_settings.get_audio_level("music")
 	sfx_slider.value = game_settings.get_audio_level("sfx")
 	ui_slider.value = game_settings.get_audio_level("ui")
+	
+	# ui settings:
+	show_timer_checkbox.pressed = game_settings.is_timer_shown()
+	news_notification_checkbox.pressed = game_settings.get_enable_news_notifications()
+	cancel_news_checkbox.pressed = !game_settings.get_show_news()
 
 func on_save_button_pressed():
 	# save the data in the settings:
@@ -50,6 +57,11 @@ func on_save_button_pressed():
 	
 	# ui settings:
 	game_settings.set_timer_shown(show_timer_checkbox.pressed)
+	
+	#"enable_news_notifications":true, # whether the phone move anytime the player get notifications
+	# "show_news":true # whether the entire news section are enabled or disabled
+	game_settings.set_enable_news_notifications(news_notification_checkbox.pressed)
+	game_settings.set_show_news(!cancel_news_checkbox.pressed)
 	emit_signal("request_exit")
 
 func on_cancel_button_pressed():

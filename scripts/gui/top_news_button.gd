@@ -22,3 +22,6 @@ func update_gui():
 		notification_particles.emitting = true
 	else:
 		notification_particles.emitting = false
+
+func remove_particles():
+	notification_particles.emitting = false

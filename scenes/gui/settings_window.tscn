@@ -54,7 +54,7 @@ __meta__ = {
 
 [node name="main_panel" type="Panel" parent="."]
 margin_right = 552.0
-margin_bottom = 520.0
+margin_bottom = 664.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -187,10 +187,55 @@ margin_left = 198.0
 margin_right = 294.0
 margin_bottom = 70.0
 
-[node name="button_container" type="HBoxContainer" parent="main_panel/main_container"]
+[node name="news_notification_container" type="HBoxContainer" parent="main_panel/main_container"]
 margin_top = 388.0
 margin_right = 485.0
-margin_bottom = 455.0
+margin_bottom = 458.0
+
+[node name="news_notification_label" type="Label" parent="main_panel/main_container/news_notification_container"]
+margin_top = 12.0
+margin_right = 308.0
+margin_bottom = 57.0
+text = "Show News Notifications"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="news_notification_checkbox" type="CheckButton" parent="main_panel/main_container/news_notification_container"]
+margin_left = 312.0
+margin_right = 408.0
+margin_bottom = 70.0
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cancel_news_container" type="HBoxContainer" parent="main_panel/main_container"]
+margin_top = 462.0
+margin_right = 485.0
+margin_bottom = 532.0
+
+[node name="cancel_news_header_label" type="Label" parent="main_panel/main_container/cancel_news_container"]
+margin_top = 12.0
+margin_right = 155.0
+margin_bottom = 57.0
+text = "Cancel News"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cancel_news_checkbox" type="CheckButton" parent="main_panel/main_container/cancel_news_container"]
+margin_left = 159.0
+margin_right = 255.0
+margin_bottom = 70.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_container" type="HBoxContainer" parent="main_panel/main_container"]
+margin_top = 536.0
+margin_right = 485.0
+margin_bottom = 603.0
 custom_constants/separation = 40
 
 [node name="save_button" type="Button" parent="main_panel/main_container/button_container"]
