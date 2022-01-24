@@ -190,14 +190,15 @@ func _chain_add(arr):
 	return s
 
 func display_problem():
+	var finish = "= ???"
 	match _template:
 		0:
-			return _chain_add(data["arr"])
+			return _chain_add(data["arr"]) + finish
 		1:
 			var s1 = _chain_add(data["arr1"])
 			var s2 = _chain_add(data["arr2"])
 			var s = "("+s1+")X("+s2+")"
-			return s
+			return s + finish
 		2:
 			var s = "%dX" % data["x"]
 			var s2 = _chain_add(data["arr"])
@@ -207,7 +208,7 @@ func display_problem():
 				s+= (" + %d" % w)
 			else:
 				s+= (" - %d" % -w)
-			return s
+			return s + finish
 		3:
 			var s = ""
 			var s2 = _chain_add(data["arr"])
@@ -218,19 +219,23 @@ func display_problem():
 				s+= (" + %d" % w)
 			else:
 				s+= (" - %d" % -w)
-			return s
+			return s + finish
 		4:
 			var s1 = _chain_add(data["arr"])
 			var s = "%dX(%s)" % [data["x"], s1]
-			return s
+			return s + finish
 		5:
-			return "%dX%d %s %dX%d" % [data["arr"][0], data["arr"][1],data["op"], data["arr"][2], data["arr"][3]]
+			var s  = "%dX%d %s %dX%d" % [data["arr"][0], data["arr"][1],data["op"], data["arr"][2], data["arr"][3]]
+			return s + finish
 		6:
 			var s1 = _chain_add(data["arr"])
-			return "%dX(%s)X%d" % [data["x"], s1, data["w"]]
+			var s = "%dX(%s)X%d" % [data["x"], s1, data["w"]]
+			return s + finish
 		7:
 			var s1 = _chain_add(data["arr"])
-			return "%dX%dX(%s)" % [data["x"], data["w"], s1]
+			var s = "%dX%dX(%s)" % [data["x"], data["w"], s1]
+			return s + finish
 		8:
 			var s1 = _chain_add(data["arr"])
-			return "%s %s %dX%d" % [s1, data["op"], data["z"], data["w"]]
+			var s =  "%s %s %dX%d" % [s1, data["op"], data["z"], data["w"]]
+			return s + finish
