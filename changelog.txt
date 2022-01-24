@@ -30,8 +30,8 @@ v0.1.14alpha: (The lore update)
 * Framework: Added abstract expression controls for more advanced display of problems. As a preperations for questions regarding integrals, fractions, equations and more!
 * New Enemy (& puzzle): Infused Schnoop. Questions about powers of 2. 
 * Tutorial: 
-** Changed the tutorial text to better reflect the underlying story.
-** Added new backgrounds for the tutorial including new shaders.
+    * Changed the tutorial text to better reflect the underlying story.
+    * Added new backgrounds for the tutorial including new shaders.
 * Visual: Added several more sprites for The Farm. Morning, sunset, day and night.
 * Visual Bug Fix: Reordered site button positions to be symmetric and aligned correctly
 * Gameplay: Lots of balance changes for enemies and items.
@@ -47,3 +47,8 @@ v0.1.14alpha: (The lore update)
 v0.1.15alpha: (The Even More Lore update):
 * Gameplay: Added news stories that popup every now and then that help the player get to know the world (Added 15+ stories)
 * Tweak: Changed inventory "Exit" button to "Close" to prevent confusion with 'Exit' the game
+* Visual Upgrade: Schnoops textures and animation
+* Balance Changes:
+    * Spider: Puzzle subtraction minmax(100) -> Puzzle subtraction minmax(50) 
+    * Snails -> Added 1 damage for each and time is now 20 secs
+    * Karen Melon -> Added 1 damage and time is now 20 secs

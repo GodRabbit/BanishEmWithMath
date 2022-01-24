@@ -165,8 +165,8 @@ func _ready():
 	# can this be jsoned??
 	_add_enemy(enemy_abstract.new("spider", # id
 	"Spider", # name
-	puzzle_minmax_subtraction.new(100), # puzzle
-	50, # time
+	puzzle_minmax_subtraction.new(50), # puzzle
+	30, # time
 	7, # stars
 	1, # damage
 	{"spider_leg":1, "spider_eye":1}))
