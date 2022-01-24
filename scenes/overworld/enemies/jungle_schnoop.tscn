@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=1]
 [ext_resource path="res://images/enemies/jungle_schnoop.png" type="Texture" id=2]
+[ext_resource path="res://scenes/overworld/enemies/enemy_animations/animated_schnoops.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 56.0
+radius = 48.0
 height = 80.0
 
 [node name="jungle_schnoop" type="Area2D"]
@@ -12,7 +13,14 @@ script = ExtResource( 1 )
 enemy_id = "jungle_schnoop"
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 2 )
+
+[node name="animated_schnoops" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 0.7, 0.7 )
+schnoop_id = "jungle_schnoop"
+random_speed = true
+random_speed_range = [ 0.5, 1.0 ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8 )
