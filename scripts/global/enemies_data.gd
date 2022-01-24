@@ -640,6 +640,13 @@ func _ready():
 	3,
 	{"ghost_hair":10})) # TODO: change?
 	
+	_add_enemy(enemy_abstract.new("undead_schnoop", 
+	"undead_schnoop", 
+	puzzle_fractions_addition.new(10),
+	35,
+	12,
+	2,
+	{"ghost_hair":12}))
 	
 	# advanced enemies:
 	_add_enemy(enemy_abstract.new("infused_schnoop", 
