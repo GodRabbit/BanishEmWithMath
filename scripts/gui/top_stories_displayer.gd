@@ -92,6 +92,7 @@ func _generate_random_date_string():
 	var day = 1 + randi() % 28
 	var month = 1 + randi() % 12
 	var s = "%s, %d," % [math_util.get_month_abbr_from_number(month), day]
+	return s
 
 func on_close_button_pressed():
 	emit_signal("request_exit")
