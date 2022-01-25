@@ -52,3 +52,11 @@ v0.1.15alpha: (The Even More Lore update):
     * Spider: Puzzle subtraction minmax(100) -> Puzzle subtraction minmax(50) 
     * Snails -> Added 1 damage for each and time is now 20 secs
     * Karen Melon -> Added 1 damage and time is now 20 secs
+    * Schnoop Queen:
+        * New Minions: Count schnoop, undead schnoop, Fiery Schnoop, Isnaid Schnoop
+        * HP: 75 -> 150 (Avg 16.25 enemies for win)
+* New Enemies:
+    * Count Schnoop: Arithmetic order
+    * Undead Schnoop: Fraction Addition
+    * Fiery Schnoop: minmax subtraction
+    * Isnaid Schnoop: minmax fractions

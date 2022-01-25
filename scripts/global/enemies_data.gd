@@ -131,14 +131,18 @@ var bosses = {
 	"schnoop_queen":{
 		"id":"schnoop_queen",
 		"name":"Schnoop Queen",
-		"hp":75,  # change into 150 later
+		"hp":150, 
 		"background":"background_schnoop_queen",
 		"enemies":{ # a dictionary of enemy id and the weight of the enemy
 			"schnoop":5,
 			"fairy_schnoop":5,
 			"snowy_schnoop":5,
 			"water_schnoop":5,
-			"jungle_schnoop":5
+			"jungle_schnoop":5,
+			"count_schnoop":10,
+			"undead_schnoop":10,
+			"fiery_schnoop":10,
+			"isnaid_schnoop":10
 		},
 		"wave_size":[3, 5],
 		"music":"perfect-dark170-fmin-4390"
