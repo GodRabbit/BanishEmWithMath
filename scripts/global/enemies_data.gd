@@ -648,6 +648,14 @@ func _ready():
 	2,
 	{"ghost_hair":12}))
 	
+	_add_enemy(enemy_abstract.new("fiery_schnoop", 
+	"fiery_schnoop", 
+	puzzle_minmax_subtraction.new(150),
+	25,
+	12,
+	2,
+	{"ghost_hair":12}))
+	
 	# advanced enemies:
 	_add_enemy(enemy_abstract.new("infused_schnoop", 
 	"Infused Schnoop", 

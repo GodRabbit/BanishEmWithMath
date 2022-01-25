@@ -103,6 +103,12 @@ func _to_string():
 	else:
 		return "(%d/%d)" % [numer, denom]
 
+func is_whole():
+	return numer % denom == 0
+
+func to_float():
+	return float(numer)/float(denom)
+
 # creates an array of fractions (not necesserly simplified) that are different
 # from this fraction
 #  <max_val> is how large the numerator and denomartors can be.

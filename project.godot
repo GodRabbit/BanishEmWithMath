@@ -190,6 +190,11 @@ _global_script_classes=[ {
 "path": "res://scripts/utility/puzzles/puzzle_minmax_division.gd"
 }, {
 "base": "puzzle_abstract",
+"class": "puzzle_minmax_fractions",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/puzzle_minmax_fractions.gd"
+}, {
+"base": "puzzle_abstract",
 "class": "puzzle_minmax_multi",
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_minmax_multi.gd"
@@ -281,6 +286,7 @@ _global_script_class_icons={
 "puzzle_minmax_addition": "",
 "puzzle_minmax_basic": "",
 "puzzle_minmax_division": "",
+"puzzle_minmax_fractions": "",
 "puzzle_minmax_multi": "",
 "puzzle_minmax_subtraction": "",
 "puzzle_multi_blank": "",
