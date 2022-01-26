@@ -60,3 +60,5 @@ v0.1.15alpha: (The Even More Lore update):
     * Undead Schnoop: Fraction Addition
     * Fiery Schnoop: minmax subtraction
     * Isnaid Schnoop: minmax fractions
+* Visual Tweak: Inventory's item info is now below the item stacks and buttons to ease reading it
+* 
