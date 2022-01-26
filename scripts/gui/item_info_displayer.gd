@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends HBoxContainer
 
 # copyright 2021,2022 Dor "GodRabbit" Shlush
 # this file is part of "BanishEmWithMath"
@@ -35,10 +35,10 @@ func update_gui():
 	var item_dict = items_data.get_item_by_id(item_id)
 	
 	if item_dict.size() == 0:
-		name_label.text = "Unknown Item!"
+		name_label.text = "Unknown Item!: "
 		hp_label.text = "Unknown Item!"
 		price_label.text = "Unknown Item!"
 	else:
-		name_label.text = item_dict["name"].capitalize()
+		name_label.text = item_dict["name"].capitalize()+": "
 		hp_label.text = HP_FORMATTING % item_dict["hp"]
 		price_label.text = PRICE_FORMATTING % item_dict["price"]

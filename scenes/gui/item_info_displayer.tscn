@@ -15,9 +15,9 @@ font_data = ExtResource( 1 )
 [sub_resource type="Theme" id=2]
 default_font = SubResource( 1 )
 
-[node name="item_info_displayer" type="VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="item_info_displayer" type="HBoxContainer"]
+margin_right = 180.0
+margin_bottom = 85.0
 theme = SubResource( 2 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -25,43 +25,50 @@ __meta__ = {
 }
 
 [node name="name_label" type="Label" parent="."]
-margin_right = 79.0
-margin_bottom = 41.0
+margin_top = 22.0
+margin_right = 52.0
+margin_bottom = 63.0
 text = "Apple!"
 align = 1
 
 [node name="price_container" type="HBoxContainer" parent="."]
-margin_top = 45.0
-margin_right = 79.0
-margin_bottom = 88.0
+margin_left = 56.0
+margin_right = 101.0
+margin_bottom = 85.0
+alignment = 1
 
 [node name="price_label" type="Label" parent="price_container"]
-margin_top = 1.0
-margin_right = 52.0
-margin_bottom = 42.0
-text = "78 $$"
-align = 1
+margin_top = 22.0
+margin_right = 11.0
+margin_bottom = 63.0
+text = "7"
+valign = 1
 
 [node name="price_icon" type="TextureRect" parent="price_container"]
-margin_left = 56.0
-margin_right = 79.0
-margin_bottom = 43.0
+margin_left = 15.0
+margin_top = 21.0
+margin_right = 45.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 30, 40 )
+size_flags_vertical = 4
 texture = ExtResource( 4 )
 
 [node name="hp_container" type="HBoxContainer" parent="."]
-margin_top = 92.0
-margin_right = 79.0
-margin_bottom = 177.0
+margin_left = 105.0
+margin_right = 156.0
+margin_bottom = 85.0
 
 [node name="hp_label" type="Label" parent="hp_container"]
-margin_right = 46.0
-margin_bottom = 85.0
-text = "7 hp
-"
+margin_top = 22.0
+margin_right = 22.0
+margin_bottom = 63.0
+text = "7 "
 align = 1
 
 [node name="hp_icon" type="TextureRect" parent="hp_container"]
-margin_left = 50.0
-margin_right = 75.0
-margin_bottom = 85.0
+margin_left = 26.0
+margin_top = 30.0
+margin_right = 51.0
+margin_bottom = 55.0
+size_flags_vertical = 4
 texture = ExtResource( 3 )

@@ -90,7 +90,7 @@ CheckButton/styles/normal = SubResource( 8 )
 CheckButton/styles/pressed = SubResource( 9 )
 
 [node name="inventory_displayer" type="Panel"]
-margin_right = 592.0
+margin_right = 576.0
 margin_bottom = 432.0
 theme = SubResource( 2 )
 script = ExtResource( 1 )
@@ -107,51 +107,55 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="main_container" type="HBoxContainer" parent="inventory_container"]
-margin_right = 576.0
+[node name="main_container" type="VBoxContainer" parent="inventory_container"]
+margin_right = 560.0
 margin_bottom = 416.0
 
-[node name="button_container" type="VBoxContainer" parent="inventory_container/main_container"]
+[node name="minor_container" type="HBoxContainer" parent="inventory_container/main_container"]
+margin_right = 560.0
+margin_bottom = 264.0
+
+[node name="button_container" type="VBoxContainer" parent="inventory_container/main_container/minor_container"]
 margin_right = 122.0
-margin_bottom = 416.0
+margin_bottom = 264.0
 theme = SubResource( 11 )
 
-[node name="delete_button" type="Button" parent="inventory_container/main_container/button_container"]
+[node name="delete_button" type="Button" parent="inventory_container/main_container/minor_container/button_container"]
+visible = false
 margin_right = 122.0
 margin_bottom = 63.0
 text = "Delete"
 
-[node name="sell_button" type="Button" parent="inventory_container/main_container/button_container"]
+[node name="sell_button" type="Button" parent="inventory_container/main_container/minor_container/button_container"]
+margin_right = 122.0
+margin_bottom = 63.0
+text = "Sell"
+
+[node name="sell_stack_button" type="Button" parent="inventory_container/main_container/minor_container/button_container"]
 margin_top = 67.0
 margin_right = 122.0
 margin_bottom = 130.0
-text = "Sell"
+text = "Sell Stack"
 
-[node name="sell_stack_button" type="Button" parent="inventory_container/main_container/button_container"]
+[node name="eat_button" type="Button" parent="inventory_container/main_container/minor_container/button_container"]
 margin_top = 134.0
 margin_right = 122.0
 margin_bottom = 197.0
-text = "Sell Stack"
+text = "Eat"
 
-[node name="eat_button" type="Button" parent="inventory_container/main_container/button_container"]
+[node name="exit_button" type="Button" parent="inventory_container/main_container/minor_container/button_container"]
 margin_top = 201.0
 margin_right = 122.0
 margin_bottom = 264.0
-text = "Eat"
-
-[node name="exit_button" type="Button" parent="inventory_container/main_container/button_container"]
-margin_top = 268.0
-margin_right = 122.0
-margin_bottom = 331.0
 text = "Close"
 
-[node name="item_container" type="GridContainer" parent="inventory_container/main_container"]
+[node name="item_container" type="GridContainer" parent="inventory_container/main_container/minor_container"]
 margin_left = 126.0
 margin_right = 126.0
-margin_bottom = 416.0
+margin_bottom = 264.0
 columns = 5
 
 [node name="item_info_displayer" parent="inventory_container/main_container" instance=ExtResource( 2 )]
-margin_left = 130.0
-margin_right = 209.0
-margin_bottom = 416.0
+margin_top = 268.0
+margin_right = 560.0
+margin_bottom = 311.0
