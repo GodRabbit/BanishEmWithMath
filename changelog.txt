@@ -64,3 +64,5 @@ v0.1.15alpha: (The Even More Lore update):
 
 v0.2.0beta:
 * Bug Fix: Fixed typos in the tutorial text
+* Visual Tweak: Moved the settings window to the center of the screen
+* Visual Tweak: Centered the elements inside the settings window

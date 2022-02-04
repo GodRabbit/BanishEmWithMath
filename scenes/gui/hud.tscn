@@ -173,10 +173,13 @@ __meta__ = {
 
 [node name="settings_window" parent="." instance=ExtResource( 6 )]
 visible = false
-margin_left = 96.0
-margin_top = 352.0
-margin_right = 96.96
-margin_bottom = 352.2
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -278.0
+margin_top = 128.0
+margin_right = 283.3
+margin_bottom = 520.24
 
 [node name="top_stories_button" parent="." instance=ExtResource( 15 )]
 margin_left = 1849.0

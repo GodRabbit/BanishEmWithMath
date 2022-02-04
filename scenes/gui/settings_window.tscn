@@ -60,7 +60,7 @@ __meta__ = {
 }
 
 [node name="main_container" type="VBoxContainer" parent="main_panel"]
-margin_left = 20.0
+margin_left = 34.0
 margin_top = 20.0
 margin_right = 312.0
 margin_bottom = 248.0
