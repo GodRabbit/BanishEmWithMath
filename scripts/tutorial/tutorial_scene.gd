@@ -50,7 +50,7 @@ var phases = {"prologue":{
 	"As you obviously know, the earth has been invaded by alien creatures",
 	"they already infected most of our world, and even parts of the universe",
 	"You are here because you have a personal duty to help quarantine this menace",
-	"Using our newest technology, The Banishing Machine.. hrm.. trademarked... ",
+	"Using our newest technology, The Banishing Machine.. hrm.. trademark... ",
 	"We can banish those pesky creatures to another dimension! (hrm..so it would be someone else's problem)",
 	"You use it by aiming at an enemy, and solving a calculation. Pretty simple most of the times...hrm..",
 	"Successful calculation will banish the enemy to oblivion, and even give you some of its parts as loot!",
@@ -91,7 +91,7 @@ var phases = {"prologue":{
 			},
 			  "sell":{
 				"dialogue":["Now you can sell or eat the items you got",
-				"Look to the right to see how much each item is worth and how much health you going to replanish if you eat it",
+				"Look to the right to see how much each item is worth and how much health you're going to replanish if you eat it",
 				"While some items may look mighty delicious, some can hurt you if you eat them",
 				"Well.. hrm... We need gems to recharge those teleporters, so try and sell something from your inventory"],
 				"event":"on_sell"
