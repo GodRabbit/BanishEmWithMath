@@ -1,0 +1,37 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform float hue : hint_range(-360, 360) = 0;
+
+float _clamp(float v){
+	if(v < 0.0){
+		return 0.0;
+	}
+	if(v > 255.0){
+		return 255.0;
+	}
+	return v;
+}
+
+vec3 transform_hue(vec3 color, float h){
+	float cosA = cos(radians(h)); // hue <h> is in degrees
+	float sinA = sin(radians(h)); // hue <h> is in degrees
+	
+	// this matrix rotates the RGB cube h degrees
+	mat3 t_matrix = mat3(vec3(cosA + (1.0 - cosA)/3.0, (1.0 - cosA)/3.0 - sqrt(1.0/3.0)*sinA, (1.0 - cosA)/3.0 + sqrt(1.0/3.0)*sinA),  
+	vec3((1.0 - cosA)/3.0 + sqrt(1.0/3.0)*sinA, cosA + (1.0 - cosA)/3.0, (1.0 - cosA)/3.0 - sqrt(1.0/3.0)*sinA), 
+	vec3((1.0 - cosA)/3.0 - sqrt(1.0/3.0)*sinA, (1.0 - cosA)/3.0 + sqrt(1.0/3.0)*sinA, cosA + (1.0 - cosA)/3.0));
+	
+	float r = _clamp(color.r*t_matrix[0][0] + color.g*t_matrix[0][1] + color.b*t_matrix[0][2]);
+	float g = _clamp(color.r*t_matrix[1][0] + color.g*t_matrix[1][1] + color.b*t_matrix[1][2]);
+	float b = _clamp(color.r*t_matrix[2][0] + color.g*t_matrix[2][1] + color.b*t_matrix[2][2]);
+	return vec3(r, g, b);
+}
+
+void fragment(){
+	COLOR = texture(TEXTURE, UV);
+	vec3 out_color = transform_hue(COLOR.rgb, hue);
+	COLOR.rgb = out_color;
+}"

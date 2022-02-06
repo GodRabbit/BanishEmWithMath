@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=1]
 [ext_resource path="res://images/enemies/piece_of_cake.png" type="Texture" id=2]
+[ext_resource path="res://scenes/overworld/enemies/enemy_animations/animated_back_forth.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 48 )
@@ -10,7 +11,13 @@ extents = Vector2( 64, 48 )
 script = ExtResource( 1 )
 enemy_id = "piece_of_cake"
 
+[node name="animated_back_forth" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 0.574, 0.574 )
+enemy_id = "piece_of_cake"
+speed_scale = 0.3
+
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -2.27374e-13 )
 scale = Vector2( 0.574419, 0.574419 )
 texture = ExtResource( 2 )

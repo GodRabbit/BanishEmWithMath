@@ -1,14 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=1]
 [ext_resource path="res://images/enemies/boo_da_rang.png" type="Texture" id=2]
+[ext_resource path="res://scenes/overworld/enemies/enemy_animations/animated_back_forth.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 40.0
+height = 96.0
 
 [node name="boo_da_rang" type="Area2D"]
 script = ExtResource( 1 )
 enemy_id = "boo_da_rang"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 40, -96, -24, -56, -48, 0, -16, 64, 40, 96, 8, 0 )
-
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 2 )
+
+[node name="animated_back_forth" parent="." instance=ExtResource( 3 )]
+enemy_id = "boo_da_rang"
+speed_scale = 0.3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

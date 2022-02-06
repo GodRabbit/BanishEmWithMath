@@ -22,9 +22,9 @@ var settings = {
 		"show_news":true # whether the entire news section are enabled or disabled
 	},
 	"game_data":{
-		"version":"0.1.15-alpha",
-		"debug_mode":false,
-		"allow_cheating":false
+		"version":"0.2.0-beta",
+		"debug_mode":true,
+		"allow_cheating":true
 	}
 }
 

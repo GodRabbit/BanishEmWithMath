@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=1]
 [ext_resource path="res://images/enemies/grandhamster.png" type="Texture" id=2]
+[ext_resource path="res://images/enemies/grandhamster1.png" type="Texture" id=3]
+[ext_resource path="res://images/enemies/grandhamster2.png" type="Texture" id=4]
+[ext_resource path="res://images/enemies/grandhamster3.png" type="Texture" id=5]
+[ext_resource path="res://scenes/overworld/enemies/enemy_animations/animated_blink.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 28, 40 )
@@ -10,7 +14,13 @@ extents = Vector2( 28, 40 )
 script = ExtResource( 1 )
 enemy_id = "grandhamster"
 
+[node name="animated_blink" parent="." instance=ExtResource( 6 )]
+scale = Vector2( 0.75, 0.75 )
+textures = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]
+random_times = true
+
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 0.664948, 0.664948 )
 texture = ExtResource( 2 )
 
