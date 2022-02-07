@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/gui/hud.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/hp_bar.tscn" type="PackedScene" id=2]
@@ -16,6 +16,39 @@
 [ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://scenes/gui/top_news_button.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/gui/top_stories_displayer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://images/backgrounds/ocean1.png" type="Texture" id=17]
+[ext_resource path="res://images/backgrounds/schnoop_land.png" type="Texture" id=18]
+[ext_resource path="res://images/noise/noise_bleed.png" type="Texture" id=19]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise_texture;
+uniform float speed : hint_range(0.0, 5.0) = 1.0;
+uniform float noise_factor : hint_range(0.0, 5.0) = 1.0;
+
+void fragment(){
+	// get the distortion value from the texture
+	vec4 t = texture(noise_texture, mod(UV - speed*TIME, vec2(1.0, 1.0)));
+	float noise_val = (t.r + t.g + t.b)/3.0;
+	// distort the  inner texture according to the disp & noise
+	vec4 color1;
+	 // if the texture is on, display inner texture instead of off texture
+	vec4 texture_color = texture(SCREEN_TEXTURE, mod(SCREEN_UV + noise_factor*noise_val, vec2(1.0,1.0)));
+	if(texture_color.z == 0.0){
+		COLOR = texture(TEXTURE, UV);
+	}
+	else{
+		COLOR = texture_color;
+	}
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/speed = 0.1
+shader_param/noise_factor = 0.317
+shader_param/noise_texture = ExtResource( 19 )
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_toggle_inventory"
@@ -35,8 +68,23 @@ outline_size = 2
 outline_color = Color( 0.333333, 0.0156863, 0.317647, 1 )
 font_data = ExtResource( 14 )
 
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0.850267 ), 0.0, 0.0, 0, 0, Vector2( 0.899281, 0.986631 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
 [node name="hud" type="CanvasLayer"]
 script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1002, 478 )
+texture = ExtResource( 17 )
+
+[node name="hurt_shader" type="Sprite" parent="."]
+visible = false
+material = SubResource( 6 )
+position = Vector2( 812.75, 406.75 )
+scale = Vector2( 0.810845, 0.865145 )
+texture = ExtResource( 18 )
 
 [node name="inventory_displayer" parent="." instance=ExtResource( 7 )]
 visible = false
@@ -145,7 +193,12 @@ margin_right = 1403.0
 margin_bottom = 545.0
 
 [node name="explosive_dark_hearts_particles" parent="." instance=ExtResource( 11 )]
-position = Vector2( 0, 640 )
+position = Vector2( 960, 1080 )
+amount = 400
+randomness = 1.0
+emission_rect_extents = Vector2( 1000, 1 )
+spread = 106.03
+scale_amount_curve = SubResource( 7 )
 
 [node name="volume_button" type="TextureButton" parent="."]
 visible = false
