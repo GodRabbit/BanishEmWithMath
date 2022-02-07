@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/overworld/combat.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/hud.tscn" type="PackedScene" id=2]
 [ext_resource path="res://themes/title_screen_buttons.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/gui/area_cleared_screen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/Aldrich/Aldrich-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://images/gui/star2.png" type="Texture" id=9]
 [ext_resource path="res://images/backgrounds/farm1.png" type="Texture" id=10]
@@ -28,6 +29,17 @@ texture = ExtResource( 10 )
 [node name="objects" type="YSort" parent="."]
 
 [node name="hud" parent="." instance=ExtResource( 2 )]
+
+[node name="area_cleared_screen" parent="hud" instance=ExtResource( 4 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -267.0
+margin_top = -83.5
+margin_right = 267.0
+margin_bottom = 83.5
 
 [node name="exit_container" type="HBoxContainer" parent="."]
 margin_left = 824.0

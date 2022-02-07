@@ -31,6 +31,7 @@ onready var exit_button = $exit_container/exit_button
 onready var exit_penalty_label = $exit_container/number_label
 onready var background_sprite = $background
 onready var explosive_star_particles = $particles/explosive_star_particles
+onready var area_cleared_screen = $hud/area_cleared_screen
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,6 +40,8 @@ func _ready():
 	hud.show_window(hud.WINDOWS_IDS.NONE)
 	
 	exit_button.connect("pressed", self, "on_exit_button_pressed")
+	
+	area_cleared_screen.connect("exit_request", self, "on_area_cleared_screen_exit_request")
 	
 	setup_combat()
 #	# connect objects to signal for crafting:
@@ -67,7 +70,9 @@ func _create_enemy_positions(N, start_pos, end_pos):
 
 
 # setup the enemies and scene for the combat to start
-func setup_combat():
+# <is_first> is true when this is the first setup, like when the combat is called from the overworld
+# it will be false in case the player wants to stay here after the battle is over for more enemies to come
+func setup_combat(is_first = true):
 	hud.set_is_boss_fight(false)
 	_create_enemy_positions(10, Vector2(216, 208), Vector2(1728, 888))
 	
@@ -82,8 +87,9 @@ func setup_combat():
 	site = player_data.get_current_site()
 	
 	# pick a background:
-	var b_id = enemies_data.get_background_id_by_site(site)
-	background_sprite.texture = load(BACKGROUND_PATH % b_id)
+	if is_first:
+		var b_id = enemies_data.get_background_id_by_site(site)
+		background_sprite.texture = load(BACKGROUND_PATH % b_id)
 	
 	# randomly pick the amount of enemies on the screen
 	randomize()
@@ -118,9 +124,10 @@ func setup_combat():
 		enemy_scene.connect("object_pressed", self, "on_object_area_pressed")
 	
 	# play music:
-	var music_id = enemies_data.get_site_music(site)
-	if music_id != "":
-		sound_manager.play_music(music_id)
+	if is_first:
+		var music_id = enemies_data.get_site_music(site)
+		if music_id != "":
+			sound_manager.play_music(music_id)
 
 # go through every object that should pause while a window is open
 # and (un)pause
@@ -183,10 +190,19 @@ func on_exit_button_pressed():
 
 # called when all the enemies are dead
 func on_area_cleared():
-	# TODO: add more animations screens and other fun stuff
-	player_data.add_visited_site(site)
-	transition.fade_to_overworld()
+	pause_world(true)
+	area_cleared_screen.show()
 
 func deploy_stars_particles(pos):
 	explosive_star_particles.global_position = pos
 	explosive_star_particles.restart()
+
+# basically, its called when one of the buttons on "area_cleared_screen" was pressed
+func on_area_cleared_screen_exit_request(val):
+	if val: # the player wants to leave (pressed continue)
+		player_data.add_visited_site(site)
+		transition.fade_to_overworld()
+	else: # the player want to stay (pressed 'wait_here')
+		pause_world(false)
+		setup_combat(false)
+		area_cleared_screen.hide()

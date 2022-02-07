@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://themes/title_screen_buttons.tres" type="Theme" id=1]
+[ext_resource path="res://images/particles/star4.png" type="Texture" id=2]
+[ext_resource path="res://images/gui/area_cleared.png" type="Texture" id=3]
+[ext_resource path="res://scripts/gui/area_cleared_screen.gd" type="Script" id=4]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.890196, 1 )
+colors = PoolColorArray( 0.941935, 0.941935, 0.941935, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="area_cleared_screen" type="MarginContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main_container" type="VBoxContainer" parent="."]
+margin_right = 534.0
+margin_bottom = 167.0
+
+[node name="banner_texture" type="TextureRect" parent="main_container"]
+margin_right = 534.0
+margin_bottom = 95.0
+texture = ExtResource( 3 )
+
+[node name="button_container" type="HBoxContainer" parent="main_container"]
+margin_top = 99.0
+margin_right = 534.0
+margin_bottom = 167.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="continue_button" type="Button" parent="main_container/button_container"]
+margin_left = 140.0
+margin_right = 257.0
+margin_bottom = 68.0
+text = "Continue"
+
+[node name="wait_here_button" type="Button" parent="main_container/button_container"]
+margin_left = 261.0
+margin_right = 393.0
+margin_bottom = 68.0
+text = "Wait Here"
+
+[node name="star_particles_right" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2( 232, 88 )
+amount = 30
+lifetime = 2.0
+randomness = 1.0
+texture = ExtResource( 2 )
+emission_shape = 1
+emission_sphere_radius = 86.03
+spread = 0.0
+gravity = Vector2( 98, 0 )
+angle = 69.0
+angle_random = 1.0
+scale_amount = 0.5
+color_ramp = SubResource( 1 )
+hue_variation = 0.06
+hue_variation_random = 1.0
+
+[node name="star_particles_left" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2( 216, 88 )
+amount = 30
+lifetime = 2.0
+randomness = 1.0
+texture = ExtResource( 2 )
+emission_shape = 1
+emission_sphere_radius = 86.03
+spread = 0.0
+gravity = Vector2( -98, 0 )
+angle = 69.0
+angle_random = 1.0
+scale_amount = 0.5
+color_ramp = SubResource( 1 )
+hue_variation = 0.06
+hue_variation_random = 1.0
