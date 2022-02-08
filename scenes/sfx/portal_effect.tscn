@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://images/particles/portal.png" type="Texture" id=1]
 [ext_resource path="res://images/backgrounds/cemetery1.png" type="Texture" id=2]
 [ext_resource path="res://scripts/sfx/portal_effect.gd" type="Script" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=7]
+light_mode = 1
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -187,6 +190,7 @@ tracks/3/keys = {
 }
 
 [node name="portal_effect" type="Node2D"]
+material = SubResource( 7 )
 script = ExtResource( 3 )
 
 [node name="temp_test_dlt" type="Sprite" parent="."]

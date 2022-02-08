@@ -1,13 +1,39 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/overworld/enemies/bosses/boss_sleeping_count.gd" type="Script" id=1]
 [ext_resource path="res://images/enemies/sleeping_count/sleeping_count_pre.png" type="Texture" id=2]
-[ext_resource path="res://images/particles/heart1.png" type="Texture" id=3]
+[ext_resource path="res://images/particles/glitter2.png" type="Texture" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1.52588e-05, 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.443662, 0.443662 ) ]
+}
+
 [sub_resource type="Animation" id=2]
-length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("body:visible")
 tracks/0/interp = 1
@@ -27,12 +53,40 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4 ),
+"times": PoolRealArray( 0.6 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "deploy_hearts_particles"
 } ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.52588e-05, 4 ), Vector2( -12, 4 ), Vector2( 24, 4 ), Vector2( -1.52588e-05, 4 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "death"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.443662, 0.443662 ), Vector2( 1e-05, 1e-05 ) ]
 }
 
 [node name="boss_sleeping_count" type="Node2D"]
@@ -60,6 +114,10 @@ initial_velocity = 236.56
 initial_velocity_random = 0.78
 scale_amount = 0.6
 color = Color( 0.227451, 0.0156863, 0.27451, 1 )
+hue_variation = 0.23
+hue_variation_random = 0.6
 
 [node name="anim" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
 anims/blink = SubResource( 2 )
+anims/death = SubResource( 4 )

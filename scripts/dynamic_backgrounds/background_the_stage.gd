@@ -24,10 +24,11 @@ var is_dead = false
 onready var boss_sleeping_count = $boss_sleeping_count
 onready var anim = $anim
 
+var pillows = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# boss_sleeping_count.global_position = START_POS
-	pass
+	set_pillows()
 
 # changes the position of the sleeping count.
 # linear interpolation between Start_pos and End_pos.
@@ -53,13 +54,40 @@ func on_spawn_enemies():
 	if is_dead:
 		return
 	boss_sleeping_count.start_spawn_animation()
+	#anim.play("spawn") # not good enough
+	pillows_play_joy()
 	yield(boss_sleeping_count, "spawn_animation_finished")
+	#anim.play("idle")
 	.on_spawn_enemies()
 
 func on_death():
 	Log.log_print("sleeping count was sent a death request;")
 	is_dead = true
+	pillows_play_death()
+	boss_sleeping_count.play_death()
 	anim.play("death")
 	yield(anim, "animation_finished")
 	.on_death()
 	#Log.log_print("Sleeping count 'on_death' was emitted!")
+
+# adds all the pillows to an array to mass control them
+func set_pillows():
+	pillows = []
+	var path = "background/row%d_%s/pillow_backgroud_element%d"
+	
+	# i loops through rows
+	for i in range(1, 4):
+		# j loops through pillows
+		for j in range(1, 6):
+			var pillow1 = get_node(path % [i, "right", j])
+			var pillow2 = get_node(path % [i, "left", j])
+			pillows.append(pillow1)
+			pillows.append(pillow2)
+
+func pillows_play_joy():
+	for p in pillows:
+		p.play_joy()
+
+func pillows_play_death():
+	for p in pillows:
+		p.play_death()

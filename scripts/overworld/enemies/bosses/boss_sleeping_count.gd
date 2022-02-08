@@ -44,3 +44,7 @@ func start_spawn_animation():
 	$anim.play("blink")
 	yield($anim, "animation_finished")
 	emit_signal("spawn_animation_finished")
+
+func play_death():
+	body.texture = load(SPRITE_PATH % "sleeping_count_pre")
+	$anim.play("death")

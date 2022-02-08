@@ -67,3 +67,4 @@ v0.2.0beta:
 * Visual Tweak: Moved the settings window to the center of the screen
 * Visual Tweak: Centered the elements inside the settings window
 * Visual Tweak(Massive): Added animations to most enemies, some enemies got new textures
+* Visual Upgrade: The Sleeping Count boss has more dynamic animations, with more movement, vibration and death 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/the_stage.png-405c49110e8ed39fb208a6ed12a60479.stex"
+path="res://.import/spotlight.png-9351e38e84a5a05a6b6c07932a20aad8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/backgrounds/the_stage.png"
-dest_files=[ "res://.import/the_stage.png-405c49110e8ed39fb208a6ed12a60479.stex" ]
+source_file="res://images/backgrounds/spotlight.png"
+dest_files=[ "res://.import/spotlight.png-9351e38e84a5a05a6b6c07932a20aad8.stex" ]
 
 [params]
 
