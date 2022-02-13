@@ -14,11 +14,13 @@ Vector2(446, 160), Vector2(792, 208), Vector2(888, 360), Vector2(591, 450),
 Vector2(243, 454)]
 
 var current_zone = "zone1"
+var current_new_game = 0
 
 # nodes:
 onready var give_up_button = $give_up_button
 onready var site_container = $site_container
 onready var hud = $hud
+onready var boss_button_container = $boss_scroll_container/boss_button_container
 
 const BACKGROUND_MUSIC_ID = "background-loop-melodic-techno-03-2691"
 
@@ -28,6 +30,15 @@ func _ready():
 	
 	if sound_manager.current_music_id != BACKGROUND_MUSIC_ID:
 		sound_manager.play_music(BACKGROUND_MUSIC_ID)
+	
+	current_zone = player_data.get_current_zone()
+	current_new_game = player_data.get_new_game()
+	
+	# debug:
+	if game_settings.settings["game_data"]["debug_mode"]:
+		$_debug_ng_label.show()
+	else:
+		$_debug_ng_label.hide()
 	
 	hud.set_is_boss_fight(false)
 	update_gui()
@@ -54,6 +65,10 @@ func _input(event):
 	
 	if event.is_action_pressed("ui_add_story") && allow_cheating:
 		player_data.add_random_top_story()
+	
+	if event.is_action_pressed("ui_advance_ng") && allow_cheating:
+		player_data.set_new_game(player_data.get_new_game() + 1)
+		update_gui()
 
 func _empty_site_container():
 	# p are points to place the sites buttons
@@ -62,6 +77,11 @@ func _empty_site_container():
 			for c in p.get_children():
 				p.remove_child(c)
 				c.queue_free()
+	
+	# empty the boss container too:
+	for b in boss_button_container.get_children():
+		boss_button_container.remove_child(b)
+		b.queue_free()
 
 func insert_to_site_container(n):
 	for p in site_container.get_children():
@@ -69,9 +89,13 @@ func insert_to_site_container(n):
 			p.add_child(n)
 
 func update_gui():
+	current_new_game = player_data.get_new_game()
+	# update ng label:
+	$_debug_ng_label.text = "NEW GAME: %d" % current_new_game
+	
 	 # update site container:
 	_empty_site_container()
-	var sites = enemies_data.zones[current_zone]["sites"].keys()
+	var sites =  enemies_data.get_sites_ids(current_zone, current_new_game) #enemies_data.zones[current_zone]["sites"].keys()
 	
 	for s in sites:
 		var b = load("res://scenes/gui/site_button.tscn").instance()
@@ -80,5 +104,10 @@ func update_gui():
 		#b.position = pos
 		b.update_gui()
 		
-	# TODO: add the same for boss fights
+	# add the same for boss buttons:
+	var bosses_ids = enemies_data.get_bosses_ids(current_zone, current_new_game)
 	
+	for id in bosses_ids:
+		var b = load("res://scenes/gui/boss_button.tscn").instance()
+		boss_button_container.add_child(b)
+		b.set_boss_id(id)

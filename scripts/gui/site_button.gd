@@ -57,7 +57,7 @@ func update_gui():
 		purchase_container.show()
 		addition_purchase_container.show()
 		
-		var site_price = enemies_data.get_site_price(player_data.get_current_zone(), site_id)
+		var site_price = enemies_data.get_site_price(player_data.get_current_zone(), site_id, player_data.get_new_game())
 		# sets the purchase money button text:
 		purchase_label.text = "%d" % site_price["money"]
 		

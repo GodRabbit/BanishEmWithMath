@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/gui/hud.tscn" type="PackedScene" id=1]
 [ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://images/noise/galactic_smoke.png" type="Texture" id=10]
 [ext_resource path="res://images/backgrounds/simulation_back.png" type="Texture" id=11]
 [ext_resource path="res://images/gui/bosses_header.png" type="Texture" id=12]
+[ext_resource path="res://fonts/Anton/Anton-Regular.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="Shader" id=7]
 code = "shader_type canvas_item;
@@ -73,6 +74,10 @@ size = 47
 outline_size = 2
 outline_color = Color( 0.466667, 0.207843, 0.470588, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 29
+font_data = ExtResource( 13 )
 
 [node name="overworld" type="Node2D"]
 script = ExtResource( 3 )
@@ -150,15 +155,6 @@ margin_right = 181.0
 margin_bottom = 431.0
 boss_id = "schnoop_queen"
 
-[node name="boss_button4" parent="boss_scroll_container/boss_button_container" instance=ExtResource( 6 )]
-visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 363.0
-margin_right = 153.0
-margin_bottom = 480.0
-boss_id = "debug_test"
-
 [node name="give_up_button" type="Button" parent="."]
 margin_left = 1648.0
 margin_top = 952.0
@@ -225,4 +221,15 @@ __meta__ = {
 position = Vector2( 576, 703 )
 __meta__ = {
 "_gizmo_extents_": 15.2
+}
+
+[node name="_debug_ng_label" type="Label" parent="."]
+margin_left = 1464.0
+margin_top = 1016.0
+margin_right = 1611.0
+margin_bottom = 1061.0
+custom_fonts/font = SubResource( 8 )
+text = "New Game: 0"
+__meta__ = {
+"_edit_use_anchors_": false
 }

@@ -263,10 +263,6 @@ func on_volume_button_pressed():
 	
 	# update image:
 	update_audio_button()
-	
-	# debug:
-	# print("music db is %f" % game_settings.get_audio_db("music"))
-	
 
 func on_settings_button_pressed():
 	if settings_window.is_visible_in_tree():

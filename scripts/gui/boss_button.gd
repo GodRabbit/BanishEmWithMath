@@ -31,7 +31,7 @@ func _ready():
 func set_boss_id(id):
 	boss_id = id
 	boss_dic = enemies_data.get_boss_by_id(id)
-	stars_price = enemies_data.get_boss_star_price(player_data.get_current_zone(), boss_id)
+	stars_price = enemies_data.get_boss_star_price(player_data.get_current_zone(), boss_id, player_data.get_new_game())
 	update_gui()
 
 func update_gui():
@@ -42,6 +42,9 @@ func update_gui():
 		main_button.disabled = false
 	else:
 		main_button.disabled = true
+	
+	if boss_id == "debug_text":
+		hide()
 
 func on_main_button_pressed():
 	transition.fade_to_boss_fight(boss_id)

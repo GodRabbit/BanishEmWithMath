@@ -67,7 +67,9 @@ var unseen_stories = [] # an array of stories' ids that the player havn't got ye
 var seen_stories = [] # an array of the stories' ids the player already got
 var news_notification = false # is the player got a new notification?
 
+# sites:
 var visited_sites = {}
+var current_new_game = 0 # first playthrough is 0, and go by 1 each time the player cycles
 
 # DEPRECATED IN THIS GAME
 # every time the overworld player intersect with a crafting tile, the crafting tile
@@ -91,6 +93,7 @@ func _ready():
 
 # called when starting new game. restart all the values to starting values
 func setup_player(_difficulty = "normal"):
+	current_new_game = 0
 	difficulty = _difficulty.to_upper()
 	max_hp = DIFFICULTIES[difficulty]["max_hp"]
 	exit_penalty = DIFFICULTIES[difficulty]["exit_penalty"]
@@ -105,6 +108,18 @@ func setup_player(_difficulty = "normal"):
 	visited_sites = {}
 	setup_top_stories()
 	reset_timer_data()
+
+# setups the player for new game +
+# (After defeating the last boss, the player can play again, but the world is a bit different)
+func setup_new_game(new_game):
+	if new_game == 0:
+		setup_player()
+	else:
+		set_hp(1) # play always starts at 1 hp in the beginning of an ng cycle
+		set_stars(1)
+		money = 0 # gems
+		unlocked_sites = ["farm"]
+		current_site = "farm"
 
 func get_inventory():
 	return player_inventory
@@ -375,7 +390,7 @@ func unlock_site(site_id):
 # otherwise do noting!
 func purchase_site(site_id):
 	# TODO: Add item prices for purchase
-	var price_dic = enemies_data.get_site_price(get_current_zone(), site_id)
+	var price_dic = enemies_data.get_site_price(get_current_zone(), site_id, current_new_game)
 	var price = price_dic["money"]
 	if price <= money:
 		# loop through the items in price_dic and check you have enough:
@@ -404,6 +419,15 @@ func check_site(site_id):
 		return true
 	else:
 		return false
+
+func get_new_game():
+	return current_new_game
+
+func set_new_game(val):
+	if val <= 0:
+		current_new_game = 0
+	else:
+		current_new_game = val
 
 func reset_timer_data():
 	timer_activated = false

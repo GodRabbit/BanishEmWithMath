@@ -93,9 +93,25 @@ var zones = {
 		"bosses":{
 			"galactic_cake":{"stars":50},
 			"sleeping_count":{"stars":150},
-			"schnoop_queen":{"stars":300},
-			"debug_test":{"stars":0}
-		}
+			"schnoop_queen":{"stars":300}
+		},
+		"new_game":[
+			{
+				"sites":{
+					"farm":{},
+					"ocean":{"money":20}, 
+					"jungle":{"money":45},
+					"snowy_mountain":{"money":150},
+					"fairy_swamp":{"money":175},
+					"cemetery":{"money":230}
+				},
+				"bosses":{
+					"galactic_cake":{"stars":60},
+					"sleeping_count":{"stars":170},
+					"schnoop_queen":{"stars":330}
+				}
+			}
+		]
 	}
 }
 
@@ -175,6 +191,7 @@ func _ready():
 	1, # damage
 	{"spider_leg":1, "spider_eye":1}))
 	
+	# tutorial enemy
 	_add_enemy(enemy_abstract.new("tutorial_schnoop",
 	"Hatched Schnoop",
 	puzzle_addition.new(0, 5),
@@ -183,6 +200,7 @@ func _ready():
 	1,
 	{"apple":15, "pear":15, "ghost_hair":2}))
 	
+	# farm enemy
 	_add_enemy(enemy_abstract.new("angry_pear",
 	"Angry Pear",
 	puzzle_addition.new(0, 10),
@@ -191,6 +209,7 @@ func _ready():
 	1,
 	{"pear":1}))
 	
+	# farm enemy
 	_add_enemy(enemy_abstract.new("angry_apple",
 	"Angry Apple",
 	puzzle_subtraction.new(),
@@ -199,6 +218,7 @@ func _ready():
 	1,
 	{"apple":2}))
 	
+	# farm enemy
 	_add_enemy(enemy_abstract.new("wheaty",
 	"Wheaty",
 	puzzle_addition.new(0, 50),
@@ -207,6 +227,7 @@ func _ready():
 	1,
 	{"wheat":2}))
 	
+	# farm enemy
 	_add_enemy(enemy_abstract.new("sad_eggy",
 	"Sad Eggy",
 	puzzle_subtraction.new(20),
@@ -215,6 +236,7 @@ func _ready():
 	1,
 	{"egg":1}))
 	
+	# farm enemy
 	_add_enemy(enemy_abstract.new("sneaky_cheese", 
 	"Sneaky Cheese",
 	puzzle_minmax_basic.new(100),
@@ -223,6 +245,7 @@ func _ready():
 	1,
 	{"cheese":1})) 
 	
+	# jungle enemy
 	_add_enemy(enemy_abstract.new("spikey_boi",
 	"Spikey Boi",
 	puzzle_prime_detection.new(50),
@@ -231,6 +254,7 @@ func _ready():
 	2,
 	{"spike":2}))
 	
+	# jungle enemy
 	_add_enemy(enemy_abstract.new("grape_moment",
 	"Grape Moment",
 	puzzle_multi_simple.new(1, 15),
@@ -239,6 +263,7 @@ func _ready():
 	1,
 	{"grape":3}))
 	
+	# ocean enemy
 	_add_enemy(enemy_abstract.new("cra_babi",
 	"Cra Babi",
 	puzzle_multi_simple.new(0, 5),
@@ -247,6 +272,7 @@ func _ready():
 	1,
 	{"spider_eye":1, "spike":1}))
 	
+	# ocean enemy
 	_add_enemy(enemy_abstract.new("beach_ball",
 	"Beach Ball", # TODO: change name
 	puzzle_prime_detection.new(20, true),
@@ -255,6 +281,7 @@ func _ready():
 	1,
 	{"glass_shard":1})) #TODO: change?
 	
+	# ocean\jungle enemy
 	_add_enemy(enemy_abstract.new("boo_da_rang",
 	"Boo Da Rang",
 	puzzle_addition_blank.new(0, 20),
@@ -263,6 +290,7 @@ func _ready():
 	1,
 	{"moss_ball":1})) 
 	
+	# jungle enemy
 	_add_enemy(enemy_abstract.new("mossy_boo_da_rang", 
 	"Mossy Boo Da Rang",
 	puzzle_addition_blank.new(0, 40),
@@ -271,6 +299,7 @@ func _ready():
 	1,
 	{"moss_ball":2})) 
 	
+	# ocean enemy
 	_add_enemy(enemy_abstract.new("flying_fish", 
 	"Flying Fish", # TODO: change name
 	puzzle_addition.new(10, 100),
@@ -279,6 +308,7 @@ func _ready():
 	2,
 	{"dragon_scale":1})) 
 	
+	# ocean enemy
 	_add_enemy(enemy_abstract.new("water_schnoop",
 	"Water Schnoop",
 	puzzle_subtraction.new(50),
@@ -287,6 +317,7 @@ func _ready():
 	1,
 	{"ghost_hair":2, "glass_shard":1}))
 	
+	# ocean enemy
 	_add_enemy(enemy_abstract.new("clamp", 
 	"Clamp", #TODO: change name?
 	puzzle_addition_compound.new(10, 50),
@@ -295,6 +326,7 @@ func _ready():
 	1,
 	{"glass_shard":1, "pearl":1})) 
 	
+	# ocean enemy
 	_add_enemy(enemy_abstract.new("water_snail",
 	"Water Snail", #TODO: change name!
 	puzzle_arithmetic_sequence.new(0, 20, 0, 10, true), 
@@ -303,6 +335,7 @@ func _ready():
 	2,
 	{"shell":1})) 
 	
+	# ocean\jungle enemy
 	_add_enemy(enemy_abstract.new("karen_melon",
 	"Karen Melon", 
 	puzzle_arithmetic_sequence.new(0, 60, -10, 0, true), 
@@ -311,6 +344,7 @@ func _ready():
 	2,
 	{"watermelon":1}))
 	
+	# ocean enemy
 	_add_enemy(enemy_abstract.new("jellofish", 
 	"JelloFish", 
 	puzzle_minmax_addition.new(100), 
@@ -319,6 +353,7 @@ func _ready():
 	1,
 	{"jelly":1}))
 	
+	# jungle enemy
 	_add_enemy(enemy_abstract.new("jungle_schnoop", 
 	"Jungle Schnoop", 
 	puzzle_subtraction.new(200), 
@@ -327,6 +362,7 @@ func _ready():
 	2,
 	{"ghost_hair":2, "moss_ball":1}))
 	
+	# jungle enemy
 	_add_enemy(enemy_abstract.new("hornet", 
 	"Hornet", # TODO: change name
 	puzzle_addition_compound.new(10, 100),
@@ -335,6 +371,7 @@ func _ready():
 	1,
 	{"spike":2, "egg":1})) 
 	
+	# jungle enemy
 	_add_enemy(enemy_abstract.new("cool_banana", 
 	"Cool Banana!", # TODO: change name?
 	puzzle_subtraction_compound.new(5, 50, true), 
@@ -343,6 +380,7 @@ func _ready():
 	1,
 	{"banana":1})) 
 	
+	# jungle enemy
 	_add_enemy(enemy_abstract.new("man_go", 
 	"Man gO!", # TODO: change name?
 	puzzle_subtraction_blank.new(2, 20),
@@ -351,6 +389,7 @@ func _ready():
 	1,
 	{"mango":1}))
 	
+	# jungle enemy
 	_add_enemy(enemy_abstract.new("jungle_snail", 
 	"Jungle Snail", 
 	puzzle_arithmetic_sequence.new(0, 50, 0, 15, true),
@@ -359,6 +398,7 @@ func _ready():
 	3,
 	{"shell":1, "moss_ball":1})) 
 	
+	# cemetery enemy
 	_add_enemy(enemy_abstract.new("jacko",
 	"Jacko",
 	puzzle_prime_detection.new(100, true),
@@ -367,6 +407,7 @@ func _ready():
 	3,
 	{"pumpkin":1, "ghost_hair":1}))
 	
+	# cemetery enemy
 	_add_enemy(enemy_abstract.new("delilah",
 	"Delilah",
 	puzzle_addition_compound.new(),
@@ -375,6 +416,7 @@ func _ready():
 	2,
 	{"ghost_hair":2}))
 	
+	# cemetery enemy
 	_add_enemy(enemy_abstract.new("plusumad",
 	"Plusumad",
 	puzzle_addition_negatives.new(100),
@@ -383,6 +425,7 @@ func _ready():
 	2,
 	{"math_soul":1}))
 	
+	# cemetery enemy
 	_add_enemy(enemy_abstract.new("demultiply",
 	"Demultiply",
 	puzzle_multi_negatives.new(),
@@ -391,6 +434,7 @@ func _ready():
 	2,
 	{"math_soul":2}))
 	
+	# cemetery enemy
 	_add_enemy(enemy_abstract.new("diversary",
 	"Diversary",
 	puzzle_division.new(),
@@ -399,6 +443,7 @@ func _ready():
 	2,
 	{"math_soul":2}))
 	
+	# galactic cake enemy
 	_add_enemy(enemy_abstract.new("disturbing_star",
 	"Disturbing Star",
 	puzzle_addition_compound.new(10, 150),
@@ -407,6 +452,7 @@ func _ready():
 	1,
 	{"star_piece":1}))
 	
+	# galactic cake enemy
 	_add_enemy(enemy_abstract.new("piece_of_cake", 
 	"Piece of Cake",
 	puzzle_subtraction_compound.new(5, 100, true),
@@ -415,6 +461,7 @@ func _ready():
 	1,
 	{"cake_piece":1}))
 	
+	# galactic cake enemy
 	_add_enemy(enemy_abstract.new("doom_cupcake",
 	"Doom Cupcake",
 	puzzle_addition_blank.new(0, 100),
@@ -423,6 +470,7 @@ func _ready():
 	1,
 	{"cake_piece":1}))
 	
+	# galactic cake enemy
 	_add_enemy(enemy_abstract.new("chocolate_meteor",
 	"chocolate_meteor",
 	puzzle_subtraction_blank.new(0, 100),
@@ -431,6 +479,7 @@ func _ready():
 	1,
 	{"cake_piece":1})) # TODO: change?
 	
+	# farm enemy
 	_add_enemy(enemy_abstract.new("applady",
 	"Applady",
 	puzzle_even_odd.new(20),
@@ -439,6 +488,7 @@ func _ready():
 	1,
 	{"apple":1}))
 	
+	# farm enemy
 	_add_enemy(enemy_abstract.new("leafonger",
 	"Leafonger",
 	puzzle_addition_compound.new(5, 20),
@@ -447,6 +497,7 @@ func _ready():
 	1,
 	{"leaf":1}))
 	
+	# farm enemy
 	_add_enemy(enemy_abstract.new("schnoop",
 	"Schnoop",
 	puzzle_subtraction.new(50),
@@ -456,7 +507,6 @@ func _ready():
 	{"ghost_hair":1}))
 	
 	# snow enemies:
-	
 	_add_enemy(enemy_abstract.new("snowperson", 
 	"SnowPerson",
 	puzzle_division_simple.new(11),
@@ -745,12 +795,61 @@ func get_background_id_by_site(site_id):
 func get_site_name(site_id):
 	return sites[site_id]["name"]
 
-func get_site_price(zone_id, site_id):
-	return zones[zone_id]["sites"][site_id]
-	#return sites[site_id]["price"]
+func get_sites_ids(zone_id, new_game = 0):
+	if new_game == 0:
+		return zones[zone_id]["sites"].keys()
+	else:
+		# find the site in the new game field
+		# if the current new game is larger than the last data on new games just take the 
+		# largest
+		var new_game_data = zones[zone_id]["new_game"] # an array
+		var index = int(min(new_game_data.size(), new_game))
+		index = index - 1 # the index of the relevant new game
+		
+		return new_game_data[index]["sites"].keys()
 
-func get_boss_star_price(zone_id, boss_id):
-	return zones[zone_id]["bosses"][boss_id]["stars"]
+func get_bosses_ids(zone_id, new_game = 0):
+	if new_game == 0:
+		return zones[zone_id]["bosses"].keys()
+	else:
+		# find the site in the new game field
+		# if the current new game is larger than the last data on new games just take the 
+		# largest
+		var new_game_data = zones[zone_id]["new_game"] # an array
+		var index = int(min(new_game_data.size(), new_game))
+		index = index - 1 # the index of the relevant new game
+		
+		return new_game_data[index]["bosses"].keys()
+
+
+# <new_game> is how many cycles the player completed of the game
+func get_site_price(zone_id, site_id, new_game = 0):
+	if new_game == 0:
+		return zones[zone_id]["sites"][site_id]
+	else:
+		# find the site in the new game field
+		# if the current new game is larger than the last data on new games just take the 
+		# largest
+		var new_game_data = zones[zone_id]["new_game"] # an array
+		var index = int(min(new_game_data.size(), new_game))
+		index = index - 1 # the index of the relevant new game
+		
+		return new_game_data[index]["sites"][site_id]
+
+# <new_game> is how many cycles the player completed of the game
+func get_boss_star_price(zone_id, boss_id, new_game = 0):
+	if new_game == 0:
+		return zones[zone_id]["bosses"][boss_id]["stars"]
+	else:
+		# find the boss in the new game field
+		# if the current new game is larger than the last data on new games just take the 
+		# largest
+		var new_game_data = zones[zone_id]["new_game"] # an array
+		var index = int(min(new_game_data.size(), new_game))
+		index = index - 1 # the index of the relevant new game
+		
+		return new_game_data[index]["bosses"][boss_id]["stars"]
+
 
 func get_boss_by_id(boss_id):
 	return bosses[boss_id]
