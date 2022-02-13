@@ -10,7 +10,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	test_minmax_fractions()
+	test_fractions_mutiply()
 
 func test_split_into():
 	for i in range(0, 20):
@@ -144,4 +144,11 @@ func test_minmax_fractions():
 		print(p.solution)
 		print("___________________")
 
-
+func test_fractions_mutiply():
+	for i in range(0, 20):
+		var p = puzzle_fractions_multi.new(10)
+		p.generate()
+		print(p.display_problem())
+		print(p.options)
+		print(p.solution)
+		print("___________________")

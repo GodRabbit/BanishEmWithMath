@@ -106,6 +106,9 @@ func _to_string():
 func is_whole():
 	return numer % denom == 0
 
+func is_one():
+	return numer == denom
+
 func to_float():
 	return float(numer)/float(denom)
 
