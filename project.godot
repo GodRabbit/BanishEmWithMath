@@ -170,6 +170,11 @@ _global_script_classes=[ {
 "path": "res://scripts/utility/puzzles/puzzle_fractions_addition.gd"
 }, {
 "base": "puzzle_abstract",
+"class": "puzzle_fractions_division",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/puzzle_fractions_division.gd"
+}, {
+"base": "puzzle_abstract",
 "class": "puzzle_fractions_multi",
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_fractions_multi.gd"
@@ -287,6 +292,7 @@ _global_script_class_icons={
 "puzzle_division_simple": "",
 "puzzle_even_odd": "",
 "puzzle_fractions_addition": "",
+"puzzle_fractions_division": "",
 "puzzle_fractions_multi": "",
 "puzzle_fractions_simplify": "",
 "puzzle_minmax_addition": "",
