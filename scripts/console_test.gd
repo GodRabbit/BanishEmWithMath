@@ -10,7 +10,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	test_fractions_division()
+	test_percentages_to_fractions()
 
 func test_split_into():
 	for i in range(0, 20):
@@ -156,6 +156,15 @@ func test_fractions_mutiply():
 func test_fractions_division():
 	for i in range(0, 20):
 		var p = puzzle_fractions_division.new(10)
+		p.generate()
+		print(p.display_problem())
+		print(p.options)
+		print(p.solution)
+		print("___________________")
+
+func test_percentages_to_fractions():
+	for i in range(0, 20):
+		var p = puzzle_percentages_to_fractions.new()
 		p.generate()
 		print(p.display_problem())
 		print(p.options)

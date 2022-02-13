@@ -235,6 +235,11 @@ _global_script_classes=[ {
 "path": "res://scripts/utility/puzzles/puzzle_multi_simple.gd"
 }, {
 "base": "puzzle_abstract",
+"class": "puzzle_percentages_to_fractions",
+"language": "GDScript",
+"path": "res://scripts/utility/puzzles/puzzle_percentages_to_fractions.gd"
+}, {
+"base": "puzzle_abstract",
 "class": "puzzle_powers_two",
 "language": "GDScript",
 "path": "res://scripts/utility/puzzles/puzzle_powers_two.gd"
@@ -305,6 +310,7 @@ _global_script_class_icons={
 "puzzle_multi_compound": "",
 "puzzle_multi_negatives": "",
 "puzzle_multi_simple": "",
+"puzzle_percentages_to_fractions": "",
 "puzzle_powers_two": "",
 "puzzle_prime_detection": "",
 "puzzle_subtraction": "",
