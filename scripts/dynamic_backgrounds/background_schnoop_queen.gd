@@ -15,7 +15,6 @@ onready var hearts_particles = $hearts_particles
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hearts_particles.emitting = false
-	final_boss = true
 
 
 func on_spawn_enemies():

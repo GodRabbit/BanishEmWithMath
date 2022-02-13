@@ -180,7 +180,10 @@ func on_waves_over():
 	
 	player_data.add_visited_site(boss_dic["id"])
 	Log.log_print("death is over for boss " + boss_dic["id"] +"; transition to overworld begins")
-	if get_dynamic_background().is_final_boss():
+	
+	# checks if this is the final boss:
+	var final_boss = enemies_data.is_final_boss(player_data.get_current_zone(), boss_dic["id"], player_data.get_new_game())
+	if final_boss:
 		player_data.win_the_game()
 	else:
 		transition.fade_to_overworld()

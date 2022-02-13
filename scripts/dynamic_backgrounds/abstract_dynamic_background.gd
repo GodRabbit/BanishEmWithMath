@@ -30,8 +30,6 @@ signal ready_to_die
 # a signal the boss emits when the spawning animation is over and the waves can begin.
 signal ready_to_begin
 
-var final_boss = false # set this to true when the final boss
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -67,5 +65,3 @@ func on_enter():
 func on_boss_health_changed(hp):
 	pass
 
-func is_final_boss():
-	return final_boss

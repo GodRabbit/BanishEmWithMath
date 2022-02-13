@@ -76,7 +76,8 @@ var zones = {
 		},
 		"bosses":{
 			
-		}
+		},
+		"final_boss":""
 		
 	},
 	"zone1":{
@@ -95,6 +96,7 @@ var zones = {
 			"sleeping_count":{"stars":150},
 			"schnoop_queen":{"stars":300}
 		},
+		"final_boss":"schnoop_queen",
 		"new_game":[
 			{
 				"sites":{
@@ -109,7 +111,8 @@ var zones = {
 					"galactic_cake":{"stars":60},
 					"sleeping_count":{"stars":170},
 					"schnoop_queen":{"stars":330}
-				}
+				},
+				"final_boss":"schnoop_queen"
 			}
 		]
 	}
@@ -850,6 +853,19 @@ func get_boss_star_price(zone_id, boss_id, new_game = 0):
 		
 		return new_game_data[index]["bosses"][boss_id]["stars"]
 
+# is the boss_id the final boss in zone <zone_id>, while on new game cycle <new_game>
+func is_final_boss(zone_id, boss_id, new_game = 0):
+	if new_game == 0:
+		var final_id = zones[zone_id]["final_boss"]
+		return final_id == boss_id
+	else:
+		var new_game_data = zones[zone_id]["new_game"] # an array
+		var index = int(min(new_game_data.size(), new_game))
+		index = index - 1
+		
+		var final_id = new_game_data[index]["final_boss"]
+		return final_id == boss_id
+
 
 func get_boss_by_id(boss_id):
 	return bosses[boss_id]
@@ -867,3 +883,5 @@ func get_site_music(site_id):
 
 func get_zone_by_id(zone_id):
 	return zones[zone_id]
+
+
