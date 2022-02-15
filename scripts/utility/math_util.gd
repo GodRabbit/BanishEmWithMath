@@ -182,6 +182,37 @@ static func is_prime(x):
 		
 		return true
 
+# pick <amount> of unique random primes smaller than <max_num>
+static func pick_prime(max_num, amount):
+	var prime_list = []
+	for i in range(2, max_num):
+		if is_prime(i):
+			prime_list.append(i)
+	
+	if prime_list.size() <= amount:
+		return prime_list
+	
+	var result = []
+	for i in range(0, amount):
+		randomize()
+		var index = randi() % prime_list.size()
+		result.append(prime_list[index])
+		prime_list.remove(index)
+	return result
+
+# get a list of numbers which has only 2 or 5 as prime divisors
+# max_power is the largest power possible for either
+# best results for max_power = 3
+static func get_easy_denom_list(max_power):
+	var result = []
+	for i in range(0, max_power):
+		for j in range(0, max_power):
+			var two = int(pow(2.0, i))
+			var five = int(pow(5.0, j))
+			result.append(two*five)
+	result.erase(1)
+	return result
+
 # divide x by y. y must be smaller than x
 # return an array of 2 numbers [q, r]
 # the first element is the quotient and second is the remainder
