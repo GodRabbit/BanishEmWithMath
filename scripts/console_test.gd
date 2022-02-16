@@ -10,7 +10,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	test_fractions_simple_to_decimals()
+	test_equations_basic()
 
 
 func test_split_into():
@@ -225,6 +225,24 @@ func test_fractions_equality():
 func test_fractions_simple_to_decimals():
 	for i in range(0, 20):
 		var p = puzzle_fractions_simple_to_decimals.new()
+		p.generate()
+		print(p.display_problem())
+		print(p.options)
+		print(p.solution)
+		print("___________________")
+
+func test_common_divisor():
+	for i in range(0, 20):
+		var p = puzzle_common_divisor.new(15)
+		p.generate()
+		print(p.display_problem())
+		print(p.options)
+		print(p.solution)
+		print("___________________")
+
+func test_equations_basic():
+	for i in range(0, 20):
+		var p = puzzle_equations_basic.new(10)
 		p.generate()
 		print(p.display_problem())
 		print(p.options)
