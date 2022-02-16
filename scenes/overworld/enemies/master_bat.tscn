@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/overworld/enemies/enemy_animations/animated_master_bat.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=2]
+[ext_resource path="res://images/enemies/master_bat_body.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 56.0
+height = 80.0
+
+[node name="master_bat" type="Area2D"]
+script = ExtResource( 2 )
+enemy_id = "master_bat"
+
+[node name="animated_master_bat" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 0.37, 0.37 )
+
+[node name="size_control_sprite" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.423323, 0.423323 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

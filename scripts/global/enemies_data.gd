@@ -406,9 +406,9 @@ func _ready():
 	"Jacko",
 	puzzle_fractions_division.new(10),
 	25,
-	10,
+	12,
 	2,
-	{"pumpkin":1, "ghost_hair":1}))
+	{"pumpkin":2, "ghost_hair":3}))
 	
 	# cemetery enemy
 	_add_enemy(enemy_abstract.new("delilah",
@@ -419,7 +419,9 @@ func _ready():
 	2,
 	{"ghost_hair":4, "apple":1}))
 	
-	# cemetery enemy
+	# 
+	
+	# 
 	_add_enemy(enemy_abstract.new("plusumad",
 	"Plusumad",
 	puzzle_addition_negatives.new(100),
@@ -428,7 +430,7 @@ func _ready():
 	2,
 	{"math_soul":1}))
 	
-	# cemetery enemy
+	# 
 	_add_enemy(enemy_abstract.new("demultiply",
 	"Demultiply",
 	puzzle_multi_negatives.new(),
@@ -437,7 +439,7 @@ func _ready():
 	2,
 	{"math_soul":2}))
 	
-	# cemetery enemy
+	# 
 	_add_enemy(enemy_abstract.new("diversary",
 	"Diversary",
 	puzzle_division.new(),
@@ -631,6 +633,7 @@ func _ready():
 	2,
 	{"fairy_dust":2}))  # TODO: change?
 	
+	# fairy swamp\cemetery enemy
 	_add_enemy(enemy_abstract.new("dark_owllo", 
 	"Dark Owllo", 
 	puzzle_division_blank.new(1, 10),
@@ -697,6 +700,7 @@ func _ready():
 	3,
 	{"ghost_hair":10})) # TODO: change?
 	
+	# also cemetery enemy
 	_add_enemy(enemy_abstract.new("undead_schnoop", 
 	"undead_schnoop", 
 	puzzle_fractions_addition.new(10),
@@ -704,6 +708,15 @@ func _ready():
 	12,
 	2,
 	{"ghost_hair":12}))
+	
+	# cemetery enemy
+	_add_enemy(enemy_abstract.new("master_bat", 
+	"Master Bat", 
+	puzzle_arithmetic_order.new(),
+	20,
+	8,
+	2,
+	{"bat_wing":3})) # maybe make certain items do some effects? turning you into vampire?
 	
 	_add_enemy(enemy_abstract.new("fiery_schnoop", 
 	"fiery_schnoop", 

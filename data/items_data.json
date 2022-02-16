@@ -202,5 +202,11 @@
         "name":"Sleep Essence",
         "price":3,
         "hp":-3
+    },
+    "bat_wing":{
+        "id":"bat_wing",
+        "name":"Bat Wing",
+        "price":8,
+        "hp":3
     }
 }
