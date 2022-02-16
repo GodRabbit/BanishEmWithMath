@@ -404,20 +404,20 @@ func _ready():
 	# cemetery enemy
 	_add_enemy(enemy_abstract.new("jacko",
 	"Jacko",
-	puzzle_prime_detection.new(100, true),
+	puzzle_fractions_division.new(10),
+	25,
 	10,
-	10,
-	3,
+	2,
 	{"pumpkin":1, "ghost_hair":1}))
 	
 	# cemetery enemy
 	_add_enemy(enemy_abstract.new("delilah",
 	"Delilah",
-	puzzle_addition_compound.new(),
-	10,
-	10,
+	puzzle_fractions_multi.new(10),
+	20,
+	7,
 	2,
-	{"ghost_hair":2}))
+	{"ghost_hair":4, "apple":1}))
 	
 	# cemetery enemy
 	_add_enemy(enemy_abstract.new("plusumad",
