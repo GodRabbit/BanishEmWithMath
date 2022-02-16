@@ -419,7 +419,23 @@ func _ready():
 	2,
 	{"ghost_hair":4, "apple":1}))
 	
-	# 
+	# cemetery enemy
+	_add_enemy(enemy_abstract.new("master_bat", 
+	"Master Bat", 
+	puzzle_arithmetic_order.new(),
+	20,
+	8,
+	2,
+	{"bat_wing":3})) # maybe make certain items do some effects? turning you into vampire?
+	
+	# cemetery enemy
+	_add_enemy(enemy_abstract.new("digger_schnoop", 
+	"digger_schnoop", 
+	puzzle_prime_detection.new(150, false),
+	30,
+	10,
+	3,
+	{"ghost_hair":12}))
 	
 	# 
 	_add_enemy(enemy_abstract.new("plusumad",
@@ -709,14 +725,7 @@ func _ready():
 	2,
 	{"ghost_hair":12}))
 	
-	# cemetery enemy
-	_add_enemy(enemy_abstract.new("master_bat", 
-	"Master Bat", 
-	puzzle_arithmetic_order.new(),
-	20,
-	8,
-	2,
-	{"bat_wing":3})) # maybe make certain items do some effects? turning you into vampire?
+	
 	
 	_add_enemy(enemy_abstract.new("fiery_schnoop", 
 	"fiery_schnoop", 

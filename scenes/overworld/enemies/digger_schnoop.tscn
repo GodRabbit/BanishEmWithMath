@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/overworld/enemies/enemy_animations/animated_schnoops.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 40.0
+height = 80.0
+
+[node name="digger_schnoop" type="Area2D"]
+script = ExtResource( 2 )
+enemy_id = "digger_schnoop"
+
+[node name="animated_schnoops" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 0.7, 0.7 )
+schnoop_id = "digger_schnoop"
+random_speed = true
+random_speed_range = [ 0.3, 0.8 ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
