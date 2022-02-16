@@ -437,6 +437,15 @@ func _ready():
 	3,
 	{"ghost_hair":12}))
 	
+	# cemetery enemy
+	_add_enemy(enemy_abstract.new("dark_snail_wizard", 
+	"dark_snail_wizard", 
+	puzzle_percentages_to_fractions.new(),
+	25,
+	7,
+	1,
+	{"shell":3, "ghost_hair":2}))
+	
 	# 
 	_add_enemy(enemy_abstract.new("plusumad",
 	"Plusumad",
