@@ -18,7 +18,7 @@ font_data = ExtResource( 8 )
 
 [node name="combat_test" type="Node2D"]
 script = ExtResource( 1 )
-enemies = [ "dark_snail_wizard" ]
+enemies = [ "dancing_grave" ]
 
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 992, 512 )

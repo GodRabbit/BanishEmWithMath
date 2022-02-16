@@ -18,5 +18,14 @@ onready var anim = $anim
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	randomize()
+	anim.playback_speed = rand_range(speed_scale*0.9, speed_scale*1.1)
+
+
+func play_idle():
+	anim.play("idle")
+	anim.seek(rand_range(0, 4.5))
+
+func stop_animation():
+	anim.stop(false)
 

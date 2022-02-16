@@ -446,6 +446,15 @@ func _ready():
 	1,
 	{"shell":3, "ghost_hair":2}))
 	
+	# cemetery enemy
+	_add_enemy(enemy_abstract.new("dancing_grave", 
+	"dancing_grave", 
+	puzzle_fractions_decimals_to_simple.new(),
+	30,
+	5,
+	2,
+	{"pear":3, "ghost_hair":4}))
+	
 	# 
 	_add_enemy(enemy_abstract.new("plusumad",
 	"Plusumad",
