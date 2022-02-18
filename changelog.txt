@@ -68,3 +68,11 @@ v0.2.0beta:
 * Visual Tweak: Centered the elements inside the settings window
 * Visual Tweak(Massive): Added animations to most enemies, some enemies got new textures
 * Visual Upgrade: The Sleeping Count boss has more dynamic animations, with more movement, vibration and death 
+* Added new secret area: The Cemetery with new enemies. This area has mostly fractions puzzles
+    * New Enemy: Jack - Fractions division
+    * New Enemy: Delilah - Fractions multiplication
+    * New Enemy: Master Bat - Arithmetic order
+    * New Enemy: Digger Schnoop - Prime detection (Very Hard)
+    * New Enemy: Dark Snail Wizard - Perctenages to fractions
+    * New Enemy: Dancing Grave - Decimals to simple fractions
+    * New Enemy: Death Lotus - Decimals addition
