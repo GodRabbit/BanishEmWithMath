@@ -214,5 +214,11 @@
         "name":"Lotus Leaf",
         "price":1,
         "hp":1
+    },
+    "schnoop_money":{
+        "id":"schnoop_money",
+        "name":"Schnoop's Money",
+        "price":1,
+        "hp":-1
     }
 }

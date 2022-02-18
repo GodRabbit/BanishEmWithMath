@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/overworld/enemies/enemy_animations/animated_schnoops.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 32.0
+height = 64.0
 
 [node name="tank_schnoop" type="Area2D"]
 script = ExtResource( 2 )
@@ -12,3 +16,6 @@ scale = Vector2( 0.5, 0.5 )
 schnoop_id = "tank_schnoop"
 random_speed = true
 random_speed_range = [ 0.6, 0.9 ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
