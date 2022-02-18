@@ -783,7 +783,7 @@ func _ready():
 	_add_enemy(enemy_abstract.new("fashion_tank", 
 	"fashion_tank", 
 	puzzle_fractions_decimals_division.new(),
-	50,
+	55,
 	14,
 	1,
 	{"schnoop_money":6}))
@@ -804,6 +804,13 @@ func _ready():
 	2,
 	{"ghost_hair":2}))
 	
+	_add_enemy(enemy_abstract.new("virus_swarm", 
+	"virus_swarm", 
+	puzzle_fractions_equality.new(10, 10),
+	60,
+	12,
+	1,
+	{"spike":20}))
 	
 	# advanced enemies:
 	_add_enemy(enemy_abstract.new("infused_schnoop", 
