@@ -792,10 +792,17 @@ func _ready():
 	"message_angel", 
 	puzzle_addition_negatives.new(10),
 	25,
-	3,
-	1,
+	5,
+	2,
 	{"ghost_hair":2}))
 	
+	_add_enemy(enemy_abstract.new("masked_ghost", 
+	"masked_ghost", 
+	puzzle_multi_negatives.new(10),
+	20,
+	5,
+	2,
+	{"ghost_hair":2}))
 	
 	
 	# advanced enemies:
