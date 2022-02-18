@@ -208,5 +208,11 @@
         "name":"Bat Wing",
         "price":8,
         "hp":3
+    },
+    "lotus_leaf":{
+        "id":"lotus_leaf",
+        "name":"Lotus Leaf",
+        "price":1,
+        "hp":1
     }
 }

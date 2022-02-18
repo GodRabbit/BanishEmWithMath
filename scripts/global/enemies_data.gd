@@ -455,6 +455,15 @@ func _ready():
 	2,
 	{"pear":3, "ghost_hair":4}))
 	
+	# cemetery enemy
+	_add_enemy(enemy_abstract.new("death_lotus", 
+	"death_lotus", 
+	puzzle_fractions_decimals_addition.new(),
+	15,
+	2,
+	3,
+	{"lotus_leaf":7}))
+	
 	# 
 	_add_enemy(enemy_abstract.new("plusumad",
 	"Plusumad",
