@@ -35,7 +35,8 @@ var sites = {
 	"name":"Ocean",
 	"music":"geovane-bruno-drone-in-the-ocean-3593"},
 "cemetery":
-	{"enemies":["spider", "delilah", "jacko"],
+	{"enemies":["dark_owllo", "delilah", "jacko", "undead_schnoop", "master_bat",
+	"digger_schnoop", "dark_snail_wizard", "dancing_grave", "death_lotus"],
 	"backgrounds":["cemetery1"],
 	"price":50,
 	"name":"Cemetery",
