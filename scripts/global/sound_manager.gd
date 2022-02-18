@@ -24,7 +24,7 @@ onready var sfx_negative = preload("res://audio/sfx/negative.ogg")
 onready var sfx_ids = {"button_click1": button_click1, 
 "ui_success":ui_success, "sfx_swoosh1":sfx_swoosh1, "sfx_negative":sfx_negative}
 
-const audio_music_path = "res://audio/music/%s.ogg"
+const audio_music_path = "res://audio/music/%s/%s.ogg"
 
 var current_music_id = ""
 
@@ -49,21 +49,21 @@ func play_sfx_sound(id):
 		sfx_stream_player.stream = sfx_ids[id]
 		sfx_stream_player.play()
 
-func _change_music_track(id):
+func _change_music_track(folder_name, id):
 	if current_music_id == id && music_stream_player.playing:
 		pass
-	music_stream_player.stream = load(audio_music_path % id)
+	music_stream_player.stream = load(audio_music_path % [folder_name, id])
 
-func play_music(id):
+func play_music(folder_name, id):
 	current_music_id = id
 	if music_stream_player.playing:
 		anim.play("fade_out")
 		yield(anim, "animation_finished")
-		_change_music_track(id)
+		_change_music_track(folder_name, id)
 		anim.play("fade_in")
 		music_stream_player.play()
 	else:
-		_change_music_track(id)
+		_change_music_track(folder_name, id)
 		music_stream_player.play()
 		anim.play("fade_in")
 		

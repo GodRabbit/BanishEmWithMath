@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/abyssal_schnoop.ogg-82d9b4da5af7c66072fa6eb3d0054825.oggstr"
+
+[deps]
+
+source_file="res://audio/music/GodRabbit/abyssal_schnoop.ogg"
+dest_files=[ "res://.import/abyssal_schnoop.ogg-82d9b4da5af7c66072fa6eb3d0054825.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

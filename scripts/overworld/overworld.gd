@@ -29,7 +29,7 @@ func _ready():
 	give_up_button.connect("pressed", self, "on_give_up_button_pressed")
 	
 	if sound_manager.current_music_id != BACKGROUND_MUSIC_ID:
-		sound_manager.play_music(BACKGROUND_MUSIC_ID)
+		sound_manager.play_music("Pixabay", BACKGROUND_MUSIC_ID)
 	
 	current_zone = player_data.get_current_zone()
 	current_new_game = player_data.get_new_game()

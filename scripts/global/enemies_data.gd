@@ -19,34 +19,34 @@ var sites = {
 	"backgrounds":["farm_day", "farm_morning", "farm_night", "farm_sunset"],
 	"price":0,
 	"name":"Farm",
-	"music":"magic-2072"},
+	"music":["Pixabay", "magic-2072"]},
 "jungle":
 	{"enemies":["spikey_boi", "boo_da_rang", "grape_moment", "spider", "mossy_boo_da_rang",
 	"karen_melon", "jungle_schnoop", "hornet", "cool_banana", "man_go", "jungle_snail"],
 	"backgrounds":["jungle1"],
 	"price":30,
 	"name":"Jungle",
-	"music":"fluidity-100-ig-edit-4558"},
+	"music":["Pixabay", "fluidity-100-ig-edit-4558"]},
 "ocean":
 	{"enemies":["cra_babi", "boo_da_rang", "flying_fish",
 	"beach_ball","water_schnoop", "water_snail","karen_melon", "clamp", "jellofish"],
 	"backgrounds":["ocean1", "ocean2"],
 	"price":25,
 	"name":"Ocean",
-	"music":"geovane-bruno-drone-in-the-ocean-3593"},
+	"music":["Pixabay", "geovane-bruno-drone-in-the-ocean-3593"]},
 "cemetery":
 	{"enemies":["dark_owllo", "delilah", "jacko", "undead_schnoop", "master_bat",
 	"digger_schnoop", "dark_snail_wizard", "dancing_grave", "death_lotus"],
 	"backgrounds":["cemetery1"],
 	"price":50,
 	"name":"Cemetery",
-	"music":""},
+	"music":["Pixabay", "assassin-136-bpm-c-min-4475"]},
 "the_white_board":
 	{"enemies":["plusumad", "demultiply", "diversary"],
 	"backgrounds":["white_board"],
 	"price":75,
 	"name":"The White Board",
-	"music":""},
+	"music":["", ""]},
 "fairy_swamp":
 	{
 	"enemies":["punguy", "grandhamster", "goodbi", "fairy_schnoop", "butter_fly",
@@ -54,7 +54,7 @@ var sites = {
 	"backgrounds":["fairy_swamp"],
 	"price":75,
 	"name":"Fairy Swamp",
-	"music":"heavy-1297"
+	"music":["Pixabay", "heavy-1297"]
 	},
 "snowy_mountain":
 	{
@@ -63,7 +63,7 @@ var sites = {
 	"backgrounds":["snowy_mountain"],
 	"price":75,
 	"name":"Snowy Forest",
-	"music":"snow-tornado-7813"
+	"music":["Pixabay", "snow-tornado-7813"]
 	}
 }
 
@@ -132,7 +132,7 @@ var bosses = {
 			"chocolate_meteor":70
 		},
 		"wave_size":[2, 4],
-		"music":"cardio-166bpm-b-min-4110"
+		"music":["Pixabay","cardio-166bpm-b-min-4110"]
 	},
 	"sleeping_count":{
 		"id":"sleeping_count",
@@ -146,7 +146,7 @@ var bosses = {
 			"mr_pillowman":2
 		},
 		"wave_size":[2, 4],
-		"music":"house-fashion-5000"
+		"music":["Pixabay","house-fashion-5000"]
 	},
 	"schnoop_queen":{
 		"id":"schnoop_queen",
@@ -165,7 +165,7 @@ var bosses = {
 			"isnaid_schnoop":10
 		},
 		"wave_size":[3, 5],
-		"music":"perfect-dark170-fmin-4390"
+		"music":["Pixabay","perfect-dark170-fmin-4390"]
 	},
 	"debug_test":{
 		"id":"debug_test",
@@ -179,7 +179,7 @@ var bosses = {
 			"chocolate_meteor":70
 		},
 		"wave_size":[2, 4],
-		"music":""
+		"music":["Pixabay","perfect-dark170-fmin-4390"]
 	}
 }
 

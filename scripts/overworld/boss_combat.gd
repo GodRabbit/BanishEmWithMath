@@ -91,9 +91,11 @@ func setup_combat():
 	set_boss_hp(boss_max_hp)
 	
 	# play music:
-	var music_id = enemies_data.get_boss_music(boss_id)
+	var music_arr = enemies_data.get_boss_music(boss_id)
+	var music_id = music_arr[1]
+	var folder_name = music_arr[0]
 	if music_id != "":
-		sound_manager.play_music(music_id)
+		sound_manager.play_music(folder_name, music_id)
 
 func get_dynamic_background():
 	if db_container.get_children().size() > 0:

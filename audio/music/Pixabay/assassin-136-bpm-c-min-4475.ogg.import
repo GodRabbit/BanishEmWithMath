@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/assassin-136-bpm-c-min-4475.ogg-b3c4fafeccfb7a47c80e2e29cf6f8227.oggstr"
+
+[deps]
+
+source_file="res://audio/music/Pixabay/assassin-136-bpm-c-min-4475.ogg"
+dest_files=[ "res://.import/assassin-136-bpm-c-min-4475.ogg-b3c4fafeccfb7a47c80e2e29cf6f8227.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

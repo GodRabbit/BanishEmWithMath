@@ -47,7 +47,7 @@ func _ready():
 	else:
 		hs_button.hide()
 	
-	sound_manager.play_music(BACKGROUND_MUSIC_ID)
+	sound_manager.play_music("Pixabay", BACKGROUND_MUSIC_ID)
 	
 	version_label.text = "Version %s" % [game_settings.settings["game_data"]["version"]]
 

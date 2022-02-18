@@ -125,9 +125,11 @@ func setup_combat(is_first = true):
 	
 	# play music:
 	if is_first:
-		var music_id = enemies_data.get_site_music(site)
+		var music_arr = enemies_data.get_site_music(site)
+		var music_id = music_arr[1]
+		var folder_name = music_arr[0]
 		if music_id != "":
-			sound_manager.play_music(music_id)
+			sound_manager.play_music(folder_name, music_id)
 
 # go through every object that should pause while a window is open
 # and (un)pause

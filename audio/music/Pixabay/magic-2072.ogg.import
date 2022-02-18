@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/magic-2072.ogg-98a2c170116381377fd697c5eeb4942a.oggstr"
+
+[deps]
+
+source_file="res://audio/music/Pixabay/magic-2072.ogg"
+dest_files=[ "res://.import/magic-2072.ogg-98a2c170116381377fd697c5eeb4942a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

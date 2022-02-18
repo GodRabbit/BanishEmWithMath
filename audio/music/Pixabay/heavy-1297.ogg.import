@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/heavy-1297.ogg-f48fe96a45b6e1d4ccc8037994e4cdc6.oggstr"
+
+[deps]
+
+source_file="res://audio/music/Pixabay/heavy-1297.ogg"
+dest_files=[ "res://.import/heavy-1297.ogg-f48fe96a45b6e1d4ccc8037994e4cdc6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
