@@ -53,7 +53,7 @@ func _ready():
 	if enemies.size() > 0:
 		spawn_wave()
 	
-	sound_manager.play_music("heavy-1297")
+	sound_manager.play_music("Pixabay", "heavy-1297")
 
 # setup the enemies and scene for the combat to start
 func setup_combat():

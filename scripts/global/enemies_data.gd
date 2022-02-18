@@ -771,6 +771,15 @@ func _ready():
 	2,
 	{"ghost_hair":12}))
 	
+	# The Darkened City enemies:
+	_add_enemy(enemy_abstract.new("tank_schnoop", 
+	"tank_schnoop", 
+	puzzle_fractions_decimals_multi.new(),
+	45,
+	7,
+	2,
+	{"ghost_hair":12}))
+	
 	# advanced enemies:
 	_add_enemy(enemy_abstract.new("infused_schnoop", 
 	"Infused Schnoop", 
