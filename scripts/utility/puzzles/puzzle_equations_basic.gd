@@ -90,6 +90,6 @@ func display_problem():
 # so this is a quick fix
 func display_option(val):
 	if val == 0.0:
-		return "0"
+		return "x = 0"
 	else:
-		return .display_option(val)
+		return "x = %s" % str(val)
