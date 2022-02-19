@@ -812,6 +812,14 @@ func _ready():
 	1,
 	{"spike":20}))
 	
+	_add_enemy(enemy_abstract.new("hammer", 
+	"hammer", 
+	puzzle_fractions_simple_to_decimals.new(),
+	30,
+	7,
+	1,
+	{"schnoop_money":5}))
+	
 	# advanced enemies:
 	_add_enemy(enemy_abstract.new("infused_schnoop", 
 	"Infused Schnoop", 
