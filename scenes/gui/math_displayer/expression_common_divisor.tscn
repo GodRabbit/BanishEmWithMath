@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/gui/math_displayer/expression_common_divisor.gd" type="Script" id=1]
+
+[node name="expression_common_divisor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main_container" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="line1" type="Label" parent="main_container"]
+margin_top = 4.0
+margin_right = 40.0
+margin_bottom = 18.0
+align = 1
+
+[node name="line2" type="Label" parent="main_container"]
+margin_top = 22.0
+margin_right = 40.0
+margin_bottom = 36.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -820,6 +820,14 @@ func _ready():
 	1,
 	{"schnoop_money":5}))
 	
+	_add_enemy(enemy_abstract.new("sickle", 
+	"sickle", 
+	puzzle_common_divisor.new(15),
+	30,
+	7,
+	1,
+	{"schnoop_money":5}))
+	
 	# advanced enemies:
 	_add_enemy(enemy_abstract.new("infused_schnoop", 
 	"Infused Schnoop", 

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/overworld/enemies/enemy_animations/animated_360_rotation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/overworld/object_area.gd" type="Script" id=2]
+[ext_resource path="res://images/enemies/sickle_eye.png" type="Texture" id=3]
+[ext_resource path="res://images/enemies/sickle.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 56.5685
+
+[node name="sickle" type="Area2D"]
+script = ExtResource( 2 )
+enemy_id = "sickle"
+
+[node name="animated_360_rotation" parent="." instance=ExtResource( 1 )]
+speed_scale = 0.4
+rotated_texture = ExtResource( 4 )
+static_texture = ExtResource( 3 )
+
+[node name="scale_sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

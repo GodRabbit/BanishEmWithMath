@@ -57,3 +57,11 @@ func generate():
 
 func display_problem():
 	return "Find a common divisor of %d and %d" % [data["x"], data["y"]]
+
+func get_display_data():
+	return data
+
+# returns a class name of the expression_displayer that corresponds to this
+#  problem. default is the string expresseion (only a string and nothing more)
+func get_display_class_name():
+	return "expression_common_divisor"
