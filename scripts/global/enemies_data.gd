@@ -111,9 +111,9 @@ var zones = {
 				"bosses":{
 					"galactic_cake":{"stars":60},
 					"sleeping_count":{"stars":170},
-					"schnoop_queen":{"stars":330}
+					"darkened_city":{"stars":330}
 				},
-				"final_boss":"schnoop_queen"
+				"final_boss":"darkened_city"
 			}
 		]
 	}
@@ -166,6 +166,24 @@ var bosses = {
 		},
 		"wave_size":[3, 5],
 		"music":["Pixabay","perfect-dark170-fmin-4390"]
+	},
+	"darkened_city":{
+		"id":"darkened_city",
+		"name":"The Darkened City",
+		"hp":200, 
+		"background":"background_darkened_city",
+		"enemies":{ # a dictionary of enemy id and the weight of the enemy
+			"tank_schnoop":3,
+			"fashion_tank":7,
+			"message_angel":4,
+			"masked_ghost":5,
+			"virus_swarm":4,
+			"hammer":5,
+			"sickle":5,
+			"people_money":7,
+		},
+		"wave_size":[3, 4],
+		"music":["GodRabbit","abyssal_schnoop"]
 	},
 	"debug_test":{
 		"id":"debug_test",

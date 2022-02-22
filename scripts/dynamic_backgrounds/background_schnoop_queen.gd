@@ -24,9 +24,6 @@ func on_spawn_enemies():
 	.on_spawn_enemies()
 
 func on_death():
-	# since this is the last boss of the zone: call timer to pause before animations:
-	player_data.pause_timer()
-	
 	# animations:
 	boss_schnoop_queen.start_death_idle()
 	anim.play("death")

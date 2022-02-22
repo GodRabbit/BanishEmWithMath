@@ -173,8 +173,16 @@ func on_waves_over():
 	Log.log_print("initiated death for boss " + boss_dic["id"])
 	waves_over = true
 	
+	# checks if this is the final boss:
+	var final_boss = enemies_data.is_final_boss(player_data.get_current_zone(), boss_dic["id"], player_data.get_new_game())
+	
 	# prevent the enemies from being clicked:
 	pause_world(true)
+	if final_boss:
+		# since this is the last boss of the zone: call timer to pause before animations:
+		# NOTE: we intentionally stop the timer before death animation to help
+		# with speedruns
+		player_data.pause_timer()
 	
 	# deal with boss's death
 	get_dynamic_background().on_death()
@@ -183,8 +191,6 @@ func on_waves_over():
 	player_data.add_visited_site(boss_dic["id"])
 	Log.log_print("death is over for boss " + boss_dic["id"] +"; transition to overworld begins")
 	
-	# checks if this is the final boss:
-	var final_boss = enemies_data.is_final_boss(player_data.get_current_zone(), boss_dic["id"], player_data.get_new_game())
 	if final_boss:
 		player_data.win_the_game()
 	else:

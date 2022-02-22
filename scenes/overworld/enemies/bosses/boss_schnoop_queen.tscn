@@ -660,7 +660,7 @@ script = ExtResource( 8 )
 [node name="body" type="Sprite" parent="."]
 material = SubResource( 1 )
 position = Vector2( -1.90735e-06, 1.52588e-05 )
-scale = Vector2( 0.621212, 0.604685 )
+scale = Vector2( 0.621212, 0.621212 )
 texture = ExtResource( 3 )
 
 [node name="head" type="Node2D" parent="body"]
