@@ -27,6 +27,7 @@ var fired = false
 # whether the enemy is paused
 var paused = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("object_areas")
@@ -62,6 +63,9 @@ func on_spawn():
 # this method can be overided by the enemy
 func on_death():
 	if fired:
+		# create a buffer for the portal
+		var portal_buffer = BackBufferCopy.new()
+		add_child(portal_buffer)
 		# create a portal behind this enemy 
 		var portal = load("res://scenes/sfx/portal_effect.tscn").instance()
 		add_child(portal)

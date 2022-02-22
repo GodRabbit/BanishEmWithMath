@@ -11,6 +11,7 @@ extends dynamic_background
 # nodes:
 onready var boss_schnoop = $boss_ancient_rage_schnoop
 onready var anim = $anim
+onready var anim_color = $anim_colors
 
 func call_schnoop_disappear():
 	boss_schnoop.anim_body.play("death")
@@ -18,6 +19,7 @@ func call_schnoop_disappear():
 func on_death():
 	# animations:
 	boss_schnoop.start_death_idle()
+	anim_color.play("death_idle")
 	anim.play("death")
 	yield(anim, "animation_finished")
 	.on_death()

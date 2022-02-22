@@ -43,6 +43,8 @@ func display_zone1_analyzis():
 	add_line("")
 	display_dictionary(analyze_boss_drops("schnoop_queen"))
 	add_line("")
+	display_dictionary(analyze_boss_drops("darkened_city"))
+	add_line("")
 	
 	add_line("Sites:")
 	

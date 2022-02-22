@@ -183,7 +183,7 @@ var bosses = {
 			"people_money":7,
 		},
 		"wave_size":[3, 4],
-		"music":["GodRabbit","abyssal_schnoop"]
+		"music":["GodRabbit","abyssal_schnoop_2"]
 	},
 	"debug_test":{
 		"id":"debug_test",
