@@ -170,7 +170,7 @@ var bosses = {
 	"darkened_city":{
 		"id":"darkened_city",
 		"name":"The Darkened City",
-		"hp":200, 
+		"hp":145, 
 		"background":"background_darkened_city",
 		"enemies":{ # a dictionary of enemy id and the weight of the enemy
 			"tank_schnoop":3,

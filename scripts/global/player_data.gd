@@ -115,11 +115,14 @@ func setup_new_game(new_game):
 	if new_game == 0:
 		setup_player()
 	else:
+		Log.log_print(str(unlocked_sites))
 		set_hp(1) # play always starts at 1 hp in the beginning of an ng cycle
 		set_stars(1)
 		money = 0 # gems
 		unlocked_sites = ["farm"]
 		current_site = "farm"
+		current_boss = "galactic_cake"
+		Log.log_print(str(unlocked_sites))
 
 func get_inventory():
 	return player_inventory

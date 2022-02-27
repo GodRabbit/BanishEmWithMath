@@ -37,8 +37,6 @@ func set_site_id(id):
 	update_gui()
 
 func update_gui():
-	# TODO: add the texture for each of the sites, and a textureRect
-	# button turn gray when the site is unlocked?
 	ribbon_button.texture_normal = load(RIBBON_IMAGE_PATH % site_id)
 	main_button.texture_normal = load(SITE_ICON_PATH % site_id)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://images/gui/game_over2.png" type="Texture" id=1]
 [ext_resource path="res://scripts/gui/game_over_screen.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 offsets = PoolRealArray( 0, 0.87451, 1 )
 colors = PoolColorArray( 0.988029, 0.138942, 0.774469, 1, 0.861406, 0.580392, 0.909804, 1, 1, 1, 1, 0 )
 
+[sub_resource type="ShaderMaterial" id=2]
+
 [node name="game_over_screen" type="MarginContainer"]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -20,7 +22,7 @@ __meta__ = {
 
 [node name="main_container" type="VBoxContainer" parent="."]
 margin_right = 700.0
-margin_bottom = 373.0
+margin_bottom = 445.0
 theme = ExtResource( 3 )
 
 [node name="game_over1" type="TextureRect" parent="main_container"]
@@ -64,4 +66,11 @@ margin_top = 305.0
 margin_right = 700.0
 margin_bottom = 373.0
 theme = ExtResource( 3 )
-text = "CONTINUE"
+text = "Leave In Peace"
+
+[node name="new_game_button" type="Button" parent="main_container"]
+material = SubResource( 2 )
+margin_top = 377.0
+margin_right = 700.0
+margin_bottom = 445.0
+text = "Stay In Anger"

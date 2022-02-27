@@ -19,10 +19,12 @@ onready var game_over_lost = $main_container/game_over1
 onready var game_over_won = $main_container/game_over2
 onready var stars_particles = $main_container/game_over2/stars_particles
 onready var hs_label = $main_container/hs_label
+onready var new_game_button = $main_container/new_game_button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	continue_button.connect("pressed", self, "on_continue_button_pressed")
+	new_game_button.connect("pressed", self, "on_new_game_button_pressed")
 	
 	update_gui()
 
@@ -41,12 +43,22 @@ func update_gui():
 		game_over_lost.hide()
 		hs_label.show()
 		stars_particles.emitting = true
+		new_game_button.show()
 	else:
 		# game over because the player died without winning
 		stars_particles.emitting = false
 		game_over_won.hide()
 		game_over_lost.show()
 		hs_label.hide()
+		new_game_button.hide()
 
+# continue will end the game cycle and move the player to the main menu
 func on_continue_button_pressed():
 	transition.fade_to_main_menu()
+
+# new game button will start the game again in a new game
+func on_new_game_button_pressed():
+	var ng = player_data.get_new_game() + 1
+	player_data.set_new_game(ng)
+	player_data.setup_new_game(ng)
+	transition.fade_to_overworld()
