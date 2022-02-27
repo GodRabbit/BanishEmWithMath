@@ -793,7 +793,7 @@ func _ready():
 	_add_enemy(enemy_abstract.new("tank_schnoop", 
 	"tank_schnoop", 
 	puzzle_fractions_decimals_multi.new(),
-	55,
+	75,
 	12,
 	2,
 	{"ghost_hair":4, "schnoop_money":4}))
@@ -801,7 +801,7 @@ func _ready():
 	_add_enemy(enemy_abstract.new("fashion_tank", 
 	"fashion_tank", 
 	puzzle_fractions_decimals_division.new(),
-	55,
+	75,
 	14,
 	1,
 	{"schnoop_money":6}))
