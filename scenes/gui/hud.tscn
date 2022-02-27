@@ -188,9 +188,9 @@ margin_bottom = -228.0
 [node name="game_over_screen" parent="." instance=ExtResource( 9 )]
 visible = false
 margin_left = 640.0
-margin_top = 360.0
+margin_top = 256.0
 margin_right = 1403.0
-margin_bottom = 545.0
+margin_bottom = 701.0
 
 [node name="explosive_dark_hearts_particles" parent="." instance=ExtResource( 11 )]
 position = Vector2( 960, 1080 )
