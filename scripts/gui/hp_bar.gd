@@ -21,6 +21,10 @@ export var alternate = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_data.connect("hp_changed", self, "update_gui")
+	if player_data.get_new_game() > 0:
+		alternate = true
+	else:
+		alternate = false
 	update_max_hp()
 
 # updates the amount of hearts
