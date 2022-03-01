@@ -68,11 +68,21 @@ v0.2.0beta:
 * Visual Tweak: Centered the elements inside the settings window
 * Visual Tweak(Massive): Added animations to most enemies, some enemies got new textures
 * Visual Upgrade: The Sleeping Count boss has more dynamic animations, with more movement, vibration and death 
+* Added the ability to restart a new game cycle after finishing the game once (inventory stays with you)
 * Added new secret area: The Cemetery with new enemies. This area has mostly fractions puzzles
-    * New Enemy: Jack - Fractions division
+    * New Enemy: Jacko - Fractions division
     * New Enemy: Delilah - Fractions multiplication
     * New Enemy: Master Bat - Arithmetic order
     * New Enemy: Digger Schnoop - Prime detection (Very Hard)
     * New Enemy: Dark Snail Wizard - Perctenages to fractions
     * New Enemy: Dancing Grave - Decimals to simple fractions
     * New Enemy: Death Lotus - Decimals addition
+* Added new final final boss for zone 1: The Darkened City (Ancient Rage Schnoop). This boss is extremely difficult
+    * New Enemy: Tank Schnop - Multiplication with decimal fractions
+    * New Enemy: Fashion Tank -  Division with decimal fractions
+    * New Enemy: Message Angel - Addition with negative numbers
+    * New Enemy: Masked Ghost - Multiplication with negative numbers
+    * New Enemy: Virus Swarm - Equality of fractions
+    * New Enemy: Hammer - Fractions: simple to decimals
+    * New Enemy: Sickle - Finding common divisor between 2 numbers
+    * New Enemy: People's Money - Basic Equations
