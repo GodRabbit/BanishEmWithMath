@@ -23,8 +23,8 @@ var settings = {
 	},
 	"game_data":{
 		"version":"0.2.0-beta",
-		"debug_mode":true,
-		"allow_cheating":true
+		"debug_mode":false,
+		"allow_cheating":false
 	}
 }
 
